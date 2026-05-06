@@ -548,33 +548,76 @@ footer a{color:var(--purple)}
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-label">Vélemények</div>
-  <h2 class="section-title" style="margin-bottom:48px">Mit mondanak a felhasználóink</h2>
-  <div class="t-grid">
-    <div class="t-card reveal">
-      <div class="t-stars">★★★★★</div>
-      <div class="t-quote">„Végre egy eszköz, ami tényleg egyszerű. 8 ingatlant kezelek és az összes bérlői díjat egy helyen követem. Hatalmas időmegtakarítás."</div>
-      <div class="t-author">
-        <div class="t-avatar">KP</div>
-        <div><div class="t-name">Kovács Péter</div><div class="t-role">Bérbeadó · 8 ingatlan</div></div>
-      </div>
+<!-- WHY US -->
+<section class="testimonials" id="miert-mi">
+  <div class="section-label">Miért minket</div>
+  <h2 class="section-title" style="margin-bottom:14px">Bizalom és biztonság az első pillanattól</h2>
+  <p class="section-sub">Adataid EU-ban, banki szintű biztonsággal kezelve.</p>
+  <div class="t-grid" style="max-width:1000px">
+    <div class="t-card reveal" style="text-align:center">
+      <div style="font-size:42px">🇪🇺</div>
+      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px">EU-s adattárolás</div>
+      <div style="font-size:14px;color:var(--text-sec);line-height:1.65">Adataid Frankfurtban, Supabase EU-s szerverein vannak. Soha nem hagyják el az Európai Uniót.</div>
     </div>
-    <div class="t-card reveal delay-1">
-      <div class="t-stars">★★★★★</div>
-      <div class="t-quote">„A hibabejelentés-kezelő funkció életmentő. A bérlők fotóval küldik be a problémát, én meg egy kattintással intézem el."</div>
-      <div class="t-author">
-        <div class="t-avatar">NE</div>
-        <div><div class="t-name">Nagy Eszter</div><div class="t-role">Ingatlankezelő · Pro csomag</div></div>
-      </div>
+    <div class="t-card reveal delay-1" style="text-align:center">
+      <div style="font-size:42px">🔒</div>
+      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px">GDPR-megfelelő</div>
+      <div style="font-size:14px;color:var(--text-sec);line-height:1.65">Teljes körű adatvédelmi tájékoztató, törlési jog, adathordozhatóság. Te birtokolod az adataidat.</div>
     </div>
-    <div class="t-card reveal delay-2">
-      <div class="t-stars">★★★★★</div>
-      <div class="t-quote">„Kipróbáltam más megoldásokat is, de ez a legtisztább. Az email értesítők automatikusan figyelmeztetnek, ha lejár a bérleti szerződés."</div>
-      <div class="t-author">
-        <div class="t-avatar">SZ</div>
-        <div><div class="t-name">Szabó Zoltán</div><div class="t-role">Magánszemély bérbeadó</div></div>
-      </div>
+    <div class="t-card reveal delay-2" style="text-align:center">
+      <div style="font-size:42px">💳</div>
+      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px">Banki szintű fizetés</div>
+      <div style="font-size:14px;color:var(--text-sec);line-height:1.65">A fizetést a Stripe kezeli — ugyanaz a rendszer, amit a Shopify és az Amazon is használ. Kártyaadataid hozzánk soha nem érnek el.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section style="padding:96px 24px;background:var(--bg)">
+  <div class="section-label">Összehasonlítás</div>
+  <h2 class="section-title" style="margin-bottom:14px">Miért nem elég az Excel?</h2>
+  <p class="section-sub">A kezeld.hu mindent megtesz, amit egy táblázat nem tud.</p>
+  <div style="max-width:900px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(127,119,221,0.06)">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:14px">
+      <div style="padding:18px 20px;font-weight:700;background:var(--surface);border-bottom:2px solid var(--border)"></div>
+      <div style="padding:18px 12px;font-weight:700;text-align:center;background:var(--purple-light);color:var(--purple-dark);border-bottom:2px solid var(--purple-mid)">kezeld.hu</div>
+      <div style="padding:18px 12px;font-weight:600;text-align:center;background:var(--surface);color:var(--text-sec);border-bottom:2px solid var(--border)">Excel</div>
+      <div style="padding:18px 12px;font-weight:600;text-align:center;background:var(--surface);color:var(--text-sec);border-bottom:2px solid var(--border)">Papír / Füzet</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Bérlők és ingatlanok egy helyen</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)">részben</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Automatikus díjkövetés és emlékeztetők</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Mobil hibabejelentés bérlőknek</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Szerződés- és jegyzőkönyv-generálás</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)">manuálisan</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)">manuálisan</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Bárhonnan elérhető (mobil + desktop)</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)">cloud esetén</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)">Automatikus mentés, nincs adatvesztés</div>
+      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)">cloud esetén</div>
+      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
+
+      <div style="padding:14px 20px">Idő, amit hetente megspórolsz</div>
+      <div style="padding:14px 12px;text-align:center;font-weight:700;color:var(--purple-dark);background:rgba(127,119,221,0.04)">3-5 óra</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter)">—</div>
+      <div style="padding:14px 12px;text-align:center;color:var(--text-ter)">—</div>
     </div>
   </div>
 </section>
