@@ -110,6 +110,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 
 /* ── PRICING ── */
 .pricing{padding:96px 24px;background:var(--bg)}
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px}
+.billing-toggle span{font-size:14px;font-weight:500;color:var(--text-sec);cursor:pointer;transition:color .15s}
+.billing-toggle span.active{color:var(--text);font-weight:600}
+.toggle-wrap{width:44px;height:24px;background:var(--purple);border-radius:100px;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+.toggle-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,0.15)}
+.toggle-wrap.monthly .toggle-knob{transform:translateX(0)}
+.toggle-wrap.yearly .toggle-knob{transform:translateX(20px)}
+.save-badge{background:var(--purple-light);color:var(--purple-dark);font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:100px}
 .pricing-cards{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
 .price-card{border:1.5px solid var(--border);border-radius:18px;padding:32px;background:var(--card);position:relative;transition:all .2s}
 .price-card.featured{border-color:var(--purple);box-shadow:0 0 0 4px rgba(127,119,221,0.08),0 20px 60px rgba(127,119,221,0.12)}
@@ -465,53 +473,75 @@ footer a{color:var(--purple)}
   <div class="section-label" data-i18n="price_label">Árak</div>
   <h2 class="section-title" data-i18n="price_title">Átlátható árazás</h2>
   <p class="section-sub" data-i18n="price_sub">Nincs rejtett díj. Pontosan annyit fizetsz, amennyit használsz.</p>
+  <div class="billing-toggle">
+    <span id="lbl-monthly" class="active" data-i18n="bill_monthly">Havi</span>
+    <div class="toggle-wrap monthly" id="billingToggle">
+      <div class="toggle-knob"></div>
+    </div>
+    <span id="lbl-yearly" data-i18n="bill_yearly">Éves</span>
+    <span class="save-badge" data-i18n="bill_save">2 hónap ingyen</span>
+  </div>
   <div class="pricing-cards">
+    <!-- ALAP -->
     <div class="price-card">
       <div class="price-name" data-i18n="p1_name">Alap</div>
-      <div class="price-amount">3 990 <span data-i18n="p1_per">Ft/hó</span></div>
-      <div class="price-note" data-i18n="p1_note">5 ingatlan · automatikusan megújul</div>
+      <div class="price-amount">
+        <span class="price-monthly">3 990</span><span class="price-yearly" style="display:none">3 325</span>
+        <span class="price-suffix" data-i18n="p1_per">Ft/hó</span>
+      </div>
+      <div class="price-note">
+        <span class="price-monthly" data-i18n="p1_note">5 ingatlan · automatikusan megújul</span>
+        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">5 ingatlan · 39 900 Ft/év</span>
+      </div>
       <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f2">5 ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlő kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f4">Bérleti díj nyilvántartás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f5">Hibabejelentés kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f6">Dokumentum feltöltés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f7">Email értesítések</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f8">Mobil-kompatibilis</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>7 napos ingyenes próbaidő</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>5 ingatlan kezelése</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Bérlő &amp; díj nyilvántartás</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Hibabejelentés kezelés</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Email értesítések</span></li>
       </ul>
       <a href="https://app.kezeld.hu" class="price-btn secondary" data-i18n="p1_btn">Ingyenes próba →</a>
     </div>
+    <!-- PRO -->
     <div class="price-card featured">
       <div class="price-badge" data-i18n="price_badge">Legnépszerűbb</div>
       <div class="price-name" data-i18n="p2_name">Pro</div>
-      <div class="price-amount">6 990 <span data-i18n="p2_per">Ft/hó</span></div>
-      <div class="price-note" data-i18n="p2_note">15 ingatlan · automatikusan megújul</div>
+      <div class="price-amount">
+        <span class="price-monthly">6 990</span><span class="price-yearly" style="display:none">5 825</span>
+        <span class="price-suffix" data-i18n="p2_per">Ft/hó</span>
+      </div>
+      <div class="price-note">
+        <span class="price-monthly" data-i18n="p2_note">15 ingatlan · automatikusan megújul</span>
+        <span class="price-yearly" style="display:none" data-i18n="p2_note_y">15 ingatlan · 69 900 Ft/év</span>
+      </div>
       <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f2">15 ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f3">Bérlő kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f4">Bérleti díj nyilvántartás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f5">Hibabejelentés kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f6">Dokumentum feltöltés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f7">Email értesítések</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f8">Mobil-kompatibilis</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>7 napos ingyenes próbaidő</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>15 ingatlan kezelése</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Minden Alap funkció</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Szerződés generálás</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Birtokbaadási jegyzőkönyv</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Dokumentum feltöltés</span></li>
       </ul>
       <a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p2_btn">Ingyenes próba →</a>
     </div>
+    <!-- PRO PLUS -->
     <div class="price-card">
       <div class="price-name" data-i18n="p3_name">Pro Plus</div>
-      <div class="price-amount">8 990 <span data-i18n="p3_per">Ft/hó</span></div>
-      <div class="price-note" data-i18n="p3_note">Korlátlan ingatlan · automatikusan megújul</div>
+      <div class="price-amount">
+        <span class="price-monthly">8 990</span><span class="price-yearly" style="display:none">7 492</span>
+        <span class="price-suffix" data-i18n="p3_per">Ft/hó</span>
+      </div>
+      <div class="price-note">
+        <span class="price-monthly" data-i18n="p3_note">Korlátlan ingatlan · automatikusan megújul</span>
+        <span class="price-yearly" style="display:none" data-i18n="p3_note_y">Korlátlan ingatlan · 89 900 Ft/év</span>
+      </div>
       <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f2">Korlátlan ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f3">Bérlő kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f4">Bérleti díj nyilvántartás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f5">Hibabejelentés kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f6">Dokumentum feltöltés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f7">Email értesítések</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f8">Mobil-kompatibilis</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>7 napos ingyenes próbaidő</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Korlátlan ingatlan kezelése</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Minden Pro funkció</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Szerződés generálás</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Birtokbaadási jegyzőkönyv</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span>Prioritásos support</span></li>
       </ul>
       <a href="https://app.kezeld.hu" class="price-btn secondary" data-i18n="p3_btn">Ingyenes próba →</a>
     </div>
@@ -642,6 +672,22 @@ function toggleFaq(el){
   },{threshold:0.5});
   targets.forEach(t=>io.observe(t));
 })();
+
+// ── Billing toggle ──
+const billingToggle = document.getElementById('billingToggle');
+const lblMonthly = document.getElementById('lbl-monthly');
+const lblYearly = document.getElementById('lbl-yearly');
+let isYearly = false;
+function updateBilling() {
+  billingToggle.className = 'toggle-wrap ' + (isYearly ? 'yearly' : 'monthly');
+  lblMonthly.classList.toggle('active', !isYearly);
+  lblYearly.classList.toggle('active', isYearly);
+  document.querySelectorAll('.price-monthly').forEach(el => el.style.display = isYearly ? 'none' : '');
+  document.querySelectorAll('.price-yearly').forEach(el => el.style.display = isYearly ? '' : 'none');
+}
+billingToggle.addEventListener('click', () => { isYearly = !isYearly; updateBilling(); });
+lblMonthly.addEventListener('click', () => { isYearly = false; updateBilling(); });
+lblYearly.addEventListener('click', () => { isYearly = true; updateBilling(); });
 
 // ── Video play overlay ──
 (function(){
