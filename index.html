@@ -623,16 +623,33 @@ footer a{color:var(--purple)}
   </div>
 </section>
 
+<!-- COOKIE BANNER -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a18;color:#e8e6e0;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13.5px;font-family:'Inter',sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,0.18)">
+  <span>Az oldal működéséhez szükséges sütiket használunk. A Google Fonts betöltéséhez az IP-cím átkerül a Google szervereihez. Részletek: <a href="/adatvedelem.html" style="color:#AFA9EC;text-decoration:underline">Adatkezelési Tájékoztató</a>.</span>
+  <button onclick="acceptCookies()" style="background:#7F77DD;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">Rendben</button>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">kezeld.hu</div>
-  <p>© 2026 kezeld.hu &nbsp;·&nbsp; <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
+  <p>© 2026 kezeld.hu &nbsp;·&nbsp; <a href="/aszf.html">ASZF</a> &nbsp;·&nbsp; <a href="/adatvedelem.html">Adatkezelési Tájékoztató</a> &nbsp;·&nbsp; <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
 </footer>
 
 <script>
 function toggleFaq(el){
   el.classList.toggle('open');
 }
+
+// ── Cookie banner ──
+function acceptCookies(){
+  localStorage.setItem('cookie_ok','1');
+  document.getElementById('cookieBanner').style.display='none';
+}
+(function(){
+  if(!localStorage.getItem('cookie_ok')){
+    document.getElementById('cookieBanner').style.display='flex';
+  }
+})();
 
 // ── Scroll-reveal animations ──
 (function(){

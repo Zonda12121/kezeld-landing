@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adatkezelési Tájékoztató – kezeld.hu</title>
+<meta name="description" content="kezeld.hu Adatkezelési Tájékoztató (GDPR)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#7F77DD;--purple-light:#EEEDFE;--purple-dark:#534AB7;
+  --text:#1a1a18;--text-sec:#6b6b67;--bg:#f5f4f0;--card:#ffffff;--border:#e0ddd6;--radius:14px;
+}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:var(--purple)}
+a:hover{text-decoration:underline}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-glass{background:rgba(245,244,240,0.92);backdrop-filter:blur(20px);border:1px solid rgba(224,221,214,0.8);border-radius:16px;margin-top:12px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;width:100%;height:52px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.nav-logo{font-size:18px;font-weight:800;color:var(--purple);letter-spacing:-0.5px}
+.doc-wrap{max-width:780px;margin:0 auto;padding:120px 24px 80px}
+.doc-wrap h1{font-size:36px;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.doc-meta{font-size:13px;color:var(--text-sec);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.doc-wrap h2{font-size:20px;font-weight:700;margin:40px 0 12px;letter-spacing:-0.3px}
+.doc-wrap h3{font-size:16px;font-weight:600;margin:24px 0 8px}
+.doc-wrap p{font-size:15px;color:#2a2a28;margin-bottom:14px}
+.doc-wrap ul{padding-left:20px;margin-bottom:14px}
+.doc-wrap ul li{font-size:15px;color:#2a2a28;margin-bottom:6px}
+.table-wrap{overflow-x:auto;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--purple-light);color:var(--purple-dark);font-weight:600;text-align:left;padding:10px 14px;border:1px solid var(--border)}
+td{padding:10px 14px;border:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#faf9f7}
+footer{text-align:center;padding:40px 24px;font-size:13px;color:var(--text-sec);border-top:1px solid var(--border);margin-top:60px}
+footer a{color:var(--purple)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-glass">
+      <a class="nav-logo" href="/">kezeld.hu</a>
+      <a href="/" style="font-size:13.5px;font-weight:600;color:var(--text-sec);">← Vissza a főoldalra</a>
+    </div>
+  </div>
+</nav>
+
+<div class="doc-wrap">
+  <h1>Adatkezelési Tájékoztató</h1>
+  <p class="doc-meta">Hatályos: 2026. május 6-tól &nbsp;·&nbsp; Utolsó módosítás: 2026. május 6. &nbsp;·&nbsp; Az EU 2016/679 rendelet (GDPR) alapján</p>
+
+  <h2>1. Az adatkezelő</h2>
+  <p><strong>Megnevezés:</strong> kezeld.hu<br>
+  <strong>Kapcsolat:</strong> <a href="mailto:info@kezeld.hu">info@kezeld.hu</a><br>
+  <strong>Weboldal:</strong> <a href="https://kezeld.hu">https://kezeld.hu</a></p>
+
+  <h2>2. Milyen adatokat kezelünk és miért</h2>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>Adatkategória</th>
+      <th>Példák</th>
+      <th>Cél</th>
+      <th>Jogalap</th>
+      <th>Megőrzési idő</th>
+    </tr>
+    <tr>
+      <td>Fiók adatok</td>
+      <td>Név, e-mail cím, jelszó (hash)</td>
+      <td>Regisztráció, azonosítás, kapcsolattartás</td>
+      <td>Szerződés teljesítése</td>
+      <td>A fiók törlésétől számított 30 nap</td>
+    </tr>
+    <tr>
+      <td>Előfizetési és számlázási adatok</td>
+      <td>Számlázási cím, Stripe ügyfél-azonosító, tranzakció-azonosító</td>
+      <td>Fizetés feldolgozása, számla kiállítása</td>
+      <td>Szerződés teljesítése, jogi kötelezettség</td>
+      <td>8 év (számviteli törvény)</td>
+    </tr>
+    <tr>
+      <td>Felhasználói tartalom</td>
+      <td>Ingatlan adatok, bérlő adatok, feltöltött dokumentumok</td>
+      <td>A szolgáltatás nyújtása</td>
+      <td>Szerződés teljesítése</td>
+      <td>A fiók törlésétől számított 30 nap</td>
+    </tr>
+    <tr>
+      <td>Technikai adatok</td>
+      <td>IP-cím, böngésző típusa, bejelentkezési időpontok</td>
+      <td>Biztonság, hibaelhárítás</td>
+      <td>Jogos érdek</td>
+      <td>90 nap</td>
+    </tr>
+    <tr>
+      <td>Hibajelentési adatok</td>
+      <td>Böngésző, OS verzió, hibaüzenet, URL</td>
+      <td>Szoftverhibák azonosítása (Sentry)</td>
+      <td>Jogos érdek</td>
+      <td>90 nap</td>
+    </tr>
+  </table>
+  </div>
+
+  <p>A hírlevél-küldés funkcióját jelenleg nem üzemeltetjük. Ha a jövőben bevezetjük, ahhoz külön hozzájárulást fogunk kérni.</p>
+
+  <h2>3. Adatfeldolgozók</h2>
+  <p>Az alábbi harmadik fél szolgáltatókat vesszük igénybe, akik az adatokat a mi utasításaink szerint kezelik:</p>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>Szolgáltató</th>
+      <th>Szerepe</th>
+      <th>Adattárolás helye</th>
+    </tr>
+    <tr>
+      <td><strong>Supabase</strong> (supabase.com)</td>
+      <td>Adatbázis — felhasználói és ingatlanadatok tárolása</td>
+      <td>EU (Frankfurt)</td>
+    </tr>
+    <tr>
+      <td><strong>Railway</strong> (railway.app)</td>
+      <td>Backend alkalmazásszerver futtatása</td>
+      <td>USA (standard SCCs védelemmel)</td>
+    </tr>
+    <tr>
+      <td><strong>Stripe</strong> (stripe.com)</td>
+      <td>Fizetésfeldolgozás — kártyadatokat mi soha nem látjuk</td>
+      <td>USA (EU–USA DPF keretrendszer)</td>
+    </tr>
+    <tr>
+      <td><strong>Sentry</strong> (sentry.io)</td>
+      <td>Hibamonitoring</td>
+      <td>USA (standard SCCs védelemmel)</td>
+    </tr>
+    <tr>
+      <td><strong>Cloudflare</strong> (cloudflare.com)</td>
+      <td>DNS, CDN, e-mail-routing</td>
+      <td>EU/USA (globális CDN)</td>
+    </tr>
+    <tr>
+      <td><strong>Google Fonts</strong></td>
+      <td>Betűtípus betöltése a weboldalon</td>
+      <td>USA (Google LLC)</td>
+    </tr>
+  </table>
+  </div>
+
+  <h2>4. Az érintett jogai</h2>
+  <p>A GDPR alapján az alábbi jogokat gyakorolhatja:</p>
+  <ul>
+    <li><strong>Hozzáférés joga</strong> – kérheti, hogy tájékoztassuk milyen adatait kezeljük</li>
+    <li><strong>Helyesbítés joga</strong> – kérheti a pontatlan adatok javítását</li>
+    <li><strong>Törlés joga</strong> – kérheti adatai törlését (a jogszabályban meghatározott megőrzési kötelezettségek kivételével)</li>
+    <li><strong>Adathordozhatóság joga</strong> – kérheti adatait géppel olvasható formátumban</li>
+    <li><strong>Tiltakozás joga</strong> – tiltakozhat a jogos érdeken alapuló adatkezelés ellen</li>
+    <li><strong>Korlátozás joga</strong> – kérheti az adatkezelés korlátozását</li>
+  </ul>
+  <p>Kérelmét az <a href="mailto:info@kezeld.hu">info@kezeld.hu</a> e-mail-címre küldheti. A kérelmeket 30 napon belül teljesítjük.</p>
+  <p>Panasz esetén a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat: <a href="https://www.naih.hu" target="_blank" rel="noopener">www.naih.hu</a></p>
+
+  <h2>5. Sütik (cookie-k)</h2>
+  <p>Az oldal működéséhez szükséges sütiket (munkamenet-azonosítók, bejelentkezési állapot) használunk. Ezek a sütik nem igényelnek hozzájárulást, mivel a szolgáltatás működéséhez elengedhetetlenek.</p>
+  <p>Harmadik fél marketing- vagy nyomkövetési sütiket nem alkalmazunk.</p>
+  <p>A Google Fonts betűtípus-betöltés technikai okokból az Ön IP-címét megosztja a Google LLC-vel. Ha ezt el szeretné kerülni, a betűtípusok helyileg is betölthetők — vegye fel velünk a kapcsolatot.</p>
+
+  <h2>6. Adatbiztonság</h2>
+  <p>Az adatokat titkosított kapcsolaton (HTTPS/TLS) keresztül közöljük. A Supabase adatbázis nyugalmi titkosítást (AES-256) alkalmaz. A jelszavak bcrypt hash-eléssel tárolódnak. Rendszeres biztonsági mentéseket végzünk.</p>
+
+  <h2>7. Gyermekek adatai</h2>
+  <p>A Szolgáltatás nem irányul 16 év alatti személyeknek. Tudatosan nem gyűjtünk kiskorúakra vonatkozó adatokat.</p>
+
+  <h2>8. A tájékoztató módosítása</h2>
+  <p>Fenntartjuk a jogot a tájékoztató módosítására. Lényeges változásokról e-mailben értesítjük a felhasználókat. A módosítás hatályba lépésének időpontja és az aktuális verzió mindig ezen az oldalon érhető el.</p>
+
+  <h2>9. Kapcsolat</h2>
+  <p>Adatkezeléssel kapcsolatos kérdések: <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
+</div>
+
+<footer>
+  © 2026 kezeld.hu &nbsp;·&nbsp;
+  <a href="/aszf.html">ASZF</a> &nbsp;·&nbsp;
+  <a href="/adatvedelem.html">Adatkezelési Tájékoztató</a> &nbsp;·&nbsp;
+  <a href="mailto:info@kezeld.hu">info@kezeld.hu</a>
+</footer>
+
+</body>
+</html>
