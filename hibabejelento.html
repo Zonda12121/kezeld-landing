@@ -82,21 +82,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .footer{text-align:center;margin-top:24px;font-size:12px;color:var(--text-ter)}
 .loading-wrap{text-align:center;padding:70px 0}
 .load-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+.lang-toggle{position:absolute;top:14px;right:14px;display:flex;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;font-size:11.5px;font-weight:600}
+.lang-toggle button{padding:5px 10px;border:none;background:transparent;cursor:pointer;color:var(--text-sec);font-family:inherit;font-size:11.5px;font-weight:600}
+.lang-toggle button.active{background:var(--purple);color:#fff}
 </style>
 </head>
 <body>
+<div class="lang-toggle">
+  <button id="lang-hu" class="active" onclick="setLang('hu')">HU</button>
+  <button id="lang-en" onclick="setLang('en')">EN</button>
+</div>
 <div class="wrap">
 
   <!-- Betöltés -->
   <div id="state-loading" class="loading-wrap">
     <div class="load-spinner"></div>
-    <p style="color:var(--text-sec);font-size:14px">Betöltés...</p>
+    <p style="color:var(--text-sec);font-size:14px" data-t="Betöltés...">Betöltés...</p>
   </div>
 
   <!-- Érvénytelen token -->
   <div id="state-error" style="display:none;text-align:center;padding:60px 0">
     <div style="font-size:48px;margin-bottom:16px">🔗</div>
-    <h2 style="font-size:19px;margin-bottom:10px">Érvénytelen link</h2>
+    <h2 style="font-size:19px;margin-bottom:10px" data-t="Érvénytelen link">Érvénytelen link</h2>
     <p style="font-size:14px;color:var(--text-sec);line-height:1.7" id="error-msg">Ez a hibabejelentő link nem érvényes vagy lejárt.<br>Kérj új linket a bérbeadódtól.</p>
   </div>
 
@@ -104,8 +111,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div id="state-main" style="display:none">
     <div class="header">
       <div class="logo"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <h1>Hibabejelentés</h1>
-      <p>Töltsd ki az alábbi űrlapot és az ingatlankezelő<br>hamarosan felveszi veled a kapcsolatot.</p>
+      <h1 data-t="Hibabejelentés">Hibabejelentés</h1>
+      <p data-t="Töltsd ki az alábbi űrlapot és az ingatlankezelő hamarosan felveszi veled a kapcsolatot.">Töltsd ki az alábbi űrlapot és az ingatlankezelő<br>hamarosan felveszi veled a kapcsolatot.</p>
       <div class="ing-badge">🏠 <span id="ing-nev"></span></div>
     </div>
 
@@ -121,62 +128,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <!-- STEP 1 -->
       <div id="step1">
         <div class="card">
-          <div class="card-lbl">Az adataid</div>
+          <div class="card-lbl" data-t="Az adataid">Az adataid</div>
           <div class="frow">
             <div class="fgrp" id="fg-nev">
-              <label>Teljes neved <span class="req">*</span></label>
-              <input id="b-nev" placeholder="Kovács Péter" autocomplete="name">
-              <span class="err-msg" id="err-nev">Add meg a nevedet.</span>
+              <label><span data-t="Teljes neved">Teljes neved</span> <span class="req">*</span></label>
+              <input id="b-nev" placeholder="Kovács Péter" autocomplete="name" data-ph="Kovács Péter">
+              <span class="err-msg" id="err-nev" data-t="Add meg a nevedet.">Add meg a nevedet.</span>
             </div>
             <div class="fgrp">
-              <label>Telefonszám</label>
+              <label data-t="Telefonszám">Telefonszám</label>
               <input id="b-tel" placeholder="+36 30 000 0000" type="tel" autocomplete="tel">
             </div>
           </div>
         </div>
-        <button class="btn btn-primary" onclick="goStep2()">Tovább →</button>
+        <button class="btn btn-primary" onclick="goStep2()" data-t="Tovább →">Tovább →</button>
       </div>
 
       <!-- STEP 2 -->
       <div id="step2" style="display:none">
         <div class="card">
-          <div class="card-lbl">A hiba részletei</div>
+          <div class="card-lbl" data-t="A hiba részletei">A hiba részletei</div>
           <div class="fgrp" id="fg-kat">
-            <label>Kategória <span class="req">*</span></label>
+            <label><span data-t="Kategória">Kategória</span> <span class="req">*</span></label>
             <select id="h-kat">
-              <option value="">— Válassz kategóriát —</option>
-              <option>Vízvezeték / csőtörés</option>
-              <option>Fűtés / hűtés</option>
-              <option>Villanyszerelés</option>
-              <option>Zár / ajtó / ablak</option>
-              <option>Tetőzet / nedvesség / penész</option>
-              <option>Kártevők</option>
-              <option>Közös területek</option>
-              <option>Berendezési tárgy meghibásodása</option>
-              <option>Egyéb</option>
+              <option value="" data-t="— Válassz kategóriát —">— Válassz kategóriát —</option>
+              <option data-t="Vízvezeték / csőtörés">Vízvezeték / csőtörés</option>
+              <option data-t="Fűtés / hűtés">Fűtés / hűtés</option>
+              <option data-t="Villanyszerelés">Villanyszerelés</option>
+              <option data-t="Zár / ajtó / ablak">Zár / ajtó / ablak</option>
+              <option data-t="Tetőzet / nedvesség / penész">Tetőzet / nedvesség / penész</option>
+              <option data-t="Kártevők">Kártevők</option>
+              <option data-t="Közös területek">Közös területek</option>
+              <option data-t="Berendezési tárgy meghibásodása">Berendezési tárgy meghibásodása</option>
+              <option data-t="Egyéb">Egyéb</option>
             </select>
-            <span class="err-msg" id="err-kat">Válassz kategóriát.</span>
+            <span class="err-msg" id="err-kat" data-t="Válassz kategóriát.">Válassz kategóriát.</span>
           </div>
           <div class="fgrp" id="fg-lei">
-            <label>Leírás <span class="req">*</span></label>
-            <textarea id="h-lei" placeholder="Írd le részletesen a problémát — mikor vetted észre, mennyire súlyos, pontosan mi történt..." oninput="updateCC(this)" maxlength="500"></textarea>
+            <label><span data-t="Leírás">Leírás</span> <span class="req">*</span></label>
+            <textarea id="h-lei" placeholder="Írd le részletesen a problémát — mikor vetted észre, mennyire súlyos, pontosan mi történt..." data-ph="Írd le részletesen a problémát — mikor vetted észre, mennyire súlyos, pontosan mi történt..." oninput="updateCC(this)" maxlength="500"></textarea>
             <div class="char-count" id="cc">0 / 500</div>
-            <span class="err-msg" id="err-lei">Add meg a hiba leírását (min. 10 karakter).</span>
+            <span class="err-msg" id="err-lei" data-t="Add meg a hiba leírását (min. 10 karakter).">Add meg a hiba leírását (min. 10 karakter).</span>
           </div>
           <div class="fgrp" id="fg-pri">
-            <label>Súlyosság <span class="req">*</span></label>
+            <label><span data-t="Súlyosság">Súlyosság</span> <span class="req">*</span></label>
             <div class="prior-grid">
-              <div class="pbtn" id="p-low" onclick="setPri('low')"><span class="dot" style="background:#378ADD"></span>Nem sürgős</div>
-              <div class="pbtn" id="p-medium" onclick="setPri('medium')"><span class="dot" style="background:#EF9F27"></span>Közepes</div>
-              <div class="pbtn" id="p-urgent" onclick="setPri('urgent')"><span class="dot" style="background:#E24B4A"></span>Sürgős</div>
+              <div class="pbtn" id="p-low" onclick="setPri('low')"><span class="dot" style="background:#378ADD"></span><span data-t="Nem sürgős">Nem sürgős</span></div>
+              <div class="pbtn" id="p-medium" onclick="setPri('medium')"><span class="dot" style="background:#EF9F27"></span><span data-t="Közepes">Közepes</span></div>
+              <div class="pbtn" id="p-urgent" onclick="setPri('urgent')"><span class="dot" style="background:#E24B4A"></span><span data-t="Sürgős">Sürgős</span></div>
             </div>
-            <div class="hint">Sürgős = azonnali veszély (pl. gázszivárgás, vízkár)</div>
-            <span class="err-msg" id="err-pri">Jelöld meg a súlyosságot.</span>
+            <div class="hint" data-t="Sürgős = azonnali veszély (pl. gázszivárgás, vízkár)">Sürgős = azonnali veszély (pl. gázszivárgás, vízkár)</div>
+            <span class="err-msg" id="err-pri" data-t="Jelöld meg a súlyosságot.">Jelöld meg a súlyosságot.</span>
           </div>
         </div>
         <div class="card">
-          <div class="card-lbl">Fotók (opcionális)</div>
-          <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:10px">Csatolj legfeljebb 3 fotót a hibáról. Ez segíti a gyorsabb megoldást.</p>
+          <div class="card-lbl" data-t="Fotók (opcionális)">Fotók (opcionális)</div>
+          <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:10px" data-t="Csatolj legfeljebb 3 fotót a hibáról. Ez segíti a gyorsabb megoldást.">Csatolj legfeljebb 3 fotót a hibáról. Ez segíti a gyorsabb megoldást.</p>
           <div class="photo-grid">
             <div class="photo-slot" id="slot-0" onclick="triggerPhoto(0)"><span class="add-icon">📷</span></div>
             <div class="photo-slot" id="slot-1" onclick="triggerPhoto(1)"><span class="add-icon">📷</span></div>
@@ -185,24 +192,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
           <input type="file" id="photo-input" accept="image/*" style="display:none" onchange="handlePhoto(this)">
         </div>
         <div class="btn-row">
-          <button class="btn btn-back" onclick="setStep(1)">← Vissza</button>
-          <button class="btn btn-primary" onclick="goStep3()">Tovább →</button>
+          <button class="btn btn-back" onclick="setStep(1)" data-t="← Vissza">← Vissza</button>
+          <button class="btn btn-primary" onclick="goStep3()" data-t="Tovább →">Tovább →</button>
         </div>
       </div>
 
       <!-- STEP 3 -->
       <div id="step3" style="display:none">
         <div class="card">
-          <div class="card-lbl">Összefoglalás</div>
+          <div class="card-lbl" data-t="Összefoglalás">Összefoglalás</div>
           <div class="summary-grid" id="summary"></div>
           <div id="photo-preview-sum" style="margin-top:12px;display:none">
-            <div style="font-size:12px;color:var(--text-ter);margin-bottom:6px">Csatolt fotók:</div>
+            <div style="font-size:12px;color:var(--text-ter);margin-bottom:6px" data-t="Csatolt fotók:">Csatolt fotók:</div>
             <div id="sum-photos" style="display:flex;gap:8px;flex-wrap:wrap"></div>
           </div>
         </div>
         <div class="btn-row">
-          <button class="btn btn-back" onclick="setStep(2)">← Vissza</button>
-          <button class="btn btn-primary" id="submit-btn" onclick="submitForm()">Bejelentés elküldése</button>
+          <button class="btn btn-back" onclick="setStep(2)" data-t="← Vissza">← Vissza</button>
+          <button class="btn btn-primary" id="submit-btn" onclick="submitForm()" data-t="Bejelentés elküldése">Bejelentés elküldése</button>
         </div>
       </div>
     </div>
@@ -211,13 +218,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div id="success-wrap" style="display:none">
       <div class="card" style="padding:32px 24px;text-align:center">
         <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <h2 style="font-size:19px;font-weight:600;margin-bottom:10px">Bejelentés elküldve!</h2>
-        <p style="font-size:13.5px;color:var(--text-sec);line-height:1.7;margin-bottom:18px">Köszönjük a jelzést. Az ingatlankezelő értesítést kapott<br>és hamarosan felveszi veled a kapcsolatot.</p>
+        <h2 style="font-size:19px;font-weight:600;margin-bottom:10px" data-t="Bejelentés elküldve!">Bejelentés elküldve!</h2>
+        <p style="font-size:13.5px;color:var(--text-sec);line-height:1.7;margin-bottom:18px" data-t="Köszönjük a jelzést. Az ingatlankezelő értesítést kapott és hamarosan felveszi veled a kapcsolatot.">Köszönjük a jelzést. Az ingatlankezelő értesítést kapott<br>és hamarosan felveszi veled a kapcsolatot.</p>
         <div class="ticket">
-          Bejelentés azonosítója:
+          <span data-t="Bejelentés azonosítója:">Bejelentés azonosítója:</span>
           <strong id="ticket-id"></strong>
         </div>
-        <button class="btn btn-primary" style="width:100%" onclick="resetForm()">Új bejelentés</button>
+        <button class="btn btn-primary" style="width:100%" onclick="resetForm()" data-t="Új bejelentés">Új bejelentés</button>
       </div>
     </div>
   </div>
@@ -235,17 +242,100 @@ let selectedPri = null;
 let photos = [null, null, null]; // {file, url} or null
 let activeSlot = 0;
 
+// ── Fordítások ──
+const T_EN = {
+  'Betöltés...': 'Loading...',
+  'Érvénytelen link': 'Invalid link',
+  'Ez a hibabejelentő link nem érvényes vagy lejárt.<br>Kérj új linket a bérbeadódtól.': 'This issue report link is invalid or expired.<br>Request a new link from your landlord.',
+  'Hiányzó azonosító a linkből. Kérj új linket a bérbeadódtól.': 'Missing identifier in link. Request a new link from your landlord.',
+  'Nem sikerült betölteni. Ellenőrizd az internetkapcsolatodat, majd töltsd újra az oldalt.': "Couldn't load. Check your internet connection and reload the page.",
+  'Hibabejelentés': 'Issue Report',
+  'Töltsd ki az alábbi űrlapot és az ingatlankezelő hamarosan felveszi veled a kapcsolatot.': 'Fill in the form below and the property manager will contact you soon.',
+  'Az adataid': 'Your details',
+  'Teljes neved': 'Your full name',
+  'Add meg a nevedet.': 'Please enter your name.',
+  'Telefonszám': 'Phone number',
+  'Tovább →': 'Next →',
+  '← Vissza': '← Back',
+  'A hiba részletei': 'Issue details',
+  'Kategória': 'Category',
+  '— Válassz kategóriát —': '— Select a category —',
+  'Vízvezeték / csőtörés': 'Plumbing / pipe break',
+  'Fűtés / hűtés': 'Heating / cooling',
+  'Villanyszerelés': 'Electrical',
+  'Zár / ajtó / ablak': 'Lock / door / window',
+  'Tetőzet / nedvesség / penész': 'Roof / dampness / mold',
+  'Kártevők': 'Pests',
+  'Közös területek': 'Common areas',
+  'Berendezési tárgy meghibásodása': 'Appliance failure',
+  'Egyéb': 'Other',
+  'Válassz kategóriát.': 'Please select a category.',
+  'Leírás': 'Description',
+  'Add meg a hiba leírását (min. 10 karakter).': 'Please describe the issue (min. 10 characters).',
+  'Súlyosság': 'Severity',
+  'Nem sürgős': 'Not urgent',
+  'Közepes': 'Medium',
+  'Sürgős': 'Urgent',
+  'Sürgős = azonnali veszély (pl. gázszivárgás, vízkár)': 'Urgent = immediate danger (e.g. gas leak, flooding)',
+  'Jelöld meg a súlyosságot.': 'Please mark the severity.',
+  'Fotók (opcionális)': 'Photos (optional)',
+  'Csatolj legfeljebb 3 fotót a hibáról. Ez segíti a gyorsabb megoldást.': 'Attach up to 3 photos of the issue. This helps faster resolution.',
+  'Összefoglalás': 'Summary',
+  'Csatolt fotók:': 'Attached photos:',
+  'Bejelentés elküldése': 'Submit report',
+  'Bejelentés elküldve!': 'Report submitted!',
+  'Köszönjük a jelzést. Az ingatlankezelő értesítést kapott és hamarosan felveszi veled a kapcsolatot.': 'Thank you for the report. The property manager has been notified and will contact you soon.',
+  'Bejelentés azonosítója:': 'Report ID:',
+  'Új bejelentés': 'New report',
+  'Küldés...': 'Sending...',
+  'A fotó maximum 8 MB lehet.': 'Photo can be max 8 MB.',
+  'Ismeretlen hiba': 'Unknown error',
+  'Hiba történt: ': 'Error: ',
+  'Neve:': 'Name:',
+  'Telefon:': 'Phone:',
+  'Kategória:': 'Category:',
+  'Súlyosság:': 'Severity:',
+  'Leírás:': 'Description:',
+  'Sürgős — azonnali beavatkozás': 'Urgent — immediate action',
+  'Kovács Péter': 'John Smith',
+  'Írd le részletesen a problémát — mikor vetted észre, mennyire súlyos, pontosan mi történt...': 'Describe the problem in detail — when you noticed it, how severe, what exactly happened...',
+};
+let _lang = (localStorage.getItem('hb_lang') === 'en') ? 'en' : 'hu';
+function t(key) {
+  if (_lang === 'en') return T_EN[key] || key;
+  return key;
+}
+function applyLang() {
+  document.documentElement.lang = _lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const orig = el.dataset.t;
+    el.innerHTML = t(orig);
+  });
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    const orig = el.dataset.ph;
+    el.placeholder = t(orig);
+  });
+  document.getElementById('lang-hu').classList.toggle('active', _lang === 'hu');
+  document.getElementById('lang-en').classList.toggle('active', _lang === 'en');
+}
+function setLang(l) {
+  _lang = l;
+  localStorage.setItem('hb_lang', l);
+  applyLang();
+}
+
 async function init() {
-  if (!token) { showError('Hiányzó azonosító a linkből. Kérj új linket a bérbeadódtól.'); return; }
+  applyLang();
+  if (!token) { showError(t('Hiányzó azonosító a linkből. Kérj új linket a bérbeadódtól.')); return; }
   try {
     const r = await fetch(`${BACKEND}/public/ingatlan?token=${encodeURIComponent(token)}`);
-    if (!r.ok) { showError('Ez a hibabejelentő link nem érvényes vagy lejárt.<br>Kérj új linket a bérbeadódtól.'); return; }
+    if (!r.ok) { showError(t('Ez a hibabejelentő link nem érvényes vagy lejárt.<br>Kérj új linket a bérbeadódtól.')); return; }
     const data = await r.json();
     document.getElementById('ing-nev').textContent = data.cim;
     document.getElementById('state-loading').style.display = 'none';
     document.getElementById('state-main').style.display = 'block';
   } catch(e) {
-    showError('Nem sikerült betölteni. Ellenőrizd az internetkapcsolatodat, majd töltsd újra az oldalt.');
+    showError(t('Nem sikerült betölteni. Ellenőrizd az internetkapcsolatodat, majd töltsd újra az oldalt.'));
   }
 }
 
@@ -283,13 +373,13 @@ function goStep3() {
   if (!lei || lei.length < 10) { showErr('err-lei', true); fieldErr('fg-lei', true); ok = false; } else { showErr('err-lei', false); fieldErr('fg-lei', false); }
   if (!selectedPri) { showErr('err-pri', true); ok = false; } else showErr('err-pri', false);
   if (!ok) return;
-  const pLbl = {low:'Nem sürgős', medium:'Közepes', urgent:'Sürgős — azonnali beavatkozás'};
+  const pLbl = {low:t('Nem sürgős'), medium:t('Közepes'), urgent:t('Sürgős — azonnali beavatkozás')};
   document.getElementById('summary').innerHTML = `
-    <span class="lbl">Neve:</span><span>${document.getElementById('b-nev').value}</span>
-    <span class="lbl">Telefon:</span><span>${document.getElementById('b-tel').value || '—'}</span>
-    <span class="lbl">Kategória:</span><span>${kat}</span>
-    <span class="lbl">Súlyosság:</span><span>${pLbl[selectedPri]}</span>
-    <span class="lbl">Leírás:</span><span style="white-space:pre-wrap">${lei}</span>`;
+    <span class="lbl">${t('Neve:')}</span><span>${document.getElementById('b-nev').value}</span>
+    <span class="lbl">${t('Telefon:')}</span><span>${document.getElementById('b-tel').value || '—'}</span>
+    <span class="lbl">${t('Kategória:')}</span><span>${t(kat)}</span>
+    <span class="lbl">${t('Súlyosság:')}</span><span>${pLbl[selectedPri]}</span>
+    <span class="lbl">${t('Leírás:')}</span><span style="white-space:pre-wrap">${lei}</span>`;
   const photosWithData = photos.filter(Boolean);
   const sumPhotos = document.getElementById('sum-photos');
   const photoPrev = document.getElementById('photo-preview-sum');
@@ -319,7 +409,7 @@ function triggerPhoto(slot) {
 function handlePhoto(input) {
   const file = input.files[0];
   if (!file) return;
-  if (file.size > 8 * 1024 * 1024) { alert('A fotó maximum 8 MB lehet.'); return; }
+  if (file.size > 8 * 1024 * 1024) { alert(t('A fotó maximum 8 MB lehet.')); return; }
   const reader = new FileReader();
   reader.onload = e => {
     photos[activeSlot] = { file, preview: e.target.result };
@@ -361,7 +451,7 @@ async function uploadPhoto(file) {
 async function submitForm() {
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Küldés...';
+  btn.innerHTML = '<span class="spinner"></span>'+t('Küldés...');
   try {
     // Fotók feltöltése (opcionális — ha sikertelen, folytatjuk nélkülük)
     const kepUrls = [];
@@ -387,7 +477,7 @@ async function submitForm() {
     });
 
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Ismeretlen hiba');
+    if (!res.ok) throw new Error(data.error || t('Ismeretlen hiba'));
 
     const ticketId = 'HB-' + new Date().getFullYear() + '-' + String(data.id).padStart(4,'0');
     document.getElementById('ticket-id').textContent = ticketId;
@@ -396,9 +486,9 @@ async function submitForm() {
     document.getElementById('success-wrap').style.display = 'block';
     window.scrollTo({top: 0, behavior: 'smooth'});
   } catch(e) {
-    alert('Hiba történt: ' + e.message);
+    alert(t('Hiba történt: ') + e.message);
     btn.disabled = false;
-    btn.textContent = 'Bejelentés elküldése';
+    btn.textContent = t('Bejelentés elküldése');
   }
 }
 
@@ -412,7 +502,7 @@ function resetForm() {
   photos = [null, null, null];
   [0,1,2].forEach(renderSlot);
   const btn = document.getElementById('submit-btn');
-  btn.disabled = false; btn.textContent = 'Bejelentés elküldése';
+  btn.disabled = false; btn.textContent = t('Bejelentés elküldése');
   document.getElementById('form-wrap').style.display = 'block';
   document.getElementById('steps').style.display = 'flex';
   document.getElementById('success-wrap').style.display = 'none';
