@@ -89,14 +89,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 .section-title{font-size:clamp(28px,3vw,42px);font-weight:900;text-align:center;margin-bottom:14px;letter-spacing:-1px}
 .section-sub{font-size:16px;color:var(--text-sec);text-align:center;max-width:520px;margin:0 auto 60px;line-height:1.7}
 .features-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
-.feat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .2s;position:relative;overflow:hidden}
-.feat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--purple-glow),transparent);opacity:0;transition:opacity .2s}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .2s;position:relative;overflow:hidden;display:flex;gap:16px;align-items:flex-start}
+.feat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--purple-glow),transparent);opacity:0;transition:opacity .2s;pointer-events:none}
 .feat-card:hover{border-color:var(--purple-mid);transform:translateY(-3px);box-shadow:0 12px 40px rgba(127,119,221,0.12)}
 .feat-card:hover::before{opacity:1}
-.feat-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--purple-light),#dddaff);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 2px 8px rgba(127,119,221,0.15)}
-.feat-icon svg{width:22px;height:22px;stroke:var(--purple-dark);fill:none;stroke-width:2}
-.feat-title{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px}
-.feat-desc{font-size:14px;color:var(--text-sec);line-height:1.65}
+.feat-icon{flex-shrink:0;width:52px;height:52px;background:linear-gradient(135deg,var(--purple-light),#dddaff);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 2px 8px rgba(127,119,221,0.15);position:relative;z-index:1}
+.feat-body{position:relative;z-index:1}
+.feat-title{font-size:16px;font-weight:800;margin-bottom:6px;letter-spacing:-0.3px;line-height:1.3}
+.feat-desc{font-size:13.5px;color:var(--text-sec);line-height:1.6}
+.feat-result{display:inline-block;margin-top:10px;background:#EAF3DE;color:#3B6D11;font-size:12px;font-weight:700;padding:4px 11px;border-radius:100px;letter-spacing:.01em}
 
 /* ── HOW IT WORKS ── */
 .how{padding:96px 24px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)}
@@ -401,39 +402,73 @@ footer a{color:var(--purple)}
 
 <!-- FEATURES -->
 <section class="features" id="funkciok">
-  <div class="section-label" data-i18n="feat_label">Funkciók</div>
-  <h2 class="section-title" data-i18n="feat_title">Minden amit egy bérbeadónak tudni kell</h2>
-  <p class="section-sub" data-i18n="feat_sub">Egy eszközben kezelheted az összes ingatlanodat, bérlődet és adminisztrációs feladatodat.</p>
+  <div class="section-label" data-i18n="feat_label">Mit kapsz</div>
+  <h2 class="section-title" data-i18n="feat_title">Eredmények, nem funkciók</h2>
+  <p class="section-sub" data-i18n="feat_sub">Minden szolgáltatás egy konkrét probléma megoldására.</p>
   <div class="features-grid">
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <div class="feat-title" data-i18n="f1_t">Ingatlan nyilvántartás</div>
-      <div class="feat-desc" data-i18n="f1_d">Tárold az összes ingatlan adatát: cím, alapterület, bérleti díj, közüzemi szolgáltatók, kapukód és még sok más.</div>
+      <div class="feat-icon">🏢</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f1_t">Annyi ingatlanod, amennyit csak akarsz</div>
+        <div class="feat-desc" data-i18n="f1_d">Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.</div>
+        <span class="feat-result" data-i18n="f1_r">3 másodperc keresés</span>
+      </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-      <div class="feat-title" data-i18n="f2_t">Bérlő kezelés</div>
-      <div class="feat-desc" data-i18n="f2_d">Bérlők adatai, szerződés dátumok, kapcsolattartás – minden egy helyen. Gyors keresés és szűrés.</div>
+      <div class="feat-icon">👤</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f2_t">Tudd ki, kinek, mennyit fizet</div>
+        <div class="feat-desc" data-i18n="f2_d">Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.</div>
+        <span class="feat-result" data-i18n="f2_r">5 mp alatt látod</span>
+      </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <div class="feat-title" data-i18n="f3_t">Bérleti díj napló</div>
-      <div class="feat-desc" data-i18n="f3_d">Fizetési előzmények, késedelmi díjak automatikus számítása, ingatlanonkénti bontás és részletes riportok.</div>
+      <div class="feat-icon">💶</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f3_t">Színekkel jelzett bérleti díj-követés</div>
+        <div class="feat-desc" data-i18n="f3_d">Zöld = fizetett. Piros = hiányzik. 5 másodperc alatt látod ki tartozik, és mennyit.</div>
+        <span class="feat-result" data-i18n="f3_r">+200 000 Ft/év megtakarítás</span>
+      </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-      <div class="feat-title" data-i18n="f4_t">Hibabejelentések</div>
-      <div class="feat-desc" data-i18n="f4_d">Bérlők hibabejelentései nyomon követhetők, státuszok kezelhetők, fotók csatolhatók.</div>
+      <div class="feat-icon">📱</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f4_t">QR-kódos hibabejelentő bérlőknek</div>
+        <div class="feat-desc" data-i18n="f4_d">A bérlőd fotózva küldi be a problémát. Te 1 kattintással intézed.</div>
+        <span class="feat-result" data-i18n="f4_r">Nincs telefonhívás</span>
+      </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <div class="feat-title" data-i18n="f5_t">Dokumentumok</div>
-      <div class="feat-desc" data-i18n="f5_d">Szerződések, számlák, képek feltöltése és tárolása ingatlananként szervezve.</div>
+      <div class="feat-icon">📁</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f5_t">Sosem kell keresgélned</div>
+        <div class="feat-desc" data-i18n="f5_d">Szerződések, biztosítások, számlák, képek mind egy helyen, ingatlanra szűrve.</div>
+        <span class="feat-result" data-i18n="f5_r">0 elveszett papír</span>
+      </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg></div>
-      <div class="feat-title" data-i18n="f6_t">Email értesítések</div>
-      <div class="feat-desc" data-i18n="f6_d">Automatikus emlékeztetők bérleti díj lejáratáról, szerződés megújításról és közelgő teendőkről.</div>
+      <div class="feat-icon">📧</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f6_t">A rendszer szól időben</div>
+        <div class="feat-desc" data-i18n="f6_d">Lejár a szerződés, biztosítás vagy díjcsúszás — emailben kapsz figyelmeztetést. Vasárnap is.</div>
+        <span class="feat-result" data-i18n="f6_r">Hétvégédet visszakapod</span>
+      </div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">📝</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f7_t">3 perc alatt kész bérleti szerződés</div>
+        <div class="feat-desc" data-i18n="f7_d">Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.</div>
+        <span class="feat-result" data-i18n="f7_r">Megspórolsz 30 000 Ft-ot</span>
+      </div>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-icon">📋</div>
+      <div class="feat-body">
+        <div class="feat-title" data-i18n="f8_t">Birtokbaadási jegyzőkönyv PDF-ben</div>
+        <div class="feat-desc" data-i18n="f8_d">Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.</div>
+        <span class="feat-result" data-i18n="f8_r">Bíróságon is megáll</span>
+      </div>
     </div>
   </div>
 </section>
@@ -775,13 +810,15 @@ const translations = {
     hero_sub:'Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.',
     hero_cta1:'1 hetes ingyenes próba →', hero_cta2:'Árak megtekintése',
     stat1_num:'1 hét', stat1_lbl:'ingyenes próbaidő', stat2_num:'3 csomag', stat2_lbl:'választható előfizetési terv', stat3_lbl:'elérhető bármikor, bárhol',
-    feat_label:'Funkciók', feat_title:'Minden amit egy bérbeadónak tudni kell', feat_sub:'Egy eszközben kezelheted az összes ingatlanodat, bérlődet és adminisztrációs feladatodat.',
-    f1_t:'Ingatlan nyilvántartás', f1_d:'Tárold az összes ingatlan adatát: cím, alapterület, bérleti díj, közüzemi szolgáltatók, kapukód és még sok más.',
-    f2_t:'Bérlő kezelés', f2_d:'Bérlők adatai, szerződés dátumok, kapcsolattartás – minden egy helyen. Gyors keresés és szűrés.',
-    f3_t:'Bérleti díj napló', f3_d:'Fizetési előzmények, késedelmi díjak automatikus számítása, ingatlanonkénti bontás és részletes riportok.',
-    f4_t:'Hibabejelentések', f4_d:'Bérlők hibabejelentései nyomon követhetők, státuszok kezelhetők, fotók csatolhatók.',
-    f5_t:'Dokumentumok', f5_d:'Szerződések, számlák, képek feltöltése és tárolása ingatlananként szervezve.',
-    f6_t:'Email értesítések', f6_d:'Automatikus emlékeztetők bérleti díj lejáratáról, szerződés megújításról és közelgő teendőkről.',
+    feat_label:'Mit kapsz', feat_title:'Eredmények, nem funkciók', feat_sub:'Minden szolgáltatás egy konkrét probléma megoldására.',
+    f1_t:'Annyi ingatlanod, amennyit csak akarsz', f1_d:'Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.', f1_r:'3 másodperc keresés',
+    f2_t:'Tudd ki, kinek, mennyit fizet', f2_d:'Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.', f2_r:'5 mp alatt látod',
+    f3_t:'Színekkel jelzett bérleti díj-követés', f3_d:'Zöld = fizetett. Piros = hiányzik. 5 másodperc alatt látod ki tartozik, és mennyit.', f3_r:'+200 000 Ft/év megtakarítás',
+    f4_t:'QR-kódos hibabejelentő bérlőknek', f4_d:'A bérlőd fotózva küldi be a problémát. Te 1 kattintással intézed.', f4_r:'Nincs telefonhívás',
+    f5_t:'Sosem kell keresgélned', f5_d:'Szerződések, biztosítások, számlák, képek mind egy helyen, ingatlanra szűrve.', f5_r:'0 elveszett papír',
+    f6_t:'A rendszer szól időben', f6_d:'Lejár a szerződés, biztosítás vagy díjcsúszás — emailben kapsz figyelmeztetést. Vasárnap is.', f6_r:'Hétvégédet visszakapod',
+    f7_t:'3 perc alatt kész bérleti szerződés', f7_d:'Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.', f7_r:'Megspórolsz 30 000 Ft-ot',
+    f8_t:'Birtokbaadási jegyzőkönyv PDF-ben', f8_d:'Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.', f8_r:'Bíróságon is megáll',
     how_label:'Hogyan működik', how_title:'3 lépés és kész',
     s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
     s2_t:'Add hozzá az ingatlanaidat', s2_d:'Válaszd ki a számodra megfelelő csomagot: Alap (5 ingatlan), Pro (15 ingatlan) vagy Pro Plus (korlátlan). Töltsd fel az adatokat, csatold a bérlőket és a dokumentumokat.',
@@ -831,13 +868,15 @@ const translations = {
     hero_sub:'Tenants, payments, maintenance requests, documents – all in one place. Save time and energy on administration.',
     hero_cta1:'Start free trial →', hero_cta2:'View pricing',
     stat1_num:'1 week', stat1_lbl:'free trial period', stat2_num:'3 plans', stat2_lbl:'subscription tiers to choose from', stat3_lbl:'available anytime, anywhere',
-    feat_label:'Features', feat_title:'Everything a landlord needs', feat_sub:'Manage all your properties, tenants and administrative tasks in one tool.',
-    f1_t:'Property registry', f1_d:'Store all property details: address, size, rent, utilities, access codes and much more.',
-    f2_t:'Tenant management', f2_d:'Tenant info, contract dates, communication – all in one place. Fast search and filtering.',
-    f3_t:'Rent payment log', f3_d:'Payment history, automatic late fee calculation, per-property breakdown and detailed reports.',
-    f4_t:'Maintenance requests', f4_d:'Track tenant maintenance requests, manage statuses, attach photos.',
-    f5_t:'Documents', f5_d:'Upload and store contracts, invoices, images organised by property.',
-    f6_t:'Email notifications', f6_d:'Automatic reminders about rent expiry, contract renewal and upcoming tasks.',
+    feat_label:'What you get', feat_title:'Results, not features', feat_sub:'Every feature solves a real problem.',
+    f1_t:'As many properties as you need', f1_d:"You'll never mix anything up — address, size, meters, documents, photos all in one place.", f1_r:'3-second search',
+    f2_t:'Know who pays whom, how much', f2_d:'At a glance, from anywhere. Even on mobile. All your tenants in one table.', f2_r:'See it in 5 seconds',
+    f3_t:'Color-coded rent tracking', f3_d:'Green = paid. Red = missing. See who owes what in 5 seconds.', f3_r:'+€500/year saved',
+    f4_t:'QR-code issue reporter for tenants', f4_d:'Your tenant snaps a photo and submits. You handle it in 1 click.', f4_r:'No phone calls',
+    f5_t:"Never search for documents again", f5_d:'Contracts, insurance, invoices, photos — all in one place, filtered by property.', f5_r:'0 lost papers',
+    f6_t:'The system alerts you on time', f6_d:'Contract expiring, insurance, late payment — you get an email alert. Even on Sundays.', f6_r:'Get your weekends back',
+    f7_t:'Rental contract ready in 3 minutes', f7_d:'No lawyer needed for a new tenant — generate from template, get a PDF.', f7_r:'Save 100 EUR',
+    f8_t:'Handover protocol as PDF', f8_d:'Photograph the condition on move-in; proof for the deposit on move-out.', f8_r:'Court-admissible',
     how_label:'How it works', how_title:'3 steps and you\'re done',
     s1_t:'Register and try it free', s1_d:'Create an account and enjoy a 1-week free trial. Decide after the first week whether to continue.',
     s2_t:'Add your properties', s2_d:'Choose the plan that fits you: Basic (5 properties), Pro (15 properties) or Pro Plus (unlimited). Upload your data, attach tenants and documents.',
