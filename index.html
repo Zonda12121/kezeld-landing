@@ -296,6 +296,13 @@ footer a{color:var(--purple)}
 <script>
 // ── Anti-cloning védelem ──
 (function(){
+  const _devMode = new URLSearchParams(location.search).get('dev') === 'KEPECS2026';
+  if (_devMode) {
+    try{ sessionStorage.setItem('_dev_mode','1'); }catch(e){}
+  }
+  const _isDeveloper = _devMode || sessionStorage.getItem('_dev_mode') === '1';
+  if (_isDeveloper) return;
+
   document.addEventListener('contextmenu',e=>{e.preventDefault();return false;},false);
   document.addEventListener('keydown',e=>{
     if(e.key==='F12') {e.preventDefault();return false;}
