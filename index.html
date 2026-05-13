@@ -546,7 +546,7 @@ footer a{color:var(--purple)}
       <ul class="price-features">
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próbaidő</span></li>
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f2">5 ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlő & díj nyilvántartás</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlő & bérleti díj nyilvántartása</span></li>
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f4">Hibabejelentés kezelés</span></li>
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f5">Email értesítések</span></li>
       </ul>
@@ -591,7 +591,6 @@ footer a{color:var(--purple)}
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f3">Minden Pro funkció</span></li>
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f4">Szerződés generálás</span></li>
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f5">Birtokbaadási jegyzőkönyv</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f6">Prioritásos support</span></li>
       </ul>
       <a href="https://app.kezeld.hu" class="price-btn secondary" data-i18n="p3_btn">Ingyenes próba →</a>
     </div>
@@ -650,7 +649,7 @@ footer a{color:var(--purple)}
       <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
       <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
 
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r4">Szerződés- és jegyzőkönyv-generálás</div>
+      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r4">Szerződés- és jegyzőkönyv generálás</div>
       <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
       <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_manual">manuálisan</div>
       <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_manual2">manuálisan</div>
@@ -688,7 +687,7 @@ footer a{color:var(--purple)}
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q"><span data-i18n="faq3_q">Válthatok csomagot később?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
-      <div class="faq-a" data-i18n="faq3_a">Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. A váltás az aktuális számlázási időszak végén lép érvénybe.</div>
+      <div class="faq-a" data-i18n="faq3_a">Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. Választhatsz azonnali váltást (arányos felárszámolás vagy jóváírás) vagy hónap végi váltást — utóbbi a jelenlegi számlázási időszak lejártakor lép érvénybe.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
@@ -873,13 +872,13 @@ const translations = {
     f7_t:'3 perc alatt kész bérleti szerződés', f7_d:'Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.', f7_r:'Megspórolsz 30 000 Ft-ot',
     f8_t:'Birtokbaadási jegyzőkönyv PDF-ben', f8_d:'Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.', f8_r:'Bíróságon is megáll',
     how_label:'Hogyan működik', how_title:'3 lépés és kész',
-    s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
-    s2_t:'Add hozzá az ingatlanaidat', s2_d:'Válaszd ki a számodra megfelelő csomagot: Alap (5 ingatlan), Pro (15 ingatlan) vagy Pro Plus (korlátlan). Töltsd fel az adatokat, csatold a bérlőket és a dokumentumokat.',
+    s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot, és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
+    s2_t:'Add hozzá a lakásaidat', s2_d:'Válaszd ki a számodra megfelelő csomagot: Alap (5 ingatlan), Pro (15 ingatlan) vagy Pro Plus (korlátlan). Töltsd fel az adatokat, csatold a bérlőket és a dokumentumokat.',
     s3_t:'Kezeld mindezt egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
     price_label:'Árak', price_title:'Átlátható árazás', price_sub:'Nincs rejtett díj. Válaszd a számodra megfelelő csomagot.',
     price_badge:'Legnépszerűbb',
     p1_name:'Alap', p1_per:'Ft/hó', p1_note:'5 ingatlan · automatikusan megújul',
-    p1_f1:'7 napos ingyenes próbaidő', p1_f2:'5 ingatlan kezelése', p1_f3:'Bérlő & díj nyilvántartás', p1_f4:'Hibabejelentés kezelés', p1_f5:'Email értesítések',
+    p1_f1:'7 napos ingyenes próbaidő', p1_f2:'5 ingatlan kezelése', p1_f3:'Bérlő & bérleti díj nyilvántartása', p1_f4:'Hibabejelentés kezelés', p1_f5:'Email értesítések',
     p1_btn:'Ingyenes próba →',
     p2_name:'Pro', p2_per:'Ft/hó', p2_note:'15 ingatlan · automatikusan megújul',
     p2_f1:'7 napos ingyenes próbaidő', p2_f2:'15 ingatlan kezelése', p2_f3:'Minden Alap funkció', p2_f4:'Szerződés generálás', p2_f5:'Birtokbaadási jegyzőkönyv', p2_f6:'Dokumentum feltöltés',
@@ -896,7 +895,7 @@ const translations = {
     cmp_r1:'Bérlők és ingatlanok egy helyen',
     cmp_r2:'Automatikus díjkövetés és emlékeztetők',
     cmp_r3:'Mobil hibabejelentés bérlőknek',
-    cmp_r4:'Szerződés- és jegyzőkönyv-generálás',
+    cmp_r4:'Szerződés- és jegyzőkönyv generálás',
     cmp_r5:'Bárhonnan elérhető (mobil + desktop)',
     cmp_r6:'Automatikus mentés, nincs adatvesztés',
     cmp_r7:'Idő, amit hetente megspórolsz',
@@ -904,7 +903,7 @@ const translations = {
     faq_label:'GYIK', faq_title:'Gyakori kérdések',
     faq1_q:'Mennyi ideig tart a beállítás?', faq1_a:'Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.',
     faq2_q:'Felmondhatom bármikor az előfizetést?', faq2_a:'Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.',
-    faq3_q:'Válthatok csomagot később?', faq3_a:'Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. A váltás az aktuális számlázási időszak végén lép érvénybe.',
+    faq3_q:'Válthatok csomagot később?', faq3_a:'Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. Választhatsz azonnali váltást (arányos felárszámolás vagy jóváírás) vagy hónap végi váltást — utóbbi a jelenlegi számlázási időszak lejártakor lép érvénybe.',
     faq4_q:'Biztonságosak az adataim?', faq4_a:'Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.',
     faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
     faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Az Alap csomag 5, a Pro csomag 15 ingatlant tartalmaz. Ha ennél is többre van szükséged, a Pro Plus csomag korlátlan ingatlan kezelését teszi lehetővé.',
@@ -931,7 +930,7 @@ const translations = {
     f7_t:'Rental contract ready in 3 minutes', f7_d:'No lawyer needed for a new tenant — generate from template, get a PDF.', f7_r:'Save 100 EUR',
     f8_t:'Handover protocol as PDF', f8_d:'Photograph the condition on move-in; proof for the deposit on move-out.', f8_r:'Court-admissible',
     how_label:'How it works', how_title:'3 steps and you\'re done',
-    s1_t:'Register and try it free', s1_d:'Create an account and enjoy a 1-week free trial. Decide after the first week whether to continue.',
+    s1_t:'Register and try it free', s1_d:'Create an account, and enjoy a 1-week free trial. Decide after the first week whether to continue.',
     s2_t:'Add your properties', s2_d:'Choose the plan that fits you: Basic (5 properties), Pro (15 properties) or Pro Plus (unlimited). Upload your data, attach tenants and documents.',
     s3_t:'Manage everything in one place', s3_d:'Track rent payments, handle maintenance requests, and receive automatic notifications. From anywhere, on any device.',
     price_label:'Pricing', price_title:'Transparent pricing', price_sub:'No hidden fees. Choose the plan that fits you.',
@@ -962,7 +961,7 @@ const translations = {
     faq_label:'FAQ', faq_title:'Frequently asked questions',
     faq1_q:'How long does setup take?', faq1_a:'The system is immediately usable after registration and payment. Adding the first property and tenant takes 5-10 minutes.',
     faq2_q:'Can I cancel anytime?', faq2_a:'Yes, subscriptions can be cancelled at any time. After cancellation you still have access until the end of the month. No commitment, no hidden fees.',
-    faq3_q:'Can I switch plans later?', faq3_a:'Yes, you can upgrade or downgrade your plan at any time from account settings. The change takes effect at the end of the current billing period.',
+    faq3_q:'Can I switch plans later?', faq3_a:'Yes, you can upgrade or downgrade your plan at any time from account settings. You can choose immediate switching (with prorated charge or credit) or end-of-period switching — the latter takes effect when the current billing period ends.',
     faq4_q:'Is my data secure?', faq4_a:'Data is stored by Supabase, which uses industry-standard encryption. Payments are handled by Stripe, which is PCI DSS compliant. Only you can access your data.',
     faq5_q:'Does it work on mobile?', faq5_a:'Yes, the system is fully responsive and works comfortably on mobile and tablet. No app download needed, accessible from any browser.',
     faq6_q:'How many properties can I manage?', faq6_a:'The Basic plan supports 5 properties, Pro supports 15. For even more, the Pro Plus plan offers unlimited property management.',
