@@ -70,29 +70,62 @@ footer a{color:var(--purple)}
   <p>Egy e-mail-cím csak egy fiókhoz használható.</p>
 
   <h2>5. Ingyenes próbaidőszak</h2>
-  <p>Új regisztrációkor 7 naptári napos ingyenes próbaidőszakot biztosítunk, amely alatt a kiválasztott csomag összes funkciója elérhető. A próbaidőszak végén — ha a Felhasználó nem mondja le az előfizetést — a rendszer automatikusan a kiválasztott csomag díját számlázza.</p>
+  <p>Új regisztrációkor 7 naptári napos ingyenes próbaidőszakot biztosítunk, amely alatt a Szolgáltatás összes funkciója elérhető. A próbaidőszak alatt a Felhasználó bármikor előfizethet — ekkor a fizetés azonnal érvényesül.</p>
+  <p>A próbaidőszak végén a Szolgáltatás csak akkor folytatódik, ha a Felhasználó előfizetett egy csomagra. Ha a próbaidőszak lejár előfizetés nélkül, a fiók ideiglenesen letiltásra kerül, de az adatok 30 napig megőrzésre kerülnek (lásd 10. pont).</p>
 
   <h2>6. Előfizetési díjak és fizetés</h2>
-  <p>Az aktuális előfizetési díjak a <a href="https://kezeld.hu/#arak">kezeld.hu/#arak</a> oldalon tekinthetők meg. Az árak forintban (Ft) értendők és az általános forgalmi adót nem tartalmazzák, amennyiben a Felhasználó nem magánszemély.</p>
-  <p>A fizetés Stripe fizetési platformon keresztül történik. Az előfizetés automatikusan megújul a választott számlázási időszak (havi vagy éves) lejártakor.</p>
-  <p>A számlát elektronikusan, e-mailben küldjük el.</p>
+  <p>Az aktuális előfizetési díjak a <a href="https://kezeld.hu/#arak">kezeld.hu/#arak</a> oldalon tekinthetők meg. Az árak forintban (Ft) értendők.</p>
+  <p>A Felhasználó két számlázási ciklus közül választhat:</p>
+  <ul>
+    <li><strong>Havi</strong> — a választott csomag díja minden hónap azonos napján kerül levonásra</li>
+    <li><strong>Éves</strong> — kedvezményes ár, a választott csomag éves díja egyszerre kerül levonásra, évente azonos napon megújul</li>
+  </ul>
+  <p>A fizetés a Stripe fizetési szolgáltatón keresztül történik. Kártyaadatait a Felhasználó közvetlenül a Stripe oldalán adja meg — ezekhez a kezeld.hu nem fér hozzá.</p>
+  <p>Az előfizetés <strong>automatikusan megújul</strong> a választott számlázási időszak lejártakor, kivéve, ha a Felhasználó előzetesen lemondja.</p>
+  <p>A számlát elektronikusan, e-mailben küldjük el a fiókban megadott e-mail-címre.</p>
 
   <h2>7. Lemondás és visszatérítés</h2>
-  <p>Az előfizetés bármikor lemondható a fiókbeállításokban. A lemondás az aktuális számlázási időszak végén lép érvénybe — addig a Felhasználó hozzáfér a Szolgáltatáshoz.</p>
-  <p>Visszatérítés: az ingyenes próbaidőszakon belül lemondott előfizetés esetén nem kerül sor terhelésre. Az első sikeres fizetés után visszatérítést nem biztosítunk, kivéve, ha a Szolgáltatás 72 óránál hosszabb folyamatos leállást szenvedett el és azt a kezeld.hu megerősítette.</p>
+  <p>Az előfizetés bármikor lemondható a Szolgáltatás Fiók beállítások menüjéből vagy a Stripe ügyfélportálon keresztül. A lemondás az <strong>aktuális számlázási időszak végén</strong> lép érvénybe — addig a Felhasználó továbbra is hozzáfér a Szolgáltatáshoz.</p>
+  <p>A lemondás után új díj nem kerül levonásra. A periódus végén a Szolgáltatás hozzáférése automatikusan megszűnik.</p>
+  <p><strong>Visszatérítés</strong>:</p>
+  <ul>
+    <li>Az ingyenes próbaidőszakon belül lemondott előfizetés esetén nem kerül sor terhelésre.</li>
+    <li>Az első sikeres fizetés után pénzvisszatérítést nem biztosítunk, kivéve, ha:
+      <ul>
+        <li>a Szolgáltatás 72 óránál hosszabb folyamatos leállást szenvedett el, és azt a kezeld.hu megerősítette, vagy</li>
+        <li>technikai hiba miatt a Felhasználó nem tudta használni a Szolgáltatást és az hibát a kezeld.hu támogatása megerősítette.</li>
+      </ul>
+    </li>
+  </ul>
 
   <h2>8. Csomagváltás</h2>
-  <p>A Felhasználó bármikor válthat magasabb vagy alacsonyabb csomagra. Magasabb csomagra való váltásnál a különbözetet azonnal számlázza a rendszer (arányosan). Alacsonyabb csomagra váltás az aktuális időszak végén lép érvénybe.</p>
+  <p>A Felhasználó bármikor válthat magasabb vagy alacsonyabb csomagra a Fiók beállítások menüben.</p>
+  <p><strong>Magasabb csomagra (upgrade) váltás</strong>:</p>
+  <ul>
+    <li>Azonnali váltás esetén a Stripe arányosítva kiszámolja az új és régi csomag árának különbségét a jelenlegi periódus hátralévő napjaira, és ezt a Felhasználó kártyájáról azonnal levonja.</li>
+    <li>Hónap végi váltás esetén az új csomag a jelenlegi periódus lejártakor lép életbe, addig a régi csomagot használja és fizeti.</li>
+  </ul>
+  <p><strong>Alacsonyabb csomagra (downgrade) váltás</strong>:</p>
+  <ul>
+    <li>Azonnali váltás esetén az új csomag azonnal aktiválódik. Az új és régi csomag különbsége arányosan jóváírásra (credit) kerül a fiókban, és a következő számlából automatikusan levonásra kerül.</li>
+    <li>Hónap végi váltás esetén a változás a jelenlegi periódus lejártakor lép életbe.</li>
+  </ul>
+  <p>Csomagváltáskor az ingatlan-limit azonnal érvényesül. Ha a Felhasználó több ingatlannal rendelkezik, mint a megengedett limit, az új ingatlanok hozzáadása letiltásra kerül, de a meglévő adatok megmaradnak.</p>
 
-  <h2>9. A Szolgáltatás rendelkezésre állása</h2>
-  <p>A kezeld.hu törekszik a folyamatos elérhetőségre (célszint: 99,5% havonta), de nem vállal felelősséget a tervezett karbantartásokból, harmadik fél szolgáltatóinak (Supabase, Railway, Cloudflare) leállásából eredő szünetekért.</p>
+  <h2>9. Automatikus havi tételgenerálás</h2>
+  <p>A Szolgáltatás minden hónap 1-jén automatikusan létrehozza az aktív bérlők bérleti díjtételeit és a beállított közös költség tételeit. Ezt a Felhasználó az "⚡ Hónap generálása" gombbal manuálisan is kezdeményezheti.</p>
+  <p>Ha egy bérlő szerződése a hónap közepén kezdődik vagy végződik, a rendszer arányosan (napra) számolja ki az adott havi díjat. Ez a számítás a Polgári Törvénykönyv arányosítási elvein alapul, és tájékoztató jellegű — a Felhasználó felelőssége az adatok ellenőrzése a bérlő felé történő érvényesítés előtt.</p>
+
+  <h2>10. A Szolgáltatás rendelkezésre állása</h2>
+  <p>A kezeld.hu törekszik a folyamatos elérhetőségre (célszint: 99,5% havonta), de nem vállal felelősséget a tervezett karbantartásokból, harmadik fél szolgáltatóinak (Supabase, Railway, Cloudflare, Stripe) leállásából eredő szünetekért.</p>
   <p>Tervezett karbantartásokról a Felhasználókat legalább 24 órával előre értesítjük e-mailben.</p>
 
-  <h2>10. Felhasználói adatok és tartalom</h2>
-  <p>A Felhasználó által a rendszerbe feltöltött adatok (ingatlanok, bérlők, dokumentumok) a Felhasználó tulajdonát képezik. A kezeld.hu ezeket nem használja fel saját célokra, harmadik félnek nem adja át (az adatfeldolgozók kivételével — lásd Adatkezelési Tájékoztató).</p>
-  <p>Az előfizetés megszűnésekor az adatok 30 napig megőrzésre kerülnek, ezt követően véglegesen törlésre kerülnek. Ez idő alatt a Felhasználó exportálhatja adatait.</p>
+  <h2>11. Felhasználói adatok és tartalom</h2>
+  <p>A Felhasználó által a rendszerbe feltöltött adatok (ingatlanok, bérlők, díjak, dokumentumok, fotók) a Felhasználó tulajdonát képezik. A kezeld.hu ezeket nem használja fel saját célokra, harmadik félnek nem adja át (az adatfeldolgozók kivételével — lásd Adatkezelési Tájékoztató).</p>
+  <p>Az előfizetés megszűnésekor vagy lemondásakor az adatok 30 napig megőrzésre kerülnek, ezt követően véglegesen törlésre kerülnek. Ez idő alatt a Felhasználó belépéssel hozzáférhet és exportálhatja az adatait.</p>
+  <p>A Felhasználó által generált hibabejelentő linkek a fiók törlésével együtt érvényüket vesztik — a bérlők ezen keresztül nem tudnak több hibát bejelenteni.</p>
 
-  <h2>11. Tiltott használat</h2>
+  <h2>12. Tiltott használat</h2>
   <p>A Felhasználó nem jogosult:</p>
   <ul>
     <li>a Szolgáltatást jogszabályba ütköző célra használni</li>
@@ -102,20 +135,21 @@ footer a{color:var(--purple)}
   </ul>
   <p>A tiltott használat azonnali fiókfelfüggesztést vonhat maga után, visszatérítés nélkül.</p>
 
-  <h2>12. Felelősségkorlátozás</h2>
-  <p>A kezeld.hu nem vállal felelősséget közvetett, véletlen vagy következményes károkért (pl. elmaradt haszon, adatvesztés), amelyek a Szolgáltatás használatából vagy elérhetetlenségéből erednek.</p>
+  <h2>13. Felelősségkorlátozás</h2>
+  <p>A kezeld.hu nem vállal felelősséget közvetett, véletlen vagy következményes károkért (pl. elmaradt haszon, adatvesztés, bírósági viták kimenetele), amelyek a Szolgáltatás használatából vagy elérhetetlenségéből erednek.</p>
+  <p>A Szolgáltatás által generált dokumentumok (bérleti szerződés, birtokbaadási jegyzőkönyv, számítások) <strong>tájékoztató jellegűek</strong> — a Felhasználó felelőssége a tartalom ellenőrzése és jogi szempontból történő alkalmasságának vizsgálata.</p>
   <p>A kezeld.hu felelőssége minden esetben korlátozódik az adott számlázási időszakban a Felhasználó által ténylegesen megfizetett összegre.</p>
 
-  <h2>13. Szellemi tulajdon</h2>
+  <h2>14. Szellemi tulajdon</h2>
   <p>A kezeld.hu platform, annak kinézete, kódja és logói a Szolgáltató szellemi tulajdonát képezik. A Felhasználó nem jogosult ezeket másolni, módosítani vagy terjeszteni.</p>
 
-  <h2>14. Az ASZF módosítása</h2>
-  <p>A kezeld.hu fenntartja a jogot az ASZF módosítására. Lényeges változásokról a Felhasználókat legalább 15 nappal előre értesítjük e-mailben. Ha a Felhasználó a módosítás hatályba lépéséig nem mondja le előfizetését, azzal elfogadja az új feltételeket.</p>
+  <h2>15. Az ASZF módosítása</h2>
+  <p>A kezeld.hu fenntartja a jogot az ASZF módosítására. Lényeges változásokról (pl. árazás módosítása, fizetési feltételek változása) a Felhasználókat legalább 15 nappal előre értesítjük e-mailben. Ha a Felhasználó a módosítás hatályba lépéséig nem mondja le előfizetését, azzal elfogadja az új feltételeket.</p>
 
-  <h2>15. Irányadó jog</h2>
+  <h2>16. Irányadó jog</h2>
   <p>Jelen ASZF-re a magyar jog az irányadó. A felek vitás kérdések esetén elsősorban egyezséggel törekednek a megoldásra. Bírósági eljárás esetén a magyar bíróságok kizárólagos illetékessége érvényesül.</p>
 
-  <h2>16. Kapcsolat</h2>
+  <h2>17. Kapcsolat</h2>
   <p>Kérdés vagy panasz esetén: <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
 </div>
 
