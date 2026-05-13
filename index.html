@@ -293,6 +293,31 @@ footer a{color:var(--purple)}
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
+<script>
+// ── Anti-cloning védelem ──
+(function(){
+  document.addEventListener('contextmenu',e=>{e.preventDefault();return false;},false);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='F12') {e.preventDefault();return false;}
+    if(e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) {e.preventDefault();return false;}
+    if(e.ctrlKey && e.key.toUpperCase()==='U') {e.preventDefault();return false;}
+    if(e.ctrlKey && e.key.toUpperCase()==='S') {e.preventDefault();return false;}
+  },false);
+  let _devOpen=false;
+  const threshold=160;
+  setInterval(()=>{
+    const w=window.outerWidth-window.innerWidth>threshold;
+    const h=window.outerHeight-window.innerHeight>threshold;
+    if((w||h)&&!_devOpen){
+      _devOpen=true;
+      try{console.clear();}catch(e){}
+      console.log('%c⚠️ FIGYELMEZTETÉS','color:#A32D2D;font-size:32px;font-weight:bold');
+      console.log('%cEz a rendszer szerzői jogvédelem alatt áll. A forráskód másolása, visszafejtése vagy újrahasznosítása TILOS és jogi következményekkel jár.','color:#1a1a18;font-size:14px');
+      console.log('%cVisszaélés esetén értesítjük az illetékes hatóságokat.','color:#6b6b67;font-size:12px');
+    }
+  },1500);
+})();
+</script>
 
 <!-- NAV -->
 <nav>
