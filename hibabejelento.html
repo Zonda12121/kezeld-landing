@@ -301,6 +301,7 @@ const T_EN = {
   'Írd le részletesen a problémát — mikor vetted észre, mennyire súlyos, pontosan mi történt...': 'Describe the problem in detail — when you noticed it, how severe, what exactly happened...',
 };
 let _lang = (localStorage.getItem('hb_lang') === 'en') ? 'en' : 'hu';
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function t(key) {
   if (_lang === 'en') return T_EN[key] || key;
   return key;
@@ -375,11 +376,11 @@ function goStep3() {
   if (!ok) return;
   const pLbl = {low:t('Nem sürgős'), medium:t('Közepes'), urgent:t('Sürgős — azonnali beavatkozás')};
   document.getElementById('summary').innerHTML = `
-    <span class="lbl">${t('Neve:')}</span><span>${document.getElementById('b-nev').value}</span>
-    <span class="lbl">${t('Telefon:')}</span><span>${document.getElementById('b-tel').value || '—'}</span>
-    <span class="lbl">${t('Kategória:')}</span><span>${t(kat)}</span>
-    <span class="lbl">${t('Súlyosság:')}</span><span>${pLbl[selectedPri]}</span>
-    <span class="lbl">${t('Leírás:')}</span><span style="white-space:pre-wrap">${lei}</span>`;
+    <span class="lbl">${esc(t('Neve:'))}</span><span>${esc(document.getElementById('b-nev').value)}</span>
+    <span class="lbl">${esc(t('Telefon:'))}</span><span>${esc(document.getElementById('b-tel').value || '—')}</span>
+    <span class="lbl">${esc(t('Kategória:'))}</span><span>${esc(t(kat))}</span>
+    <span class="lbl">${esc(t('Súlyosság:'))}</span><span>${esc(pLbl[selectedPri])}</span>
+    <span class="lbl">${esc(t('Leírás:'))}</span><span style="white-space:pre-wrap">${esc(lei)}</span>`;
   const photosWithData = photos.filter(Boolean);
   const sumPhotos = document.getElementById('sum-photos');
   const photoPrev = document.getElementById('photo-preview-sum');
