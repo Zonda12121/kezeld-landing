@@ -411,7 +411,7 @@ async function compressImage(file, options) {
   const opts = options || {};
   const maxDim = opts.maxDim || 1920;
   const quality = opts.quality || 0.82;
-  const minSize = opts.minSize || 200 * 1024;
+  const minSize = opts.minSize || 30 * 1024; // 30 KB alatt fölösleges
   const type = (file.type || '').toLowerCase();
   if (!type.startsWith('image/')) return file;
   if (type === 'image/heic' || type === 'image/heif') return file;
