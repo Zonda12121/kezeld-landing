@@ -320,11 +320,11 @@ async function loadFizetnivalo(){
     const dijak = (dijRes.dijak || []).map(d => ({
       type:'dij',
       id: d.id,
-      cim: 'Bérleti díj — '+(d.esedekesseg ? d.esedekesseg.slice(0,7) : ''),
+      cim: 'Bérleti díj — '+(d.esedek ? d.esedek.slice(0,7) : ''),
       ico: '🏠',
       osszeg: d.osszeg,
       valuta: d.valuta || 'HUF',
-      esedekesseg: d.esedekesseg || d.datum,
+      esedekesseg: d.esedek || d.datum,
       befizetve: d.allapot === 'fizetve',
       befizetve_at: d.fizetve,
       bizonylat_url: d.bizonylat_url,
