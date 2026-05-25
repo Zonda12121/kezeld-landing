@@ -120,14 +120,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
   <div id="main-content" style="display:none">
     <div class="tabs">
-      <button class="tab active" data-tab="uzenetek" onclick="switchTab('uzenetek')">💬 Üzenetek <span id="msg-badge" class="badge" style="display:none">0</span></button>
+      <button class="tab active" data-tab="fizetnivalo" onclick="switchTab('fizetnivalo')">💰 Fizetnivalók <span id="fiz-badge" class="badge" style="display:none">0</span></button>
+      <button class="tab" data-tab="uzenetek" onclick="switchTab('uzenetek')">💬 Üzenetek <span id="msg-badge" class="badge" style="display:none">0</span></button>
       <button class="tab" data-tab="meroora" onclick="switchTab('meroora')">📊 Mérőóra</button>
       <button class="tab" data-tab="hiba" onclick="switchTab('hiba')">🔧 Hiba</button>
       <button class="tab" data-tab="dokumentumok" onclick="switchTab('dokumentumok')">📄 Dokumentumaim</button>
     </div>
 
+    <!-- ─── FIZETNIVALÓK FÜL ─── -->
+    <div class="tab-content" id="content-fizetnivalo">
+      <div class="card">
+        <div class="card-lbl">Esedékes és lejárt tételek</div>
+        <div id="fiz-list"><div class="empty">Betöltés...</div></div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Korábban befizetve</div>
+        <div id="fiz-history"><div class="empty">Nincs előzmény</div></div>
+      </div>
+    </div>
+
     <!-- ─── ÜZENETEK FÜL ─── -->
-    <div class="tab-content" id="content-uzenetek">
+    <div class="tab-content" id="content-uzenetek" style="display:none">
       <div class="card">
         <div class="card-lbl">Beszélgetés a bérbeadóddal</div>
         <div class="msg-list" id="msg-list">
@@ -289,8 +302,223 @@ function switchTab(name){
   document.querySelector('.tab[data-tab="'+name+'"]').classList.add('active');
   document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
   document.getElementById('content-'+name).style.display = 'block';
+  if(name === 'fizetnivalo') loadFizetnivalo();
   if(name === 'meroora') loadMerooraHistory();
   if(name === 'dokumentumok') loadDokumentumok();
+}
+
+// ── Fizetnivalók (bérleti díj + közüzemi számlák) ─────────────────────────
+async function loadFizetnivalo(){
+  const listEl = document.getElementById('fiz-list');
+  const histEl = document.getElementById('fiz-history');
+  listEl.innerHTML = '<div class="empty">Betöltés...</div>';
+  try{
+    const [dijRes, kuzRes] = await Promise.all([
+      fetch(BACKEND+'/berlo/dijak?token='+encodeURIComponent(TOKEN)).then(r=>r.json()).catch(()=>({dijak:[]})),
+      fetch(BACKEND+'/berlo/kozuzemi?token='+encodeURIComponent(TOKEN)).then(r=>r.json()).catch(()=>({szamlak:[]})),
+    ]);
+    const dijak = (dijRes.dijak || []).map(d => ({
+      type:'dij',
+      id: d.id,
+      cim: 'Bérleti díj — '+(d.esedekesseg ? d.esedekesseg.slice(0,7) : ''),
+      ico: '🏠',
+      osszeg: d.osszeg,
+      valuta: d.valuta || 'HUF',
+      esedekesseg: d.esedekesseg || d.datum,
+      befizetve: d.allapot === 'fizetve',
+      befizetve_at: d.fizetve,
+      bizonylat_url: d.bizonylat_url,
+    }));
+    const kuz = (kuzRes.szamlak || []).map(s => ({
+      type:'kuz',
+      id: s.id,
+      cim: (s.szolgaltato || s.tipus),
+      ico: ({villany:'⚡',gaz:'🔥',viz:'💧',internet:'🌐',tv:'📺',kozos:'🏢',egyeb:'📌'})[s.tipus] || '📌',
+      osszeg: s.osszeg,
+      valuta: s.valuta || 'HUF',
+      esedekesseg: s.esedekesseg,
+      befizetve: !!s.befizetve,
+      befizetve_at: s.befizetve_at,
+      bizonylat_url: s.bizonylat_url,
+    }));
+    const all = [...dijak, ...kuz];
+    const open = all.filter(x => !x.befizetve);
+    const paid = all.filter(x => x.befizetve).sort((a,b) => (b.befizetve_at||'').localeCompare(a.befizetve_at||''));
+
+    // Badge frissítés
+    const today0 = new Date(); today0.setHours(0,0,0,0);
+    const urgent = open.filter(x => {
+      if(!x.esedekesseg) return false;
+      const d = new Date(x.esedekesseg);
+      return Math.round((d - today0)/86400000) <= 3;
+    });
+    const badge = document.getElementById('fiz-badge');
+    if(badge){
+      if(urgent.length > 0){
+        badge.textContent = urgent.length;
+        badge.style.display = 'inline-block';
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+
+    // Open list
+    if(!open.length){
+      listEl.innerHTML = '<div class="empty">🎉 Minden ki van fizetve!</div>';
+    } else {
+      // Esedékesség szerint sorba
+      open.sort((a,b) => (a.esedekesseg||'').localeCompare(b.esedekesseg||''));
+      listEl.innerHTML = open.map(x => {
+        const due = new Date(x.esedekesseg);
+        const days = Math.round((due - today0)/86400000);
+        let stat, cls = '';
+        if(days < 0){
+          stat = '<span style="background:'+getComputedStyle(document.documentElement).getPropertyValue('--red-bg')+';color:'+getComputedStyle(document.documentElement).getPropertyValue('--red-text')+';font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px">⚠ '+Math.abs(days)+' napja lejárt</span>';
+          cls = 'lejart';
+        } else if(days === 0){
+          stat = '<span style="background:'+getComputedStyle(document.documentElement).getPropertyValue('--amber-bg')+';color:'+getComputedStyle(document.documentElement).getPropertyValue('--amber-text')+';font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px">⏱ Ma esedékes</span>';
+          cls = 'kozeleg';
+        } else if(days <= 7){
+          stat = '<span style="background:'+getComputedStyle(document.documentElement).getPropertyValue('--amber-bg')+';color:'+getComputedStyle(document.documentElement).getPropertyValue('--amber-text')+';font-size:11px;font-weight:600;padding:3px 9px;border-radius:99px">'+days+' nap múlva</span>';
+        } else {
+          stat = '<span style="background:var(--bg);color:var(--text-sec);font-size:11px;font-weight:500;padding:3px 9px;border-radius:99px">'+days+' nap múlva</span>';
+        }
+        return '<div class="szamla-item '+cls+'" id="fiz-item-'+x.type+'-'+x.id+'" style="padding:14px 16px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--card)'+(cls==='lejart'?';border-color:var(--red-text);background:var(--red-bg)':cls==='kozeleg'?';border-color:var(--amber-text);background:var(--amber-bg)':'')+'">'
+          +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">'
+            +'<div style="flex:1;min-width:0">'
+              +'<div style="font-size:14.5px;font-weight:600;margin-bottom:2px">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
+              +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg)+'</div>'
+              +'<div style="font-size:11.5px;color:var(--text-ter)">Esedékes: '+escapeHtml(x.esedekesseg)+'</div>'
+            +'</div>'
+            +'<div style="text-align:right">'+stat+'</div>'
+          +'</div>'
+          +'<div style="display:flex;gap:6px;flex-wrap:wrap">'
+            +'<button class="btn btn-p" style="flex:1;font-size:13px;padding:9px 14px" onclick="markFizetve(\''+x.type+'\','+x.id+')">✓ Befizetve</button>'
+            +'<button class="btn btn-s" style="font-size:13px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">📎 Bizonylat</button>'
+          +'</div>'
+          +'<input type="file" id="biz-file-'+x.type+'-'+x.id+'" accept=".pdf,image/*" style="display:none" onchange="onBizonylatSelected(this,\''+x.type+'\','+x.id+')">'
+        +'</div>';
+      }).join('');
+    }
+
+    // History list
+    if(!paid.length){
+      histEl.innerHTML = '<div class="empty">Nincs előzmény</div>';
+    } else {
+      histEl.innerHTML = paid.slice(0, 10).map(x => {
+        const safeUrl = x.bizonylat_url ? JSON.stringify(x.bizonylat_url) : null;
+        return '<div style="padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--card);opacity:.85">'
+          +'<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">'
+            +'<div style="flex:1;min-width:0">'
+              +'<div style="font-size:13px;font-weight:600">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
+              +'<div style="font-size:11.5px;color:var(--text-sec)">'+fmtForint(x.osszeg)+' · Befizetve: '+escapeHtml(x.befizetve_at || '—')+'</div>'
+            +'</div>'
+            +(safeUrl ? '<a href="'+escapeHtml(x.bizonylat_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline">📎 Bizonylat</a>' : '')
+          +'</div>'
+        +'</div>';
+      }).join('');
+    }
+  }catch(e){
+    listEl.innerHTML = '<div class="empty" style="color:var(--red-text)">'+escapeHtml(e.message||'Hiba')+'</div>';
+  }
+}
+
+// Befizetés-jelölő — opcionálisan a már feltöltött bizonylat URL-lel
+async function markFizetve(type, id, bizonylat_url){
+  if(!confirm('Biztosan befizetted? A bérbeadód értesítést kap erről.')) return;
+  try{
+    const endpoint = type === 'dij' ? '/berlo/dij-fizetve' : '/berlo/kozuzemi-fizetve';
+    const body = type === 'dij'
+      ? { token: TOKEN, dijId: id, bizonylat_url: bizonylat_url || null }
+      : { token: TOKEN, szamlaId: id, bizonylat_url: bizonylat_url || null };
+    const r = await fetch(BACKEND+endpoint, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    if(!r.ok){
+      const j = await r.json().catch(()=>({}));
+      throw new Error(j.error || 'Hiba');
+    }
+    showToast('Köszönjük! A bérbeadód értesítést kap.','success');
+    loadFizetnivalo();
+  }catch(e){
+    showToast(e.message,'error');
+  }
+}
+
+function attachBizonylat(type, id){
+  document.getElementById('biz-file-'+type+'-'+id).click();
+}
+
+async function onBizonylatSelected(input, type, id){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(file.size > 8 * 1024 * 1024){ showToast('Max 8 MB','error'); input.value=''; return; }
+  // Tömörítés ha kép
+  let upFile = file;
+  if(file.type && file.type.startsWith('image/') && file.type !== 'image/heic' && file.type !== 'image/heif' && file.type !== 'image/gif'){
+    try{
+      upFile = await compressImageBerlo(file);
+    }catch(_){ upFile = file; }
+  }
+  showToast('Bizonylat feltöltése...','');
+  try{
+    const fd = new FormData();
+    fd.append('file', upFile, upFile.name || file.name);
+    fd.append('token', TOKEN);
+    const r = await fetch(BACKEND+'/berlo/upload-bizonylat', {
+      method:'POST',
+      body: fd
+    });
+    if(!r.ok){
+      const j = await r.json().catch(()=>({}));
+      throw new Error(j.error || 'Feltöltési hiba');
+    }
+    const data = await r.json();
+    showToast('Bizonylat feltöltve, most jelöld be hogy befizetted','success');
+    // Most automatikusan jelöljük be befizetve
+    setTimeout(() => {
+      if(confirm('Bizonylat sikeresen feltöltve. Most jelöljem befizetve állapotúra?')){
+        markFizetve(type, id, data.url);
+      }
+    }, 600);
+  }catch(e){
+    showToast(e.message,'error');
+  }
+  input.value = '';
+}
+
+// Egyszerű képtömörítés a bérlői portálon
+async function compressImageBerlo(file){
+  const maxDim = 1920;
+  const quality = 0.82;
+  const minSize = 30 * 1024;
+  if(file.size < minSize) return file;
+  if(file.type === 'image/heic' || file.type === 'image/heif' || file.type === 'image/gif') return file;
+  if(!file.type.startsWith('image/')) return file;
+  try{
+    const img = await new Promise((res, rej) => {
+      const i = new Image();
+      i.onload = () => res(i);
+      i.onerror = rej;
+      i.src = URL.createObjectURL(file);
+    });
+    let w = img.naturalWidth, h = img.naturalHeight;
+    if(w > maxDim || h > maxDim){
+      const r = w > h ? maxDim/w : maxDim/h;
+      w = Math.round(w*r); h = Math.round(h*r);
+    }
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(img, 0, 0, w, h);
+    URL.revokeObjectURL(img.src);
+    const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', quality));
+    if(!blob || blob.size >= file.size) return file;
+    return new File([blob], (file.name||'kep').replace(/\.[^.]+$/, '')+'.jpg', { type:'image/jpeg' });
+  }catch(_){ return file; }
 }
 
 async function init(){
@@ -320,6 +548,9 @@ async function init(){
     const now = new Date();
     document.getElementById('mo-honap').value = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
 
+    // Alapból a Fizetnivalók fül aktív — ezt töltjük be először
+    loadFizetnivalo();
+    // Az Üzeneteket háttérben betöltjük, hogy a fülre váltáskor azonnal kész legyen
     loadUzenetek();
   }catch(e){
     document.getElementById('err-state').style.display = 'block';
