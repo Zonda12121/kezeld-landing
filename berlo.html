@@ -405,16 +405,18 @@ async function loadFizetnivalo(){
     if(!paid.length){
       histEl.innerHTML = '<div class="empty">Nincs előzmény</div>';
     } else {
-      histEl.innerHTML = paid.slice(0, 10).map(x => {
-        const safeUrl = x.bizonylat_url ? JSON.stringify(x.bizonylat_url) : null;
-        return '<div style="padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--card);opacity:.85">'
-          +'<div style="display:flex;justify-content:space-between;align-items:center;gap:10px">'
-            +'<div style="flex:1;min-width:0">'
+      histEl.innerHTML = paid.slice(0, 15).map(x => {
+        return '<div style="padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--card);opacity:.9">'
+          +'<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">'
+            +'<div style="flex:1;min-width:160px">'
               +'<div style="font-size:13px;font-weight:600">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-sec)">'+fmtForint(x.osszeg)+' · Befizetve: '+escapeHtml(x.befizetve_at || '—')+'</div>'
             +'</div>'
-            +(safeUrl ? '<a href="'+escapeHtml(x.bizonylat_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline">📎 Bizonylat</a>' : '')
+            +(x.bizonylat_url
+              ? '<a href="'+escapeHtml(x.bizonylat_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline;flex-shrink:0">📎 Bizonylat</a>'
+              : '<button class="btn btn-s" onclick="attachBizonylatLater(\''+x.type+'\','+x.id+')" style="font-size:12px;flex-shrink:0">📎 Bizonylat csatolása</button>')
           +'</div>'
+          +'<input type="file" id="biz-later-file-'+x.type+'-'+x.id+'" accept=".pdf,image/*" style="display:none" onchange="onBizonylatLaterSelected(this,\''+x.type+'\','+x.id+')">'
         +'</div>';
       }).join('');
     }
@@ -449,6 +451,53 @@ async function markFizetve(type, id, bizonylat_url){
 
 function attachBizonylat(type, id){
   document.getElementById('biz-file-'+type+'-'+id).click();
+}
+
+// Utólagos bizonylat csatolás (már befizetett tételhez)
+function attachBizonylatLater(type, id){
+  document.getElementById('biz-later-file-'+type+'-'+id).click();
+}
+
+async function onBizonylatLaterSelected(input, type, id){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  if(file.size > 10 * 1024 * 1024){ showToast('Max 10 MB','error'); input.value=''; return; }
+  // Tömörítés ha kép
+  let upFile = file;
+  if(file.type && file.type.startsWith('image/') && file.type !== 'image/heic' && file.type !== 'image/heif' && file.type !== 'image/gif'){
+    try{ upFile = await compressImageBerlo(file); }catch(_){ upFile = file; }
+  }
+  showToast('Bizonylat feltöltése...','');
+  try{
+    const fd = new FormData();
+    fd.append('file', upFile, upFile.name || file.name);
+    fd.append('token', TOKEN);
+    const r = await fetch(BACKEND+'/berlo/upload-bizonylat', { method:'POST', body: fd });
+    if(!r.ok){
+      const j = await r.json().catch(()=>({}));
+      throw new Error(j.error || 'Feltöltési hiba');
+    }
+    const data = await r.json();
+    // Csatolás a már befizetett tételhez — markFizetve csak bizonylat_url-lel
+    const endpoint = type === 'dij' ? '/berlo/dij-fizetve' : '/berlo/kozuzemi-fizetve';
+    const body = type === 'dij'
+      ? { token: TOKEN, dijId: id, bizonylat_url: data.url }
+      : { token: TOKEN, szamlaId: id, bizonylat_url: data.url };
+    const r2 = await fetch(BACKEND+endpoint, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    });
+    if(!r2.ok){
+      const j = await r2.json().catch(()=>({}));
+      throw new Error(j.error || 'Csatolási hiba');
+    }
+    showToast('Bizonylat csatolva, a bérbeadód értesítést kap.','success');
+    loadFizetnivalo();
+  }catch(e){
+    showToast(e.message,'error');
+  }
+  input.value = '';
 }
 
 async function onBizonylatSelected(input, type, id){
