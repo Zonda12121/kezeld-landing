@@ -349,7 +349,7 @@ footer a{color:var(--purple)}
   <div class="hero-content">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      <span data-i18n="hero_badge">7 napos ingyenes próba · 3 csomag közül választhatsz</span>
+      <span data-i18n="hero_badge">7 napos ingyenes próba · Csak az után fizetsz amennyi ingatlanod van</span>
     </div>
     <h1 data-i18n="hero_title">Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span></h1>
     <p data-i18n="hero_sub">Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.</p>
@@ -434,7 +434,7 @@ footer a{color:var(--purple)}
       <div class="stat-lbl" data-i18n="stat1_lbl">ingyenes próbaidő</div>
     </div>
     <div>
-      <div class="stat-num" data-i18n="stat2_num">3 csomag</div>
+      <div class="stat-num" data-i18n="stat2_num">990 Ft</div>
       <div class="stat-lbl" data-i18n="stat2_lbl">választható előfizetési terv</div>
     </div>
     <div>
@@ -560,17 +560,17 @@ footer a{color:var(--purple)}
     <span id="lbl-yearly" data-i18n="bill_yearly">Éves (1 hónap ingyen)</span>
   </div>
   <div class="pricing-cards" style="grid-template-columns:1fr;max-width:520px;margin:0 auto">
-    <!-- Egyetlen csomag: per-ingatlan -->
+    <!-- Egyetlen csomag: per-ingatlan slot -->
     <div class="price-card featured" style="text-align:center">
       <div class="price-badge" data-i18n="price_badge">Egyszerű árazás</div>
-      <div class="price-name" data-i18n="p1_name">Per-ingatlan</div>
+      <div class="price-name" data-i18n="p1_name">Ingatlan slot árazás</div>
       <div class="price-amount">
         <span class="price-monthly">990</span><span class="price-yearly" style="display:none">10 890</span>
-        <span class="price-suffix" data-i18n="p1_per">Ft / ingatlan / hó</span>
+        <span class="price-suffix"><span class="price-monthly" data-i18n="p1_per_m">Ft / slot / hó</span><span class="price-yearly" style="display:none" data-i18n="p1_per_y">Ft / slot / év</span></span>
       </div>
       <div class="price-note">
-        <span class="price-monthly" data-i18n="p1_note">Annyit fizetsz, amennyi ingatlanod van</span>
-        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">Ft / ingatlan / év · 1 hónap ingyen</span>
+        <span class="price-monthly" data-i18n="p1_note">Annyi slotot veszel, ahány ingatlanod van</span>
+        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">Éves előfizetéssel 1 hónap ingyen</span>
       </div>
       <ul class="price-features" style="text-align:left;display:inline-block;margin:14px auto">
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próba (max. 5 ingatlan)</span></li>
@@ -582,7 +582,7 @@ footer a{color:var(--purple)}
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f7">Email értesítések — bérlő és bérbeadó számára</span></li>
       </ul>
       <div style="margin-top:14px"><a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p1_btn">Ingyenes próba →</a></div>
-      <p style="font-size:12.5px;color:var(--text-sec);margin-top:14px;line-height:1.6" data-i18n="p1_extra">Új ingatlan hozzáadásakor arányosan terhelünk. Ingatlan törlésekor jóváírás a következő periódusra. Nincs minimum kötelezettség.</p>
+      <p style="font-size:12.5px;color:var(--text-sec);margin-top:14px;line-height:1.6" data-i18n="p1_extra">Slot bővítés esetén azonnal arányosan terhelünk a periódus hátralévő részére. Slot csökkentés a következő számlázási periódus elején lép életbe. Minimum 1 slot.</p>
     </div>
   </div>
 </section>
@@ -676,8 +676,8 @@ footer a{color:var(--purple)}
       <div class="faq-a" data-i18n="faq2_a">Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq3_q">Válthatok csomagot később?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
-      <div class="faq-a" data-i18n="faq3_a">Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. Választhatsz azonnali váltást (arányos felárszámolás vagy jóváírás) vagy hónap végi váltást — utóbbi a jelenlegi számlázási időszak lejártakor lép érvénybe.</div>
+      <div class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+      <div class="faq-a" data-i18n="faq3_a">Slot bővítés esetén (új ingatlanhoz) a Stripe arányosan terhel a jelenlegi periódus hátralévő idejére — azonnal, automatikusan. Slot csökkentés a fiók beállításokban kezdeményezhető; ez a következő számlázási periódus elején lép életbe, addig a régi slot-szám díját fizeted. Havi ↔ éves intervallum-váltás szintén a periódus végén lép érvénybe.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
@@ -689,7 +689,7 @@ footer a{color:var(--purple)}
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q"><span data-i18n="faq6_q">Hány ingatlant kezelhetek?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
-      <div class="faq-a" data-i18n="faq6_a">Nincs ingatlan-korlát. Annyit fizetsz, amennyit használsz: 990 Ft / ingatlan / hó vagy 10 890 Ft / ingatlan / év (1 hónap ingyen). Új ingatlan hozzáadásakor arányosan terhelünk, törléskor jóváírunk.</div>
+      <div class="faq-a" data-i18n="faq6_a">Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 990 Ft / slot / hó vagy 10 890 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).</div>
     </div>
   </div>
 </section>
@@ -847,7 +847,7 @@ lblYearly.addEventListener('click', () => { isYearly = true; updateBilling(); })
 const translations = {
   hu: {
     nav_features:'Funkciók', nav_how:'Hogyan működik', nav_pricing:'Árak', nav_faq:'GYIK', nav_login:'Belépés →',
-    hero_badge:'7 napos ingyenes próba · 3 csomag közül választhatsz',
+    hero_badge:'7 napos ingyenes próba · Csak az után fizetsz amennyi ingatlanod van',
     hero_title:'Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span>',
     hero_sub:'Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.',
     hero_cta1:'1 hetes ingyenes próba →', hero_cta2:'Árak megtekintése',
@@ -893,10 +893,10 @@ const translations = {
     faq_label:'GYIK', faq_title:'Gyakori kérdések',
     faq1_q:'Mennyi ideig tart a beállítás?', faq1_a:'Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.',
     faq2_q:'Felmondhatom bármikor az előfizetést?', faq2_a:'Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.',
-    faq3_q:'Válthatok csomagot később?', faq3_a:'Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. Választhatsz azonnali váltást (arányos felárszámolás vagy jóváírás) vagy hónap végi váltást — utóbbi a jelenlegi számlázási időszak lejártakor lép érvénybe.',
+    faq3_q:'Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?', faq3_a:'Slot bővítés esetén (új ingatlanhoz) a Stripe arányosan terhel a jelenlegi periódus hátralévő idejére — azonnal, automatikusan. Slot csökkentés a fiók beállításokban kezdeményezhető; ez a következő számlázási periódus elején lép életbe, addig a régi slot-szám díját fizeted. Havi ↔ éves intervallum-váltás szintén a periódus végén lép érvénybe.',
     faq4_q:'Biztonságosak az adataim?', faq4_a:'Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.',
     faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
-    faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyit használsz: 990 Ft / ingatlan / hó vagy 10 890 Ft / ingatlan / év (1 hónap ingyen). Új ingatlan hozzáadásakor arányosan terhelünk, törléskor jóváírunk.',
+    faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 990 Ft / slot / hó vagy 10 890 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).',
     cta_title:'7 nap ingyenes — próbáld ki most!', cta_sub:'Regisztrálj és azonnal használd. 7 napos ingyenes próba, minden funkció, kötelezettség nélkül.',
     cta_btn:'Ingyenes próba indítása →',
     video_label:'Bemutató videó',
