@@ -51,7 +51,7 @@ footer a{color:var(--purple)}
 
 <div class="doc-wrap">
   <h1>Adatkezelési Tájékoztató</h1>
-  <p class="doc-meta">Hatályos: 2026. május 6-tól &nbsp;·&nbsp; Utolsó módosítás: 2026. május 6. &nbsp;·&nbsp; Az EU 2016/679 rendelet (GDPR) alapján</p>
+  <p class="doc-meta">Hatályos: 2026. május 27-től &nbsp;·&nbsp; Utolsó módosítás: 2026. május 27. &nbsp;·&nbsp; Az EU 2016/679 rendelet (GDPR) alapján</p>
 
   <h2>1. Az adatkezelő</h2>
   <p><strong>Megnevezés:</strong> kezeld.hu<br>
@@ -85,17 +85,66 @@ footer a{color:var(--purple)}
     </tr>
     <tr>
       <td>Felhasználói tartalom</td>
-      <td>Ingatlan adatok, bérlő adatok, feltöltött dokumentumok</td>
+      <td>Ingatlan adatok, bérlő adatok, feltöltött dokumentumok, fotók, szerződések</td>
       <td>A szolgáltatás nyújtása</td>
       <td>Szerződés teljesítése</td>
       <td>A fiók törlésétől számított 30 nap</td>
     </tr>
     <tr>
+      <td>Bérlői portál hozzáférési adatok</td>
+      <td>Bérlő egyedi belépési tokenje (portal_token), aktivitási állapot, opcionális WhatsApp opt-in</td>
+      <td>Bérlő token-alapú azonosítása a portálon (regisztráció nélkül)</td>
+      <td>Szerződés teljesítése, jogos érdek</td>
+      <td>Bérleti jogviszony + bérbeadó által beállított archiválási idő</td>
+    </tr>
+    <tr>
+      <td>Bérlő–bérbeadó kommunikáció</td>
+      <td>Üzenetek tartalma, olvasási státusz, küldés ideje</td>
+      <td>Kommunikáció lebonyolítása, dokumentálás</td>
+      <td>Szerződés teljesítése</td>
+      <td>Bérleti jogviszony + 5 év (esetleges jogviták kezelése)</td>
+    </tr>
+    <tr>
+      <td>Havi mérőóra leolvasások</td>
+      <td>Villany, gáz, víz, hőmennyiség értékek; opcionális fotó a mérőóráról</td>
+      <td>Közüzemi elszámolás, bérbeadó értesítése</td>
+      <td>Szerződés teljesítése</td>
+      <td>Bérleti jogviszony + 5 év</td>
+    </tr>
+    <tr>
+      <td>Közüzemi és bérleti díj nyilvántartás</td>
+      <td>Számla összege, esedékesség, befizetési állapot, bérlő/bérbeadó által csatolt számlák és bizonylatok</td>
+      <td>Pénzügyi nyilvántartás, befizetés-követés</td>
+      <td>Szerződés teljesítése, jogi kötelezettség</td>
+      <td>8 év (számviteli törvény)</td>
+    </tr>
+    <tr>
+      <td>Hibabejelentések</td>
+      <td>Hiba leírása, kategória, prioritás, csatolt fotók, bejelentő bérlő adatai</td>
+      <td>Karbantartás koordinálása, dokumentálás</td>
+      <td>Szerződés teljesítése</td>
+      <td>Bérleti jogviszony + 5 év</td>
+    </tr>
+    <tr>
+      <td>Archív bérlő adatok</td>
+      <td>Törölt bérlő neve a kapcsolódó tranzakciókban (díjak, számlák, üzenetek)</td>
+      <td>Pénzügyi és jogi nyomonkövethetőség</td>
+      <td>Jogi kötelezettség, jogos érdek</td>
+      <td>A kapcsolódó tranzakció megőrzési idejéig (max. 8 év)</td>
+    </tr>
+    <tr>
       <td>Technikai adatok</td>
-      <td>IP-cím, böngésző típusa, bejelentkezési időpontok</td>
-      <td>Biztonság, hibaelhárítás</td>
+      <td>IP-cím, böngésző típusa, bejelentkezési időpontok, rate-limiting nyilvántartás</td>
+      <td>Biztonság, hibaelhárítás, visszaélés megelőzése</td>
       <td>Jogos érdek</td>
       <td>90 nap</td>
+    </tr>
+    <tr>
+      <td>Audit napló</td>
+      <td>Érzékeny műveletek (előfizetés módosítás, fiók törlés, admin műveletek) — felhasználó, IP, időpont</td>
+      <td>Biztonsági és jogi auditálhatóság</td>
+      <td>Jogos érdek</td>
+      <td>2 év</td>
     </tr>
     <tr>
       <td>Hibajelentési adatok</td>
@@ -162,7 +211,20 @@ footer a{color:var(--purple)}
   </table>
   </div>
 
-  <h2>4. Az érintett jogai</h2>
+  <h2>4. Bérlői portál és kommunikációs adatok</h2>
+  <p>A kezeld.hu lehetővé teszi a bérbeadó (Felhasználó) számára, hogy bérlői részére egyedi linkkel ellátott portálhozzáférést biztosítson. A bérlő ezen a portálon az alábbiakat teheti:</p>
+  <ul>
+    <li>üzenetváltás a bérbeadóval;</li>
+    <li>havi mérőóra állások beküldése (opcionális fotóval);</li>
+    <li>hibabejelentés (opcionális fotóval);</li>
+    <li>esedékes bérleti díj és közüzemi számla megtekintése;</li>
+    <li>befizetés-igazoló (bizonylat) feltöltése.</li>
+  </ul>
+  <p>A bérlő által megadott adatokat a kezeld.hu kizárólag a bérbeadó (Felhasználó) megbízásából és nevében kezeli. A bérbeadó az adatkezelő ezen adatok tekintetében; a kezeld.hu adatfeldolgozóként jár el (lásd <a href="/dpa.html">Adatfeldolgozói Szerződés</a>).</p>
+  <p>A bérlői portál hozzáférése token-alapú, regisztráció nem szükséges. A token kriptográfiailag erős (192-bit véletlen). A bérleti jogviszony megszűnésekor a bérbeadó a tokent deaktiválhatja vagy újat generálhat; a régi link ettől fogva nem használható.</p>
+  <p>Bérlő törlése esetén a kapcsolódó pénzügyi és kommunikációs előzmények (díjak, számlák, üzenetek, bizonylatok) a jogi és számviteli megőrzési kötelezettségek miatt — anonimizált név-archívummal — fennmaradnak.</p>
+
+  <h2>5. Az érintett jogai</h2>
   <p>A GDPR alapján az alábbi jogokat gyakorolhatja:</p>
   <ul>
     <li><strong>Hozzáférés joga</strong> – kérheti, hogy tájékoztassuk milyen adatait kezeljük</li>
@@ -175,21 +237,21 @@ footer a{color:var(--purple)}
   <p>Kérelmét az <a href="mailto:info@kezeld.hu">info@kezeld.hu</a> e-mail-címre küldheti. A kérelmeket 30 napon belül teljesítjük.</p>
   <p>Panasz esetén a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat: <a href="https://www.naih.hu" target="_blank" rel="noopener">www.naih.hu</a></p>
 
-  <h2>5. Sütik (cookie-k)</h2>
+  <h2>6. Sütik (cookie-k)</h2>
   <p>Az oldal működéséhez szükséges sütiket (munkamenet-azonosítók, bejelentkezési állapot) használunk. Ezek a sütik nem igényelnek hozzájárulást, mivel a szolgáltatás működéséhez elengedhetetlenek.</p>
   <p>Harmadik fél marketing- vagy nyomkövetési sütiket nem alkalmazunk.</p>
   <p>A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts (bunny.net) szolgáltatón keresztül töltjük be, amely nem osztja meg az Ön IP-címét harmadik féllel, és megfelel a GDPR követelményeinek.</p>
 
-  <h2>6. Adatbiztonság</h2>
-  <p>Az adatokat titkosított kapcsolaton (HTTPS/TLS) keresztül közöljük. A Supabase adatbázis nyugalmi titkosítást (AES-256) alkalmaz. A jelszavak bcrypt hash-eléssel tárolódnak. Rendszeres biztonsági mentéseket végzünk.</p>
+  <h2>7. Adatbiztonság</h2>
+  <p>Az adatokat titkosított kapcsolaton (HTTPS/TLS) keresztül közöljük. A Supabase adatbázis nyugalmi titkosítást (AES-256) alkalmaz. A jelszavak bcrypt hash-eléssel tárolódnak. A bérlők által feltöltött fájlok és bizonylatok privát tárolóban (Supabase Storage privát bucket) találhatók, csak rövid lejáratú, aláírt URL-en keresztül érhetők el. Az érzékeny műveletek auditálva vannak. Rendszeres biztonsági mentéseket végzünk.</p>
 
-  <h2>7. Gyermekek adatai</h2>
+  <h2>8. Gyermekek adatai</h2>
   <p>A Szolgáltatás nem irányul 16 év alatti személyeknek. Tudatosan nem gyűjtünk kiskorúakra vonatkozó adatokat.</p>
 
-  <h2>8. A tájékoztató módosítása</h2>
+  <h2>9. A tájékoztató módosítása</h2>
   <p>Fenntartjuk a jogot a tájékoztató módosítására. Lényeges változásokról e-mailben értesítjük a felhasználókat. A módosítás hatályba lépésének időpontja és az aktuális verzió mindig ezen az oldalon érhető el.</p>
 
-  <h2>9. Kapcsolat</h2>
+  <h2>10. Kapcsolat</h2>
   <p>Adatkezeléssel kapcsolatos kérdések: <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
 </div>
 
