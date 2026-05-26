@@ -339,7 +339,8 @@ async function loadFizetnivalo(){
       esedekesseg: s.esedekesseg,
       befizetve: !!s.befizetve,
       befizetve_at: s.befizetve_at,
-      bizonylat_url: s.bizonylat_url,
+      bizonylat_url: s.bizonylat_url,      // bérlő által feltöltött befizetés igazolás
+      szamla_url: s.szamla_signed || null, // bérbeadó által feltöltött eredeti számla (signed URL)
     }));
     const all = [...dijak, ...kuz];
     const open = all.filter(x => !x.befizetve);
@@ -383,18 +384,22 @@ async function loadFizetnivalo(){
         } else {
           stat = '<span style="background:var(--bg);color:var(--text-sec);font-size:11px;font-weight:500;padding:3px 9px;border-radius:99px">'+days+' nap múlva</span>';
         }
+        const szamlaLink = x.szamla_url
+          ? '<div style="margin-top:6px;font-size:12.5px"><a href="'+escapeHtml(x.szamla_url)+'" target="_blank" rel="noopener noreferrer" style="color:var(--purple);text-decoration:underline">📄 Számla letöltése</a></div>'
+          : '';
         return '<div class="szamla-item '+cls+'" id="fiz-item-'+x.type+'-'+x.id+'" style="padding:14px 16px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--card)'+(cls==='lejart'?';border-color:var(--red-text);background:var(--red-bg)':cls==='kozeleg'?';border-color:var(--amber-text);background:var(--amber-bg)':'')+'">'
           +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">'
             +'<div style="flex:1;min-width:0">'
               +'<div style="font-size:14.5px;font-weight:600;margin-bottom:2px">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
               +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-ter)">Esedékes: '+escapeHtml(x.esedekesseg)+'</div>'
+              +szamlaLink
             +'</div>'
             +'<div style="text-align:right">'+stat+'</div>'
           +'</div>'
           +'<div style="display:flex;gap:6px;flex-wrap:wrap">'
             +'<button class="btn btn-p" style="flex:1;font-size:13px;padding:9px 14px" onclick="markFizetve(\''+x.type+'\','+x.id+')">✓ Befizetve</button>'
-            +'<button class="btn btn-s" style="font-size:13px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">📎 Bizonylat</button>'
+            +'<button class="btn btn-s" style="font-size:13px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">📎 Befizetés igazolás</button>'
           +'</div>'
           +'<input type="file" id="biz-file-'+x.type+'-'+x.id+'" accept=".pdf,image/*" style="display:none" onchange="onBizonylatSelected(this,\''+x.type+'\','+x.id+')">'
         +'</div>';
@@ -406,15 +411,19 @@ async function loadFizetnivalo(){
       histEl.innerHTML = '<div class="empty">Nincs előzmény</div>';
     } else {
       histEl.innerHTML = paid.slice(0, 15).map(x => {
+        const szamlaLinkH = x.szamla_url
+          ? '<a href="'+escapeHtml(x.szamla_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline;flex-shrink:0">📄 Számla</a>'
+          : '';
+        const bizonylatBlock = x.bizonylat_url
+          ? '<a href="'+escapeHtml(x.bizonylat_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline;flex-shrink:0">📎 Bizonylat</a>'
+          : '<button class="btn btn-s" onclick="attachBizonylatLater(\''+x.type+'\','+x.id+')" style="font-size:12px;flex-shrink:0">📎 Bizonylat csatolása</button>';
         return '<div style="padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--card);opacity:.9">'
           +'<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">'
             +'<div style="flex:1;min-width:160px">'
               +'<div style="font-size:13px;font-weight:600">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-sec)">'+fmtForint(x.osszeg)+' · Befizetve: '+escapeHtml(x.befizetve_at || '—')+'</div>'
             +'</div>'
-            +(x.bizonylat_url
-              ? '<a href="'+escapeHtml(x.bizonylat_url)+'" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:var(--purple);text-decoration:underline;flex-shrink:0">📎 Bizonylat</a>'
-              : '<button class="btn btn-s" onclick="attachBizonylatLater(\''+x.type+'\','+x.id+')" style="font-size:12px;flex-shrink:0">📎 Bizonylat csatolása</button>')
+            +'<div style="display:flex;gap:8px;align-items:center;flex-shrink:0">'+szamlaLinkH+bizonylatBlock+'</div>'
           +'</div>'
           +'<input type="file" id="biz-later-file-'+x.type+'-'+x.id+'" accept=".pdf,image/*" style="display:none" onchange="onBizonylatLaterSelected(this,\''+x.type+'\','+x.id+')">'
         +'</div>';
