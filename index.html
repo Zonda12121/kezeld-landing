@@ -533,7 +533,7 @@ footer a{color:var(--purple)}
       <div class="step-num">2</div>
       <div class="step-content">
         <h3 data-i18n="s2_t">Add hozzá ingatlanod</h3>
-        <p data-i18n="s2_d">Válaszd ki a számodra megfelelő csomagot: Alap (5 ingatlan), Pro (15 ingatlan) vagy Pro Plus (korlátlan). Töltsd fel az adatokat, csatold a bérlőket és a dokumentumokat.</p>
+        <p data-i18n="s2_d">Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 990 Ft/ingatlan/hó.</p>
       </div>
     </div>
     <div class="step reveal">
@@ -557,70 +557,32 @@ footer a{color:var(--purple)}
     <div class="toggle-wrap monthly" id="billingToggle">
       <div class="toggle-knob"></div>
     </div>
-    <span id="lbl-yearly" data-i18n="bill_yearly">Éves</span>
+    <span id="lbl-yearly" data-i18n="bill_yearly">Éves (1 hónap ingyen)</span>
   </div>
-  <div class="pricing-cards">
-    <!-- ALAP -->
-    <div class="price-card">
-      <div class="price-name" data-i18n="p1_name">Alap</div>
+  <div class="pricing-cards" style="grid-template-columns:1fr;max-width:520px;margin:0 auto">
+    <!-- Egyetlen csomag: per-ingatlan -->
+    <div class="price-card featured" style="text-align:center">
+      <div class="price-badge" data-i18n="price_badge">Egyszerű árazás</div>
+      <div class="price-name" data-i18n="p1_name">Per-ingatlan</div>
       <div class="price-amount">
-        <span class="price-monthly">3 990</span><span class="price-yearly" style="display:none">3 325</span>
-        <span class="price-suffix" data-i18n="p1_per">Ft/hó</span>
+        <span class="price-monthly">990</span><span class="price-yearly" style="display:none">10 890</span>
+        <span class="price-suffix" data-i18n="p1_per">Ft / ingatlan / hó</span>
       </div>
       <div class="price-note">
-        <span class="price-monthly" data-i18n="p1_note">5 ingatlan · automatikusan megújul</span>
-        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">5 ingatlan · 39 900 Ft · évente számlázva</span>
+        <span class="price-monthly" data-i18n="p1_note">Annyit fizetsz, amennyi ingatlanod van</span>
+        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">Ft / ingatlan / év · 1 hónap ingyen</span>
       </div>
-      <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f2">5 ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlő & bérleti díj nyilvántartása</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f4">Hibabejelentés kezelés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f5">Email értesítések</span></li>
+      <ul class="price-features" style="text-align:left;display:inline-block;margin:14px auto">
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próba (max. 5 ingatlan)</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f2">Korlátlan bérlő, díj, dokumentum</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlői portál — üzenet, mérőóra, hibabejelentés</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f4">Bérleti szerződés generálás, jegyzőkönyv</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f5">Közüzemi számla nyilvántartás</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f6">Quarterly reports & éves összesítő</span></li>
+        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f7">Email értesítések — bérlő és bérbeadó számára</span></li>
       </ul>
-      <a href="https://app.kezeld.hu" class="price-btn secondary" data-i18n="p1_btn">Ingyenes próba →</a>
-    </div>
-    <!-- PRO -->
-    <div class="price-card featured">
-      <div class="price-badge" data-i18n="price_badge">Legnépszerűbb</div>
-      <div class="price-name" data-i18n="p2_name">Pro</div>
-      <div class="price-amount">
-        <span class="price-monthly">6 990</span><span class="price-yearly" style="display:none">5 825</span>
-        <span class="price-suffix" data-i18n="p2_per">Ft/hó</span>
-      </div>
-      <div class="price-note">
-        <span class="price-monthly" data-i18n="p2_note">15 ingatlan · automatikusan megújul</span>
-        <span class="price-yearly" style="display:none" data-i18n="p2_note_y">15 ingatlan · 69 900 Ft · évente számlázva</span>
-      </div>
-      <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f2">15 ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f3">Minden Alap funkció</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f4">Szerződés generálás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f5">Birtokbaadási jegyzőkönyv</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p2_f6">Dokumentum feltöltés</span></li>
-      </ul>
-      <a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p2_btn">Ingyenes próba →</a>
-    </div>
-    <!-- PRO PLUS -->
-    <div class="price-card">
-      <div class="price-name" data-i18n="p3_name">Pro Plus</div>
-      <div class="price-amount">
-        <span class="price-monthly">8 990</span><span class="price-yearly" style="display:none">7 492</span>
-        <span class="price-suffix" data-i18n="p3_per">Ft/hó</span>
-      </div>
-      <div class="price-note">
-        <span class="price-monthly" data-i18n="p3_note">Korlátlan ingatlan · automatikusan megújul</span>
-        <span class="price-yearly" style="display:none" data-i18n="p3_note_y">Korlátlan ingatlan · 89 900 Ft · évente számlázva</span>
-      </div>
-      <ul class="price-features">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f1">7 napos ingyenes próbaidő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f2">Korlátlan ingatlan kezelése</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f3">Minden Pro funkció</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f4">Szerződés generálás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p3_f5">Birtokbaadási jegyzőkönyv</span></li>
-      </ul>
-      <a href="https://app.kezeld.hu" class="price-btn secondary" data-i18n="p3_btn">Ingyenes próba →</a>
+      <div style="margin-top:14px"><a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p1_btn">Ingyenes próba →</a></div>
+      <p style="font-size:12.5px;color:var(--text-sec);margin-top:14px;line-height:1.6" data-i18n="p1_extra">Új ingatlan hozzáadásakor arányosan terhelünk. Ingatlan törlésekor jóváírás a következő periódusra. Nincs minimum kötelezettség.</p>
     </div>
   </div>
 </section>
@@ -727,7 +689,7 @@ footer a{color:var(--purple)}
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q"><span data-i18n="faq6_q">Hány ingatlant kezelhetek?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
-      <div class="faq-a" data-i18n="faq6_a">Az Alap csomag 5, a Pro csomag 15 ingatlant tartalmaz. Ha ennél is többre van szükséged, a Pro Plus csomag korlátlan ingatlan kezelését teszi lehetővé.</div>
+      <div class="faq-a" data-i18n="faq6_a">Nincs ingatlan-korlát. Annyit fizetsz, amennyit használsz: 990 Ft / ingatlan / hó vagy 10 890 Ft / ingatlan / év (1 hónap ingyen). Új ingatlan hozzáadásakor arányosan terhelünk, törléskor jóváírunk.</div>
     </div>
   </div>
 </section>
@@ -901,7 +863,7 @@ const translations = {
     f8_t:'Birtokbaadási jegyzőkönyv PDF-ben', f8_d:'Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.', f8_r:'Bíróságon is megáll',
     how_label:'Hogyan működik', how_title:'3 lépés és kész',
     s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot, és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
-    s2_t:'Add hozzá ingatlanod', s2_d:'Válaszd ki a számodra megfelelő csomagot: Alap (5 ingatlan), Pro (15 ingatlan) vagy Pro Plus (korlátlan). Töltsd fel az adatokat, csatold a bérlőket és a dokumentumokat.',
+    s2_t:'Add hozzá ingatlanod', s2_d:'Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 990 Ft/ingatlan/hó.',
     s3_t:'Kezeld mindezt egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
     price_label:'Árak', price_title:'Átlátható árazás', price_sub:'Nincs rejtett díj. Válaszd a számodra megfelelő csomagot.',
     price_badge:'Legnépszerűbb',
@@ -934,7 +896,7 @@ const translations = {
     faq3_q:'Válthatok csomagot később?', faq3_a:'Igen, bármikor válthatsz magasabb vagy alacsonyabb csomagra a fiókbeállításokban. Választhatsz azonnali váltást (arányos felárszámolás vagy jóváírás) vagy hónap végi váltást — utóbbi a jelenlegi számlázási időszak lejártakor lép érvénybe.',
     faq4_q:'Biztonságosak az adataim?', faq4_a:'Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.',
     faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
-    faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Az Alap csomag 5, a Pro csomag 15 ingatlant tartalmaz. Ha ennél is többre van szükséged, a Pro Plus csomag korlátlan ingatlan kezelését teszi lehetővé.',
+    faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyit használsz: 990 Ft / ingatlan / hó vagy 10 890 Ft / ingatlan / év (1 hónap ingyen). Új ingatlan hozzáadásakor arányosan terhelünk, törléskor jóváírunk.',
     cta_title:'7 nap ingyenes — próbáld ki most!', cta_sub:'Regisztrálj és azonnal használd. 7 napos ingyenes próba, minden funkció, kötelezettség nélkül.',
     cta_btn:'Ingyenes próba indítása →',
     video_label:'Bemutató videó',
@@ -959,7 +921,7 @@ const translations = {
     f8_t:'Handover protocol as PDF', f8_d:'Photograph the condition on move-in; proof for the deposit on move-out.', f8_r:'Court-admissible',
     how_label:'How it works', how_title:'3 steps and you\'re done',
     s1_t:'Register and try it free', s1_d:'Create an account, and enjoy a 1-week free trial. Decide after the first week whether to continue.',
-    s2_t:'Add your property', s2_d:'Choose the plan that fits you: Basic (5 properties), Pro (15 properties) or Pro Plus (unlimited). Upload your data, attach tenants and documents.',
+    s2_t:'Add your property', s2_d:'Add your property details, tenants and documents. You only pay for the number of properties you have — 990 HUF/property/month.',
     s3_t:'Manage everything in one place', s3_d:'Track rent payments, handle maintenance requests, and receive automatic notifications. From anywhere, on any device.',
     price_label:'Pricing', price_title:'Transparent pricing', price_sub:'No hidden fees. Choose the plan that fits you.',
     price_badge:'Most popular',
@@ -992,7 +954,7 @@ const translations = {
     faq3_q:'Can I switch plans later?', faq3_a:'Yes, you can upgrade or downgrade your plan at any time from account settings. You can choose immediate switching (with prorated charge or credit) or end-of-period switching — the latter takes effect when the current billing period ends.',
     faq4_q:'Is my data secure?', faq4_a:'Data is stored by Supabase, which uses industry-standard encryption. Payments are handled by Stripe, which is PCI DSS compliant. Only you can access your data.',
     faq5_q:'Does it work on mobile?', faq5_a:'Yes, the system is fully responsive and works comfortably on mobile and tablet. No app download needed, accessible from any browser.',
-    faq6_q:'How many properties can I manage?', faq6_a:'The Basic plan supports 5 properties, Pro supports 15. For even more, the Pro Plus plan offers unlimited property management.',
+    faq6_q:'How many properties can I manage?', faq6_a:'No limit. You only pay for what you use: 990 HUF / property / month or 10,890 HUF / property / year (1 month free). New properties are charged pro-rata; deletions are credited.',
     cta_title:'7 days free — try it now!', cta_sub:'Sign up and start immediately. 7-day free trial, all features, no commitment.',
     cta_btn:'Start free trial →',
     video_label:'Demo video',

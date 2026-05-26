@@ -76,28 +76,25 @@ footer a{color:var(--purple)}
     <li>Automatikus e-mail értesítések mindkét fél részére (bérlő befizetés, új üzenet, mérőóra-beküldés, esedékes számla, stb.)</li>
     <li>Negyedéves és éves pénzügyi riportok</li>
   </ul>
-  <p>A Szolgáltatás az alábbi előfizetési csomagokban érhető el:</p>
-  <ul>
-    <li><strong>Alap</strong> – legfeljebb 5 ingatlan, alapfunkciók</li>
-    <li><strong>Pro</strong> – legfeljebb 15 ingatlan, szerződés- és jegyzőkönyvgenerálás, dokumentumfeltöltés</li>
-    <li><strong>Pro Plus</strong> – korlátlan ingatlan, minden Pro funkció, prioritásos ügyfélszolgálat</li>
-  </ul>
+  <p>A Szolgáltatás <strong>per-ingatlan árazási modellben</strong> érhető el: a Felhasználó annyit fizet, amennyi ingatlant kezel a rendszerben. Nincsenek csomagok és ingatlan-korlátok — minden funkció minden Felhasználó számára elérhető.</p>
 
   <h2>4. Regisztráció és fiók</h2>
   <p>A Szolgáltatás igénybevételéhez regisztráció szükséges. A Felhasználó köteles valós és pontos adatokat megadni, valamint a fiókja biztonságáért (jelszó kezelése) felelős. A kezeld.hu nem felelős a jogosulatlan hozzáférésből eredő károkért, ha azok a Felhasználó mulasztásából erednek.</p>
   <p>Egy e-mail-cím csak egy fiókhoz használható.</p>
 
   <h2>5. Ingyenes próbaidőszak</h2>
-  <p>Új regisztrációkor 7 naptári napos ingyenes próbaidőszakot biztosítunk, amely alatt a Szolgáltatás összes funkciója elérhető. A próbaidőszak alatt a Felhasználó bármikor előfizethet — ekkor a fizetés azonnal érvényesül.</p>
-  <p>A próbaidőszak végén a Szolgáltatás csak akkor folytatódik, ha a Felhasználó előfizetett egy csomagra. Ha a próbaidőszak lejár előfizetés nélkül, a fiók ideiglenesen letiltásra kerül, de az adatok 30 napig megőrzésre kerülnek (lásd 10. pont).</p>
+  <p>Új regisztrációkor 7 naptári napos ingyenes próbaidőszakot biztosítunk, amely alatt a Szolgáltatás összes funkciója elérhető, <strong>legfeljebb 5 ingatlan</strong> kezelésével. A próbaidőszak alatt a Felhasználó bármikor előfizethet — ekkor a fizetés azonnal érvényesül.</p>
+  <p>A próbaidőszak végén a Szolgáltatás csak akkor folytatódik, ha a Felhasználó előfizet. Ha a próbaidőszak lejár előfizetés nélkül, a fiók ideiglenesen letiltásra kerül, de az adatok 30 napig megőrzésre kerülnek (lásd 11. pont).</p>
 
   <h2>6. Előfizetési díjak és fizetés</h2>
-  <p>Az aktuális előfizetési díjak a <a href="https://kezeld.hu/#arak">kezeld.hu/#arak</a> oldalon tekinthetők meg. Az árak forintban (Ft) értendők.</p>
-  <p>A Felhasználó két számlázási ciklus közül választhat:</p>
+  <p>A Szolgáltatás per-ingatlan árazási modellben működik. Az aktuális díjak forintban (Ft) értendők:</p>
   <ul>
-    <li><strong>Havi</strong> — a választott csomag díja minden hónap azonos napján kerül levonásra</li>
-    <li><strong>Éves</strong> — kedvezményes ár, a választott csomag éves díja egyszerre kerül levonásra, évente azonos napon megújul</li>
+    <li><strong>Havi előfizetés:</strong> 990 Ft / ingatlan / hónap</li>
+    <li><strong>Éves előfizetés:</strong> 10 890 Ft / ingatlan / év (1 hónap ingyen — kb. 8% kedvezmény)</li>
   </ul>
+  <p>A számlázott összeg a Felhasználó által a Szolgáltatásban rögzített aktuális ingatlanok száma alapján kerül kiszámításra. Az előfizetésnek minimum 1 ingatlanra kell vonatkoznia.</p>
+  <p>Új ingatlan hozzáadásakor a Stripe fizetési szolgáltató automatikusan arányos terhelést hajt végre a jelenlegi számlázási periódus hátralévő idejére. Ingatlan törlésekor a fennmaradó idő arányos jóváírásként kerül elszámolásra a következő periódusra.</p>
+  <p>A számlázási ciklus (havi ↔ éves) bármikor váltható; a változás a következő számlázási periódus elején lép életbe, ekkor a teljes új periódus díja kerül levonásra.</p>
   <p>A fizetés a Stripe fizetési szolgáltatón keresztül történik. Kártyaadatait a Felhasználó közvetlenül a Stripe oldalán adja meg — ezekhez a kezeld.hu nem fér hozzá.</p>
   <p>Az előfizetés <strong>automatikusan megújul</strong> a választott számlázási időszak lejártakor, kivéve, ha a Felhasználó előzetesen lemondja.</p>
   <p>A számlát elektronikusan, e-mailben küldjük el a fiókban megadott e-mail-címre.</p>
@@ -116,19 +113,24 @@ footer a{color:var(--purple)}
     </li>
   </ul>
 
-  <h2>8. Csomagváltás</h2>
-  <p>A Felhasználó bármikor válthat magasabb vagy alacsonyabb csomagra a Fiók beállítások menüben.</p>
-  <p><strong>Magasabb csomagra (upgrade) váltás</strong>:</p>
+  <h2>8. Ingatlan-szám változása és intervallum-váltás</h2>
+  <p>A Felhasználó bármikor módosíthatja a kezelt ingatlanok számát vagy a számlázási intervallumot (havi ↔ éves) a Fiók beállításokban.</p>
+  <p><strong>Új ingatlan hozzáadása</strong>:</p>
   <ul>
-    <li>Azonnali váltás esetén a Stripe arányosítva kiszámolja az új és régi csomag árának különbségét a jelenlegi periódus hátralévő napjaira, és ezt a Felhasználó kártyájáról azonnal levonja.</li>
-    <li>Hónap végi váltás esetén az új csomag a jelenlegi periódus lejártakor lép életbe, addig a régi csomagot használja és fizeti.</li>
+    <li>A Stripe arányosan kiszámolja az új ingatlanra jutó díjat a jelenlegi számlázási periódus hátralévő napjaira.</li>
+    <li>Az arányos összeg automatikusan levonásra kerül a Felhasználó fizetési módjáról.</li>
+    <li>Az új ingatlan azonnal elérhetővé válik.</li>
   </ul>
-  <p><strong>Alacsonyabb csomagra (downgrade) váltás</strong>:</p>
+  <p><strong>Ingatlan törlése</strong>:</p>
   <ul>
-    <li>Azonnali váltás esetén az új csomag azonnal aktiválódik. Az új és régi csomag különbsége arányosan jóváírásra (credit) kerül a fiókban, és a következő számlából automatikusan levonásra kerül.</li>
-    <li>Hónap végi váltás esetén a változás a jelenlegi periódus lejártakor lép életbe.</li>
+    <li>A Stripe arányosan kiszámolja a fennmaradó időre eső, már kifizetett díj értékét.</li>
+    <li>Az összeg jóváírásként kerül elszámolásra, és a következő számlából automatikusan levonásra.</li>
   </ul>
-  <p>Csomagváltáskor az ingatlan-limit azonnal érvényesül. Ha a Felhasználó több ingatlannal rendelkezik, mint a megengedett limit, az új ingatlanok hozzáadása letiltásra kerül, de a meglévő adatok megmaradnak.</p>
+  <p><strong>Havi ↔ éves intervallum-váltás</strong>:</p>
+  <ul>
+    <li>A váltás a jelenlegi számlázási periódus lejártakor lép életbe — addig a régi intervallum szerinti díjat fizeti.</li>
+    <li>Az új periódus elején az új intervallum teljes díja (havi vagy éves) kerül levonásra a Felhasználó által rögzített ingatlanok számával beszorozva.</li>
+  </ul>
 
   <h2>9. Automatikus havi tételgenerálás</h2>
   <p>A Szolgáltatás minden hónap 1-jén automatikusan létrehozza az aktív bérlők bérleti díjtételeit és a beállított közös költség tételeit. Ezt a Felhasználó az "⚡ Hónap generálása" gombbal manuálisan is kezdeményezheti.</p>
