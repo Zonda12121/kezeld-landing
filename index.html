@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 .nav-links a{transition:color .15s}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:10px}
-.lang-btn{font-size:12px;font-weight:600;color:var(--text-sec);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:5px 10px;cursor:pointer;transition:all .15s;font-family:inherit}
+.lang-btn{font-size:12px;font-weight:600;color:var(--text-sec);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;min-height:36px;min-width:44px;cursor:pointer;transition:all .15s;font-family:inherit}
 .lang-btn:hover{background:var(--purple-light);color:var(--purple-dark);border-color:var(--purple-mid)}
 .nav-cta{background:var(--purple);color:#fff;padding:8px 18px;border-radius:9px;font-size:13.5px;font-weight:600;transition:all .2s;letter-spacing:-0.2px}
 .nav-cta:hover{background:var(--purple-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(127,119,221,0.35)}
@@ -96,7 +96,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 .feat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--purple-glow),transparent);opacity:0;transition:opacity .2s;pointer-events:none}
 .feat-card:hover{border-color:var(--purple-mid);transform:translateY(-3px);box-shadow:0 12px 40px rgba(127,119,221,0.12)}
 .feat-card:hover::before{opacity:1}
-.feat-icon{flex-shrink:0;width:52px;height:52px;background:linear-gradient(135deg,var(--purple-light),#dddaff);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 2px 8px rgba(127,119,221,0.15);position:relative;z-index:1}
+.feat-icon{flex-shrink:0;width:52px;height:52px;background:linear-gradient(135deg,var(--purple-light),#dddaff);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(127,119,221,0.15);position:relative;z-index:1}
+.feat-icon svg{width:26px;height:26px;stroke:var(--purple-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .feat-body{position:relative;z-index:1}
 .feat-title{font-size:16px;font-weight:800;margin-bottom:6px;letter-spacing:-0.3px;line-height:1.3}
 .feat-desc{font-size:13.5px;color:var(--text-sec);line-height:1.6}
@@ -143,16 +144,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 /* ── FAQ ── */
 .faq{padding:96px 24px;background:var(--surface)}
 .faq-list{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;cursor:pointer;transition:all .15s}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:0;transition:all .15s;list-style:none}
 .faq-item:hover{border-color:var(--purple-mid)}
-.faq-item.open{border-color:var(--purple-mid);box-shadow:0 4px 20px rgba(127,119,221,0.08)}
-.faq-q{font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:-0.2px}
+.faq-item[open]{border-color:var(--purple-mid);box-shadow:0 4px 20px rgba(127,119,221,0.08)}
+.faq-q{font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:-0.2px;cursor:pointer;padding:20px 24px;list-style:none}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q::marker{display:none}
 .faq-icon{width:26px;height:26px;background:var(--purple-light);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
-.faq-item.open .faq-icon{background:var(--purple);transform:rotate(45deg)}
+.faq-item[open] .faq-icon{background:var(--purple);transform:rotate(45deg)}
 .faq-icon svg{width:12px;height:12px;stroke:var(--purple);fill:none;stroke-width:2.5;transition:stroke .2s}
-.faq-item.open .faq-icon svg{stroke:#fff}
-.faq-a{font-size:14px;color:var(--text-sec);line-height:1.75;margin-top:14px;display:none;font-weight:400}
-.faq-item.open .faq-a{display:block}
+.faq-item[open] .faq-icon svg{stroke:#fff}
+.faq-a{font-size:14px;color:var(--text-sec);line-height:1.75;padding:0 24px 20px;font-weight:400}
 
 /* ── CTA ── */
 .cta{padding:96px 24px;text-align:center;position:relative;overflow:hidden}
@@ -185,7 +187,47 @@ footer a{color:var(--purple)}
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none}
   .hero-blob{animation:none !important}
+  .hero h1, .hero p, .hero-btns, .hero-mockup{animation:none !important;opacity:1}
+  .hero-badge-dot{animation:none !important}
+  .scroll-cue{animation:none !important}
+  .play-pulse{animation:none !important}
+  .feat-card:hover, .price-card:hover, .t-card:hover, .trust-pill:hover{transform:none !important}
+  *, *::before, *::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}
 }
+
+/* ── ACCESSIBILITY: focus rings (Priority 1 CRITICAL) ── */
+/* Globális focus-visible — keyboard usereknek (egéres click NEM aktiválja) */
+:focus{outline:none}
+:focus-visible{
+  outline:3px solid var(--purple);
+  outline-offset:2px;
+  border-radius:6px;
+}
+.btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible,
+.btn-white:focus-visible, .price-btn:focus-visible, .lang-btn:focus-visible{
+  outline:3px solid var(--purple-dark);
+  outline-offset:3px;
+}
+/* Dark gradient gombok: világos focus ring */
+.cta .btn-white:focus-visible, .price-card.featured .price-btn:focus-visible{
+  outline-color:#fff;
+}
+
+/* Skip-to-content — keyboard usereknek (Priority 1) */
+.skip-link{
+  position:absolute;
+  top:-100px;
+  left:8px;
+  z-index:10000;
+  background:var(--purple-dark);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+  transition:top .15s;
+}
+.skip-link:focus{top:8px}
 
 /* ── SCROLL PROGRESS BAR ── */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--purple-dark));z-index:9999;transition:width .1s ease-out;border-radius:0 3px 3px 0;box-shadow:0 0 12px rgba(127,119,221,0.5)}
@@ -250,7 +292,8 @@ footer a{color:var(--purple)}
 .mock-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.2)}
 .mock-list{padding:10px 12px;display:flex;flex-direction:column;gap:7px}
 .mock-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:11px;background:var(--bg)}
-.mock-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple-light),#dde0ff);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.mock-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple-light),#dde0ff);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mock-icon svg{width:20px;height:20px;stroke:var(--purple-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .mock-inf{flex:1;min-width:0}
 .mock-nm{font-size:12.5px;font-weight:700;color:var(--text)}
 .mock-sub{font-size:11px;color:var(--text-sec);margin-top:1px}
@@ -322,11 +365,14 @@ footer a{color:var(--purple)}
 })();
 </script>
 
+<!-- Skip to main content (Priority 1: keyboard a11y) -->
+<a href="#main-content" class="skip-link" data-i18n="skip_link">Ugrás a tartalomhoz</a>
+
 <!-- NAV -->
-<nav>
+<nav aria-label="Fő navigáció">
   <div class="nav-inner">
     <div class="nav-glass">
-      <div class="nav-logo">kezeld.hu</div>
+      <a href="#" class="nav-logo" aria-label="kezeld.hu — főoldal">kezeld.hu</a>
       <div class="nav-links">
         <a href="#funkciok" data-i18n="nav_features">Funkciók</a>
         <a href="#hogyan" data-i18n="nav_how">Hogyan működik</a>
@@ -334,12 +380,13 @@ footer a{color:var(--purple)}
         <a href="#gyik" data-i18n="nav_faq">GYIK</a>
       </div>
       <div class="nav-right">
-        <button class="lang-btn" onclick="toggleLang()" id="lang-btn">EN</button>
+        <button class="lang-btn" onclick="toggleLang()" id="lang-btn" aria-label="Nyelv váltása angolra" type="button">EN</button>
         <a href="https://app.kezeld.hu" class="nav-cta" data-i18n="nav_login">Belépés →</a>
       </div>
     </div>
   </div>
 </nav>
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero">
@@ -371,7 +418,7 @@ footer a{color:var(--purple)}
       </div>
       <div class="mock-list">
         <div class="mock-row">
-          <div class="mock-icon">🏠</div>
+          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <div class="mock-inf">
             <div class="mock-nm">Budapest XI. ker. · Fehérvári út 34.</div>
             <div class="mock-sub">Kovács Péter · 185 000 Ft/hó · szerz. lejár: 2026.08.31</div>
@@ -379,7 +426,7 @@ footer a{color:var(--purple)}
           <div class="mock-pill ok">Fizetve</div>
         </div>
         <div class="mock-row">
-          <div class="mock-icon">🏢</div>
+          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
           <div class="mock-inf">
             <div class="mock-nm">Debrecen · Piac utca 12. III/8.</div>
             <div class="mock-sub">Nagy Anna · 120 000 Ft/hó · szerz. lejár: 2026.12.01</div>
@@ -387,7 +434,7 @@ footer a{color:var(--purple)}
           <div class="mock-pill warn">Emlékeztető</div>
         </div>
         <div class="mock-row">
-          <div class="mock-icon">🏡</div>
+          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><path d="M2 10h20"/></svg></div>
           <div class="mock-inf">
             <div class="mock-nm">Győr · Nádorváros, Kossuth u. 5.</div>
             <div class="mock-sub">Tóth László · 95 000 Ft/hó · szerz. lejár: 2027.03.15</div>
@@ -414,12 +461,13 @@ footer a{color:var(--purple)}
         <div class="browser-dots"><span></span><span></span><span></span></div>
         <div class="browser-url">app.kezeld.hu</div>
       </div>
-      <div class="browser-video-wrap">
-        <video class="browser-video" id="demoVideo" controls poster="">
-          <source src="kezeld-generated.mp4?v=fix-20260506" type="video/mp4">
+      <div class="browser-video-wrap" style="aspect-ratio:16/9;background:#1e1c2e">
+        <video class="browser-video" id="demoVideo" controls preload="metadata" playsinline width="1280" height="720" aria-label="kezeld.hu bemutató videó">
+          <source src="kezeld-generated.mp4?v=fix-20260506#t=0.5" type="video/mp4">
+          <p>A böngésződ nem támogatja a HTML5 videót. <a href="kezeld-generated.mp4">Töltsd le a bemutatót.</a></p>
         </video>
-        <div class="video-play-hint" id="playHint">
-          <div class="play-pulse"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
+        <div class="video-play-hint" id="playHint" role="button" aria-label="Bemutató videó lejátszása" tabindex="0">
+          <div class="play-pulse" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
         </div>
       </div>
     </div>
@@ -451,7 +499,7 @@ footer a{color:var(--purple)}
   <p class="section-sub" data-i18n="feat_sub">Minden szolgáltatás egy konkrét probléma megoldására.</p>
   <div class="features-grid">
     <div class="feat-card reveal">
-      <div class="feat-icon">🏢</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M14 8h3"/><path d="M14 12h3"/><path d="M14 16h3"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f1_t">Minden ingatlanod egy helyen</div>
         <div class="feat-desc" data-i18n="f1_d">Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.</div>
@@ -459,7 +507,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">👤</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f2_t">Tudd ki, kinek, mennyit fizet</div>
         <div class="feat-desc" data-i18n="f2_d">Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.</div>
@@ -467,7 +515,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">💶</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f3_t">Színekkel jelzett bérleti díj-követés</div>
         <div class="feat-desc" data-i18n="f3_d">Zöld = fizetett. Piros = hiányzik. 5 másodperc alatt látod ki tartozik, és mennyit.</div>
@@ -475,7 +523,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">📱</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f4_t">QR-kódos hibabejelentő bérlőknek</div>
         <div class="feat-desc" data-i18n="f4_d">A bérlőd fotózva küldi be a problémát. Te 1 kattintással intézed.</div>
@@ -483,7 +531,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">📁</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f5_t">Sosem kell keresgélned</div>
         <div class="feat-desc" data-i18n="f5_d">Szerződések, biztosítások, számlák, képek mind egy helyen, ingatlanra szűrve.</div>
@@ -491,7 +539,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">📧</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f6_t">A rendszer szól időben</div>
         <div class="feat-desc" data-i18n="f6_d">Lejár a szerződés, biztosítás vagy díjcsúszás — emailben kapsz figyelmeztetést. Vasárnap is.</div>
@@ -499,7 +547,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">📝</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f7_t">3 perc alatt kész bérleti szerződés</div>
         <div class="feat-desc" data-i18n="f7_d">Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.</div>
@@ -507,7 +555,7 @@ footer a{color:var(--purple)}
       </div>
     </div>
     <div class="feat-card reveal">
-      <div class="feat-icon">📋</div>
+      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/><polyline points="16 7 12 3 8 7"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
       <div class="feat-body">
         <div class="feat-title" data-i18n="f8_t">Birtokbaadási jegyzőkönyv PDF-ben</div>
         <div class="feat-desc" data-i18n="f8_d">Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.</div>
@@ -689,30 +737,30 @@ footer a{color:var(--purple)}
   <div class="section-label" data-i18n="faq_label">GYIK</div>
   <h2 class="section-title" style="margin-bottom:48px" data-i18n="faq_title">Gyakori kérdések</h2>
   <div class="faq-list">
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq1_q">Mennyi ideig tart a beállítás?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq1_q">Mennyi ideig tart a beállítás?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq1_a">Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq2_q">Felmondhatom bármikor az előfizetést?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq2_q">Felmondhatom bármikor az előfizetést?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq2_a">Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq3_a">Slot bővítés esetén (új ingatlanhoz) a Stripe arányosan terhel a jelenlegi periódus hátralévő idejére — azonnal, automatikusan. Slot csökkentés a fiók beállításokban kezdeményezhető; ez a következő számlázási periódus elején lép életbe, addig a régi slot-szám díját fizeted. Havi ↔ éves intervallum-váltás szintén a periódus végén lép érvénybe.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq4_a">Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq5_q">Mobilon is működik?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq5_q">Mobilon is működik?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq5_a">Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><span data-i18n="faq6_q">Hány ingatlant kezelhetek?</span><div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></div>
+    </details>
+    <details class="faq-item">
+      <summary class="faq-q"><span data-i18n="faq6_q">Hány ingatlant kezelhetek?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq6_a">Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 990 Ft / slot / hó vagy 10 890 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).</div>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -734,6 +782,7 @@ footer a{color:var(--purple)}
   <button onclick="acceptCookies()" style="background:#7F77DD;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">Rendben</button>
 </div>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">kezeld.hu</div>
@@ -741,9 +790,7 @@ footer a{color:var(--purple)}
 </footer>
 
 <script>
-function toggleFaq(el){
-  el.classList.toggle('open');
-}
+// FAQ: natív <details>/<summary> elemekre váltottunk — toggleFaq függvényre nincs szükség.
 
 // ── Cookie banner ──
 function acceptCookies(){
@@ -847,12 +894,19 @@ billingToggle.addEventListener('click', () => { isYearly = !isYearly; updateBill
 lblMonthly.addEventListener('click', () => { isYearly = false; updateBilling(); });
 lblYearly.addEventListener('click', () => { isYearly = true; updateBilling(); });
 
-// ── Video play overlay ──
+// ── Video play overlay ── (Priority 1: keyboard support)
 (function(){
   const v = document.getElementById('demoVideo');
   const hint = document.getElementById('playHint');
   if(!v||!hint) return;
-  hint.addEventListener('click', ()=>{ v.play(); });
+  const play = () => { try { v.play(); } catch(e){} };
+  hint.addEventListener('click', play);
+  hint.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      play();
+    }
+  });
   v.addEventListener('play', ()=>hint.classList.add('hidden'));
   v.addEventListener('ended', ()=>hint.classList.remove('hidden'));
 })();
@@ -868,6 +922,7 @@ lblYearly.addEventListener('click', () => { isYearly = true; updateBilling(); })
 // ── i18n ──
 const translations = {
   hu: {
+    skip_link:'Ugrás a tartalomhoz',
     nav_features:'Funkciók', nav_how:'Hogyan működik', nav_pricing:'Árak', nav_faq:'GYIK', nav_login:'Belépés →',
     hero_badge:'7 napos ingyenes próba · Csak az után fizetsz amennyi ingatlanod van',
     hero_title:'Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span>',
@@ -931,6 +986,7 @@ const translations = {
     scroll_cue:'Görgess'
   },
   en: {
+    skip_link:'Skip to main content',
     nav_features:'Features', nav_how:'How it works', nav_pricing:'Pricing', nav_faq:'FAQ', nav_login:'Sign in →',
     hero_badge:'7-day free trial · choose from 3 plans',
     hero_title:'Manage your properties<br><span>smart and simple</span>',
@@ -999,7 +1055,9 @@ let currentLang = 'hu';
 
 function toggleLang(){
   currentLang = currentLang === 'hu' ? 'en' : 'hu';
-  document.getElementById('lang-btn').textContent = currentLang === 'hu' ? 'EN' : 'HU';
+  const btn = document.getElementById('lang-btn');
+  btn.textContent = currentLang === 'hu' ? 'EN' : 'HU';
+  btn.setAttribute('aria-label', currentLang === 'hu' ? 'Switch language to English' : 'Nyelv váltása magyarra');
   document.documentElement.lang = currentLang;
   const t = translations[currentLang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
