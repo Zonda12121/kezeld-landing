@@ -582,7 +582,29 @@ footer a{color:var(--purple)}
         <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f7">Email értesítések — bérlő és bérbeadó számára</span></li>
       </ul>
       <div style="margin-top:14px"><a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p1_btn">Ingyenes próba →</a></div>
-      <p style="font-size:12.5px;color:var(--text-sec);margin-top:14px;line-height:1.6" data-i18n="p1_extra">Slot bővítés esetén azonnal arányosan terhelünk a periódus hátralévő részére. Slot csökkentés a következő számlázási periódus elején lép életbe. Minimum 1 slot.</p>
+
+      <!-- Tisztességes arányos elszámolás kiemelése -->
+      <div style="margin-top:22px;padding:18px 20px;background:linear-gradient(135deg,rgba(127,119,221,0.08) 0%,rgba(127,119,221,0.03) 100%);border:1.5px solid rgba(127,119,221,0.25);border-radius:14px;text-align:left">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <span style="font-size:18px">⚖️</span>
+          <strong style="font-size:14.5px;color:var(--purple-dark);letter-spacing:.01em" data-i18n="prorate_title">Tisztességes arányos elszámolás</strong>
+        </div>
+        <ul style="list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--text);line-height:1.6">
+          <li style="display:flex;gap:8px;align-items:flex-start;margin-bottom:6px">
+            <span style="color:var(--purple);flex-shrink:0;font-weight:700">+</span>
+            <span data-i18n="prorate_p1"><strong>Slot bővítés mid-period:</strong> csak a periódus hátralévő részére fizetsz arányosan. Pl. egy havi slot a hónap felénél vásárolva = ~495 Ft, nem 990 Ft.</span>
+          </li>
+          <li style="display:flex;gap:8px;align-items:flex-start;margin-bottom:6px">
+            <span style="color:var(--purple);flex-shrink:0;font-weight:700">−</span>
+            <span data-i18n="prorate_p2"><strong>Slot csökkentés:</strong> a már kifizetett periódus végéig megtartod a slotot, utána lép életbe az új mennyiség. Nincs elveszett pénz.</span>
+          </li>
+          <li style="display:flex;gap:8px;align-items:flex-start">
+            <span style="color:var(--purple);flex-shrink:0;font-weight:700">⏱</span>
+            <span data-i18n="prorate_p3"><strong>Másodperc-pontos számítás:</strong> a Stripe a tényleges hátralévő időre vetít, így soha nem fizetsz többet a használtnál.</span>
+          </li>
+        </ul>
+        <p style="font-size:12px;color:var(--text-ter);margin-top:10px;margin-bottom:0;line-height:1.5" data-i18n="prorate_note">Minimum 1 slot · Automatikus megújulás · Bármikor lemondható</p>
+      </div>
     </div>
   </div>
 </section>
@@ -870,6 +892,11 @@ const translations = {
     p1_name:'Alap', p1_per:'Ft/hó', p1_note:'5 ingatlan · automatikusan megújul',
     p1_f1:'7 napos ingyenes próbaidő', p1_f2:'5 ingatlan kezelése', p1_f3:'Bérlő & bérleti díj nyilvántartása', p1_f4:'Hibabejelentés kezelés', p1_f5:'Email értesítések',
     p1_btn:'Ingyenes próba →',
+    prorate_title:'Tisztességes arányos elszámolás',
+    prorate_p1:'<strong>Slot bővítés mid-period:</strong> csak a periódus hátralévő részére fizetsz arányosan. Pl. egy havi slot a hónap felénél vásárolva = ~495 Ft, nem 990 Ft.',
+    prorate_p2:'<strong>Slot csökkentés:</strong> a már kifizetett periódus végéig megtartod a slotot, utána lép életbe az új mennyiség. Nincs elveszett pénz.',
+    prorate_p3:'<strong>Másodperc-pontos számítás:</strong> a Stripe a tényleges hátralévő időre vetít, így soha nem fizetsz többet a használtnál.',
+    prorate_note:'Minimum 1 slot · Automatikus megújulás · Bármikor lemondható',
     p2_name:'Pro', p2_per:'Ft/hó', p2_note:'15 ingatlan · automatikusan megújul',
     p2_f1:'7 napos ingyenes próbaidő', p2_f2:'15 ingatlan kezelése', p2_f3:'Minden Alap funkció', p2_f4:'Szerződés generálás', p2_f5:'Birtokbaadási jegyzőkönyv', p2_f6:'Dokumentum feltöltés',
     p2_btn:'Ingyenes próba →',
@@ -928,6 +955,11 @@ const translations = {
     p1_name:'Basic', p1_per:'/mo', p1_note:'5 properties · auto-renews monthly',
     p1_f1:'7-day free trial', p1_f2:'Manage 5 properties', p1_f3:'Tenant & rent registry', p1_f4:'Maintenance request handling', p1_f5:'Email notifications',
     p1_btn:'Start free trial →',
+    prorate_title:'Fair pay-as-you-go billing',
+    prorate_p1:'<strong>Mid-period slot upgrade:</strong> you only pay the prorated amount for the remaining days. E.g. adding a monthly slot halfway through the month = ~495 HUF, not 990 HUF.',
+    prorate_p2:'<strong>Slot downgrade:</strong> you keep the slot until the end of the already-paid period, the new quantity takes effect afterwards. No money lost.',
+    prorate_p3:'<strong>Second-precise calculation:</strong> Stripe prorates based on actual remaining time, so you never pay more than what you use.',
+    prorate_note:'Minimum 1 slot · Auto-renewal · Cancel anytime',
     p2_name:'Pro', p2_per:'/mo', p2_note:'15 properties · auto-renews monthly',
     p2_f1:'7-day free trial', p2_f2:'Manage 15 properties', p2_f3:'All Basic features', p2_f4:'Contract generation', p2_f5:'Handover protocol', p2_f6:'Document uploads',
     p2_btn:'Start free trial →',
