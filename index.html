@@ -484,7 +484,7 @@ footer a{color:var(--purple)}
     </div>
     <div>
       <div class="stat-num" data-i18n="stat2_num">990 Ft</div>
-      <div class="stat-lbl" data-i18n="stat2_lbl">választható előfizetési terv</div>
+      <div class="stat-lbl" data-i18n="stat2_lbl">ingatlanonként havonta</div>
     </div>
     <div>
       <div class="stat-num">24/7</div>
@@ -588,7 +588,7 @@ footer a{color:var(--purple)}
     <div class="step reveal">
       <div class="step-num">3</div>
       <div class="step-content">
-        <h3 data-i18n="s3_t">Kezeld mindezt egy helyen</h3>
+        <h3 data-i18n="s3_t">Kezelj mindent egy helyen</h3>
         <p data-i18n="s3_d">Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.</p>
       </div>
     </div>
@@ -726,10 +726,6 @@ footer a{color:var(--purple)}
     <details class="faq-item">
       <summary class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
       <div class="faq-a" data-i18n="faq3_a"><strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 990 Ft-os havi slot a hónap felénél vásárolva ≈ 495 Ft (nem 990 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq4_a">Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q"><span data-i18n="faq5_q">Mobilon is működik?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
@@ -906,7 +902,7 @@ const translations = {
     hero_title:'Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span>',
     hero_sub:'Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.',
     hero_cta1:'1 hetes ingyenes próba →', hero_cta2:'Árak megtekintése',
-    stat1_num:'1 hét', stat1_lbl:'ingyenes próbaidő', stat2_num:'3 csomag', stat2_lbl:'választható előfizetési terv', stat3_lbl:'elérhető bármikor, bárhol',
+    stat1_num:'1 hét', stat1_lbl:'ingyenes próbaidő', stat2_num:'990 Ft', stat2_lbl:'ingatlanonként havonta', stat3_lbl:'elérhető bármikor, bárhol',
     feat_label:'Mit kapsz', feat_title:'Eredmények, nem funkciók', feat_sub:'Minden szolgáltatás egy konkrét probléma megoldására.',
     f1_t:'Minden ingatlanod egy helyen', f1_d:'Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.', f1_r:'3 másodperc keresés',
     f2_t:'Tudd ki, kinek, mennyit fizet', f2_d:'Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.', f2_r:'5 mp alatt látod',
@@ -919,7 +915,7 @@ const translations = {
     how_label:'Hogyan működik', how_title:'3 lépés és kész',
     s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot, és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
     s2_t:'Add hozzá ingatlanod', s2_d:'Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 990 Ft/ingatlan/hó.',
-    s3_t:'Kezeld mindezt egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
+    s3_t:'Kezelj mindent egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
     price_label:'Árak', price_title:'Átlátható árazás', price_sub:'Nincs rejtett díj. Válaszd a számodra megfelelő csomagot.',
     price_badge:'Legnépszerűbb',
     p1_name:'Alap', p1_per:'Ft/hó', p1_note:'5 ingatlan · automatikusan megújul',
@@ -949,7 +945,6 @@ const translations = {
     faq1_q:'Mennyi ideig tart a beállítás?', faq1_a:'Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.',
     faq2_q:'Felmondhatom bármikor az előfizetést?', faq2_a:'Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.',
     faq3_q:'Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)', faq3_a:'<strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 990 Ft-os havi slot a hónap felénél vásárolva ≈ 495 Ft (nem 990 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.',
-    faq4_q:'Biztonságosak az adataim?', faq4_a:'Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.',
     faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
     faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 990 Ft / slot / hó vagy 10 890 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).',
     cta_title:'7 nap ingyenes — próbáld ki most!', cta_sub:'Regisztrálj és azonnal használd. 7 napos ingyenes próba, minden funkció, kötelezettség nélkül.',
@@ -965,7 +960,7 @@ const translations = {
     hero_title:'Manage your properties<br><span>smart and simple</span>',
     hero_sub:'Tenants, payments, maintenance requests, documents – all in one place. Save time and energy on administration.',
     hero_cta1:'Start free trial →', hero_cta2:'View pricing',
-    stat1_num:'1 week', stat1_lbl:'free trial period', stat2_num:'3 plans', stat2_lbl:'subscription tiers to choose from', stat3_lbl:'available anytime, anywhere',
+    stat1_num:'1 week', stat1_lbl:'free trial period', stat2_num:'990 HUF', stat2_lbl:'per property monthly', stat3_lbl:'available anytime, anywhere',
     feat_label:'What you get', feat_title:'Results, not features', feat_sub:'Every feature solves a real problem.',
     f1_t:'All your properties in one place', f1_d:"You'll never mix anything up — address, size, meters, documents, photos all in one place.", f1_r:'3-second search',
     f2_t:'Know who pays whom, how much', f2_d:'At a glance, from anywhere. Even on mobile. All your tenants in one table.', f2_r:'See it in 5 seconds',
@@ -1008,7 +1003,6 @@ const translations = {
     faq1_q:'How long does setup take?', faq1_a:'The system is immediately usable after registration and payment. Adding the first property and tenant takes 5-10 minutes.',
     faq2_q:'Can I cancel anytime?', faq2_a:'Yes, subscriptions can be cancelled at any time. After cancellation you still have access until the end of the month. No commitment, no hidden fees.',
     faq3_q:'How does my bill change when I add or remove a slot? (proration)', faq3_a:'<strong>Fair pay-as-you-go billing:</strong> you never pay more than what you use.<br><br><strong>Mid-period slot upgrade</strong> — Stripe prorates the charge based on the remaining time only. E.g. adding a 990 HUF monthly slot halfway through the month ≈ 495 HUF (not 990 HUF). Second-precise calculation.<br><br><strong>Slot downgrade</strong> — you keep the slot until the end of the already-paid period; only then does the new quantity take effect. No money lost.<br><br><strong>Monthly ↔ yearly interval switch</strong> — also takes effect at the period end, when the subscription renews at the new price.',
-    faq4_q:'Is my data secure?', faq4_a:'Data is stored by Supabase, which uses industry-standard encryption. Payments are handled by Stripe, which is PCI DSS compliant. Only you can access your data.',
     faq5_q:'Does it work on mobile?', faq5_a:'Yes, the system is fully responsive and works comfortably on mobile and tablet. No app download needed, accessible from any browser.',
     faq6_q:'How many properties can I manage?', faq6_a:'No limit. You only pay for what you use: 990 HUF / property / month or 10,890 HUF / property / year (1 month free). New properties are charged pro-rata; deletions are credited.',
     cta_title:'7 days free — try it now!', cta_sub:'Sign up and start immediately. 7-day free trial, all features, no commitment.',
