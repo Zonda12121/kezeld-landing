@@ -125,133 +125,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
 .save-badge{background:var(--purple-light);color:var(--purple-dark);font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:100px}
 .pricing-cards{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
 
-/* ── PRICING + PRORATE LAYOUT ── */
-/* Az árazás VALÓBAN középen — prorate abszolút helyzetben mellette jobbra "side note" stílusban */
-.pricing-layout{position:relative;max-width:460px;margin:0 auto}
-.pricing-layout > .price-card{margin:0}
-
-/* Prorate side-note: jobb oldali "ragasztott" infókártya, csak ≥1100px viewporton */
-.prorate-box{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:18px 18px;
-  display:flex;
-  flex-direction:column;
-}
-@media(min-width:1100px){
-  .prorate-box{
-    position:absolute;
-    top:14px;
-    left:calc(100% + 28px);
-    width:240px;
-    /* Halk háttér, hogy ne versengjen az árazással */
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-  }
-}
-@media(max-width:1099px){
-  /* Kisebb viewporton az árazás alá kerül, középre, kompakt */
-  .prorate-box{
-    margin:18px auto 0;
-    max-width:460px;
-  }
-}
-
-.prorate-head{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-bottom:14px;
-}
-.prorate-icon{
-  width:28px;
-  height:28px;
-  flex-shrink:0;
-  background:var(--purple-light);
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.prorate-icon svg{
-  width:15px;
-  height:15px;
-  stroke:var(--purple-dark);
-  fill:none;
-  stroke-width:1.8;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-.prorate-head strong{
-  font-size:12.5px;
-  font-weight:700;
-  color:var(--text);
-  letter-spacing:-0.1px;
-  line-height:1.3;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
-}
-.prorate-list{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:flex;
-  flex-direction:column;
-  gap:11px;
-}
-.prorate-list li{
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-}
-.prorate-bullet{
-  flex-shrink:0;
-  width:19px;
-  height:19px;
-  border-radius:5px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:11px;
-  font-weight:800;
-  line-height:1;
-  margin-top:2px;
-}
-.prorate-bullet.up{background:#EAF3DE;color:#3B6D11}
-.prorate-bullet.down{background:#FAEEDA;color:#854F0B}
-.prorate-bullet.time{background:var(--purple-light);color:var(--purple-dark)}
-.prorate-bullet.time svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.prorate-content{
-  display:flex;
-  flex-direction:column;
-  gap:1px;
-  font-size:12.5px;
-  line-height:1.5;
-}
-.prorate-content strong{
-  font-size:12.5px;
-  font-weight:700;
-  color:var(--text);
-  letter-spacing:-0.1px;
-}
-.prorate-text{
-  color:var(--text-sec);
-  font-weight:400;
-  font-size:12px;
-  line-height:1.55;
-}
-.prorate-foot{
-  margin:12px 0 0;
-  padding-top:10px;
-  border-top:1px solid var(--border);
-  font-size:11px;
-  color:var(--text-ter);
-  font-weight:500;
-  line-height:1.5;
-  text-align:center;
-}
 .price-card{border:1.5px solid var(--border);border-radius:18px;padding:32px;background:var(--card);position:relative;transition:all .2s}
 .price-card.featured{border-color:var(--purple);box-shadow:0 0 0 4px rgba(127,119,221,0.08),0 20px 60px rgba(127,119,221,0.12)}
 .price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;font-size:11.5px;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:0.2px}
@@ -591,7 +464,7 @@ footer a{color:var(--purple)}
       </div>
       <div class="browser-video-wrap" style="aspect-ratio:16/9;background:#1e1c2e">
         <video class="browser-video" id="demoVideo" controls preload="metadata" playsinline width="1280" height="720" aria-label="kezeld.hu bemutató videó">
-          <source src="kezeld-generated.mp4?v=fix-20260506#t=0.5" type="video/mp4">
+          <source src="kezeld-generated.mp4?v=v5-portal-bigger-20260528#t=0.5" type="video/mp4">
           <p>A böngésződ nem támogatja a HTML5 videót. <a href="kezeld-generated.mp4">Töltsd le a bemutatót.</a></p>
         </video>
         <div class="video-play-hint" id="playHint" role="button" aria-label="Bemutató videó lejátszása" tabindex="0">
@@ -735,8 +608,8 @@ footer a{color:var(--purple)}
     </div>
     <span id="lbl-yearly" data-i18n="bill_yearly">Éves (1 hónap ingyen)</span>
   </div>
-  <div class="pricing-layout">
-    <!-- Bal oldal: árazás kártya -->
+  <div class="pricing-cards" style="grid-template-columns:1fr;max-width:460px;margin:0 auto">
+    <!-- Egyetlen csomag: per-ingatlan slot -->
     <div class="price-card featured" style="text-align:center">
       <div class="price-badge" data-i18n="price_badge">Egyszerű árazás</div>
       <div class="price-name" data-i18n="p1_name">Ingatlan slot árazás</div>
@@ -759,33 +632,6 @@ footer a{color:var(--purple)}
       </ul>
       <div style="margin-top:14px"><a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p1_btn">Ingyenes próba →</a></div>
     </div>
-
-    <!-- Jobb oldal: tisztességes arányos elszámolás callout -->
-    <aside class="prorate-box" aria-labelledby="prorate-title">
-      <div class="prorate-head">
-        <div class="prorate-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7l-3 7h6z"/><path d="M19 7l3 7h-6z"/><path d="M2 14a3 3 0 1 0 6 0"/><path d="M16 14a3 3 0 1 0 6 0"/><path d="M5 21h14"/><path d="M5 7l14-2"/></svg>
-        </div>
-        <strong id="prorate-title" data-i18n="prorate_title">Tisztességes arányos elszámolás</strong>
-      </div>
-      <ul class="prorate-list">
-        <li>
-          <span class="prorate-bullet up" aria-hidden="true">＋</span>
-          <span class="prorate-content"><strong data-i18n="prorate_p1_lbl">Slot bővítés mid-period</strong><span class="prorate-text" data-i18n="prorate_p1_desc">Csak a periódus hátralévő részére fizetsz arányosan. Pl. egy havi slot a hónap felénél vásárolva = ~495 Ft, nem 990 Ft.</span></span>
-        </li>
-        <li>
-          <span class="prorate-bullet down" aria-hidden="true">−</span>
-          <span class="prorate-content"><strong data-i18n="prorate_p2_lbl">Slot csökkentés</strong><span class="prorate-text" data-i18n="prorate_p2_desc">A már kifizetett periódus végéig megtartod a slotot, utána lép életbe az új mennyiség. Nincs elveszett pénz.</span></span>
-        </li>
-        <li>
-          <span class="prorate-bullet time" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </span>
-          <span class="prorate-content"><strong data-i18n="prorate_p3_lbl">Másodperc-pontos számítás</strong><span class="prorate-text" data-i18n="prorate_p3_desc">A Stripe a tényleges hátralévő időre vetít, így soha nem fizetsz többet a használtnál.</span></span>
-        </li>
-      </ul>
-      <p class="prorate-foot" data-i18n="prorate_note">Minimum 1 slot · Automatikus megújulás · Bármikor lemondható</p>
-    </aside>
   </div>
 </section>
 
@@ -878,8 +724,8 @@ footer a{color:var(--purple)}
       <div class="faq-a" data-i18n="faq2_a">Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.</div>
     </details>
     <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq3_a">Slot bővítés esetén (új ingatlanhoz) a Stripe arányosan terhel a jelenlegi periódus hátralévő idejére — azonnal, automatikusan. Slot csökkentés a fiók beállításokban kezdeményezhető; ez a következő számlázási periódus elején lép életbe, addig a régi slot-szám díját fizeted. Havi ↔ éves intervallum-váltás szintén a periódus végén lép érvénybe.</div>
+      <summary class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
+      <div class="faq-a" data-i18n="faq3_a"><strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 990 Ft-os havi slot a hónap felénél vásárolva ≈ 495 Ft (nem 990 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.</div>
     </details>
     <details class="faq-item">
       <summary class="faq-q"><span data-i18n="faq4_q">Biztonságosak az adataim?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
@@ -1079,14 +925,6 @@ const translations = {
     p1_name:'Alap', p1_per:'Ft/hó', p1_note:'5 ingatlan · automatikusan megújul',
     p1_f1:'7 napos ingyenes próbaidő', p1_f2:'5 ingatlan kezelése', p1_f3:'Bérlő & bérleti díj nyilvántartása', p1_f4:'Hibabejelentés kezelés', p1_f5:'Email értesítések',
     p1_btn:'Ingyenes próba →',
-    prorate_title:'Tisztességes arányos elszámolás',
-    prorate_p1_lbl:'Slot bővítés mid-period',
-    prorate_p1_desc:'Csak a periódus hátralévő részére fizetsz arányosan. Pl. egy havi slot a hónap felénél vásárolva = ~495 Ft, nem 990 Ft.',
-    prorate_p2_lbl:'Slot csökkentés',
-    prorate_p2_desc:'A már kifizetett periódus végéig megtartod a slotot, utána lép életbe az új mennyiség. Nincs elveszett pénz.',
-    prorate_p3_lbl:'Másodperc-pontos számítás',
-    prorate_p3_desc:'A Stripe a tényleges hátralévő időre vetít, így soha nem fizetsz többet a használtnál.',
-    prorate_note:'Minimum 1 slot · Automatikus megújulás · Bármikor lemondható',
     p2_name:'Pro', p2_per:'Ft/hó', p2_note:'15 ingatlan · automatikusan megújul',
     p2_f1:'7 napos ingyenes próbaidő', p2_f2:'15 ingatlan kezelése', p2_f3:'Minden Alap funkció', p2_f4:'Szerződés generálás', p2_f5:'Birtokbaadási jegyzőkönyv', p2_f6:'Dokumentum feltöltés',
     p2_btn:'Ingyenes próba →',
@@ -1110,7 +948,7 @@ const translations = {
     faq_label:'GYIK', faq_title:'Gyakori kérdések',
     faq1_q:'Mennyi ideig tart a beállítás?', faq1_a:'Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.',
     faq2_q:'Felmondhatom bármikor az előfizetést?', faq2_a:'Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.',
-    faq3_q:'Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor?', faq3_a:'Slot bővítés esetén (új ingatlanhoz) a Stripe arányosan terhel a jelenlegi periódus hátralévő idejére — azonnal, automatikusan. Slot csökkentés a fiók beállításokban kezdeményezhető; ez a következő számlázási periódus elején lép életbe, addig a régi slot-szám díját fizeted. Havi ↔ éves intervallum-váltás szintén a periódus végén lép érvénybe.',
+    faq3_q:'Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)', faq3_a:'<strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 990 Ft-os havi slot a hónap felénél vásárolva ≈ 495 Ft (nem 990 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.',
     faq4_q:'Biztonságosak az adataim?', faq4_a:'Az adatokat Supabase tárolja, amely ipari szabványú titkosítást alkalmaz. A fizetéseket a Stripe kezeli, amely PCI DSS szabványnak megfelelő. Az adataid csak te érheted el.',
     faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
     faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 990 Ft / slot / hó vagy 10 890 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).',
@@ -1146,14 +984,6 @@ const translations = {
     p1_name:'Basic', p1_per:'/mo', p1_note:'5 properties · auto-renews monthly',
     p1_f1:'7-day free trial', p1_f2:'Manage 5 properties', p1_f3:'Tenant & rent registry', p1_f4:'Maintenance request handling', p1_f5:'Email notifications',
     p1_btn:'Start free trial →',
-    prorate_title:'Fair pay-as-you-go billing',
-    prorate_p1_lbl:'Mid-period slot upgrade',
-    prorate_p1_desc:'You only pay the prorated amount for the remaining days. E.g. adding a monthly slot halfway through the month = ~495 HUF, not 990 HUF.',
-    prorate_p2_lbl:'Slot downgrade',
-    prorate_p2_desc:'You keep the slot until the end of the already-paid period, the new quantity takes effect afterwards. No money lost.',
-    prorate_p3_lbl:'Second-precise calculation',
-    prorate_p3_desc:'Stripe prorates based on actual remaining time, so you never pay more than what you use.',
-    prorate_note:'Minimum 1 slot · Auto-renewal · Cancel anytime',
     p2_name:'Pro', p2_per:'/mo', p2_note:'15 properties · auto-renews monthly',
     p2_f1:'7-day free trial', p2_f2:'Manage 15 properties', p2_f3:'All Basic features', p2_f4:'Contract generation', p2_f5:'Handover protocol', p2_f6:'Document uploads',
     p2_btn:'Start free trial →',
@@ -1177,7 +1007,7 @@ const translations = {
     faq_label:'FAQ', faq_title:'Frequently asked questions',
     faq1_q:'How long does setup take?', faq1_a:'The system is immediately usable after registration and payment. Adding the first property and tenant takes 5-10 minutes.',
     faq2_q:'Can I cancel anytime?', faq2_a:'Yes, subscriptions can be cancelled at any time. After cancellation you still have access until the end of the month. No commitment, no hidden fees.',
-    faq3_q:'Can I switch plans later?', faq3_a:'Yes, you can upgrade or downgrade your plan at any time from account settings. You can choose immediate switching (with prorated charge or credit) or end-of-period switching — the latter takes effect when the current billing period ends.',
+    faq3_q:'How does my bill change when I add or remove a slot? (proration)', faq3_a:'<strong>Fair pay-as-you-go billing:</strong> you never pay more than what you use.<br><br><strong>Mid-period slot upgrade</strong> — Stripe prorates the charge based on the remaining time only. E.g. adding a 990 HUF monthly slot halfway through the month ≈ 495 HUF (not 990 HUF). Second-precise calculation.<br><br><strong>Slot downgrade</strong> — you keep the slot until the end of the already-paid period; only then does the new quantity take effect. No money lost.<br><br><strong>Monthly ↔ yearly interval switch</strong> — also takes effect at the period end, when the subscription renews at the new price.',
     faq4_q:'Is my data secure?', faq4_a:'Data is stored by Supabase, which uses industry-standard encryption. Payments are handled by Stripe, which is PCI DSS compliant. Only you can access your data.',
     faq5_q:'Does it work on mobile?', faq5_a:'Yes, the system is fully responsive and works comfortably on mobile and tablet. No app download needed, accessible from any browser.',
     faq6_q:'How many properties can I manage?', faq6_a:'No limit. You only pay for what you use: 990 HUF / property / month or 10,890 HUF / property / year (1 month free). New properties are charged pro-rata; deletions are credited.',
