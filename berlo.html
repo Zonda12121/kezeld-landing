@@ -946,20 +946,24 @@ async function submitMeroora(){
 
 // Bérbeadó által definíált mérők betöltése (ingatlanhoz tartozó mérőszámok)
 async function loadIngatlanMerok(){
+  const empty = document.getElementById('mo-info-empty');
+  const cfg = [
+    {tipus:'aram_nappali', wrapId:'mo-aram-nap-wrap', infoId:'mo-aram-nap-info'},
+    {tipus:'aram_ejjeli', wrapId:'mo-aram-ej-wrap', infoId:'mo-aram-ej-info'},
+    {tipus:'gaz', wrapId:'mo-gaz-wrap', infoId:'mo-gaz-info'},
+    {tipus:'viz_hideg', wrapId:'mo-viz-hideg-wrap', infoId:'mo-viz-hideg-info'},
+    {tipus:'viz_meleg', wrapId:'mo-viz-meleg-wrap', infoId:'mo-viz-meleg-info'},
+  ];
   try{
     const r = await fetch(BACKEND+'/berlo/ingatlan-meroorak?token='+encodeURIComponent(TOKEN));
-    if(!r.ok) throw new Error('Hiba');
+    if(!r.ok){
+      const errData = await r.json().catch(()=>({}));
+      throw new Error(errData.error || ('HTTP '+r.status));
+    }
     const data = await r.json();
     const merok = data.meroorak || [];
     const map = {};
     for(const m of merok){ map[m.tipus] = m; }
-    const cfg = [
-      {tipus:'aram_nappali', wrapId:'mo-aram-nap-wrap', infoId:'mo-aram-nap-info'},
-      {tipus:'aram_ejjeli', wrapId:'mo-aram-ej-wrap', infoId:'mo-aram-ej-info'},
-      {tipus:'gaz', wrapId:'mo-gaz-wrap', infoId:'mo-gaz-info'},
-      {tipus:'viz_hideg', wrapId:'mo-viz-hideg-wrap', infoId:'mo-viz-hideg-info'},
-      {tipus:'viz_meleg', wrapId:'mo-viz-meleg-wrap', infoId:'mo-viz-meleg-info'},
-    ];
     let anyMero = false;
     for(const c of cfg){
       const m = map[c.tipus];
@@ -976,10 +980,25 @@ async function loadIngatlanMerok(){
         wrap.style.display = 'none';
       }
     }
-    const empty = document.getElementById('mo-info-empty');
-    if(empty) empty.style.display = anyMero ? 'none' : 'block';
+    if(empty){
+      empty.style.display = anyMero ? 'none' : 'block';
+      if(!anyMero) empty.textContent = t('A bérbeadó még nem adott meg mérőórákat. Kérlek vedd fel velük a kapcsolatot.');
+    }
+    // Debug info az oldal jobb alsó sarkára (ha üres lista)
+    if(!anyMero){
+      console.log('[mero-debug] backend visszaadott:', data, '— ha üresnek tűnik, ellenőrizd a Supabase táblát');
+    }
   }catch(e){
-    console.warn('Mérők betöltése:', e);
+    console.warn('Mérők betöltése sikertelen:', e);
+    // Ne hagyjuk hogy a felhasználó ne tudja mi történt
+    for(const c of cfg){
+      const wrap = document.getElementById(c.wrapId);
+      if(wrap) wrap.style.display = 'none';
+    }
+    if(empty){
+      empty.style.display = 'block';
+      empty.textContent = t('Hiba a mérők betöltésénél: ')+(e.message||'ismeretlen');
+    }
   }
 }
 
