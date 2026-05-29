@@ -243,6 +243,22 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
           <label data-t="Megjegyzés (opcionális)">Megjegyzés (opcionális)</label>
           <textarea id="mo-megj" rows="2" data-t-placeholder="pl. furcsa hangot ad a villanyóra" placeholder="pl. furcsa hangot ad a villanyóra"></textarea>
         </div>
+
+        <div class="fgrp">
+          <label data-t="Fénykép a mérőóráról (opcionális)">Fénykép a mérőóráról (opcionális)</label>
+          <div id="mo-foto-area">
+            <input type="file" id="mo-foto-input" accept="image/*" capture="environment" style="display:none" onchange="handleMeroFotoSelect(this)">
+            <button type="button" class="btn-s" style="width:100%;padding:14px;background:var(--card);border:2px dashed var(--border);border-radius:var(--r-md);color:var(--text-sec);cursor:pointer;font-family:inherit;font-size:13px" onclick="document.getElementById('mo-foto-input').click()">
+              📷 <span data-t="Fénykép készítése / kiválasztása">Fénykép készítése / kiválasztása</span>
+            </button>
+          </div>
+          <div id="mo-foto-preview" style="display:none;margin-top:8px;position:relative">
+            <img id="mo-foto-img" src="" style="width:100%;max-height:240px;object-fit:cover;border-radius:var(--r-md);border:1px solid var(--border)">
+            <button type="button" onclick="clearMeroFoto()" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.72);color:#fff;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px">×</button>
+            <div id="mo-foto-name" style="font-size:11.5px;color:var(--text-ter);margin-top:6px;text-align:center"></div>
+          </div>
+        </div>
+
         <button class="btn btn-p" onclick="submitMeroora()" id="mo-btn" data-t="Beküldés" style="width:100%">Beküldés</button>
       </div>
       <div class="card">
@@ -921,6 +937,42 @@ document.getElementById('msg-input').addEventListener('keydown', function(e){
 });
 
 // ── Mérőóra ──
+// Helper-ek a mérőóra fotó kezeléséhez
+let _meroFotoFile = null;
+
+function handleMeroFotoSelect(input){
+  const file = input.files?.[0];
+  if(!file) return;
+  // Max 10 MB
+  if(file.size > 10 * 1024 * 1024){
+    showToast(t('A fájl maximum 10 MB lehet.'),'error');
+    input.value = '';
+    return;
+  }
+  if(!file.type.startsWith('image/')){
+    showToast(t('Csak képet tölthetsz fel.'),'error');
+    input.value = '';
+    return;
+  }
+  _meroFotoFile = file;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('mo-foto-img').src = e.target.result;
+    document.getElementById('mo-foto-name').textContent = file.name + ' · ' + Math.round(file.size/1024) + ' KB';
+    document.getElementById('mo-foto-preview').style.display = 'block';
+    document.getElementById('mo-foto-area').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearMeroFoto(){
+  _meroFotoFile = null;
+  document.getElementById('mo-foto-input').value = '';
+  document.getElementById('mo-foto-img').src = '';
+  document.getElementById('mo-foto-preview').style.display = 'none';
+  document.getElementById('mo-foto-area').style.display = 'block';
+}
+
 async function submitMeroora(){
   const honap = document.getElementById('mo-honap').value;
   if(!honap){ showToast(t('Hónap kötelező'),'error'); return; }
@@ -939,6 +991,23 @@ async function submitMeroora(){
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span>';
   try{
+    // Ha van fotó, először feltöltjük → URL-t kapunk
+    if(_meroFotoFile){
+      const fd = new FormData();
+      fd.append('file', _meroFotoFile);
+      fd.append('token', TOKEN);
+      const upRes = await fetch(BACKEND+'/berlo/upload-bizonylat',{ method:'POST', body: fd });
+      if(!upRes.ok){
+        const j = await upRes.json().catch(()=>({}));
+        throw new Error(j.error || t('Fotó feltöltési hiba'));
+      }
+      const upData = await upRes.json();
+      if(upData.url){
+        payload.foto_url = upData.url;
+        // A bucket nevét is mentjük (dokumentumok) hogy később signed URL-t lehessen generálni
+        payload.foto_bucket = 'dokumentumok';
+      }
+    }
     const r = await fetch(BACKEND+'/berlo/meroora',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -949,7 +1018,8 @@ async function submitMeroora(){
       throw new Error(j.error || t('Beküldési hiba'));
     }
     showToast(t('Mérőóra beküldve, köszönjük!'),'success');
-    ['mo-villany','mo-villany-ej','mo-gaz','mo-viz','mo-megj'].forEach(id => document.getElementById(id).value = '');
+    ['mo-villany','mo-villany-ej','mo-gaz','mo-viz','mo-megj','mo-homennyiseg'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+    clearMeroFoto();
     loadMerooraHistory();
   }catch(e){
     showToast(e.message,'error');
