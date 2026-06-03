@@ -1,0 +1,44 @@
+# kezeld.hu
+
+> Magyar ingatlankezelő SaaS szoftver egyéni bérbeadóknak (1–50 ingatlan).
+
+## Mi ez?
+
+A kezeld.hu egy webalapú ingatlankezelő alkalmazás, amelyet magyar egyéni bérbeadóknak fejlesztettünk. Segít a bérlők, bérleti díjak, mérőórák, hibabejelentések és dokumentumok kezelésében — egy helyen, egyszerűen.
+
+## Főbb funkciók
+
+- Bérlők és ingatlanok nyilvántartása
+- Bérleti díjak automatikus generálása és követése
+- Bérlői portál: a bérlő token-alapú linken keresztül bejelentheti a befizetését, mérőóra-állást küldhet, hibabejelentést tehet
+- Mérőóra-rendszer (villany, gáz, víz, hőmennyiség) fotó feltöltéssel
+- Közüzemi számlák és kaució nyilvántartása
+- Dokumentumtár és bérleti szerződés generálás
+- Automatikus email értesítések bérlőknek és bérbeadóknak
+- Heti összefoglaló riport
+- Negyedéves és éves pénzügyi kimutatások
+- Stripe-alapú előfizetés, Billingo számlázás
+
+## Árazás
+
+- Havi: 990 Ft / ingatlan / hónap
+- Éves: 10 890 Ft / ingatlan / év (1 hónap ingyen)
+- 7 napos ingyenes próbaidőszak, max 5 ingatlan
+
+## Kinek ajánlott?
+
+Magyar egyéni bérbeadóknak akik 1–50 ingatlant kezelnek és szeretnék digitalizálni a bérbeadással járó adminisztrációt.
+
+## Technológia
+
+- Felhőalapú (SaaS), nincs telepítés
+- Mobilon és asztali böngészőn is működik
+- Magyar nyelven, Ft-ban számlázva
+- GDPR-kompatibilis, EU-n belüli adattárolás (Frankfurt)
+- Elektronikus számlázás (Billingo + NAV Online Számla)
+
+## Elérhetőség
+
+- Weboldal: https://kezeld.hu
+- App: https://app.kezeld.hu
+- Kapcsolat: info@kezeld.hu
