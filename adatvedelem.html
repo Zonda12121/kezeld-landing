@@ -246,10 +246,10 @@ footer a{color:var(--purple)}
   <p>Kérelmét az <a href="mailto:info@kezeld.hu">info@kezeld.hu</a> e-mail-címre küldheti. A kérelmeket 30 napon belül teljesítjük.</p>
   <p>Panasz esetén a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat: <a href="https://www.naih.hu" target="_blank" rel="noopener">www.naih.hu</a></p>
 
-  <h2>6. Sütik (cookie-k)</h2>
-  <p>Az oldal működéséhez szükséges sütiket (munkamenet-azonosítók, bejelentkezési állapot) használunk. Ezek a sütik nem igényelnek hozzájárulást, mivel a szolgáltatás működéséhez elengedhetetlenek.</p>
+  <h2>6. Sütik (cookie-k) és böngésző-tároló</h2>
+  <p>Az oldal működéséhez szükséges böngésző-tárolót (sessionStorage és localStorage) használunk a bejelentkezési állapot és felhasználói beállítások (nyelv, téma) tárolásához. Ezek kizárólag a saját böngészőjében tárolódnak, szerverre nem kerülnek átküldésre minden kérésnél. Saját HTTP sütit nem állítunk be — kivéve, amikor a Cloudflare biztonsági szolgáltatása (DDoS védelem, Turnstile CAPTCHA) átmeneti, kizárólag biztonsági célú sütit használ (<code>__cf_bm</code>, <code>cf_chl_*</code>), valamint amikor a Stripe fizetési felülete bekapcsol a csalásmegelőzéshez (<code>__stripe_mid</code>, <code>__stripe_sid</code>). Ezek a sütik az ePrivacy irányelv és a GDPR szerint feltétlenül szükségesnek minősülnek, így nem igényelnek hozzájárulást.</p>
   <p>Harmadik fél marketing- vagy nyomkövetési sütiket nem alkalmazunk.</p>
-  <p>A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts (bunny.net) szolgáltatón keresztül töltjük be, amely nem osztja meg az Ön IP-címét harmadik féllel, és megfelel a GDPR követelményeinek.</p>
+  <p>A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts (bunny.net) szolgáltatón keresztül töltjük be, amely nem osztja meg az Ön IP-címét harmadik féllel, és nem állít be sütit.</p>
 
   <h2>7. Adatbiztonság</h2>
   <p>Az adatokat titkosított kapcsolaton (HTTPS/TLS) keresztül közöljük. A Supabase adatbázis nyugalmi titkosítást (AES-256) alkalmaz. A jelszavak bcrypt hash-eléssel tárolódnak. A bérlők által feltöltött fájlok és bizonylatok privát tárolóban (Supabase Storage privát bucket) találhatók, csak rövid lejáratú, aláírt URL-en keresztül érhetők el. Az érzékeny műveletek auditálva vannak. Az adatok tárolása a Supabase infrastrukturális szintű redundanciájával történik; az infrastruktúra-szolgáltató mentési és helyreállítási kapacitásairól a vonatkozó szolgáltatói feltételek tájékoztatnak.</p>
