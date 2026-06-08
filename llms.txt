@@ -23,7 +23,7 @@ A kezeld.hu egy webalapú ingatlankezelő alkalmazás, amelyet magyar egyéni b�
 
 - Havi: 1190 Ft / ingatlan / hónap
 - Éves: 13 090 Ft / ingatlan / év (1 hónap ingyen)
-- 7 napos ingyenes próbaidőszak, max 5 ingatlan
+- 7 napos ingyenes próbaidőszak, korlátlan ingatlannal
 
 ## Kinek ajánlott?
 
