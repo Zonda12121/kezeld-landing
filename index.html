@@ -2,23 +2,26 @@
 <html lang="hu">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAFAF9">
 <title>kezeld.hu – Ingatlankezelő szoftver bérbeadóknak | 1190 Ft/hó</title>
 <meta name="description" content="Kezeld bérlőidet, bérleti díjaidat, mérőórákat és hibabejelentéseket egy helyen. Magyar ingatlankezelő szoftver egyéni bérbeadóknak. 7 napos ingyenes próba, 1190 Ft/ingatlan/hó.">
+<meta name="keywords" content="ingatlankezelő szoftver, bérbeadó, lakáskezelő, magyar SaaS, bérleti díj, lakás kezelés, ingatlan menedzsment">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://kezeld.hu/">
+
 <!-- Open Graph (Facebook, LinkedIn megosztáshoz) -->
 <meta property="og:title" content="kezeld.hu – Ingatlankezelő szoftver bérbeadóknak">
 <meta property="og:description" content="Bérlők, bérleti díjak, mérőórák, hibabejelentések — egy helyen. 7 napos ingyenes próba.">
 <meta property="og:url" content="https://kezeld.hu/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="hu_HU">
+
 <!-- Twitter/X kártya -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kezeld.hu – Ingatlankezelő szoftver bérbeadóknak">
 <meta name="twitter:description" content="Bérlők, bérleti díjak, mérőórák, hibabejelentések — egy helyen. 7 napos ingyenes próba.">
-<link rel="preconnect" href="https://fonts.bunny.net">
-<link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900&display=swap" rel="stylesheet">
+
 <!-- Strukturált adat (Schema.org) — AI és Google számára -->
 <script type="application/ld+json">
 {
@@ -58,354 +61,1067 @@
   }
 }
 </script>
+
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc3176de08c54bd687c3d4f77936e287"}'></script>
-<!-- End Cloudflare Web Analytics -->
+
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --purple:#7F77DD;
-  --purple-light:#EEEDFE;
-  --purple-dark:#534AB7;
-  --purple-mid:#AFA9EC;
-  --purple-glow:rgba(127,119,221,0.15);
-  --text:#1a1a18;
-  --text-sec:#6b6b67;
-  --bg:#f5f4f0;
-  --card:#ffffff;
-  --border:#e0ddd6;
-  --surface:#f0ede8;
-  --radius:14px;
-}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
+  --bg:#FAFAF9;
+  --bg-elev:#FFFFFF;
+  --bg-dark:#0B0F1A;
+  --bg-dark-elev:#141A2B;
+  --surface:#F4F4F5;
+  --card:#FFFFFF;
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
-.nav-glass{background:rgba(245,244,240,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(224,221,214,0.8);border-radius:16px;margin-top:12px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;width:100%;height:52px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
-.nav-logo{font-size:18px;font-weight:800;color:var(--purple);letter-spacing:-0.5px}
-.nav-links{display:flex;gap:28px;font-size:13.5px;color:var(--text-sec);font-weight:500}
-.nav-links a{transition:color .15s}
+  --text:#18181B;
+  --text-2:#52525B;
+  --text-3:#A1A1AA;
+  --text-on-dark:#F4F4F5;
+  --text-on-dark-2:#A1A1AA;
+
+  --border:#E4E4E7;
+  --border-2:#F4F4F5;
+  --border-dark:#27272A;
+
+  --accent:#047857;
+  --accent-hover:#065F46;
+  --accent-light:#ECFDF5;
+  --accent-bright:#10B981;
+  --accent-300:#6EE7B7;
+  --amber:#F59E0B;
+  --green-bg:#D1FAE5;
+  --red-bg:#FEE2E2;
+  --red-txt:#DC2626;
+
+  --radius:14px;
+  --radius-lg:20px;
+  --radius-sm:8px;
+  --radius-pill:999px;
+
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04),0 1px 1px rgba(0,0,0,.02);
+  --shadow:0 4px 14px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.03);
+  --shadow-lg:0 24px 60px -12px rgba(15,23,42,.18),0 8px 16px -8px rgba(15,23,42,.1);
+  --shadow-xl:0 32px 80px -20px rgba(4,120,87,.25);
+
+  --max:1180px;
+  --max-narrow:920px;
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+img,svg,video{display:block;max-width:100%}
+
+.skip{position:absolute;top:-40px;left:8px;background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;z-index:1000;font-weight:600;font-size:13px}
+.skip:focus{top:8px}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:14px 24px;
+  transition:background .25s ease,border-color .25s ease,backdrop-filter .25s ease;
+}
+nav.scrolled{
+  background:rgba(250,250,249,.85);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.5px;color:var(--text)}
+.brand-mark{width:34px;height:34px;flex:none}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--text-2)}
+.nav-links a{transition:color .15s ease}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:10px}
-.lang-btn{font-size:12px;font-weight:600;color:var(--text-sec);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 14px;min-height:36px;min-width:44px;cursor:pointer;transition:all .15s;font-family:inherit}
-.lang-btn:hover{background:var(--purple-light);color:var(--purple-dark);border-color:var(--purple-mid)}
-.nav-cta{background:var(--purple);color:#fff;padding:8px 18px;border-radius:9px;font-size:13.5px;font-weight:600;transition:all .2s;letter-spacing:-0.2px}
-.nav-cta:hover{background:var(--purple-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(127,119,221,0.35)}
+.lang-btn{
+  background:#fff;border:1px solid var(--border);
+  padding:7px 12px;border-radius:var(--radius-pill);
+  font-size:12.5px;font-weight:600;color:var(--text-2);
+  display:inline-flex;align-items:center;gap:5px;
+  transition:border-color .15s ease,background .15s ease,color .15s ease;
+}
+.lang-btn:hover{border-color:var(--text);color:var(--text)}
+.lang-btn svg{width:14px;height:14px}
+.nav-cta{
+  background:var(--text);color:#fff;
+  padding:9px 18px;border-radius:var(--radius-pill);
+  font-weight:600;font-size:14px;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:background .2s ease,transform .15s ease;
+}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px)}
+@media(max-width:760px){.nav-links{display:none}}
 
-/* ── HERO ── */
-.hero{padding:148px 24px 100px;text-align:center;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,#EEEDFE 0%,#f5f4f0 65%);z-index:0}
-.hero-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.45;z-index:0}
-.hero-blob-1{width:500px;height:500px;background:radial-gradient(circle,#c4bff8,transparent);top:-100px;left:-100px}
-.hero-blob-2{width:400px;height:400px;background:radial-gradient(circle,#b8d4ff,transparent);top:0;right:-80px}
-.hero-content{position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid rgba(127,119,221,0.25);color:var(--purple-dark);font-size:13px;font-weight:600;padding:7px 16px;border-radius:100px;margin-bottom:28px;box-shadow:0 2px 12px rgba(127,119,221,0.12)}
-.hero-badge-dot{width:7px;height:7px;background:var(--purple);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}
-.hero h1{font-size:clamp(40px,5.5vw,72px);font-weight:900;line-height:1.1;margin-bottom:24px;letter-spacing:-2px}
-.hero h1 span{color:var(--purple)}
-.hero p{font-size:18px;color:var(--text-sec);max-width:520px;margin:0 auto 40px;line-height:1.75;font-weight:400}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
-.btn-primary{background:linear-gradient(135deg,var(--purple) 0%,var(--purple-dark) 100%);color:#fff;padding:15px 30px;border-radius:11px;font-size:16px;font-weight:700;transition:all .2s;display:inline-block;box-shadow:0 4px 20px rgba(127,119,221,0.4);letter-spacing:-0.3px}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(127,119,221,0.5)}
-.btn-secondary{background:#fff;color:var(--text);padding:15px 30px;border-radius:11px;font-size:16px;font-weight:600;border:1px solid var(--border);transition:all .2s;display:inline-block}
-.btn-secondary:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-1px)}
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#fff;
+  font-weight:600;font-size:15.5px;
+  padding:13px 24px;border-radius:var(--radius-pill);
+  transition:background .2s ease,transform .15s ease,box-shadow .2s ease;
+  box-shadow:0 1px 2px rgba(0,0,0,.06),inset 0 1px 0 rgba(255,255,255,.12);
+}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(4,120,87,.45)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary .arrow{transition:transform .2s ease}
+.btn-primary:hover .arrow{transform:translateX(3px)}
 
-/* ── VIDEO MOCKUP ── */
-.video-section-wrap{background:var(--bg);padding:48px 24px 72px}
-.video-outer{max-width:960px;margin:0 auto;position:relative}
-.video-outer::before{content:'';position:absolute;inset:-40px;background:radial-gradient(ellipse at 50% 60%,rgba(127,119,221,0.1) 0%,transparent 65%);z-index:0;pointer-events:none}
-.video-label-top{text-align:center;margin-bottom:24px;position:relative;z-index:1}
-.video-label-top span{background:var(--purple-light);border:1px solid var(--purple-mid);color:var(--purple-dark);font-size:12px;font-weight:600;padding:5px 14px;border-radius:100px;letter-spacing:0.5px;text-transform:uppercase}
-.browser-frame{position:relative;z-index:1;background:#2a2840;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.15),0 0 0 1px rgba(0,0,0,0.08)}
-.browser-bar{background:#343050;padding:11px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.browser-dots{display:flex;gap:6px}
-.browser-dots span{width:11px;height:11px;border-radius:50%}
-.browser-dots span:nth-child(1){background:#ff5f57}
-.browser-dots span:nth-child(2){background:#febc2e}
-.browser-dots span:nth-child(3){background:#28c840}
-.browser-url{flex:1;background:rgba(255,255,255,0.08);border-radius:5px;padding:4px 12px;font-size:11.5px;color:rgba(255,255,255,0.5);font-family:monospace;text-align:center}
-.browser-video-wrap{background:#1e1c2e;padding:0 10px 10px}
-.browser-video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--text);font-weight:600;font-size:14.5px;
+  padding:13px 22px;border-radius:var(--radius-pill);
+  border:1px solid var(--border);background:#fff;
+  transition:border-color .15s ease,background .15s ease;
+}
+.btn-ghost:hover{border-color:var(--text);background:var(--surface)}
 
-/* ── STATS ── */
-.stats{padding:56px 24px;border-top:3px solid var(--purple-light);border-bottom:1px solid var(--border);background:var(--card);box-shadow:0 -8px 32px rgba(127,119,221,0.08)}
-.stats-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
-.stat-num{font-size:38px;font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,var(--purple),var(--purple-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-lbl{font-size:14px;color:var(--text-sec);margin-top:4px;font-weight:500}
-.stat-divider{width:1px;background:var(--border);display:block}
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero{
+  position:relative;
+  padding:140px 24px 80px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(70% 50% at 50% 0%,rgba(4,120,87,.08) 0%,transparent 70%),
+    radial-gradient(40% 40% at 90% 30%,rgba(245,158,11,.06) 0%,transparent 60%);
+}
+.hero-grid{
+  max-width:var(--max);margin:0 auto;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid var(--border);
+  padding:7px 16px;border-radius:var(--radius-pill);
+  font-size:13px;font-weight:500;color:var(--text-2);
+  margin-bottom:28px;
+  box-shadow:var(--shadow-sm);
+}
+.hero-badge .star{color:var(--amber);font-size:13px}
+.hero h1{
+  font-size:clamp(34px,5.2vw,60px);
+  font-weight:800;letter-spacing:-1.5px;line-height:1.05;
+  color:var(--text);margin-bottom:22px;
+}
+.hero h1 .accent{
+  background:linear-gradient(120deg,var(--accent) 0%,var(--accent-bright) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  font-size:clamp(15px,1.5vw,18px);color:var(--text-2);
+  max-width:520px;line-height:1.65;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.hero-fine{font-size:13px;color:var(--text-3)}
+.hero-fine svg{display:inline;vertical-align:-2px;margin-right:4px}
+@media(max-width:880px){
+  .hero{padding:120px 20px 60px}
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+}
 
-/* ── FEATURES ── */
-.features{padding:96px 24px;background:var(--bg)}
-.section-label{font-size:12px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1.5px;text-align:center;margin-bottom:14px}
-.section-title{font-size:clamp(28px,3vw,42px);font-weight:900;text-align:center;margin-bottom:14px;letter-spacing:-1px}
-.section-sub{font-size:16px;color:var(--text-sec);text-align:center;max-width:520px;margin:0 auto 60px;line-height:1.7}
-.features-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
-.feat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .2s;position:relative;overflow:hidden;display:flex;gap:16px;align-items:flex-start}
-.feat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--purple-glow),transparent);opacity:0;transition:opacity .2s;pointer-events:none}
-.feat-card:hover{border-color:var(--purple-mid);transform:translateY(-3px);box-shadow:0 12px 40px rgba(127,119,221,0.12)}
-.feat-card:hover::before{opacity:1}
-.feat-icon{flex-shrink:0;width:52px;height:52px;background:linear-gradient(135deg,var(--purple-light),#dddaff);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(127,119,221,0.15);position:relative;z-index:1}
-.feat-icon svg{width:26px;height:26px;stroke:var(--purple-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.feat-body{position:relative;z-index:1}
-.feat-title{font-size:16px;font-weight:800;margin-bottom:6px;letter-spacing:-0.3px;line-height:1.3}
-.feat-desc{font-size:13.5px;color:var(--text-sec);line-height:1.6}
-.feat-result{display:inline-block;margin-top:10px;background:#EAF3DE;color:#3B6D11;font-size:12px;font-weight:700;padding:4px 11px;border-radius:100px;letter-spacing:.01em}
+/* ── HERO VIDEO ──────────────────────────────────────────────── */
+.hero-video-wrap{
+  position:relative;
+  border-radius:var(--radius-lg);
+  background:#fff;border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  animation:floatHero 6s ease-in-out infinite;
+}
+@keyframes floatHero{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.video-titlebar{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  background:linear-gradient(to bottom,#FAFAFA,#F4F4F5);
+}
+.vt-dot{width:11px;height:11px;border-radius:50%;background:#E4E4E7}
+.vt-dot.r{background:#FCA5A5}.vt-dot.y{background:#FCD34D}.vt-dot.g{background:#86EFAC}
+.vt-url{
+  flex:1;margin-left:8px;font-size:11.5px;color:var(--text-3);
+  background:#fff;border:1px solid var(--border);border-radius:6px;
+  padding:4px 10px;text-align:center;
+}
+.hero-video{
+  width:100%;height:auto;aspect-ratio:16/9;
+  background:#0B0F1A;display:block;
+}
 
-/* ── HOW IT WORKS ── */
-.how{padding:96px 24px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)}
-.steps{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:0}
-.step{display:flex;gap:24px;align-items:flex-start;position:relative}
-.step:not(:last-child)::after{content:'';position:absolute;left:19px;top:48px;width:2px;height:calc(100% - 16px);background:linear-gradient(to bottom,var(--purple-mid),transparent);z-index:0}
-.step-num{min-width:40px;height:40px;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;box-shadow:0 4px 16px rgba(127,119,221,0.4);position:relative;z-index:1}
-.step-content{padding-bottom:40px}
-.step-content h3{font-size:17px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px}
-.step-content p{font-size:14px;color:var(--text-sec);line-height:1.7}
+/* ── SECTION SCAFFOLD ────────────────────────────────────────── */
+section{padding:96px 24px}
+.section-inner{max-width:var(--max);margin:0 auto}
+.section-inner.narrow{max-width:var(--max-narrow)}
+.eyebrow{
+  display:inline-block;
+  font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--accent);background:var(--accent-light);
+  padding:6px 12px;border-radius:var(--radius-pill);
+  margin-bottom:18px;
+}
+.section-title{
+  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.15;
+  color:var(--text);margin-bottom:14px;max-width:680px;
+}
+.section-title.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-sub{
+  font-size:17px;color:var(--text-2);max-width:600px;line-height:1.6;
+}
+.section-sub.center{margin-left:auto;margin-right:auto;text-align:center}
 
-/* ── PRICING ── */
-.pricing{padding:96px 24px;background:var(--bg)}
-.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px}
-.billing-toggle span{font-size:14px;font-weight:500;color:var(--text-sec);cursor:pointer;transition:color .15s}
-.billing-toggle span.active{color:var(--text);font-weight:600}
-.toggle-wrap{width:44px;height:24px;background:var(--purple);border-radius:100px;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
-.toggle-knob{position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,0.15)}
-.toggle-wrap.monthly .toggle-knob{transform:translateX(0)}
-.toggle-wrap.yearly .toggle-knob{transform:translateX(20px)}
-.save-badge{background:var(--purple-light);color:var(--purple-dark);font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:100px}
-.pricing-cards{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+.reveal.delay-1{transition-delay:.1s}
+.reveal.delay-2{transition-delay:.2s}
+.reveal.delay-3{transition-delay:.3s}
 
-.price-card{border:1.5px solid var(--border);border-radius:18px;padding:32px;background:var(--card);position:relative;transition:all .2s}
-.price-card.featured{border-color:var(--purple);box-shadow:0 0 0 4px rgba(127,119,221,0.08),0 20px 60px rgba(127,119,221,0.12)}
-.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;font-size:11.5px;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:0.2px}
-.price-name{font-size:13px;font-weight:600;color:var(--text-sec);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.8px}
-.price-amount{font-size:44px;font-weight:900;letter-spacing:-2px;margin-bottom:4px;line-height:1}
-.price-amount span{font-size:16px;font-weight:500;color:var(--text-sec);letter-spacing:0}
-.price-note{font-size:13px;color:var(--text-sec);margin-bottom:28px;font-weight:500}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
-.price-features li{font-size:14px;display:flex;gap:10px;align-items:flex-start;font-weight:500}
-.price-check{width:18px;height:18px;background:var(--purple-light);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.price-check svg{width:11px;height:11px;stroke:var(--purple-dark);fill:none;stroke-width:3}
-.price-btn{display:block;text-align:center;padding:14px;border-radius:11px;font-size:15px;font-weight:700;transition:all .2s;cursor:pointer;border:none;font-family:inherit;letter-spacing:-0.2px}
-.price-btn.primary{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;box-shadow:0 4px 16px rgba(127,119,221,0.35)}
-.price-btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(127,119,221,0.45)}
-.price-btn.secondary{background:var(--bg);color:var(--text);border:1.5px solid var(--border)}
-.price-btn.secondary:hover{border-color:var(--purple);color:var(--purple)}
+/* ── PROBLEM SECTION ─────────────────────────────────────────── */
+.problem{background:var(--bg-dark);color:var(--text-on-dark);padding:96px 24px}
+.problem .section-title{color:var(--text-on-dark);max-width:780px;margin-inline:auto;text-align:center}
+.problem .eyebrow{color:var(--accent-300);background:rgba(4,120,87,.18)}
+.problem-list{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;
+}
+@media(max-width:880px){.problem-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.problem-list{grid-template-columns:1fr}}
+.problem-card{
+  background:var(--bg-dark-elev);border:1px solid var(--border-dark);
+  border-radius:var(--radius);padding:22px 20px;
+  display:flex;flex-direction:column;gap:10px;
+  transition:border-color .25s ease,transform .25s ease;
+}
+.problem-card:hover{border-color:rgba(110,231,183,.35);transform:translateY(-2px)}
+.problem-card .ico{
+  width:38px;height:38px;border-radius:10px;
+  background:rgba(220,38,38,.12);color:#FCA5A5;
+  display:flex;align-items:center;justify-content:center;
+}
+.problem-card .ico svg{width:20px;height:20px}
+.problem-card h3{font-size:15px;font-weight:600;color:var(--text-on-dark)}
+.problem-card p{font-size:13.5px;color:var(--text-on-dark-2);line-height:1.55}
+.problem-tag{
+  margin:50px auto 0;max-width:660px;text-align:center;
+  font-size:19px;font-weight:600;color:var(--accent-300);
+  padding:24px 28px;border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);
+  letter-spacing:-.3px;
+}
 
-/* ── FAQ ── */
-.faq{padding:96px 24px;background:var(--surface)}
-.faq-list{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:0;transition:all .15s;list-style:none}
-.faq-item:hover{border-color:var(--purple-mid)}
-.faq-item[open]{border-color:var(--purple-mid);box-shadow:0 4px 20px rgba(127,119,221,0.08)}
-.faq-q{font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:16px;letter-spacing:-0.2px;cursor:pointer;padding:20px 24px;list-style:none}
+/* ── SOLUTION SECTION ────────────────────────────────────────── */
+.solution{padding:120px 24px 96px;background:linear-gradient(to bottom,var(--bg) 0%,#fff 100%)}
+.solution-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:54px;
+}
+@media(max-width:820px){.solution-grid{grid-template-columns:1fr}}
+.feature-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:32px;overflow:hidden;position:relative;
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+.feature-card:hover{border-color:var(--accent-300);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.feature-card h3{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:6px}
+.feature-card .outcome{font-size:14px;color:var(--text-2);margin-bottom:24px;line-height:1.55}
+.feature-visual{
+  height:320px;border-radius:var(--radius);
+  background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+
+/* Visual 1: Payment matrix */
+.matrix-vis{
+  display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(3,1fr);
+  gap:6px;padding:24px;width:100%;height:100%;
+}
+.matrix-cell{
+  background:#fff;border:1px solid var(--border);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text-3);font-weight:600;
+}
+.matrix-cell.paid{animation:cellPaid 10s ease-in-out infinite}
+.matrix-cell.expected{animation:cellExpected 10s ease-in-out infinite}
+.matrix-cell.missing{animation:cellMissing 10s ease-in-out infinite}
+@keyframes cellPaid{
+  0%,5%{background:#fff;border-color:var(--border);color:var(--text-3)}
+  10%,90%{background:var(--green-bg);border-color:var(--accent-300);color:var(--accent)}
+  95%,100%{background:#fff;border-color:var(--border);color:var(--text-3)}
+}
+@keyframes cellExpected{
+  0%,5%{background:#fff;border-color:var(--border);color:var(--text-3)}
+  10%,90%{background:#FEF3C7;border-color:#FCD34D;color:#92400E}
+  95%,100%{background:#fff;border-color:var(--border);color:var(--text-3)}
+}
+@keyframes cellMissing{
+  0%,5%{background:#fff;border-color:var(--border);color:var(--text-3)}
+  10%,90%{background:var(--red-bg);border-color:#FCA5A5;color:var(--red-txt)}
+  95%,100%{background:#fff;border-color:var(--border);color:var(--text-3)}
+}
+.matrix-cell:nth-child(1){animation-delay:.0s}
+.matrix-cell:nth-child(2){animation-delay:.12s}
+.matrix-cell:nth-child(3){animation-delay:.24s}
+.matrix-cell:nth-child(4){animation-delay:.36s}
+.matrix-cell:nth-child(5){animation-delay:.48s}
+.matrix-cell:nth-child(6){animation-delay:.6s}
+.matrix-cell:nth-child(7){animation-delay:.08s}
+.matrix-cell:nth-child(8){animation-delay:.2s}
+.matrix-cell:nth-child(9){animation-delay:.32s}
+.matrix-cell:nth-child(10){animation-delay:.44s}
+.matrix-cell:nth-child(11){animation-delay:.56s}
+.matrix-cell:nth-child(12){animation-delay:.68s}
+.matrix-cell:nth-child(13){animation-delay:.16s}
+.matrix-cell:nth-child(14){animation-delay:.28s}
+.matrix-cell:nth-child(15){animation-delay:.4s}
+.matrix-cell:nth-child(16){animation-delay:.52s}
+.matrix-cell:nth-child(17){animation-delay:.64s}
+.matrix-cell:nth-child(18){animation-delay:.76s}
+
+/* Visual 2: Phone with maintenance request */
+.phone-vis{
+  width:155px;height:240px;
+  background:#1F2937;border-radius:24px;padding:8px;
+  box-shadow:0 12px 30px -10px rgba(0,0,0,.3);
+  transform:rotate(-5deg);
+  animation:phoneFloat 4s ease-in-out infinite;
+}
+@keyframes phoneFloat{
+  0%,100%{transform:rotate(-5deg) translateY(0)}
+  50%{transform:rotate(-5deg) translateY(-6px)}
+}
+.phone-screen{background:#fff;border-radius:18px;height:100%;padding:14px 12px;position:relative;overflow:hidden}
+.phone-header{font-size:9.5px;font-weight:700;color:var(--text);margin-bottom:8px}
+.phone-card{
+  background:var(--surface);border-radius:8px;
+  padding:8px 10px;margin-bottom:6px;
+  display:flex;flex-direction:column;gap:3px;
+  opacity:0;transform:translateY(8px);
+  animation:phoneCardIn .5s ease-out forwards;
+}
+.phone-card:nth-of-type(1){animation-delay:.5s}
+.phone-card:nth-of-type(2){animation-delay:1.3s}
+.phone-card:nth-of-type(3){animation-delay:2.1s;background:var(--accent-light);border:1px solid var(--accent-300);}
+@keyframes phoneCardIn{
+  to{opacity:1;transform:translateY(0)}
+}
+.phone-card .pc-title{font-size:9px;font-weight:600;color:var(--text)}
+.phone-card .pc-meta{font-size:8px;color:var(--text-3)}
+.phone-badge{
+  position:absolute;top:14px;right:14px;
+  width:14px;height:14px;border-radius:50%;
+  background:#DC2626;color:#fff;
+  font-size:8px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;animation:badgeIn .5s ease-out 2.1s forwards;
+}
+@keyframes badgeIn{
+  0%{opacity:0;transform:scale(0)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* Visual 3: Documents stacking */
+.docs-vis{position:relative;width:200px;height:170px}
+.doc-card{
+  position:absolute;left:50%;top:50%;
+  width:120px;height:140px;background:#fff;border:1px solid var(--border);border-radius:8px;
+  box-shadow:0 4px 12px -4px rgba(0,0,0,.08);
+  padding:14px 12px;
+  display:flex;flex-direction:column;gap:6px;
+  animation:docStack 5s ease-in-out infinite;
+}
+.doc-card .stripe{height:3px;border-radius:2px;background:var(--surface)}
+.doc-card .stripe.s1{width:80%}
+.doc-card .stripe.s2{width:60%}
+.doc-card .stripe.s3{width:90%}
+.doc-card .label{
+  margin-top:auto;font-size:9px;font-weight:700;color:var(--accent);
+  padding:3px 6px;background:var(--accent-light);border-radius:4px;
+  display:inline-block;align-self:flex-start;
+}
+.doc-card:nth-child(1){transform:translate(-50%,-50%) rotate(-12deg) translateX(-30px);animation-delay:0s}
+.doc-card:nth-child(2){transform:translate(-50%,-50%) rotate(0deg);animation-delay:.3s}
+.doc-card:nth-child(3){transform:translate(-50%,-50%) rotate(12deg) translateX(30px);animation-delay:.6s}
+@keyframes docStack{
+  0%,100%{opacity:1}
+  50%{transform:translate(-50%,-50%) rotate(0deg) scale(.98)}
+}
+
+/* Visual 4: Calendar reminder — bulletproof kompakt cellák */
+.cal-vis{
+  width:420px;max-width:100%;height:280px;
+  background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:18px;display:flex;flex-direction:column;gap:8px;
+  position:relative;
+  box-shadow:0 4px 16px -8px rgba(0,0,0,.08);
+  box-sizing:border-box;
+}
+.cal-head{font-size:14px;font-weight:700;color:var(--text);text-align:center;margin-bottom:2px;letter-spacing:-.3px;flex:none}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;flex:1;min-height:0}
+.cal-day{
+  background:var(--surface);border-radius:5px;
+  font-size:10.5px;line-height:1;color:var(--text-3);
+  display:flex;align-items:center;justify-content:center;font-weight:600;
+  min-width:0;overflow:hidden;
+  padding:2px;
+}
+.cal-day.head{background:transparent;color:var(--text-3);font-size:9.5px;font-weight:700;letter-spacing:.3px;padding:0}
+.cal-day.has{background:#fff;color:var(--text);border:1px solid var(--border)}
+.cal-day.event{background:var(--accent);color:#fff;animation:eventPulse 2s ease-in-out infinite}
+@keyframes eventPulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.15);box-shadow:0 0 0 6px rgba(16,185,129,.18)}
+}
+.cal-pill{
+  position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  background:var(--bg-dark);color:#fff;
+  font-size:10px;font-weight:600;padding:5px 12px;border-radius:var(--radius-pill);
+  white-space:nowrap;
+  animation:pillSlide 3s ease-in-out infinite;
+}
+@keyframes pillSlide{
+  0%,30%{opacity:0;transform:translateX(-50%) translateY(4px)}
+  40%,80%{opacity:1;transform:translateX(-50%) translateY(0)}
+  90%,100%{opacity:0;transform:translateX(-50%) translateY(4px)}
+}
+.cal-pill svg{display:inline;vertical-align:-2px;margin-right:4px;width:11px;height:11px}
+
+/* ── BENEFITS ────────────────────────────────────────────────── */
+.benefits{padding:96px 24px;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.benefit-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;
+}
+@media(max-width:880px){.benefit-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.benefit-grid{grid-template-columns:1fr}}
+.benefit-card{
+  padding:28px 24px;border-radius:var(--radius-lg);
+  background:var(--bg);border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:10px;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.benefit-card:hover{transform:translateY(-3px);border-color:var(--accent-300)}
+.benefit-card .ico{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-bright) 100%);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  margin-bottom:6px;
+}
+.benefit-card .ico svg{width:22px;height:22px}
+.benefit-card h3{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.benefit-card p{font-size:14px;color:var(--text-2);line-height:1.55}
+
+/* ── HOGYAN MŰKÖDIK ──────────────────────────────────────────── */
+.how{padding:96px 24px}
+.how-grid{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:28px;align-items:start;
+  margin-top:54px;
+}
+@media(max-width:880px){
+  .how-grid{grid-template-columns:1fr;gap:48px}
+  .arrow-between{display:none}
+}
+.step{display:flex;flex-direction:column;gap:14px;position:relative}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-bright) 100%);
+  color:#fff;font-size:20px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 20px -8px rgba(4,120,87,.45);
+}
+.step h3{font-size:19px;font-weight:700;letter-spacing:-.3px;color:var(--text)}
+.step p{font-size:15px;color:var(--text-2);line-height:1.6}
+
+/* Átvezetés-nyíl a lépések KÖZÖTT, animált szaggatott vonallal */
+.arrow-between{
+  display:flex;align-items:center;justify-content:center;
+  padding-top:14px;
+  color:var(--accent-300);min-width:80px;
+}
+.arrow-between svg{width:88px;height:28px;overflow:visible}
+.arrow-between .line{
+  stroke-dasharray:5 5;
+  animation:dashFlow 1.6s linear infinite;
+}
+.arrow-between .head{stroke-linejoin:round;stroke-linecap:round}
+@keyframes dashFlow{
+  to{stroke-dashoffset:-20}
+}
+
+/* ── PRICING ─────────────────────────────────────────────────── */
+.pricing{padding:96px 24px;background:linear-gradient(to bottom,#fff 0%,var(--bg) 100%)}
+.price-card{
+  max-width:480px;margin:54px auto 0;
+  background:#fff;border:1.5px solid var(--accent);border-radius:var(--radius-lg);
+  padding:36px 32px;text-align:center;
+  box-shadow:0 24px 60px -20px rgba(4,120,87,.2);
+  position:relative;overflow:hidden;
+}
+.price-card::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 50% at 50% 0%,rgba(16,185,129,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.price-badge{
+  display:inline-block;
+  background:var(--accent-light);color:var(--accent);
+  font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:18px;
+}
+.price-amount{font-size:48px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:var(--text)}
+.price-amount .unit{font-size:16px;font-weight:500;color:var(--text-2);letter-spacing:0}
+.price-yearly{font-size:13.5px;color:var(--text-2);margin-top:8px}
+.price-yearly strong{color:var(--accent);font-weight:700}
+.price-features{
+  margin:28px 0;padding:22px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:11px;list-style:none;text-align:left;
+}
+.price-features li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--text)}
+.price-features li svg{flex:none;color:var(--accent);width:18px;height:18px}
+.price-cta{display:flex;flex-direction:column;align-items:center;gap:8px}
+.price-cta .btn-primary{width:100%;justify-content:center}
+.price-cta .fine{font-size:12.5px;color:var(--text-3)}
+
+/* ── TRUST ───────────────────────────────────────────────────── */
+.trust{padding:96px 24px}
+.trust-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;
+}
+@media(max-width:880px){.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.trust-grid{grid-template-columns:1fr}}
+.trust-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px 22px;
+  display:flex;flex-direction:column;gap:8px;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.trust-card:hover{transform:translateY(-2px);border-color:var(--accent-300)}
+.trust-card .emoji{font-size:26px}
+.trust-card h3{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.trust-card p{font-size:13.5px;color:var(--text-2);line-height:1.55}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq{padding:96px 24px;background:#fff;border-top:1px solid var(--border)}
+.faq-list{max-width:720px;margin:54px auto 0;display:flex;flex-direction:column;gap:10px}
+.faq-item{
+  background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);
+  transition:border-color .2s ease,background .2s ease;
+}
+.faq-item[open]{border-color:var(--accent-300);background:#fff}
+.faq-q{
+  list-style:none;cursor:pointer;
+  padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:15.5px;font-weight:600;color:var(--text);
+}
 .faq-q::-webkit-details-marker{display:none}
-.faq-q::marker{display:none}
-.faq-icon{width:26px;height:26px;background:var(--purple-light);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
-.faq-item[open] .faq-icon{background:var(--purple);transform:rotate(45deg)}
-.faq-icon svg{width:12px;height:12px;stroke:var(--purple);fill:none;stroke-width:2.5;transition:stroke .2s}
-.faq-item[open] .faq-icon svg{stroke:#fff}
-.faq-a{font-size:14px;color:var(--text-sec);line-height:1.75;padding:0 24px 20px;font-weight:400}
-
-/* ── CTA ── */
-.cta{padding:96px 24px;text-align:center;position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--purple-dark) 0%,#3d35a8 50%,var(--purple) 100%);z-index:0}
-.cta-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.3;z-index:0}
-.cta-blob-1{width:400px;height:400px;background:#a89fff;top:-100px;right:-100px}
-.cta-blob-2{width:300px;height:300px;background:#6c63ff;bottom:-80px;left:-80px}
-.cta-content{position:relative;z-index:1}
-.cta h2{font-size:clamp(30px,3.5vw,48px);font-weight:900;color:#fff;margin-bottom:16px;letter-spacing:-1.5px}
-.cta p{font-size:17px;color:rgba(255,255,255,0.75);margin-bottom:40px;font-weight:400}
-.btn-white{background:#fff;color:var(--purple-dark);padding:15px 32px;border-radius:11px;font-size:16px;font-weight:700;display:inline-block;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,0.15);letter-spacing:-0.3px}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,0.2)}
-.cta-note{margin-top:20px;font-size:13px;color:rgba(255,255,255,0.5);font-weight:500}
-
-/* ── FOOTER ── */
-footer{padding:40px 24px;border-top:1px solid var(--border);text-align:center;background:var(--bg)}
-.footer-logo{font-size:16px;font-weight:800;color:var(--purple);margin-bottom:8px;letter-spacing:-0.5px}
-footer p{font-size:13px;color:var(--text-sec);font-weight:400}
-footer a{color:var(--purple)}
-
-/* ── SCROLL REVEAL ── */
-.reveal{opacity:0;transform:translateY(32px) scale(0.97);transition:opacity .9s cubic-bezier(.16,.84,.32,1),transform .9s cubic-bezier(.16,.84,.32,1);will-change:opacity,transform}
-.reveal.in{opacity:1;transform:none}
-.reveal.delay-1{transition-delay:.08s}
-.reveal.delay-2{transition-delay:.16s}
-.reveal.delay-3{transition-delay:.24s}
-.reveal.delay-4{transition-delay:.32s}
-.reveal.delay-5{transition-delay:.40s}
-.reveal.delay-6{transition-delay:.48s}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .hero-blob{animation:none !important}
-  .hero h1, .hero p, .hero-btns, .hero-mockup{animation:none !important;opacity:1}
-  .hero-badge-dot{animation:none !important}
-  .scroll-cue{animation:none !important}
-  .play-pulse{animation:none !important}
-  .feat-card:hover, .price-card:hover, .t-card:hover, .trust-pill:hover{transform:none !important}
-  *, *::before, *::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important}
+.faq-q .ico{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--surface);color:var(--text-2);
+  display:flex;align-items:center;justify-content:center;flex:none;
+  transition:transform .25s ease,background .2s ease,color .2s ease;
 }
+.faq-item[open] .faq-q .ico{transform:rotate(45deg);background:var(--accent);color:#fff}
+.faq-a{padding:0 22px 22px;font-size:14.5px;color:var(--text-2);line-height:1.65}
 
-/* ── ACCESSIBILITY: focus rings (Priority 1 CRITICAL) ── */
-/* Globális focus-visible — keyboard usereknek (egéres click NEM aktiválja) */
-:focus{outline:none}
-:focus-visible{
-  outline:3px solid var(--purple);
-  outline-offset:2px;
-  border-radius:6px;
+/* ── FINAL CTA ───────────────────────────────────────────────── */
+.cta-final{padding:96px 24px;background:var(--bg-dark);color:var(--text-on-dark);position:relative;overflow:hidden}
+.cta-final::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(50% 50% at 50% 100%,rgba(16,185,129,.18) 0%,transparent 60%),
+    radial-gradient(30% 30% at 90% 10%,rgba(245,158,11,.06) 0%,transparent 60%);
 }
-.btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible,
-.btn-white:focus-visible, .price-btn:focus-visible, .lang-btn:focus-visible{
-  outline:3px solid var(--purple-dark);
-  outline-offset:3px;
+.cta-inner{max-width:720px;margin:0 auto;text-align:center;position:relative}
+.cta-final h2{
+  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.15;
+  color:var(--text-on-dark);margin-bottom:14px;
 }
-/* Dark gradient gombok: világos focus ring */
-.cta .btn-white:focus-visible, .price-card.featured .price-btn:focus-visible{
-  outline-color:#fff;
+.cta-final h2 .accent{
+  background:linear-gradient(120deg,var(--accent-300) 0%,var(--accent-bright) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
 }
-
-/* Skip-to-content — keyboard usereknek (Priority 1) */
-.skip-link{
-  position:absolute;
-  top:-100px;
-  left:8px;
-  z-index:10000;
-  background:var(--purple-dark);
-  color:#fff;
-  padding:10px 20px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:600;
-  transition:top .15s;
+.cta-final p{font-size:17px;color:var(--text-on-dark-2);max-width:560px;margin:0 auto 28px;line-height:1.6}
+.cta-bullets{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
+  margin-bottom:32px;font-size:14px;color:var(--text-on-dark);
 }
-.skip-link:focus{top:8px}
+.cta-bullets span{display:inline-flex;align-items:center;gap:6px}
+.cta-bullets svg{color:var(--accent-300);width:16px;height:16px}
+.cta-final .btn-primary{font-size:17px;padding:16px 30px;background:var(--accent-bright)}
+.cta-final .btn-primary:hover{background:#fff;color:var(--accent)}
 
-/* ── SCROLL PROGRESS BAR ── */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--purple),var(--purple-dark));z-index:9999;transition:width .1s ease-out;border-radius:0 3px 3px 0;box-shadow:0 0 12px rgba(127,119,221,0.5)}
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var(--border-dark);color:var(--text-on-dark-2)}
+.foot-inner{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;font-size:13.5px}
+.foot-inner a{color:var(--text-on-dark-2);transition:color .15s ease}
+.foot-inner a:hover{color:var(--text-on-dark)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
 
-/* ── PRICING HOVER LIFT ── */
-.price-card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s cubic-bezier(.2,.8,.2,1),border-color .25s}
-.price-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(127,119,221,0.18),0 8px 16px rgba(0,0,0,0.04);border-color:var(--purple-mid)}
-.price-card.featured:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 32px 80px rgba(127,119,221,0.28),0 8px 16px rgba(0,0,0,0.06)}
+/* ── STICKY MOBILE CTA ───────────────────────────────────────── */
+.sticky-cta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:40}
+.sticky-cta .btn-primary{width:100%;justify-content:center;font-size:15px;padding:14px}
+@media(max-width:760px){.sticky-cta{display:block}footer{padding-bottom:90px}}
 
-/* ── PARALLAX BLOB ── */
-.hero-blob{will-change:transform}
-
-/* ── HERO ENHANCEMENTS ── */
-.hero-blob{animation:float 14s ease-in-out infinite}
-.hero-blob-2{animation-delay:-7s}
-@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.06)}}
-.hero h1{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both}
-.hero p{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) .12s both}
-.hero-btns{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) .22s both}
-@keyframes heroIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.hero-trust{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:8px;font-size:13px;color:var(--text-sec);font-weight:500}
-.hero-trust span{display:inline-flex;align-items:center;gap:6px}
-.hero-trust svg{width:14px;height:14px;stroke:#16a34a;fill:none;stroke-width:3}
-.scroll-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:2;color:var(--text-sec);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:6px;animation:bobble 2.4s ease-in-out infinite}
-.scroll-cue::after{content:'';width:1px;height:34px;background:linear-gradient(180deg,var(--purple),transparent)}
-@keyframes bobble{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
-
-/* ── VIDEO PLAY OVERLAY (until played) ── */
-.video-play-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:auto;opacity:1;transition:opacity .3s;cursor:pointer}
-.video-play-hint.hidden{opacity:0;pointer-events:none}
-.play-pulse{width:78px;height:78px;border-radius:50%;background:rgba(127,119,221,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(127,119,221,.55);animation:playPulse 2s ease-in-out infinite}
-.play-pulse svg{width:30px;height:30px;fill:#fff;margin-left:4px}
-@keyframes playPulse{0%,100%{box-shadow:0 0 0 0 rgba(127,119,221,.55)}50%{box-shadow:0 0 0 20px rgba(127,119,221,0)}}
-.browser-video-wrap{position:relative}
-
-/* ── TRUST BADGES ── */
-.trust-row{padding:36px 24px;background:var(--card);border-bottom:1px solid var(--border)}
-.trust-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;align-items:center}
-.trust-pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-sec);background:var(--bg);border:1px solid var(--border);padding:8px 14px;border-radius:100px;transition:all .2s}
-.trust-pill:hover{border-color:var(--purple-mid);color:var(--purple-dark);transform:translateY(-1px)}
-.trust-pill svg{width:14px;height:14px;stroke:var(--purple);fill:none;stroke-width:2.5}
-
-/* ── TESTIMONIALS ── */
-.testimonials{padding:96px 24px;background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%)}
-.t-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.t-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;position:relative;transition:all .25s;display:flex;flex-direction:column;gap:16px}
-.t-card:hover{transform:translateY(-4px);border-color:var(--purple-mid);box-shadow:0 16px 48px rgba(127,119,221,.12)}
-.t-stars{display:flex;gap:2px;color:#f5b417}
-.t-stars svg{width:16px;height:16px;fill:currentColor}
-.t-quote{font-size:15px;line-height:1.65;color:var(--text);font-weight:500;flex:1}
-.t-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
-.t-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;letter-spacing:-.3px}
-.t-name{font-size:14px;font-weight:700;letter-spacing:-.2px}
-.t-role{font-size:12.5px;color:var(--text-sec);font-weight:500;margin-top:2px}
-
-/* ── HERO MOCKUP ── */
-.hero-mockup{max-width:700px;margin:0 auto 0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.04);animation:heroIn .9s cubic-bezier(.2,.7,.2,1) .38s both}
-.mock-topbar{background:var(--purple-light);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.mock-logo-txt{font-size:13px;font-weight:800;color:var(--purple-dark);letter-spacing:-0.3px}
-.mock-topbar-right{display:flex;align-items:center;gap:8px}
-.mock-count{font-size:11.5px;font-weight:600;color:var(--purple-dark);background:rgba(127,119,221,0.18);padding:3px 10px;border-radius:20px}
-.mock-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.2)}
-.mock-list{padding:10px 12px;display:flex;flex-direction:column;gap:7px}
-.mock-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:11px;background:var(--bg)}
-.mock-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--purple-light),#dde0ff);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mock-icon svg{width:20px;height:20px;stroke:var(--purple-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.mock-inf{flex:1;min-width:0}
-.mock-nm{font-size:12.5px;font-weight:700;color:var(--text)}
-.mock-sub{font-size:11px;color:var(--text-sec);margin-top:1px}
-.mock-pill{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;flex-shrink:0}
-.mock-pill.ok{background:#dcfce7;color:#15803d}
-.mock-pill.warn{background:#fef3c7;color:#b45309}
-.mock-footer{padding:10px 18px;background:var(--surface);border-top:1px solid var(--border);display:flex;gap:16px}
-.mock-stat{font-size:11.5px;color:var(--text-sec);font-weight:500;display:flex;align-items:center;gap:5px}
-.mock-stat b{color:var(--text);font-weight:700}
-
-/* Featured pricing card – dark gradient */
-.price-card.featured{background:linear-gradient(145deg,var(--purple) 0%,var(--purple-dark) 100%);border-color:transparent;box-shadow:0 0 0 4px rgba(127,119,221,0.18),0 24px 64px rgba(83,74,183,0.38);transform:scale(1.03)}
-.price-card.featured .price-name,.price-card.featured .price-note{color:rgba(255,255,255,0.72)}
-.price-card.featured .price-amount{color:#fff}
-.price-card.featured .price-amount span{color:rgba(255,255,255,0.72)}
-.price-card.featured .price-features li{color:rgba(255,255,255,0.92)}
-.price-card.featured .price-check{background:rgba(255,255,255,0.2)}
-.price-card.featured .price-check svg{stroke:#fff}
-.price-card.featured .price-badge{background:rgba(255,255,255,0.95);color:var(--purple-dark)}
-.price-card.featured .price-btn.primary{background:#fff;color:var(--purple-dark);box-shadow:0 4px 16px rgba(0,0,0,0.15)}
-.price-card.featured .price-btn.primary:hover{background:var(--purple-light);box-shadow:0 8px 28px rgba(0,0,0,0.2)}
-
-/* ── TESTIMONIALS ── */
-.testimonials{padding:96px 24px;background:linear-gradient(180deg,var(--bg) 0%,var(--surface) 100%)}
-.t-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.t-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .25s;display:flex;flex-direction:column;gap:16px}
-.t-card:hover{transform:translateY(-4px);border-color:var(--purple-mid);box-shadow:0 16px 48px rgba(127,119,221,.12)}
-.t-stars{font-size:16px;color:#f59e0b;letter-spacing:2px}
-.t-quote{font-size:15px;line-height:1.65;color:var(--text);font-weight:500;flex:1}
-.t-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
-.t-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;letter-spacing:-.3px;flex-shrink:0}
-.t-name{font-size:14px;font-weight:700;letter-spacing:-.2px}
-.t-role{font-size:12.5px;color:var(--text-sec);font-weight:500;margin-top:2px}
-
-/* ── RESPONSIVE ── */
-@media(max-width:640px){
-  .nav-links{display:none}
-  .stats-inner{grid-template-columns:1fr;gap:28px}
-  .step:not(:last-child)::after{display:none}
-  .hero h1{letter-spacing:-1px}
+/* ── REDUCED MOTION ──────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .hero-video-wrap{transform:none}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
-<div class="scroll-progress" id="scrollProgress"></div>
+
+<a class="skip" href="#main" data-i18n="skip_link">Ugrás a tartalomhoz</a>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#" aria-label="kezeld.hu">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="34" height="34">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#10B981"/>
+              <stop offset="1" stop-color="#047857"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="32" height="32" rx="9" fill="url(#logoGrad)"/>
+          <path d="M9 22 V13.5 L16 8 L23 13.5 V22" stroke="#fff" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+          <rect x="13.5" y="16" width="5" height="6" fill="#fff" rx="1"/>
+        </svg>
+      </span>
+      <span>kezeld<span style="color:var(--accent)">.</span>hu</span>
+    </a>
+    <div class="nav-links">
+      <a href="#funkciok" data-i18n="nav_features">Funkciók</a>
+      <a href="#hogyan" data-i18n="nav_how">Hogyan működik</a>
+      <a href="#arazas" data-i18n="nav_pricing">Árazás</a>
+      <a href="#gyik" data-i18n="nav_faq">GYIK</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Nyelv váltása">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="langCode">EN</span>
+      </button>
+      <a class="nav-cta" href="https://app.kezeld.hu">
+        <span data-i18n="nav_cta">Bejelentkezés</span> <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid section-inner">
+    <div>
+      <div class="hero-badge">
+        <span data-i18n="hero_badge">7 napos ingyenes próba · Kártyaadat nélkül · Korlátlan ingatlannal</span>
+      </div>
+      <h1 data-i18n="hero_title">Kezeld az ingatlanaidat<br><span class="accent">okosan és egyszerűen</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        A kezeld.hu egyetlen helyre gyűjti a bérlőket, bérleti díjakat, dokumentumokat és hibabejelentéseket, így mindig tudod, mi történik a lakásaidban.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://app.kezeld.hu">
+          <span data-i18n="hero_cta1">Ingyenes próba indítása</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="btn-ghost" href="#funkciok" data-i18n="hero_cta2">Funkciók megtekintése</a>
+      </div>
+      <p class="hero-fine">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span data-i18n="hero_fine">Kártyaadat nélkül. 1 perc alatt.</span>
+      </p>
+    </div>
+
+    <!-- Bemutató videó (ugyanaz mint az eredetin) -->
+    <div class="hero-video-wrap">
+      <div class="video-titlebar">
+        <span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span>
+        <span class="vt-url">app.kezeld.hu</span>
+      </div>
+      <video class="hero-video" controls preload="metadata" playsinline aria-label="kezeld.hu bemutató videó">
+        <source src="kezeld-generated.mp4?v=v6-1190-20260605#t=0.5" type="video/mp4">
+        <p data-i18n="video_fallback">A böngésződ nem támogatja a HTML5 videót.</p>
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROBLEM ═══════════ -->
+<section class="problem">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="problem_eyebrow">Ismerős?</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="problem_title">Ha bérbeadó vagy, ezeket biztosan átélted.</h2>
+
+    <div class="problem-list">
+      <div class="problem-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg></div>
+        <h3 data-i18n="prob1_t">Excel-tábla káosz</h3>
+        <p data-i18n="prob1_d">Tíz fülön kerested melyik bérlő melyik hónapban fizetett.</p>
+      </div>
+      <div class="problem-card reveal delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3 data-i18n="prob2_t">Elveszett szerződések</h3>
+        <p data-i18n="prob2_d">3 év után már fogalmad sincs, melyik PDF melyik bérlőé.</p>
+      </div>
+      <div class="problem-card reveal delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 data-i18n="prob3_t">Lejárt biztosítások</h3>
+        <p data-i18n="prob3_d">Csak akkor veszed észre, hogy elfelejtetted, amikor baj van.</p>
+      </div>
+      <div class="problem-card reveal delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3 data-i18n="prob4_t">Üzenetek mindenhol</h3>
+        <p data-i18n="prob4_d">SMS, Messenger, WhatsApp, e-mail — sosem találod amit keresel.</p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3 data-i18n="prob5_t">Hiányzó befizetések</h3>
+        <p data-i18n="prob5_d">Nem tudod biztosan, ki tartozik, és mióta. Csak sejted.</p>
+      </div>
+      <div class="problem-card reveal delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3 data-i18n="prob6_t">Eltelt napok</h3>
+        <p data-i18n="prob6_d">Esténként fejben pörgeted, mit kellett volna ma intézni.</p>
+      </div>
+    </div>
+
+    <p class="problem-tag reveal" data-i18n="problem_tag">Nem az ingatlanaidat kezeled. Az adminisztráció kezel téged.</p>
+  </div>
+</section>
+
+<!-- ═══════════ SOLUTION ═══════════ -->
+<section class="solution" id="funkciok">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="sol_eyebrow">A kezeld.hu ezért készült</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="sol_title">Hogy minden fontos információ egy kattintásra legyen.</h2>
+    <p class="section-sub center reveal delay-2" data-i18n="sol_sub">Négy egyszerű funkció, ami pillanatok alatt rendbe rakja a bérbeadói életed.</p>
+
+    <div class="solution-grid">
+      <div class="feature-card reveal">
+        <h3 data-i18n="f1_t">Lásd azonnal, ki fizetett.</h3>
+        <p class="outcome" data-i18n="f1_d">Színkódolt mátrix: zöld = befolyt, sárga = várható, piros = hiányzik. Egy szempillantás alatt látod a teljes évet.</p>
+        <div class="feature-visual">
+          <div class="matrix-vis" aria-hidden="true">
+            <!-- Row 1: 5 fizetve + 1 várható (Június) -->
+            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell paid">M</div><div class="matrix-cell paid">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
+            <!-- Row 2: 1 hiányzó (Március) + 1 várható (Június) — sárga a piros után -->
+            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell missing">M</div><div class="matrix-cell paid">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
+            <!-- Row 3: 1 hiányzó (Április) + 1 várható (Június) — sárga a piros után -->
+            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell paid">M</div><div class="matrix-cell missing">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card reveal delay-1">
+        <h3 data-i18n="f2_t">A bérlők tudják, hol jelezzenek.</h3>
+        <p class="outcome" data-i18n="f2_d">QR-kódos bérlői portál — a bérlőd 30 másodperc alatt fotózva küldi a hibát. Nincs telefonálás, nincs félreértés.</p>
+        <div class="feature-visual">
+          <div class="phone-vis" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="phone-header" data-i18n="phone_h">Hibabejelentés</div>
+              <div class="phone-card"><div class="pc-title" data-i18n="ph1_t">Csöpög a csap</div><div class="pc-meta" data-i18n="ph1_m">Fürdő · ma</div></div>
+              <div class="phone-card"><div class="pc-title" data-i18n="ph2_t">Égett villanykörte</div><div class="pc-meta" data-i18n="ph2_m">Konyha · tegnap</div></div>
+              <div class="phone-card"><div class="pc-title" data-i18n="ph3_t">Új: Hőszigetelés</div><div class="pc-meta" data-i18n="ph3_m">Sürgős · épp most</div></div>
+              <div class="phone-badge">1</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card reveal delay-2">
+        <h3 data-i18n="f3_t">A dokumentumaid nem vesznek el.</h3>
+        <p class="outcome" data-i18n="f3_d">Szerződések, biztosítások, jegyzőkönyvek, számlák — minden ingatlanra rendezve, szűrhető, kereshető.</p>
+        <div class="feature-visual">
+          <div class="docs-vis" aria-hidden="true">
+            <div class="doc-card"><div class="stripe s1"></div><div class="stripe s2"></div><div class="stripe s3"></div><span class="label" data-i18n="doc1">Szerződés</span></div>
+            <div class="doc-card"><div class="stripe s2"></div><div class="stripe s1"></div><div class="stripe s2"></div><span class="label" data-i18n="doc2">Számla</span></div>
+            <div class="doc-card"><div class="stripe s3"></div><div class="stripe s2"></div><div class="stripe s1"></div><span class="label" data-i18n="doc3">Jegyzőkönyv</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card reveal delay-3">
+        <h3 data-i18n="f4_t">A rendszer emlékszik helyetted.</h3>
+        <p class="outcome" data-i18n="f4_d">Lejáró szerződés, fordulónap, biztosítás — emailben szólunk időben. Vasárnap is.</p>
+        <div class="feature-visual">
+          <div class="cal-vis" aria-hidden="true">
+            <div class="cal-head" data-i18n="cal_head">November · 2026</div>
+            <div class="cal-grid">
+              <div class="cal-day head" data-i18n="cal_h1">H</div><div class="cal-day head" data-i18n="cal_h2">K</div><div class="cal-day head" data-i18n="cal_h3">Sz</div><div class="cal-day head" data-i18n="cal_h4">Cs</div><div class="cal-day head" data-i18n="cal_h5">P</div><div class="cal-day head" data-i18n="cal_h6">Szo</div><div class="cal-day head" data-i18n="cal_h7">V</div>
+              <div class="cal-day has">1</div><div class="cal-day has">2</div><div class="cal-day has">3</div><div class="cal-day has">4</div><div class="cal-day has">5</div><div class="cal-day has">6</div><div class="cal-day has">7</div>
+              <div class="cal-day has">8</div><div class="cal-day has">9</div><div class="cal-day has">10</div><div class="cal-day has">11</div><div class="cal-day event">12</div><div class="cal-day has">13</div><div class="cal-day has">14</div>
+            </div>
+            <div class="cal-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span data-i18n="cal_pill">Holnap lejár — Kovács Péter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENEFITS ═══════════ -->
+<section class="benefits">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="ben_eyebrow">Mit nyersz vele?</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="ben_title">Négy dolog, amit holnap reggel már észreveszel.</h2>
+
+    <div class="benefit-grid">
+      <div class="benefit-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2 L13.5 9 L21 10.5 L15.5 15.5 L17 22 L12 18.5 L7 22 L8.5 15.5 L3 10.5 L10.5 9 Z"/></svg></div>
+        <h3 data-i18n="b1_t">Kevesebb adminisztráció</h3>
+        <p data-i18n="b1_d">Minden adat egy helyen. Nem keresel többé tíz mappában.</p>
+      </div>
+      <div class="benefit-card reveal delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div>
+        <h3 data-i18n="b2_t">Több átláthatóság</h3>
+        <p data-i18n="b2_d">Egy ránézésre tudod, mi történik bármelyik lakásodban.</p>
+      </div>
+      <div class="benefit-card reveal delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
+        <h3 data-i18n="b3_t">Kevesebb stressz</h3>
+        <p data-i18n="b3_d">Nem kell fejben tartanod a határidőket — szólunk időben.</p>
+      </div>
+      <div class="benefit-card reveal delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg></div>
+        <h3 data-i18n="b4_t">Több kontroll</h3>
+        <p data-i18n="b4_d">Valós idejű áttekintés az összes ingatlanról, bármikor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOGYAN MŰKÖDIK ═══════════ -->
+<section class="how" id="hogyan">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="how_eyebrow">Hogyan működik</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="how_title">3 lépés és kész</h2>
+
+    <div class="how-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3 data-i18n="s1_t">Regisztrálj és próbáld ki ingyen</h3>
+        <p data-i18n="s1_d">Hozz létre egy fiókot, és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.</p>
+      </div>
+
+      <div class="arrow-between reveal delay-1" aria-hidden="true">
+        <svg viewBox="0 0 88 28" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line class="line" x1="2" y1="14" x2="74" y2="14"/>
+          <polyline class="head" points="68 6 80 14 68 22"/>
+        </svg>
+      </div>
+
+      <div class="step reveal delay-1">
+        <div class="step-num">2</div>
+        <h3 data-i18n="s2_t">Add hozzá ingatlanod</h3>
+        <p data-i18n="s2_d">Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 1190 Ft/ingatlan/hó.</p>
+      </div>
+
+      <div class="arrow-between reveal delay-2" aria-hidden="true">
+        <svg viewBox="0 0 88 28" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line class="line" x1="2" y1="14" x2="74" y2="14"/>
+          <polyline class="head" points="68 6 80 14 68 22"/>
+        </svg>
+      </div>
+
+      <div class="step reveal delay-2">
+        <div class="step-num">3</div>
+        <h3 data-i18n="s3_t">Kezelj mindent egy helyen</h3>
+        <p data-i18n="s3_d">Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="pricing" id="arazas">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="price_eyebrow">Árazás</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="price_title">Egyszerű, átlátható árazás.</h2>
+    <p class="section-sub center reveal delay-2" data-i18n="price_sub">Nincs csomag-rendszer, nincs rejtett díj. Annyit fizetsz, amennyi ingatlanod van.</p>
+
+    <div class="price-card reveal delay-3">
+      <span class="price-badge" data-i18n="price_badge">Per-ingatlan árazás</span>
+      <div class="price-amount">1190 Ft <span class="unit" data-i18n="price_unit">/ ingatlan / hó</span></div>
+      <div class="price-yearly"><span data-i18n="price_yearly_pre">Vagy </span><strong data-i18n="price_yearly_strong">13 090 Ft / ingatlan / év</strong><span data-i18n="price_yearly_post"> — 1 hónap ingyen.</span></div>
+
+      <ul class="price-features">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf1">Korlátlan bérlő, díj, dokumentum</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf2">Bérlői portál — üzenet, mérőóra, hiba</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf3">Bérleti szerződés generálás, jegyzőkönyv</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf4">Közüzemi számla nyilvántartás</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf5">Negyedéves & éves Excel elszámolás</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf6">Email értesítések — neked és bérlődnek</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf7">Magyar nyelvű támogatás</span></li>
+      </ul>
+
+      <div class="price-cta">
+        <a class="btn-primary" href="https://app.kezeld.hu">
+          <span data-i18n="price_cta">Ingyenes próba indítása</span> <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <span class="fine" data-i18n="price_fine">Kártyaadat nélkül · 1 perc alatt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST ═══════════ -->
+<section class="trust">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="trust_eyebrow">Biztonság</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="trust_title">Magyar bérbeadóknak. Biztonságosan.</h2>
+    <p class="section-sub center reveal delay-2" data-i18n="trust_sub">Banki szintű védelem, EU-s adattárolás, GDPR-megfelelőség. Az adataid mindig a tieid.</p>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal"><span class="emoji" aria-hidden="true">🇪🇺</span><h3 data-i18n="t1_t">EU adatkezelés</h3><p data-i18n="t1_d">Az adataid Frankfurtban, Supabase EU-s szerverein. Soha nem hagyják el az EU-t.</p></div>
+      <div class="trust-card reveal delay-1"><span class="emoji" aria-hidden="true">🔒</span><h3 data-i18n="t2_t">GDPR megfelelőség</h3><p data-i18n="t2_d">Teljes adatvédelmi tájékoztató, törlési jog, adathordozhatóság.</p></div>
+      <div class="trust-card reveal delay-2"><span class="emoji" aria-hidden="true">💳</span><h3 data-i18n="t3_t">Stripe fizetés</h3><p data-i18n="t3_d">Ugyanaz a rendszer, amit a Shopify és Amazon is használ. Kártyaadatod hozzánk soha nem érkezik el.</p></div>
+      <div class="trust-card reveal"><span class="emoji" aria-hidden="true">🇭🇺</span><h3 data-i18n="t4_t">Magyar számlázás</h3><p data-i18n="t4_d">Billingo automatikus számlát állít ki minden fizetésről — NAV Online Számla-kompatibilis.</p></div>
+      <div class="trust-card reveal delay-1"><span class="emoji" aria-hidden="true">🛡️</span><h3 data-i18n="t5_t">Cloudflare védelem</h3><p data-i18n="t5_d">DDoS védelem, bot-szűrés, globális CDN. Mindig elérhető, mindig gyors.</p></div>
+      <div class="trust-card reveal delay-2"><span class="emoji" aria-hidden="true">📦</span><h3 data-i18n="t6_t">Adat export</h3><p data-i18n="t6_d">Bármikor letöltheted az összes adatodat JSON-ban. Nincs vendor lock-in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="faq" id="gyik">
+  <div class="section-inner narrow">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="faq_eyebrow">GYIK</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="faq_title">Gyakori kérdések.</h2>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q"><span data-i18n="faq1_q">Kell bankkártya az induláshoz?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq1_a">Nem. A 7 napos próba teljesen ingyenes és kötelezettségmentes. Csak akkor kell kártyát megadnod, ha a próba végén úgy döntesz, hogy előfizetsz.</div>
+      </details>
+      <details class="faq-item reveal delay-1">
+        <summary class="faq-q"><span data-i18n="faq2_q">Hány ingatlant kezelhetek?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq2_a">A próbaidőszak alatt korlátlanul, utána annyit, amennyi slotot megveszel: 1190 Ft / slot / hó. Minimum 1 slot, maximum nincs. Bővítés, csökkentés bármikor.</div>
+      </details>
+      <details class="faq-item reveal delay-2">
+        <summary class="faq-q"><span data-i18n="faq3_q">Van hűségidő, kötelező időtartam?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq3_a">Nincs. Bármikor lemondható, az aktuális hónap végéig elérhető marad a rendszer. Nincs rejtett díj, nincs felmondási kötbér.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q"><span data-i18n="faq4_q">Mobilon is működik?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq4_a">Igen, teljesen reszponzív — telefon, tablet, asztali gép. Nincs alkalmazás-letöltés, böngészőből elérhető. A bérlőid is mobilról használják a portált.</div>
+      </details>
+      <details class="faq-item reveal delay-1">
+        <summary class="faq-q"><span data-i18n="faq5_q">Társasházkezelésre alkalmas?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq5_a">Nem. A kezeld.hu egyéni bérbeadóknak készült (1–50 saját ingatlan). Társasházak, közös képviselet, ingatlankezelő cégek számára más szoftverek alkalmasabbak.</div>
+      </details>
+      <details class="faq-item reveal delay-2">
+        <summary class="faq-q"><span data-i18n="faq6_q">Mi történik, ha lejár a próba?</span> <span class="ico" aria-hidden="true">+</span></summary>
+        <div class="faq-a" data-i18n="faq6_a">Adataid 90 napig megmaradnak. Bármikor visszatérhetsz előfizetéssel, és minden ott lesz, ahogy hagytad — ingatlanaid, bérlőid, dokumentumaid.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<section class="cta-final">
+  <div class="cta-inner">
+    <h2 data-i18n="cta_title">Kevesebb adminisztráció.<br><span class="accent">Több átláthatóság.</span></h2>
+    <p data-i18n="cta_sub">Próbáld ki a kezeld.hu-t 7 napig ingyen — korlátlan ingatlannal, kártyaadat nélkül.</p>
+    <div class="cta-bullets">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b1">Kártyaadat nélkül</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b2">Korlátlan ingatlannal</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="cta_b3">1 perc alatt</span></span>
+    </div>
+    <a class="btn-primary" href="https://app.kezeld.hu">
+      <span data-i18n="cta_btn">Ingyenes próba indítása</span> <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="foot-inner">
+    <div data-i18n="foot_copy">© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu</div>
+    <div class="foot-links">
+      <a href="/aszf.html" data-i18n="foot_aszf">ÁSZF</a>
+      <a href="/adatvedelem.html" data-i18n="foot_priv">Adatkezelés</a>
+      <a href="/dpa.html">DPA</a>
+      <a href="https://app.kezeld.hu" data-i18n="foot_login">Belépés</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ COOKIE BANNER (GDPR) ═══════════ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B0F1A;color:#F4F4F5;padding:16px 24px;display:none;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13.5px;font-family:'Inter',sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,0.18);border-top:1px solid #27272A">
+  <span>Az oldal működéséhez szükséges böngésző-tárolót használunk. A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts szolgáltatja, IP-cím nem kerül harmadik félhez. Részletek: <a href="/adatvedelem.html" style="color:#6EE7B7;text-decoration:underline">Adatkezelési Tájékoztató</a>.</span>
+  <button onclick="acceptCookies()" style="background:#10B981;color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">Rendben</button>
+</div>
+
+<!-- ═══════════ STICKY MOBILE CTA ═══════════ -->
+<div class="sticky-cta">
+  <a class="btn-primary" href="https://app.kezeld.hu">
+    <span data-i18n="sticky_cta">Ingyenes próba indítása</span> <span class="arrow" aria-hidden="true">→</span>
+  </a>
+</div>
+
 <script>
-// ── Anti-cloning védelem ──
+// ── Anti-cloning védelem (production) ──
 (function(){
-  document.addEventListener('contextmenu',e=>{e.preventDefault();return false;},false);
-  document.addEventListener('keydown',e=>{
-    if(e.key==='F12') {e.preventDefault();return false;}
-    if(e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) {e.preventDefault();return false;}
-    if(e.ctrlKey && e.key.toUpperCase()==='U') {e.preventDefault();return false;}
-    if(e.ctrlKey && e.key.toUpperCase()==='S') {e.preventDefault();return false;}
+  document.addEventListener('contextmenu',function(e){e.preventDefault();return false;},false);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='F12'){e.preventDefault();return false;}
+    if(e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())){e.preventDefault();return false;}
+    if(e.ctrlKey && e.key.toUpperCase()==='U'){e.preventDefault();return false;}
+    if(e.ctrlKey && e.key.toUpperCase()==='S'){e.preventDefault();return false;}
   },false);
-  let _devOpen=false;
-  const threshold=160;
-  setInterval(()=>{
-    const w=window.outerWidth-window.innerWidth>threshold;
-    const h=window.outerHeight-window.innerHeight>threshold;
+  var _devOpen=false;
+  var threshold=160;
+  setInterval(function(){
+    var w=window.outerWidth-window.innerWidth>threshold;
+    var h=window.outerHeight-window.innerHeight>threshold;
     if((w||h)&&!_devOpen){
       _devOpen=true;
       try{console.clear();}catch(e){}
@@ -415,669 +1131,240 @@ footer a{color:var(--purple)}
     }
   },1500);
 })();
-</script>
 
-<!-- Skip to main content (Priority 1: keyboard a11y) -->
-<a href="#main-content" class="skip-link" data-i18n="skip_link">Ugrás a tartalomhoz</a>
-
-<!-- NAV -->
-<nav aria-label="Fő navigáció">
-  <div class="nav-inner">
-    <div class="nav-glass">
-      <a href="#" class="nav-logo" aria-label="kezeld.hu — főoldal">kezeld.hu</a>
-      <div class="nav-links">
-        <a href="#funkciok" data-i18n="nav_features">Funkciók</a>
-        <a href="#hogyan" data-i18n="nav_how">Hogyan működik</a>
-        <a href="#arak" data-i18n="nav_pricing">Árak</a>
-        <a href="#gyik" data-i18n="nav_faq">GYIK</a>
-      </div>
-      <div class="nav-right">
-        <button class="lang-btn" onclick="toggleLang()" id="lang-btn" aria-label="Nyelv váltása angolra" type="button">EN</button>
-        <a href="https://app.kezeld.hu" class="nav-cta" data-i18n="nav_login">Belépés →</a>
-      </div>
-    </div>
-  </div>
-</nav>
-<main id="main-content">
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-blob hero-blob-1"></div>
-  <div class="hero-blob hero-blob-2"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      <span data-i18n="hero_badge">7 napos ingyenes próba · Csak az után fizetsz amennyi ingatlanod van</span>
-    </div>
-    <h1 data-i18n="hero_title">Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span></h1>
-    <p data-i18n="hero_sub">Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.</p>
-    <div class="hero-btns">
-      <a href="https://app.kezeld.hu" class="btn-primary" data-i18n="hero_cta1">1 hetes ingyenes próba →</a>
-      <a href="#arak" class="btn-secondary" data-i18n="hero_cta2">Árak megtekintése</a>
-    </div>
-    <div class="hero-trust">
-      <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="ht1">1 hét ingyenes próba</span></span>
-      <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="ht2">Bármikor lemondható</span></span>
-    </div>
-    <div class="hero-mockup reveal">
-      <div class="mock-topbar">
-        <div class="mock-logo-txt">kezeld.hu</div>
-        <div class="mock-topbar-right">
-          <div class="mock-count">3 ingatlan</div>
-          <div class="mock-dot"></div>
-        </div>
-      </div>
-      <div class="mock-list">
-        <div class="mock-row">
-          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="mock-inf">
-            <div class="mock-nm">Budapest XI. ker. · Fehérvári út 34.</div>
-            <div class="mock-sub">Kovács Péter · 185 000 Ft/hó · szerz. lejár: 2026.08.31</div>
-          </div>
-          <div class="mock-pill ok">Fizetve</div>
-        </div>
-        <div class="mock-row">
-          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
-          <div class="mock-inf">
-            <div class="mock-nm">Debrecen · Piac utca 12. III/8.</div>
-            <div class="mock-sub">Nagy Anna · 120 000 Ft/hó · szerz. lejár: 2026.12.01</div>
-          </div>
-          <div class="mock-pill warn">Emlékeztető</div>
-        </div>
-        <div class="mock-row">
-          <div class="mock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><path d="M2 10h20"/></svg></div>
-          <div class="mock-inf">
-            <div class="mock-nm">Győr · Nádorváros, Kossuth u. 5.</div>
-            <div class="mock-sub">Tóth László · 95 000 Ft/hó · szerz. lejár: 2027.03.15</div>
-          </div>
-          <div class="mock-pill ok">Fizetve</div>
-        </div>
-      </div>
-      <div class="mock-footer">
-        <div class="mock-stat"><b>400 000 Ft</b>&nbsp;várható bevétel</div>
-        <div class="mock-stat"><b>3/3</b>&nbsp;aktív bérlő</div>
-        <div class="mock-stat"><b>1</b>&nbsp;nyitott hibabejelentés</div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-cue" data-i18n="scroll_cue">Görgess</div>
-</section>
-
-<!-- VIDEO -->
-<div class="video-section-wrap">
-  <div class="video-label-top"><span data-i18n="video_label">Bemutató videó</span></div>
-  <div class="video-outer">
-    <div class="browser-frame">
-      <div class="browser-bar">
-        <div class="browser-dots"><span></span><span></span><span></span></div>
-        <div class="browser-url">app.kezeld.hu</div>
-      </div>
-      <div class="browser-video-wrap" style="aspect-ratio:16/9;background:#1e1c2e">
-        <video class="browser-video" id="demoVideo" controls preload="metadata" playsinline width="1280" height="720" aria-label="kezeld.hu bemutató videó">
-          <source src="kezeld-generated.mp4?v=v6-1190-20260605#t=0.5" type="video/mp4">
-          <p>A böngésződ nem támogatja a HTML5 videót. <a href="kezeld-generated.mp4">Töltsd le a bemutatót.</a></p>
-        </video>
-        <div class="video-play-hint" id="playHint" role="button" aria-label="Bemutató videó lejátszása" tabindex="0">
-          <div class="play-pulse" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="stats-inner">
-    <div>
-      <div class="stat-num" data-i18n="stat1_num">1 hét</div>
-      <div class="stat-lbl" data-i18n="stat1_lbl">ingyenes próbaidő</div>
-    </div>
-    <div>
-      <div class="stat-num" data-i18n="stat2_num">1190 Ft</div>
-      <div class="stat-lbl" data-i18n="stat2_lbl">ingatlanonként havonta</div>
-    </div>
-    <div>
-      <div class="stat-num">24/7</div>
-      <div class="stat-lbl" data-i18n="stat3_lbl">elérhető bármikor, bárhol</div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features" id="funkciok">
-  <div class="section-label" data-i18n="feat_label">Mit kapsz</div>
-  <h2 class="section-title" data-i18n="feat_title">Eredmények, nem funkciók</h2>
-  <p class="section-sub" data-i18n="feat_sub">Minden szolgáltatás egy konkrét probléma megoldására.</p>
-  <div class="features-grid">
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M14 8h3"/><path d="M14 12h3"/><path d="M14 16h3"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f1_t">Minden ingatlanod egy helyen</div>
-        <div class="feat-desc" data-i18n="f1_d">Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.</div>
-        <span class="feat-result" data-i18n="f1_r">3 másodperc keresés</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f2_t">Tudd ki, kinek, mennyit fizet</div>
-        <div class="feat-desc" data-i18n="f2_d">Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.</div>
-        <span class="feat-result" data-i18n="f2_r">5 mp alatt látod</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f3_t">Színekkel jelzett bérleti díj-követés</div>
-        <div class="feat-desc" data-i18n="f3_d">Zöld = fizetett. Piros = hiányzik. 5 másodperc alatt látod ki tartozik, és mennyit.</div>
-        <span class="feat-result" data-i18n="f3_r">+200 000 Ft/év megtakarítás</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f4_t">QR-kódos hibabejelentő bérlőknek</div>
-        <div class="feat-desc" data-i18n="f4_d">A bérlőd fotózva küldi be a problémát. Te 1 kattintással intézed.</div>
-        <span class="feat-result" data-i18n="f4_r">Nincs telefonhívás</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f5_t">Sosem kell keresgélned</div>
-        <div class="feat-desc" data-i18n="f5_d">Szerződések, biztosítások, számlák, képek mind egy helyen, ingatlanra szűrve.</div>
-        <span class="feat-result" data-i18n="f5_r">0 elveszett papír</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f6_t">A rendszer szól időben</div>
-        <div class="feat-desc" data-i18n="f6_d">Lejár a szerződés, biztosítás vagy díjcsúszás — emailben kapsz figyelmeztetést. Vasárnap is.</div>
-        <span class="feat-result" data-i18n="f6_r">Hétvégédet visszakapod</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f7_t">3 perc alatt kész bérleti szerződés</div>
-        <div class="feat-desc" data-i18n="f7_d">Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.</div>
-        <span class="feat-result" data-i18n="f7_r">Megspórolsz 30 000 Ft-ot</span>
-      </div>
-    </div>
-    <div class="feat-card reveal">
-      <div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/><polyline points="16 7 12 3 8 7"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
-      <div class="feat-body">
-        <div class="feat-title" data-i18n="f8_t">Birtokbaadási jegyzőkönyv PDF-ben</div>
-        <div class="feat-desc" data-i18n="f8_d">Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.</div>
-        <span class="feat-result" data-i18n="f8_r">Bíróságon is megáll</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how" id="hogyan">
-  <div class="section-label" data-i18n="how_label">Hogyan működik</div>
-  <h2 class="section-title" style="margin-bottom:56px" data-i18n="how_title">3 lépés és kész</h2>
-  <div class="steps">
-    <div class="step reveal">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h3 data-i18n="s1_t">Regisztrálj és próbáld ki ingyen</h3>
-        <p data-i18n="s1_d">Hozz létre egy fiókot és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.</p>
-      </div>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h3 data-i18n="s2_t">Add hozzá ingatlanod</h3>
-        <p data-i18n="s2_d">Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 1190 Ft/ingatlan/hó.</p>
-      </div>
-    </div>
-    <div class="step reveal">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h3 data-i18n="s3_t">Kezelj mindent egy helyen</h3>
-        <p data-i18n="s3_d">Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- PRICING -->
-<section class="pricing" id="arak">
-  <div class="section-label" data-i18n="price_label">Árak</div>
-  <h2 class="section-title" data-i18n="price_title">Átlátható árazás</h2>
-  <p class="section-sub" data-i18n="price_sub">Nincs rejtett díj. Pontosan annyit fizetsz, amennyit használsz.</p>
-  <div class="billing-toggle">
-    <span id="lbl-monthly" class="active" data-i18n="bill_monthly">Havi</span>
-    <div class="toggle-wrap monthly" id="billingToggle">
-      <div class="toggle-knob"></div>
-    </div>
-    <span id="lbl-yearly" data-i18n="bill_yearly">Éves (1 hónap ingyen)</span>
-  </div>
-  <div class="pricing-cards" style="grid-template-columns:1fr;max-width:460px;margin:0 auto">
-    <!-- Egyetlen csomag: per-ingatlan slot -->
-    <div class="price-card featured" style="text-align:center">
-      <div class="price-badge" data-i18n="price_badge">Egyszerű árazás</div>
-      <div class="price-name" data-i18n="p1_name">Ingatlan slot árazás</div>
-      <div class="price-amount">
-        <span class="price-monthly">1190</span><span class="price-yearly" style="display:none">13 090</span>
-        <span class="price-suffix"><span class="price-monthly" data-i18n="p1_per_m">Ft / slot / hó</span><span class="price-yearly" style="display:none" data-i18n="p1_per_y">Ft / slot / év</span></span>
-      </div>
-      <div class="price-note">
-        <span class="price-monthly" data-i18n="p1_note">Annyi slotot veszel, ahány ingatlanod van</span>
-        <span class="price-yearly" style="display:none" data-i18n="p1_note_y">Éves előfizetéssel 1 hónap ingyen</span>
-      </div>
-      <ul class="price-features" style="text-align:left;display:inline-block;margin:14px auto">
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f1">7 napos ingyenes próba (max. 5 ingatlan)</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f2">Korlátlan bérlő, díj, dokumentum</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f3">Bérlői portál — üzenet, mérőóra, hibabejelentés</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f4">Bérleti szerződés generálás, jegyzőkönyv</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f5">Közüzemi számla nyilvántartás</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f6">Quarterly reports & éves összesítő</span></li>
-        <li><span class="price-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span><span data-i18n="p1_f7">Email értesítések — bérlő és bérbeadó számára</span></li>
-      </ul>
-      <div style="margin-top:14px"><a href="https://app.kezeld.hu" class="price-btn primary" data-i18n="p1_btn">Ingyenes próba →</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<!-- WHY US -->
-<section class="testimonials" id="miert-mi">
-  <div class="section-label" data-i18n="why_label">Miért minket</div>
-  <h2 class="section-title" style="margin-bottom:14px" data-i18n="why_title">Bizalom és biztonság az első pillanattól</h2>
-  <p class="section-sub" data-i18n="why_sub">Adataid EU-ban, banki szintű biztonsággal kezelve.</p>
-  <div class="t-grid" style="max-width:1000px">
-    <div class="t-card reveal" style="text-align:center">
-      <div style="font-size:42px">🇪🇺</div>
-      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px" data-i18n="why1_t">EU-s adattárolás</div>
-      <div style="font-size:14px;color:var(--text-sec);line-height:1.65" data-i18n="why1_d">Adataid Frankfurtban, Supabase EU-s szerverein vannak. Soha nem hagyják el az Európai Uniót.</div>
-    </div>
-    <div class="t-card reveal delay-1" style="text-align:center">
-      <div style="font-size:42px">🔒</div>
-      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px" data-i18n="why2_t">GDPR-megfelelő</div>
-      <div style="font-size:14px;color:var(--text-sec);line-height:1.65" data-i18n="why2_d">Teljes körű adatvédelmi tájékoztató, törlési jog, adathordozhatóság. Te birtokolod az adataidat.</div>
-    </div>
-    <div class="t-card reveal delay-2" style="text-align:center">
-      <div style="font-size:42px">💳</div>
-      <div style="font-weight:700;font-size:17px;letter-spacing:-0.3px" data-i18n="why3_t">Banki szintű fizetés</div>
-      <div style="font-size:14px;color:var(--text-sec);line-height:1.65" data-i18n="why3_d">A fizetést a Stripe kezeli — ugyanaz a rendszer, amit a Shopify és az Amazon is használ. Kártyaadataid hozzánk soha nem érnek el.</div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section style="padding:96px 24px;background:var(--bg)">
-  <div class="section-label" data-i18n="cmp_label">Összehasonlítás</div>
-  <h2 class="section-title" style="margin-bottom:14px" data-i18n="cmp_title">Miért nem elég az Excel?</h2>
-  <p class="section-sub" data-i18n="cmp_sub">A kezeld.hu mindent megtesz, amit egy táblázat nem tud.</p>
-  <div style="max-width:900px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(127,119,221,0.06)">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:14px">
-      <div style="padding:18px 20px;font-weight:700;background:var(--surface);border-bottom:2px solid var(--border)"></div>
-      <div style="padding:18px 12px;font-weight:700;text-align:center;background:var(--purple-light);color:var(--purple-dark);border-bottom:2px solid var(--purple-mid)">kezeld.hu</div>
-      <div style="padding:18px 12px;font-weight:600;text-align:center;background:var(--surface);color:var(--text-sec);border-bottom:2px solid var(--border)">Excel</div>
-      <div style="padding:18px 12px;font-weight:600;text-align:center;background:var(--surface);color:var(--text-sec);border-bottom:2px solid var(--border)" data-i18n="cmp_col_paper">Papír / Füzet</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r1">Bérlők és ingatlanok egy helyen</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_partial">részben</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r2">Automatikus díjkövetés és emlékeztetők</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r3">Mobil hibabejelentés bérlőknek</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r4">Szerződés- és jegyzőkönyv generálás</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_manual">manuálisan</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_manual2">manuálisan</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r5">Bárhonnan elérhető (mobil + desktop)</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_cloud">cloud esetén</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-
-      <div style="padding:14px 20px;border-bottom:1px solid var(--border)" data-i18n="cmp_r6">Automatikus mentés, nincs adatvesztés</div>
-      <div style="padding:14px 12px;text-align:center;color:#3B6D11;font-weight:700;border-bottom:1px solid var(--border);background:rgba(127,119,221,0.04)">✓</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter);border-bottom:1px solid var(--border)" data-i18n="cmp_cloud2">cloud esetén</div>
-      <div style="padding:14px 12px;text-align:center;color:#A32D2D;border-bottom:1px solid var(--border)">✗</div>
-
-      <div style="padding:14px 20px" data-i18n="cmp_r7">Idő, amit hetente megspórolsz</div>
-      <div style="padding:14px 12px;text-align:center;font-weight:700;color:var(--purple-dark);background:rgba(127,119,221,0.04)" data-i18n="cmp_time">3-5 óra</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter)">—</div>
-      <div style="padding:14px 12px;text-align:center;color:var(--text-ter)">—</div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq" id="gyik">
-  <div class="section-label" data-i18n="faq_label">GYIK</div>
-  <h2 class="section-title" style="margin-bottom:48px" data-i18n="faq_title">Gyakori kérdések</h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq1_q">Mennyi ideig tart a beállítás?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq1_a">Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq2_q">Felmondhatom bármikor az előfizetést?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq2_a">Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq3_q">Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq3_a"><strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 1190 Ft-os havi slot a hónap felénél vásárolva ≈ 595 Ft (nem 1190 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq5_q">Mobilon is működik?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq5_a">Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.</div>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q"><span data-i18n="faq6_q">Hány ingatlant kezelhetek?</span><div class="faq-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></summary>
-      <div class="faq-a" data-i18n="faq6_a">Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 1190 Ft / slot / hó vagy 13 090 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).</div>
-    </details>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="cta-bg"></div>
-  <div class="cta-blob cta-blob-1"></div>
-  <div class="cta-blob cta-blob-2"></div>
-  <div class="cta-content">
-    <h2 data-i18n="cta_title">7 nap ingyenes — próbáld ki most!</h2>
-    <p data-i18n="cta_sub">Regisztrálj és azonnal használd. 7 napos ingyenes próba, minden funkció, kötelezettség nélkül.</p>
-    <a href="https://app.kezeld.hu" class="btn-white" data-i18n="cta_btn">Ingyenes próba indítása →</a>
-  </div>
-</section>
-
-<!-- COOKIE BANNER -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a18;color:#e8e6e0;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13.5px;font-family:'Inter',sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,0.18)">
-  <span>Az oldal működéséhez szükséges sütiket használunk. A Google Fonts betöltéséhez az IP-cím átkerül a Google szervereihez. Részletek: <a href="/adatvedelem.html" style="color:#AFA9EC;text-decoration:underline">Adatkezelési Tájékoztató</a>.</span>
-  <button onclick="acceptCookies()" style="background:#7F77DD;color:#fff;border:none;border-radius:8px;padding:9px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">Rendben</button>
-</div>
-
-</main>
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">kezeld.hu</div>
-  <p>© 2026 kezeld.hu &nbsp;·&nbsp; <a href="/aszf.html">ASZF</a> &nbsp;·&nbsp; <a href="/adatvedelem.html">Adatkezelési Tájékoztató</a> &nbsp;·&nbsp; <a href="/dpa.html">Adatfeldolgozói Szerződés</a> &nbsp;·&nbsp; <a href="mailto:info@kezeld.hu">info@kezeld.hu</a></p>
-</footer>
-
-<script>
-// FAQ: natív <details>/<summary> elemekre váltottunk — toggleFaq függvényre nincs szükség.
-
-// ── Cookie banner ──
+// ── Cookie banner (GDPR) ──
 function acceptCookies(){
-  localStorage.setItem('cookie_ok','1');
-  document.getElementById('cookieBanner').style.display='none';
+  try{ localStorage.setItem('cookie_ok','1'); }catch(e){}
+  var el=document.getElementById('cookieBanner');
+  if(el) el.style.display='none';
 }
 (function(){
-  if(!localStorage.getItem('cookie_ok')){
-    document.getElementById('cookieBanner').style.display='flex';
-  }
-})();
-
-// ── Scroll-reveal animations ──
-(function(){
-  const els = document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
-  },{threshold:0.08, rootMargin:'0px 0px -60px 0px'});
-  els.forEach(el=>io.observe(el));
-  // Auto-mark feature cards as reveals with staggered delays per row
-  document.querySelectorAll('.features-grid .feat-card').forEach((c,i)=>{ c.classList.add('delay-'+((i%3)+1)); });
-  document.querySelectorAll('.steps .step').forEach((c,i)=>{ c.classList.add('delay-'+((i%3)+1)); });
-})();
-
-// ── Scroll Progress Bar ──
-(function(){
-  const bar = document.getElementById('scrollProgress');
-  if(!bar) return;
-  let ticking = false;
-  function update(){
-    const h = document.documentElement;
-    const max = h.scrollHeight - h.clientHeight;
-    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
-    bar.style.width = pct + '%';
-    ticking = false;
-  }
-  window.addEventListener('scroll', ()=>{
-    if(!ticking){ requestAnimationFrame(update); ticking = true; }
-  }, {passive:true});
-  update();
-})();
-
-// ── Parallax Hero Blobs ──
-(function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const blobs = document.querySelectorAll('.hero-blob');
-  if(!blobs.length) return;
-  let ticking = false;
-  function update(){
-    const y = window.scrollY;
-    blobs.forEach((b,i)=>{
-      const speed = i===0 ? 0.18 : 0.28;
-      b.style.transform = `translate3d(0, ${y * speed}px, 0)`;
-    });
-    ticking = false;
-  }
-  window.addEventListener('scroll', ()=>{
-    if(!ticking){ requestAnimationFrame(update); ticking = true; }
-  }, {passive:true});
-})();
-
-// ── Animated stat counters ──
-(function(){
-  const targets = document.querySelectorAll('.stat-num');
-  const animate = (el)=>{
-    const txt = el.textContent.trim();
-    const m = txt.match(/^(\d+)(.*)$/);
-    if(!m) return;
-    const end = parseInt(m[1],10);
-    const suffix = m[2];
-    const dur = 1100; const t0 = performance.now();
-    const tick = (now)=>{
-      const p = Math.min(1,(now-t0)/dur);
-      const eased = 1 - Math.pow(1-p,3);
-      el.textContent = Math.round(end*eased) + suffix;
-      if(p<1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  if(!('IntersectionObserver' in window)) return;
-  const io = new IntersectionObserver((ents)=>{
-    ents.forEach(e=>{ if(e.isIntersecting){ animate(e.target); io.unobserve(e.target);} });
-  },{threshold:0.5});
-  targets.forEach(t=>io.observe(t));
-})();
-
-// ── Billing toggle ──
-const billingToggle = document.getElementById('billingToggle');
-const lblMonthly = document.getElementById('lbl-monthly');
-const lblYearly = document.getElementById('lbl-yearly');
-let isYearly = false;
-function updateBilling() {
-  billingToggle.className = 'toggle-wrap ' + (isYearly ? 'yearly' : 'monthly');
-  lblMonthly.classList.toggle('active', !isYearly);
-  lblYearly.classList.toggle('active', isYearly);
-  document.querySelectorAll('.price-monthly').forEach(el => el.style.display = isYearly ? 'none' : '');
-  document.querySelectorAll('.price-yearly').forEach(el => el.style.display = isYearly ? '' : 'none');
-}
-billingToggle.addEventListener('click', () => { isYearly = !isYearly; updateBilling(); });
-lblMonthly.addEventListener('click', () => { isYearly = false; updateBilling(); });
-lblYearly.addEventListener('click', () => { isYearly = true; updateBilling(); });
-
-// ── Video play overlay ── (Priority 1: keyboard support)
-(function(){
-  const v = document.getElementById('demoVideo');
-  const hint = document.getElementById('playHint');
-  if(!v||!hint) return;
-  const play = () => { try { v.play(); } catch(e){} };
-  hint.addEventListener('click', play);
-  hint.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){
-      e.preventDefault();
-      play();
+  try{
+    if(!localStorage.getItem('cookie_ok')){
+      var el=document.getElementById('cookieBanner');
+      if(el) el.style.display='flex';
     }
-  });
-  v.addEventListener('play', ()=>hint.classList.add('hidden'));
-  v.addEventListener('ended', ()=>hint.classList.remove('hidden'));
+  }catch(e){}
 })();
 
-// ── Smooth nav shadow on scroll ──
+// Sticky nav background on scroll
 (function(){
-  const navg = document.querySelector('.nav-glass');
-  if(!navg) return;
-  const onS = ()=>{ navg.style.boxShadow = window.scrollY>10 ? '0 8px 32px rgba(0,0,0,0.10)' : '0 4px 24px rgba(0,0,0,0.06)'; };
-  window.addEventListener('scroll', onS, {passive:true});
+  var nav = document.getElementById('nav');
+  function onScroll(){
+    if(window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
 
-// ── i18n ──
-const translations = {
+// Reveal-on-scroll using Intersection Observer
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('show'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+// Smooth-scroll to anchor (offset for sticky nav)
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var id = a.getAttribute('href');
+      if(id.length <= 1) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      ev.preventDefault();
+      var top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+})();
+
+// ── i18n: nyelvi kapcsoló (HU/EN) ──
+var translations = {
   hu: {
     skip_link:'Ugrás a tartalomhoz',
-    nav_features:'Funkciók', nav_how:'Hogyan működik', nav_pricing:'Árak', nav_faq:'GYIK', nav_login:'Belépés →',
-    hero_badge:'7 napos ingyenes próba · Csak az után fizetsz amennyi ingatlanod van',
-    hero_title:'Kezeld az ingatlanaidat<br><span>okosan és egyszerűen</span>',
-    hero_sub:'Bérlők, díjak, hibabejelentések, dokumentumok – minden egy helyen. Spórolj időt és energiát az adminisztrációval.',
-    hero_cta1:'1 hetes ingyenes próba →', hero_cta2:'Árak megtekintése',
-    stat1_num:'1 hét', stat1_lbl:'ingyenes próbaidő', stat2_num:'1190 Ft', stat2_lbl:'ingatlanonként havonta', stat3_lbl:'elérhető bármikor, bárhol',
-    feat_label:'Mit kapsz', feat_title:'Eredmények, nem funkciók', feat_sub:'Minden szolgáltatás egy konkrét probléma megoldására.',
-    f1_t:'Minden ingatlanod egy helyen', f1_d:'Sosem keversz össze semmit — cím, alapterület, mérőórák, dokumentumok, képek egy helyen.', f1_r:'3 másodperc keresés',
-    f2_t:'Tudd ki, kinek, mennyit fizet', f2_d:'Egy ránézésre, bárhonnan. Mobilról is. Az összes bérlőd egy táblázatban.', f2_r:'5 mp alatt látod',
-    f3_t:'Színekkel jelzett bérleti díj-követés', f3_d:'Zöld = fizetett. Piros = hiányzik. 5 másodperc alatt látod ki tartozik, és mennyit.', f3_r:'+200 000 Ft/év megtakarítás',
-    f4_t:'QR-kódos hibabejelentő bérlőknek', f4_d:'A bérlőd fotózva küldi be a problémát. Te 1 kattintással intézed.', f4_r:'Nincs telefonhívás',
-    f5_t:'Sosem kell keresgélned', f5_d:'Szerződések, biztosítások, számlák, képek mind egy helyen, ingatlanra szűrve.', f5_r:'0 elveszett papír',
-    f6_t:'A rendszer szól időben', f6_d:'Lejár a szerződés, biztosítás vagy díjcsúszás — emailben kapsz figyelmeztetést. Vasárnap is.', f6_r:'Hétvégédet visszakapod',
-    f7_t:'3 perc alatt kész bérleti szerződés', f7_d:'Új bérlőhöz nem kell ügyvéd — generálj sablonból, PDF-ben kapod.', f7_r:'Megspórolsz 30 000 Ft-ot',
-    f8_t:'Birtokbaadási jegyzőkönyv PDF-ben', f8_d:'Beköltözéskor lefotózod az állapotot, kiköltözéskor bizonyíték a kaucióhoz.', f8_r:'Bíróságon is megáll',
-    how_label:'Hogyan működik', how_title:'3 lépés és kész',
+    nav_features:'Funkciók', nav_how:'Hogyan működik', nav_pricing:'Árazás', nav_faq:'GYIK', nav_cta:'Bejelentkezés',
+    hero_badge:'7 napos ingyenes próba · Kártyaadat nélkül · Korlátlan ingatlannal',
+    hero_title:'Kezeld az ingatlanaidat<br><span class="accent">okosan és egyszerűen</span>',
+    hero_sub:'A kezeld.hu egyetlen helyre gyűjti a bérlőket, bérleti díjakat, dokumentumokat és hibabejelentéseket, így mindig tudod, mi történik a lakásaidban.',
+    hero_cta1:'Ingyenes próba indítása', hero_cta2:'Funkciók megtekintése',
+    hero_fine:'Kártyaadat nélkül. 1 perc alatt.',
+    video_fallback:'A böngésződ nem támogatja a HTML5 videót.',
+    problem_eyebrow:'Ismerős?',
+    problem_title:'Ha bérbeadó vagy, ezeket biztosan átélted.',
+    prob1_t:'Excel-tábla káosz', prob1_d:'Tíz fülön kerested melyik bérlő melyik hónapban fizetett.',
+    prob2_t:'Elveszett szerződések', prob2_d:'3 év után már fogalmad sincs, melyik PDF melyik bérlőé.',
+    prob3_t:'Lejárt biztosítások', prob3_d:'Csak akkor veszed észre, hogy elfelejtetted, amikor baj van.',
+    prob4_t:'Üzenetek mindenhol', prob4_d:'SMS, Messenger, WhatsApp, e-mail — sosem találod amit keresel.',
+    prob5_t:'Hiányzó befizetések', prob5_d:'Nem tudod biztosan, ki tartozik, és mióta. Csak sejted.',
+    prob6_t:'Eltelt napok', prob6_d:'Esténként fejben pörgeted, mit kellett volna ma intézni.',
+    problem_tag:'Nem az ingatlanaidat kezeled. Az adminisztráció kezel téged.',
+    sol_eyebrow:'A kezeld.hu ezért készült',
+    sol_title:'Hogy minden fontos információ egy kattintásra legyen.',
+    sol_sub:'Négy egyszerű funkció, ami pillanatok alatt rendbe rakja a bérbeadói életed.',
+    f1_t:'Lásd azonnal, ki fizetett.', f1_d:'Színkódolt mátrix: zöld = befolyt, sárga = várható, piros = hiányzik. Egy szempillantás alatt látod a teljes évet.',
+    f2_t:'A bérlők tudják, hol jelezzenek.', f2_d:'QR-kódos bérlői portál — a bérlőd 30 másodperc alatt fotózva küldi a hibát. Nincs telefonálás, nincs félreértés.',
+    f3_t:'A dokumentumaid nem vesznek el.', f3_d:'Szerződések, biztosítások, jegyzőkönyvek, számlák — minden ingatlanra rendezve, szűrhető, kereshető.',
+    f4_t:'A rendszer emlékszik helyetted.', f4_d:'Lejáró szerződés, fordulónap, biztosítás — emailben szólunk időben. Vasárnap is.',
+    phone_h:'Hibabejelentés',
+    ph1_t:'Csöpög a csap', ph1_m:'Fürdő · ma',
+    ph2_t:'Égett villanykörte', ph2_m:'Konyha · tegnap',
+    ph3_t:'Új: Hőszigetelés', ph3_m:'Sürgős · épp most',
+    doc1:'Szerződés', doc2:'Számla', doc3:'Jegyzőkönyv',
+    cal_head:'November · 2026',
+    cal_h1:'H',cal_h2:'K',cal_h3:'Sz',cal_h4:'Cs',cal_h5:'P',cal_h6:'Szo',cal_h7:'V',
+    cal_pill:'Holnap lejár — Kovács Péter',
+    ben_eyebrow:'Mit nyersz vele?',
+    ben_title:'Négy dolog, amit holnap reggel már észreveszel.',
+    b1_t:'Kevesebb adminisztráció', b1_d:'Minden adat egy helyen. Nem keresel többé tíz mappában.',
+    b2_t:'Több átláthatóság', b2_d:'Egy ránézésre tudod, mi történik bármelyik lakásodban.',
+    b3_t:'Kevesebb stressz', b3_d:'Nem kell fejben tartanod a határidőket — szólunk időben.',
+    b4_t:'Több kontroll', b4_d:'Valós idejű áttekintés az összes ingatlanról, bármikor.',
+    how_eyebrow:'Hogyan működik', how_title:'3 lépés és kész',
     s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot, és élvezd az 1 hetes ingyenes próbaidőszakot. Az első hét után dönthetsz a folytatásról.',
     s2_t:'Add hozzá ingatlanod', s2_d:'Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 1190 Ft/ingatlan/hó.',
     s3_t:'Kezelj mindent egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
-    price_label:'Árak', price_title:'Átlátható árazás', price_sub:'Nincs rejtett díj. Válaszd a számodra megfelelő csomagot.',
-    price_badge:'Legnépszerűbb',
-    p1_name:'Alap', p1_per:'Ft/hó', p1_note:'5 ingatlan · automatikusan megújul',
-    p1_f1:'7 napos ingyenes próbaidő', p1_f2:'5 ingatlan kezelése', p1_f3:'Bérlő & bérleti díj nyilvántartása', p1_f4:'Hibabejelentés kezelés', p1_f5:'Email értesítések',
-    p1_btn:'Ingyenes próba →',
-    p2_name:'Pro', p2_per:'Ft/hó', p2_note:'15 ingatlan · automatikusan megújul',
-    p2_f1:'7 napos ingyenes próbaidő', p2_f2:'15 ingatlan kezelése', p2_f3:'Minden Alap funkció', p2_f4:'Szerződés generálás', p2_f5:'Birtokbaadási jegyzőkönyv', p2_f6:'Dokumentum feltöltés',
-    p2_btn:'Ingyenes próba →',
-    p3_name:'Pro Plus', p3_per:'Ft/hó', p3_note:'Korlátlan ingatlan · automatikusan megújul',
-    p3_f1:'7 napos ingyenes próbaidő', p3_f2:'Korlátlan ingatlan kezelése', p3_f3:'Minden Pro funkció', p3_f4:'Szerződés generálás', p3_f5:'Birtokbaadási jegyzőkönyv', p3_f6:'Prioritásos support',
-    p3_btn:'Ingyenes próba →',
-    why_label:'Miért minket', why_title:'Bizalom és biztonság az első pillanattól', why_sub:'Adataid EU-ban, banki szintű biztonsággal kezelve.',
-    why1_t:'EU-s adattárolás', why1_d:'Adataid Frankfurtban, Supabase EU-s szerverein vannak. Soha nem hagyják el az Európai Uniót.',
-    why2_t:'GDPR-megfelelő', why2_d:'Teljes körű adatvédelmi tájékoztató, törlési jog, adathordozhatóság. Te birtokolod az adataidat.',
-    why3_t:'Banki szintű fizetés', why3_d:'A fizetést a Stripe kezeli — ugyanaz a rendszer, amit a Shopify és az Amazon is használ. Kártyaadataid hozzánk soha nem érnek el.',
-    cmp_label:'Összehasonlítás', cmp_title:'Miért nem elég az Excel?', cmp_sub:'A kezeld.hu mindent megtesz, amit egy táblázat nem tud.',
-    cmp_col_paper:'Papír / Füzet',
-    cmp_r1:'Bérlők és ingatlanok egy helyen',
-    cmp_r2:'Automatikus díjkövetés és emlékeztetők',
-    cmp_r3:'Mobil hibabejelentés bérlőknek',
-    cmp_r4:'Szerződés- és jegyzőkönyv generálás',
-    cmp_r5:'Bárhonnan elérhető (mobil + desktop)',
-    cmp_r6:'Automatikus mentés, nincs adatvesztés',
-    cmp_r7:'Idő, amit hetente megspórolsz',
-    cmp_partial:'részben', cmp_manual:'manuálisan', cmp_manual2:'manuálisan', cmp_cloud:'cloud esetén', cmp_cloud2:'cloud esetén', cmp_time:'3-5 óra',
-    faq_label:'GYIK', faq_title:'Gyakori kérdések',
-    faq1_q:'Mennyi ideig tart a beállítás?', faq1_a:'Regisztráció és fizetés után azonnal használható a rendszer. Az első ingatlan és bérlő felvitele 5-10 percet vesz igénybe.',
-    faq2_q:'Felmondhatom bármikor az előfizetést?', faq2_a:'Igen, az előfizetés bármikor lemondható. A lemondás után a hónap végéig még hozzáférsz a rendszerhez. Nincs kötöttség, nincs rejtett díj.',
-    faq3_q:'Hogyan változik a számlám slot-bővítéskor vagy csökkentéskor? (arányos elszámolás)', faq3_a:'<strong>Tisztességes arányos elszámolás:</strong> soha nem fizetsz többet a használtnál.<br><br><strong>Slot bővítés mid-period</strong> — a Stripe csak a hátralévő időre vetítve terhel arányosan. Pl. egy 1190 Ft-os havi slot a hónap felénél vásárolva ≈ 595 Ft (nem 1190 Ft). Másodperc-pontos számítás.<br><br><strong>Slot csökkentés</strong> — a már kifizetett periódus végéig megtartod a slotot, csak utána lép életbe az új mennyiség. Nincs elveszett pénz.<br><br><strong>Havi ↔ éves intervallum-váltás</strong> — szintén a periódus végén lép érvénybe, amikor megújul az előfizetés az új áron.',
-    faq5_q:'Mobilon is működik?', faq5_a:'Igen, a rendszer teljesen reszponzív, mobilon és tableten is kényelmesen használható. Nincs szükség alkalmazás letöltésére, böngészőből elérhető.',
-    faq6_q:'Hány ingatlant kezelhetek?', faq6_a:'Nincs ingatlan-korlát. Annyit fizetsz, amennyi ingatlan-slotot megveszel: 1190 Ft / slot / hó vagy 13 090 Ft / slot / év (1 hónap ingyen). Minimum 1 slot. A slot szám szabadon növelhető (azonnali arányos terhelés) vagy csökkenthető (a következő periódus elejétől lép életbe).',
-    cta_title:'7 nap ingyenes — próbáld ki most!', cta_sub:'Regisztrálj és azonnal használd. 7 napos ingyenes próba, minden funkció, kötelezettség nélkül.',
-    cta_btn:'Ingyenes próba indítása →',
-    video_label:'Bemutató videó',
-    ht1:'1 hét ingyenes próba', ht2:'Bármikor lemondható',
-    scroll_cue:'Görgess'
+    price_eyebrow:'Árazás', price_title:'Egyszerű, átlátható árazás.', price_sub:'Nincs csomag-rendszer, nincs rejtett díj. Annyit fizetsz, amennyi ingatlanod van.',
+    price_badge:'Per-ingatlan árazás', price_unit:'/ ingatlan / hó',
+    price_yearly_pre:'Vagy ', price_yearly_strong:'13 090 Ft / ingatlan / év', price_yearly_post:' — 1 hónap ingyen.',
+    pf1:'Korlátlan bérlő, díj, dokumentum',
+    pf2:'Bérlői portál — üzenet, mérőóra, hiba',
+    pf3:'Bérleti szerződés generálás, jegyzőkönyv',
+    pf4:'Közüzemi számla nyilvántartás',
+    pf5:'Negyedéves & éves Excel elszámolás',
+    pf6:'Email értesítések — neked és bérlődnek',
+    pf7:'Magyar nyelvű támogatás',
+    price_cta:'Ingyenes próba indítása', price_fine:'Kártyaadat nélkül · 1 perc alatt',
+    trust_eyebrow:'Biztonság', trust_title:'Magyar bérbeadóknak. Biztonságosan.', trust_sub:'Banki szintű védelem, EU-s adattárolás, GDPR-megfelelőség. Az adataid mindig a tieid.',
+    t1_t:'EU adatkezelés', t1_d:'Az adataid Frankfurtban, Supabase EU-s szerverein. Soha nem hagyják el az EU-t.',
+    t2_t:'GDPR megfelelőség', t2_d:'Teljes adatvédelmi tájékoztató, törlési jog, adathordozhatóság.',
+    t3_t:'Stripe fizetés', t3_d:'Ugyanaz a rendszer, amit a Shopify és Amazon is használ. Kártyaadatod hozzánk soha nem érkezik el.',
+    t4_t:'Magyar számlázás', t4_d:'Billingo automatikus számlát állít ki minden fizetésről — NAV Online Számla-kompatibilis.',
+    t5_t:'Cloudflare védelem', t5_d:'DDoS védelem, bot-szűrés, globális CDN. Mindig elérhető, mindig gyors.',
+    t6_t:'Adat export', t6_d:'Bármikor letöltheted az összes adatodat JSON-ban. Nincs vendor lock-in.',
+    faq_eyebrow:'GYIK', faq_title:'Gyakori kérdések.',
+    faq1_q:'Kell bankkártya az induláshoz?', faq1_a:'Nem. A 7 napos próba teljesen ingyenes és kötelezettségmentes. Csak akkor kell kártyát megadnod, ha a próba végén úgy döntesz, hogy előfizetsz.',
+    faq2_q:'Hány ingatlant kezelhetek?', faq2_a:'A próbaidőszak alatt korlátlanul, utána annyit, amennyi slotot megveszel: 1190 Ft / slot / hó. Minimum 1 slot, maximum nincs. Bővítés, csökkentés bármikor.',
+    faq3_q:'Van hűségidő, kötelező időtartam?', faq3_a:'Nincs. Bármikor lemondható, az aktuális hónap végéig elérhető marad a rendszer. Nincs rejtett díj, nincs felmondási kötbér.',
+    faq4_q:'Mobilon is működik?', faq4_a:'Igen, teljesen reszponzív — telefon, tablet, asztali gép. Nincs alkalmazás-letöltés, böngészőből elérhető. A bérlőid is mobilról használják a portált.',
+    faq5_q:'Társasházkezelésre alkalmas?', faq5_a:'Nem. A kezeld.hu egyéni bérbeadóknak készült (1–50 saját ingatlan). Társasházak, közös képviselet, ingatlankezelő cégek számára más szoftverek alkalmasabbak.',
+    faq6_q:'Mi történik, ha lejár a próba?', faq6_a:'Adataid 90 napig megmaradnak. Bármikor visszatérhetsz előfizetéssel, és minden ott lesz, ahogy hagytad — ingatlanaid, bérlőid, dokumentumaid.',
+    cta_title:'Kevesebb adminisztráció.<br><span class="accent">Több átláthatóság.</span>',
+    cta_sub:'Próbáld ki a kezeld.hu-t 7 napig ingyen — korlátlan ingatlannal, kártyaadat nélkül.',
+    cta_b1:'Kártyaadat nélkül', cta_b2:'Korlátlan ingatlannal', cta_b3:'1 perc alatt',
+    cta_btn:'Ingyenes próba indítása',
+    sticky_cta:'Ingyenes próba indítása',
+    foot_copy:'© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu',
+    foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés'
   },
   en: {
     skip_link:'Skip to main content',
-    nav_features:'Features', nav_how:'How it works', nav_pricing:'Pricing', nav_faq:'FAQ', nav_login:'Sign in →',
-    hero_badge:'7-day free trial · choose from 3 plans',
-    hero_title:'Manage your properties<br><span>smart and simple</span>',
-    hero_sub:'Tenants, payments, maintenance requests, documents – all in one place. Save time and energy on administration.',
-    hero_cta1:'Start free trial →', hero_cta2:'View pricing',
-    stat1_num:'1 week', stat1_lbl:'free trial period', stat2_num:'1190 HUF', stat2_lbl:'per property monthly', stat3_lbl:'available anytime, anywhere',
-    feat_label:'What you get', feat_title:'Results, not features', feat_sub:'Every feature solves a real problem.',
-    f1_t:'All your properties in one place', f1_d:"You'll never mix anything up — address, size, meters, documents, photos all in one place.", f1_r:'3-second search',
-    f2_t:'Know who pays whom, how much', f2_d:'At a glance, from anywhere. Even on mobile. All your tenants in one table.', f2_r:'See it in 5 seconds',
-    f3_t:'Color-coded rent tracking', f3_d:'Green = paid. Red = missing. See who owes what in 5 seconds.', f3_r:'+€500/year saved',
-    f4_t:'QR-code issue reporter for tenants', f4_d:'Your tenant snaps a photo and submits. You handle it in 1 click.', f4_r:'No phone calls',
-    f5_t:"Never search for documents again", f5_d:'Contracts, insurance, invoices, photos — all in one place, filtered by property.', f5_r:'0 lost papers',
-    f6_t:'The system alerts you on time', f6_d:'Contract expiring, insurance, late payment — you get an email alert. Even on Sundays.', f6_r:'Get your weekends back',
-    f7_t:'Rental contract ready in 3 minutes', f7_d:'No lawyer needed for a new tenant — generate from template, get a PDF.', f7_r:'Save 100 EUR',
-    f8_t:'Handover protocol as PDF', f8_d:'Photograph the condition on move-in; proof for the deposit on move-out.', f8_r:'Court-admissible',
-    how_label:'How it works', how_title:'3 steps and you\'re done',
-    s1_t:'Register and try it free', s1_d:'Create an account, and enjoy a 1-week free trial. Decide after the first week whether to continue.',
-    s2_t:'Add your property', s2_d:'Add your property details, tenants and documents. You only pay for the number of properties you have — 1190 HUF/property/month.',
-    s3_t:'Manage everything in one place', s3_d:'Track rent payments, handle maintenance requests, and receive automatic notifications. From anywhere, on any device.',
-    price_label:'Pricing', price_title:'Transparent pricing', price_sub:'No hidden fees. Choose the plan that fits you.',
-    price_badge:'Most popular',
-    p1_name:'Basic', p1_per:'/mo', p1_note:'5 properties · auto-renews monthly',
-    p1_f1:'7-day free trial', p1_f2:'Manage 5 properties', p1_f3:'Tenant & rent registry', p1_f4:'Maintenance request handling', p1_f5:'Email notifications',
-    p1_btn:'Start free trial →',
-    p2_name:'Pro', p2_per:'/mo', p2_note:'15 properties · auto-renews monthly',
-    p2_f1:'7-day free trial', p2_f2:'Manage 15 properties', p2_f3:'All Basic features', p2_f4:'Contract generation', p2_f5:'Handover protocol', p2_f6:'Document uploads',
-    p2_btn:'Start free trial →',
-    p3_name:'Pro Plus', p3_per:'/mo', p3_note:'Unlimited properties · auto-renews monthly',
-    p3_f1:'7-day free trial', p3_f2:'Manage unlimited properties', p3_f3:'All Pro features', p3_f4:'Contract generation', p3_f5:'Handover protocol', p3_f6:'Priority support',
-    p3_btn:'Start free trial →',
-    why_label:'Why us', why_title:'Trust and security from the first moment', why_sub:'Your data in the EU, handled with bank-grade security.',
-    why1_t:'EU data storage', why1_d:'Your data is in Frankfurt, on Supabase EU servers. It never leaves the European Union.',
-    why2_t:'GDPR compliant', why2_d:'Full privacy policy, right to deletion, data portability. You own your data.',
-    why3_t:'Bank-grade payments', why3_d:'Payments are handled by Stripe — the same system used by Shopify and Amazon. Your card data never reaches us.',
-    cmp_label:'Comparison', cmp_title:"Why Excel isn't enough?", cmp_sub:'kezeld.hu does everything a spreadsheet cannot.',
-    cmp_col_paper:'Paper / Notebook',
-    cmp_r1:'Tenants and properties in one place',
-    cmp_r2:'Automatic payment tracking & reminders',
-    cmp_r3:'Mobile issue reporting for tenants',
-    cmp_r4:'Contract & protocol generation',
-    cmp_r5:'Accessible anywhere (mobile + desktop)',
-    cmp_r6:'Automatic backups, no data loss',
-    cmp_r7:'Time saved per week',
-    cmp_partial:'partially', cmp_manual:'manually', cmp_manual2:'manually', cmp_cloud:'cloud only', cmp_cloud2:'cloud only', cmp_time:'3-5 hours',
-    faq_label:'FAQ', faq_title:'Frequently asked questions',
-    faq1_q:'How long does setup take?', faq1_a:'The system is immediately usable after registration and payment. Adding the first property and tenant takes 5-10 minutes.',
-    faq2_q:'Can I cancel anytime?', faq2_a:'Yes, subscriptions can be cancelled at any time. After cancellation you still have access until the end of the month. No commitment, no hidden fees.',
-    faq3_q:'How does my bill change when I add or remove a slot? (proration)', faq3_a:'<strong>Fair pay-as-you-go billing:</strong> you never pay more than what you use.<br><br><strong>Mid-period slot upgrade</strong> — Stripe prorates the charge based on the remaining time only. E.g. adding a 1190 HUF monthly slot halfway through the month ≈ 595 HUF (not 1190 HUF). Second-precise calculation.<br><br><strong>Slot downgrade</strong> — you keep the slot until the end of the already-paid period; only then does the new quantity take effect. No money lost.<br><br><strong>Monthly ↔ yearly interval switch</strong> — also takes effect at the period end, when the subscription renews at the new price.',
-    faq5_q:'Does it work on mobile?', faq5_a:'Yes, the system is fully responsive and works comfortably on mobile and tablet. No app download needed, accessible from any browser.',
-    faq6_q:'How many properties can I manage?', faq6_a:'No limit. You only pay for what you use: 1190 HUF / property / month or 13,090 HUF / property / year (1 month free). New properties are charged pro-rata; deletions are credited.',
-    cta_title:'7 days free — try it now!', cta_sub:'Sign up and start immediately. 7-day free trial, all features, no commitment.',
-    cta_btn:'Start free trial →',
-    video_label:'Demo video',
-    ht1:'1 week free trial', ht2:'Cancel anytime',
-    scroll_cue:'Scroll',
+    nav_features:'Features', nav_how:'How it works', nav_pricing:'Pricing', nav_faq:'FAQ', nav_cta:'Sign in',
+    hero_badge:'7-day free trial · No credit card · Unlimited properties',
+    hero_title:'Manage your properties<br><span class="accent">smart and simple</span>',
+    hero_sub:'kezeld.hu brings your tenants, rents, documents and maintenance requests into one place — so you always know what is happening across your rentals.',
+    hero_cta1:'Start free trial', hero_cta2:'See features',
+    hero_fine:'No credit card. Under 1 minute.',
+    video_fallback:'Your browser does not support HTML5 video.',
+    problem_eyebrow:'Sound familiar?',
+    problem_title:'If you are a landlord, you have lived through these.',
+    prob1_t:'Excel chaos', prob1_d:'Ten tabs deep, hunting down who paid which month.',
+    prob2_t:'Lost contracts', prob2_d:'Three years in, you no longer know which PDF belongs to which tenant.',
+    prob3_t:'Expired insurance', prob3_d:'You only notice you forgot when something goes wrong.',
+    prob4_t:'Messages everywhere', prob4_d:'SMS, Messenger, WhatsApp, email — you never find what you need.',
+    prob5_t:'Missing payments', prob5_d:'You are not sure who owes what or since when. Just guessing.',
+    prob6_t:'Wasted evenings', prob6_d:'You keep running tasks in your head you should have done today.',
+    problem_tag:'You are not managing your properties. The admin work is managing you.',
+    sol_eyebrow:'That is why kezeld.hu exists',
+    sol_title:'So every important detail is one click away.',
+    sol_sub:'Four simple features that quietly put your landlord life in order.',
+    f1_t:'See instantly who paid.', f1_d:'Color-coded matrix: green = paid, yellow = expected, red = missing. The whole year at a glance.',
+    f2_t:'Tenants know where to report.', f2_d:'QR-code tenant portal — your tenant submits an issue with a photo in 30 seconds. No phone calls, no confusion.',
+    f3_t:'Your documents stop getting lost.', f3_d:'Contracts, insurance, handover reports, invoices — organized per property, filterable, searchable.',
+    f4_t:'The system remembers for you.', f4_d:'Expiring contract, anniversary, insurance — we email you on time. Even on Sundays.',
+    phone_h:'Issues',
+    ph1_t:'Leaking tap', ph1_m:'Bathroom · today',
+    ph2_t:'Burned-out bulb', ph2_m:'Kitchen · yesterday',
+    ph3_t:'New: Insulation', ph3_m:'Urgent · just now',
+    doc1:'Contract', doc2:'Invoice', doc3:'Report',
+    cal_head:'November · 2026',
+    cal_h1:'M',cal_h2:'T',cal_h3:'W',cal_h4:'T',cal_h5:'F',cal_h6:'Sat',cal_h7:'Sun',
+    cal_pill:'Expires tomorrow — Peter Kovacs',
+    ben_eyebrow:'What you gain',
+    ben_title:'Four things you will notice tomorrow morning.',
+    b1_t:'Less admin', b1_d:'All your data in one place. No more digging through ten folders.',
+    b2_t:'More clarity', b2_d:'At a glance you know what is happening in any rental.',
+    b3_t:'Less stress', b3_d:'You no longer track deadlines in your head — we tell you in time.',
+    b4_t:'More control', b4_d:'Real-time overview of all your properties, any time.',
+    how_eyebrow:'How it works', how_title:'3 steps and you are done',
+    s1_t:'Register and try it free', s1_d:'Create an account and enjoy a 1-week free trial. After the first week you decide whether to continue.',
+    s2_t:'Add your property', s2_d:'Upload your property details, attach tenants and documents. You only pay for the number of properties you have — 1190 HUF / property / month.',
+    s3_t:'Manage everything in one place', s3_d:'Track rent payments, handle issue reports, and receive automatic notifications. From anywhere, on any device.',
+    price_eyebrow:'Pricing', price_title:'Simple, transparent pricing.', price_sub:'No plans, no hidden fees. You pay for as many properties as you have.',
+    price_badge:'Per-property pricing', price_unit:'/ property / mo',
+    price_yearly_pre:'Or ', price_yearly_strong:'13,090 HUF / property / year', price_yearly_post:' — 1 month free.',
+    pf1:'Unlimited tenants, rents, documents',
+    pf2:'Tenant portal — messages, meters, issues',
+    pf3:'Rental contract generation, handover report',
+    pf4:'Utility bill tracking',
+    pf5:'Quarterly & annual Excel report',
+    pf6:'Email notifications — for you and your tenant',
+    pf7:'Hungarian support',
+    price_cta:'Start free trial', price_fine:'No credit card · Under 1 minute',
+    trust_eyebrow:'Security', trust_title:'For Hungarian landlords. Safely.', trust_sub:'Bank-grade security, EU data storage, GDPR compliance. Your data always stays yours.',
+    t1_t:'EU data storage', t1_d:'Your data sits in Frankfurt on Supabase EU servers. It never leaves the EU.',
+    t2_t:'GDPR compliant', t2_d:'Full privacy notice, right to deletion, data portability.',
+    t3_t:'Stripe payments', t3_d:'The same system Shopify and Amazon use. Your card details never reach us.',
+    t4_t:'Hungarian invoicing', t4_d:'Billingo issues an invoice automatically for every payment — NAV Online Számla compatible.',
+    t5_t:'Cloudflare protection', t5_d:'DDoS protection, bot filtering, global CDN. Always up, always fast.',
+    t6_t:'Data export', t6_d:'Download all your data in JSON any time. No vendor lock-in.',
+    faq_eyebrow:'FAQ', faq_title:'Frequently asked questions.',
+    faq1_q:'Do I need a credit card to start?', faq1_a:'No. The 7-day trial is completely free and commitment-free. You only enter card details if you choose to subscribe at the end of the trial.',
+    faq2_q:'How many properties can I manage?', faq2_a:'Unlimited during the trial; after that, as many slots as you buy: 1,190 HUF / slot / month. Minimum 1 slot, no maximum. Increase or decrease any time.',
+    faq3_q:'Is there a minimum contract?', faq3_a:'No. Cancel any time — the system stays available until the end of the current month. No hidden fees, no cancellation charge.',
+    faq4_q:'Does it work on mobile?', faq4_a:'Yes, fully responsive — phone, tablet, desktop. No app download, just open it in a browser. Your tenants also use the portal from their phones.',
+    faq5_q:'Is it suitable for condominium management?', faq5_a:'No. kezeld.hu is built for individual landlords (1–50 own properties). Condominium managers, HOAs and management companies should look at other tools.',
+    faq6_q:'What happens when the trial ends?', faq6_a:'Your data is kept for 90 days. You can come back any time and subscribe — everything will be there as you left it: properties, tenants, documents.',
+    cta_title:'Less admin.<br><span class="accent">More clarity.</span>',
+    cta_sub:'Try kezeld.hu free for 7 days — unlimited properties, no credit card.',
+    cta_b1:'No credit card', cta_b2:'Unlimited properties', cta_b3:'Under 1 minute',
+    cta_btn:'Start free trial',
+    sticky_cta:'Start free trial',
+    foot_copy:'© 2026 kezeld.hu · Kepecs Nátán sole proprietor · info@kezeld.hu',
+    foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in'
   }
 };
+var currentLang = 'hu';
+try { var saved = localStorage.getItem('lk_v2_lang'); if(saved === 'hu' || saved === 'en') currentLang = saved; } catch(e){}
 
-let currentLang = 'hu';
-
-function toggleLang(){
-  currentLang = currentLang === 'hu' ? 'en' : 'hu';
-  const btn = document.getElementById('lang-btn');
-  btn.textContent = currentLang === 'hu' ? 'EN' : 'HU';
-  btn.setAttribute('aria-label', currentLang === 'hu' ? 'Switch language to English' : 'Nyelv váltása magyarra');
+function applyLang(){
+  var t = translations[currentLang];
   document.documentElement.lang = currentLang;
-  const t = translations[currentLang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
     if(t[key] !== undefined) el.innerHTML = t[key];
   });
+  var lc = document.getElementById('langCode');
+  if(lc) lc.textContent = currentLang === 'hu' ? 'EN' : 'HU';
 }
+applyLang();
+
+document.getElementById('langBtn').addEventListener('click', function(){
+  currentLang = (currentLang === 'hu') ? 'en' : 'hu';
+  try { localStorage.setItem('lk_v2_lang', currentLang); } catch(e){}
+  applyLang();
+});
 </script>
 </body>
 </html>
