@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -15,11 +16,11 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   /* Brand */
-  --purple:#6E63E0;--purple-dark:#4A40C7;--purple-light:#EEEDFE;--purple-mid:#A9A2EC;
+  --purple:#047857;--purple-dark:#065F46;--purple-light:#ECFDF5;--purple-mid:#6EE7B7;
   /* Semantic */
-  --green-bg:#E8F4DD;--green-text:#2F5F0A;
-  --amber-bg:#FCEFD7;--amber-text:#7A4509;
-  --red-bg:#FBE9E9;--red-text:#9B2424;
+  --green-bg:#D1FAE5;--green-text:#047857;
+  --amber-bg:#FEF3C7;--amber-text:#92400E;
+  --red-bg:#FEE2E2;--red-text:#DC2626;
   --blue-bg:#E2EFFB;--blue-text:#1356A0;
   /* Neutrals — warm beige (megőrzött) */
   --border:#e0ddd6;--border-strong:#c8c4ba;
@@ -32,9 +33,9 @@
   --shadow-sm:0 1px 3px rgba(26,26,24,.05),0 1px 2px rgba(26,26,24,.04);
   --shadow-md:0 4px 12px rgba(26,26,24,.06),0 2px 4px rgba(26,26,24,.04);
   --shadow-lg:0 10px 24px rgba(26,26,24,.08),0 4px 8px rgba(26,26,24,.04);
-  --shadow-purple:0 4px 14px rgba(110,99,224,.22);
+  --shadow-purple:0 4px 14px rgba(4,120,87,.22);
   /* Focus */
-  --focus-ring:0 0 0 3px rgba(110,99,224,.28);
+  --focus-ring:0 0 0 3px rgba(4,120,87,.28);
   /* Legacy */
   --radius-md:8px;--radius-lg:12px;
 }
@@ -42,8 +43,8 @@
   --border:#2e2e2a;--border-strong:#3a3a36;
   --text:#f0ede8;--text-sec:#a0a09a;--text-ter:#727268;
   --bg:#1a1a18;--card:#242422;--surface:#1e1e1c;
-  --purple-light:#2a2862;
-  --green-bg:#1a2e10;--green-text:#9CC962;
+  --purple-light:#0F2C22;
+  --green-bg:#0F2C22;--green-text:#6EE7B7;
   --amber-bg:#2d2210;--amber-text:#FAC775;
   --red-bg:#2e1010;--red-text:#F09595;
   --blue-bg:#0e1e30;--blue-text:#85B7EB;
@@ -51,7 +52,7 @@
   --shadow-sm:0 1px 3px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.3);
   --shadow-md:0 4px 12px rgba(0,0,0,.4),0 2px 4px rgba(0,0,0,.3);
   --shadow-lg:0 10px 24px rgba(0,0,0,.5),0 4px 8px rgba(0,0,0,.35);
-  --shadow-purple:0 4px 14px rgba(110,99,224,.4);
+  --shadow-purple:0 4px 14px rgba(4,120,87,.4);
 }}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:'cv11','ss01','ss03'}
@@ -83,13 +84,13 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .fgrp label{font-size:13px;font-weight:600;color:var(--text-sec);letter-spacing:-.005em}
 .fgrp input,.fgrp select,.fgrp textarea{padding:11px 13px;border:1px solid var(--border);border-radius:var(--r-md);background:var(--card);color:var(--text);font-size:14px;font-family:inherit;width:100%;transition:border-color .15s ease,box-shadow .15s ease;font-feature-settings:'cv11','ss01'}
 .fgrp input:hover,.fgrp select:hover,.fgrp textarea:hover{border-color:var(--border-strong)}
-.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(110,99,224,.18)}
+.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(4,120,87,.18)}
 .fgrp textarea{resize:vertical;min-height:96px;line-height:1.6}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:420px){.frow{grid-template-columns:1fr}}
 .btn{padding:12px 22px;border:none;border-radius:var(--r-md);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s ease,box-shadow .15s ease,transform .1s ease;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px;letter-spacing:-.005em}
 .btn-p{background:var(--purple);color:#fff;box-shadow:var(--shadow-purple)}
-.btn-p:hover{background:var(--purple-dark);box-shadow:0 6px 18px rgba(110,99,224,.35)}
+.btn-p:hover{background:var(--purple-dark);box-shadow:0 6px 18px rgba(4,120,87,.35)}
 .btn-p:active{transform:translateY(1px)}
 .btn-p:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
 .btn-s{padding:9px 17px;background:var(--card);border:1px solid var(--border);color:var(--text);font-size:13px;box-shadow:var(--shadow-xs)}
