@@ -34,7 +34,7 @@ Magyar egyéni bérbeadóknak akik 1–50 ingatlant kezelnek és szeretnék digi
 - Felhőalapú (SaaS), nincs telepítés
 - Mobilon és asztali böngészőn is működik
 - Magyar nyelven, Ft-ban számlázva
-- GDPR-kompatibilis, EU-n belüli adattárolás (Frankfurt)
+- GDPR-kompatibilis, EU-n belüli adattárolás
 - Elektronikus számlázás (Billingo + NAV Online Számla)
 
 ## Elérhetőség
