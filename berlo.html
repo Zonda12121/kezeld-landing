@@ -334,7 +334,18 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
 <script>
 const BACKEND = 'https://kezeldhu-production.up.railway.app';
 const params = new URLSearchParams(location.search);
-const TOKEN = params.get('token') || '';
+let TOKEN = params.get('token') || '';
+// Token kivezetése a látható URL-ből (előzmény-/váll-szörfözés-/véletlen-megosztás elleni védelem).
+// A tokent lapfül-élettartamú sessionStorage-ban tartjuk (refresh a tabon belül működik),
+// majd töröljük a címsorból. Tabbezáráskor törlődik → újranyitás az emailes linkről.
+try {
+  if (TOKEN) {
+    sessionStorage.setItem('kezeld_berlo_token', TOKEN);
+    history.replaceState(null, '', location.pathname);
+  } else {
+    TOKEN = sessionStorage.getItem('kezeld_berlo_token') || '';
+  }
+} catch (_) { /* sessionStorage tiltva → marad az URL-ből olvasott token */ }
 let _berlo = null;
 let _ingatlan = null;
 let _hbPri = 'medium';
