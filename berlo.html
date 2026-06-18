@@ -455,6 +455,9 @@ const DICT_EN = {
   'nap múlva': 'days from now',
   'Befizetve:': 'Paid:',
   'Bérleti díj —': 'Rent —',
+  'Közös költség —': 'Common cost —',
+  'Utalás ide:': 'Transfer to:',
+  'Közlemény:': 'Reference:',
   'Dokumentum': 'Document',
 };
 let _lang = (function(){
@@ -547,9 +550,10 @@ async function loadFizetnivalo(){
   const histEl = document.getElementById('fiz-history');
   listEl.innerHTML = '<div class="empty">'+t('Betöltés...')+'</div>';
   try{
-    const [dijRes, kuzRes] = await Promise.all([
+    const [dijRes, kuzRes, kozRes] = await Promise.all([
       fetch(BACKEND+'/berlo/dijak?token='+encodeURIComponent(TOKEN)).then(r=>r.json()).catch(()=>({dijak:[]})),
       fetch(BACKEND+'/berlo/kozuzemi?token='+encodeURIComponent(TOKEN)).then(r=>r.json()).catch(()=>({szamlak:[]})),
+      fetch(BACKEND+'/berlo/kozos?token='+encodeURIComponent(TOKEN)).then(r=>r.json()).catch(()=>({kozos:[]})),
     ]);
     const dijak = (dijRes.dijak || []).map(d => ({
       type:'dij',
@@ -576,7 +580,20 @@ async function loadFizetnivalo(){
       bizonylat_url: s.bizonylat_url,      // bérlő által feltöltött befizetés igazolás
       szamla_url: s.szamla_signed || null, // bérbeadó által feltöltött eredeti számla (signed URL)
     }));
-    const all = [...dijak, ...kuz];
+    const koz = (kozRes.kozos || []).map(k => ({
+      type:'kozos',
+      id: k.id,
+      cim: t('Közös költség —')+' '+(k.honap || ''),
+      ico: '🏢',
+      osszeg: (k.total != null ? k.total : k.alap_osszeg) || 0,
+      valuta: 'HUF',
+      esedekesseg: k.honap ? k.honap+'-10' : null,
+      befizetve: k.allapot === 'fizetve',
+      befizetve_at: k.fizetve_datum,
+      bizonylat_url: k.bizonylat_url,
+      utalasi_kedv: k.utalasi_kedv, utalasi_szamla: k.utalasi_szamla, utalasi_kozlemeny: k.utalasi_kozlemeny,
+    }));
+    const all = [...dijak, ...kuz, ...koz];
     const open = all.filter(x => !x.befizetve);
     const paid = all.filter(x => x.befizetve).sort((a,b) => (b.befizetve_at||'').localeCompare(a.befizetve_at||''));
 
@@ -621,13 +638,16 @@ async function loadFizetnivalo(){
         const szamlaLink = x.szamla_url
           ? '<div style="margin-top:6px;font-size:12.5px"><a href="'+escapeHtml(x.szamla_url)+'" target="_blank" rel="noopener noreferrer" style="color:var(--purple);text-decoration:underline">'+t('📄 Számla letöltése')+'</a></div>'
           : '';
+        const utalasBlock = (x.type==='kozos' && (x.utalasi_kedv || x.utalasi_szamla))
+          ? '<div style="margin-top:6px;font-size:11.5px;color:var(--text-sec);line-height:1.5">'+t('Utalás ide:')+' '+(x.utalasi_kedv?'<strong>'+escapeHtml(x.utalasi_kedv)+'</strong>':'')+(x.utalasi_szamla?' · '+escapeHtml(x.utalasi_szamla):'')+(x.utalasi_kozlemeny?' · '+t('Közlemény:')+' '+escapeHtml(x.utalasi_kozlemeny):'')+'</div>'
+          : '';
         return '<div class="szamla-item '+cls+'" id="fiz-item-'+x.type+'-'+x.id+'" style="padding:14px 16px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;background:var(--card)'+(cls==='lejart'?';border-color:var(--red-text);background:var(--red-bg)':cls==='kozeleg'?';border-color:var(--amber-text);background:var(--amber-bg)':'')+'">'
           +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">'
             +'<div style="flex:1;min-width:0">'
               +'<div style="font-size:14.5px;font-weight:600;margin-bottom:2px">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
               +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-ter)">'+t('Esedékes:')+' '+escapeHtml(x.esedekesseg)+'</div>'
-              +szamlaLink
+              +szamlaLink+utalasBlock
             +'</div>'
             +'<div style="text-align:right">'+stat+'</div>'
           +'</div>'
@@ -668,14 +688,18 @@ async function loadFizetnivalo(){
   }
 }
 
+// Típus → végpont + azonosító-kulcs leképezés (díj / közüzemi / közös költség)
+function fizEndpoint(type){
+  if(type==='dij') return {endpoint:'/berlo/dij-fizetve', idKey:'dijId'};
+  if(type==='kozos') return {endpoint:'/berlo/kozos-fizetve', idKey:'kozosId'};
+  return {endpoint:'/berlo/kozuzemi-fizetve', idKey:'szamlaId'};
+}
 // Befizetés-jelölő — opcionálisan a már feltöltött bizonylat URL-lel
 async function markFizetve(type, id, bizonylat_url){
   if(!confirm(t('Biztosan befizetted? A bérbeadód értesítést kap erről.'))) return;
   try{
-    const endpoint = type === 'dij' ? '/berlo/dij-fizetve' : '/berlo/kozuzemi-fizetve';
-    const body = type === 'dij'
-      ? { token: TOKEN, dijId: id, bizonylat_url: bizonylat_url || null }
-      : { token: TOKEN, szamlaId: id, bizonylat_url: bizonylat_url || null };
+    const {endpoint, idKey} = fizEndpoint(type);
+    const body = { token: TOKEN, [idKey]: id, bizonylat_url: bizonylat_url || null };
     const r = await fetch(BACKEND+endpoint, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -722,10 +746,8 @@ async function onBizonylatLaterSelected(input, type, id){
     }
     const data = await r.json();
     // Csatolás a már befizetett tételhez — markFizetve csak bizonylat_url-lel
-    const endpoint = type === 'dij' ? '/berlo/dij-fizetve' : '/berlo/kozuzemi-fizetve';
-    const body = type === 'dij'
-      ? { token: TOKEN, dijId: id, bizonylat_url: data.url }
-      : { token: TOKEN, szamlaId: id, bizonylat_url: data.url };
+    const {endpoint, idKey} = fizEndpoint(type);
+    const body = { token: TOKEN, [idKey]: id, bizonylat_url: data.url };
     const r2 = await fetch(BACKEND+endpoint, {
       method:'POST',
       headers:{'Content-Type':'application/json'},
