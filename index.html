@@ -1094,6 +1094,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
     <div class="foot-links">
       <a href="/aszf" data-i18n="foot_aszf">ÁSZF</a>
       <a href="/adatvedelem" data-i18n="foot_priv">Adatkezelés</a>
+      <a href="#" onclick="openCookieSettings();return false;" data-i18n="foot_cookie">Süti-beállítások</a>
       <a href="/dpa">DPA</a>
       <a href="https://app.kezeld.hu" data-i18n="foot_login">Belépés</a>
     </div>
@@ -1101,9 +1102,14 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 </footer>
 
 <!-- ═══════════ COOKIE BANNER (GDPR) ═══════════ -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B0F1A;color:#F4F4F5;padding:16px 24px;display:none;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;font-size:13.5px;font-family:'Inter',sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,0.18);border-top:1px solid #27272A">
-  <span>Az oldal működéséhez szükséges böngésző-tárolót használunk. A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts szolgáltatja, IP-cím nem kerül harmadik félhez. Részletek: <a href="/adatvedelem" style="color:#6EE7B7;text-decoration:underline">Adatkezelési Tájékoztató</a>.</span>
-  <button onclick="acceptCookies()" style="background:#10B981;color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">Rendben</button>
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0B0F1A;color:#F4F4F5;padding:16px 24px;font-size:13.5px;font-family:'Inter',sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,0.18);border-top:1px solid #27272A">
+  <div style="max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+    <span style="flex:1;min-width:250px;line-height:1.5">Sütiket használunk. A működéshez szükségesek mindig aktívak. <b>Marketing- és mérési sütiket</b> (pl. Facebook) csak a hozzájárulásoddal töltünk be — soha előtte. Részletek: <a href="/adatvedelem" style="color:#6EE7B7;text-decoration:underline">Adatkezelési Tájékoztató</a>.</span>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button onclick="setConsent('necessary')" style="background:transparent;color:#F4F4F5;border:1px solid #3F3F46;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap">Csak a szükségesek</button>
+      <button onclick="setConsent('all')" style="background:#10B981;color:#fff;border:none;border-radius:999px;padding:9px 22px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap">Elfogadom</button>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════ STICKY MOBILE CTA ═══════════ -->
@@ -1138,19 +1144,31 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
   },1500);
 })();
 
-// ── Cookie banner (GDPR) ──
-function acceptCookies(){
-  try{ localStorage.setItem('cookie_ok','1'); }catch(e){}
-  var el=document.getElementById('cookieBanner');
-  if(el) el.style.display='none';
+// ── Cookie-hozzájárulás (GDPR / ePrivacy) ──
+// A működéshez szükséges tárolás mindig fut. A marketing/mérési sütik (Meta Pixel)
+// KIZÁRÓLAG 'all' hozzájárulás esetén töltődnek be — soha a hozzájárulás előtt.
+var META_PIXEL_ID = 'XXXXXXXXXXXXXXX'; // ← ide jön a Meta Pixel azonosító (Meta Events Manager). Amíg 'X'-et tartalmaz, a pixel nem tölt.
+function loadMetaPixel(){
+  if(window._fbqLoaded || !META_PIXEL_ID || META_PIXEL_ID.indexOf('X')>=0) return;
+  window._fbqLoaded = true;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
 }
+function applyConsent(c){ if(c === 'all') loadMetaPixel(); }
+function setConsent(choice){
+  try{ localStorage.setItem('cookie_consent', choice); }catch(e){}
+  var el=document.getElementById('cookieBanner'); if(el) el.style.display='none';
+  applyConsent(choice);
+}
+function openCookieSettings(){ var el=document.getElementById('cookieBanner'); if(el) el.style.display='flex'; }
 (function(){
-  try{
-    if(!localStorage.getItem('cookie_ok')){
-      var el=document.getElementById('cookieBanner');
-      if(el) el.style.display='flex';
-    }
-  }catch(e){}
+  var c=null; try{ c=localStorage.getItem('cookie_consent'); }catch(e){}
+  if(!c){ var el=document.getElementById('cookieBanner'); if(el) el.style.display='flex'; }
+  else { applyConsent(c); }
 })();
 
 // Sticky nav background on scroll
