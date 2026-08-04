@@ -444,6 +444,13 @@ const DICT_EN = {
   'Csatolási hiba': 'Attachment error',
   '🎉 Minden ki van fizetve!': '🎉 All paid!',
   '✓ Befizetve': '✓ Paid',
+  '✓ Befizettem — igazolással': '✓ I have paid — with proof',
+  'Jóváhagyásra vár': 'Awaiting approval',
+  'Másik igazolás': 'Different proof',
+  'Előbb csatolj utalási igazolást.': 'Please attach a transfer proof first.',
+  'Elküldve! A bérbeadód jóváhagyja a befizetést.': 'Sent! Your landlord will approve the payment.',
+  'Igazolás feltöltve.': 'Proof uploaded.',
+  'Igazolás feltöltve. Beküldöd a befizetést jóváhagyásra a bérbeadódnak?': 'Proof uploaded. Submit the payment to your landlord for approval?',
   '📎 Befizetés igazolás': '📎 Payment receipt',
   '📎 Bizonylat csatolása': '📎 Attach receipt',
   '📄 Számla letöltése': '📄 Download invoice',
@@ -651,9 +658,11 @@ async function loadFizetnivalo(){
             +'</div>'
             +'<div style="text-align:right">'+stat+'</div>'
           +'</div>'
-          +'<div style="display:flex;gap:6px;flex-wrap:wrap">'
-            +'<button class="btn btn-p" style="flex:1;font-size:13px;padding:9px 14px" onclick="markFizetve(\''+x.type+'\','+x.id+')">'+t('✓ Befizetve')+'</button>'
-            +'<button class="btn btn-s" style="font-size:13px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">'+t('📎 Befizetés igazolás')+'</button>'
+          +'<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">'
+            +(x.bizonylat_url
+              ? '<span style="flex:1;min-width:150px;background:var(--amber-bg);color:var(--amber-text);font-size:12.5px;font-weight:600;padding:9px 12px;border-radius:8px;text-align:center">⏳ '+t('Jóváhagyásra vár')+'</span>'
+                +'<button class="btn btn-s" style="font-size:13px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">'+t('Másik igazolás')+'</button>'
+              : '<button class="btn btn-p" style="flex:1;font-size:13px;padding:9px 14px" onclick="attachBizonylat(\''+x.type+'\','+x.id+')">'+t('✓ Befizettem — igazolással')+'</button>')
           +'</div>'
           +'<input type="file" id="biz-file-'+x.type+'-'+x.id+'" accept=".pdf,image/*" style="display:none" onchange="onBizonylatSelected(this,\''+x.type+'\','+x.id+')">'
         +'</div>';
@@ -696,7 +705,8 @@ function fizEndpoint(type){
 }
 // Befizetés-jelölő — opcionálisan a már feltöltött bizonylat URL-lel
 async function markFizetve(type, id, bizonylat_url){
-  if(!confirm(t('Biztosan befizetted? A bérbeadód értesítést kap erről.'))) return;
+  // A befizetés jelzéséhez KÖTELEZŐ az utalási igazolás — a bérbeadó ezután hagyja jóvá.
+  if(!bizonylat_url){ showToast(t('Előbb csatolj utalási igazolást.'),'error'); return; }
   try{
     const {endpoint, idKey} = fizEndpoint(type);
     const body = { token: TOKEN, [idKey]: id, bizonylat_url: bizonylat_url || null };
@@ -709,7 +719,7 @@ async function markFizetve(type, id, bizonylat_url){
       const j = await r.json().catch(()=>({}));
       throw new Error(j.error || t('Hiba'));
     }
-    showToast(t('Köszönjük! A bérbeadód értesítést kap.'),'success');
+    showToast(t('Elküldve! A bérbeadód jóváhagyja a befizetést.'),'success');
     loadFizetnivalo();
   }catch(e){
     showToast(e.message,'error');
@@ -790,10 +800,10 @@ async function onBizonylatSelected(input, type, id){
       throw new Error(j.error || t('Feltöltési hiba'));
     }
     const data = await r.json();
-    showToast(t('Bizonylat feltöltve, most jelöld be hogy befizetted'),'success');
-    // Most automatikusan jelöljük be befizetve
+    showToast(t('Igazolás feltöltve.'),'success');
+    // Feltöltés után beküldjük jóváhagyásra (a bérbeadó hagyja jóvá)
     setTimeout(() => {
-      if(confirm(t('Bizonylat sikeresen feltöltve. Most jelöljem befizetve állapotúra?'))){
+      if(confirm(t('Igazolás feltöltve. Beküldöd a befizetést jóváhagyásra a bérbeadódnak?'))){
         markFizetve(type, id, data.url);
       }
     }, 600);
