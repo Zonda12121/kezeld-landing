@@ -703,6 +703,75 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
   .hero-video-wrap{transform:none}
   .reveal{opacity:1;transform:none}
 }
+
+/* ═══════════ TEAM (Csapat modul) szekció ═══════════ */
+.tm-sec{padding:112px 24px 96px;background:linear-gradient(to bottom,var(--bg) 0%,#fff 100%)}
+.tm-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-top:44px}
+.tm-points{list-style:none;padding:0;margin:0}
+.tm-points li{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.tm-points li:last-child{margin-bottom:0}
+.tm-ic{flex:0 0 42px;height:42px;border-radius:12px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.tm-ic svg{width:21px;height:21px}
+.tm-t{font-weight:700;font-size:17px;margin:0 0 3px}
+.tm-d{color:var(--text-2);font-size:15px;margin:0;line-height:1.5}
+.tm-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:22px}
+.tm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.tm-title{font-weight:800;font-size:16px}
+.tm-badge{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-light);padding:4px 10px;border-radius:var(--radius-pill)}
+.tm-cardsub{color:var(--text-2);font-size:13px;margin:0 0 16px}
+.tm-member{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:14px;margin-bottom:10px}
+.tm-member.owner{border-color:var(--accent-300);background:var(--accent-light)}
+.tm-av{flex:0 0 38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff}
+.tm-av.g{background:var(--accent)} .tm-av.b{background:#5A7BD8} .tm-av.p{background:#B06AA8}
+.tm-mmain{flex:1;min-width:0}
+.tm-name{font-weight:700;font-size:14px}
+.tm-mail{color:var(--text-2);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-role{font-size:11px;font-weight:700;padding:4px 9px;border-radius:var(--radius-pill);white-space:nowrap}
+.tm-role.own{background:var(--accent);color:#fff}
+.tm-role.mgr{background:#E7EEFC;color:#2C5AC0}
+.tm-role.view{background:#FEF3C7;color:#B45309}
+.tm-access{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+.tm-chip{font-size:11px;font-weight:600;color:#57534E;background:#F5F5F4;padding:4px 9px;border-radius:8px}
+.tm-chip.on{color:var(--accent);background:var(--accent-light)}
+
+/* ═══════════ ACTION CENTER (Napi teendők + naptár) szekció ═══════════ */
+.ac-sec{padding:112px 24px 100px;background:var(--bg-dark);color:var(--text-on-dark)}
+.ac-sec .eyebrow{color:var(--accent-300);background:rgba(4,120,87,.18)}
+.ac-sec .section-title{color:#fff}
+.ac-sec .section-sub{color:var(--text-on-dark-2)}
+.ac-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;align-items:start}
+.ac-panel{background:var(--bg-dark-elev);border:1px solid var(--border-dark);border-radius:var(--radius-lg);padding:22px}
+.ac-ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ac-pt{font-weight:800;font-size:16px}
+.ac-count{font-size:12px;font-weight:700;color:#0B0F1A;background:var(--accent-300);padding:4px 10px;border-radius:var(--radius-pill)}
+.ac-grp{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8B94A6;margin:16px 0 8px}
+.ac-grp:first-child{margin-top:0}
+.ac-act{display:flex;align-items:flex-start;gap:12px;padding:12px;border:1px solid var(--border-dark);border-radius:12px;margin-bottom:8px;background:rgba(255,255,255,.02)}
+.ac-ic{flex:0 0 30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.ac-ic svg{width:16px;height:16px}
+.ac-main{flex:1;min-width:0}
+.ac-t{font-weight:700;font-size:14px;color:#EEF1F6}
+.ac-d{font-size:12.5px;color:#9AA3B4;margin-top:1px}
+.ac-cd{font-size:11px;font-weight:800;padding:3px 8px;border-radius:var(--radius-pill);white-space:nowrap;align-self:center}
+.ac-cd.now{background:#4A1B12;color:#F0997B} .ac-cd.soon{background:#3A2C08;color:#EF9F27} .ac-cd.ok{background:#0B3B2E;color:var(--accent-300)}
+.ac-i-red{background:#4A1B12;color:#F0997B} .ac-i-purple{background:#2E245C;color:#AFA9EC} .ac-i-emer{background:#0B3B2E;color:var(--accent-300)}
+.ac-i-amber{background:#3A2C08;color:#EF9F27} .ac-i-coral{background:#4A1B12;color:#F0997B}
+.ac-calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.ac-calnav{display:flex;gap:8px}
+.ac-calnav button{width:28px;height:28px;border-radius:8px;border:1px solid var(--border-dark);background:transparent;color:#9AA3B4;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ac-calnav button svg{width:15px;height:15px}
+.ac-caltitle{font-weight:800;font-size:15px}
+.ac-calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.ac-caldh{font-size:11px;font-weight:700;color:#6B7488;text-align:center;padding-bottom:4px}
+.ac-calday{aspect-ratio:1;border-radius:9px;background:rgba(255,255,255,.02);border:1px solid var(--border-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12.5px;color:#C7CDD8;position:relative;gap:3px}
+.ac-calday.out{color:#4A5265;background:transparent;border-color:transparent}
+.ac-calday.today{border-color:var(--accent-300);color:#fff;font-weight:800}
+.ac-dots{display:flex;gap:2px}
+.ac-dot{width:5px;height:5px;border-radius:50%}
+.ac-d-emer{background:#10B981}.ac-d-coral{background:#D85A30}.ac-d-amber{background:#EF9F27}.ac-d-blue{background:#378ADD}.ac-d-pink{background:#D4537E}
+.ac-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-dark)}
+.ac-lg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#9AA3B4}
+@media(max-width:860px){.tm-grid,.ac-grid{grid-template-columns:1fr}.tm-card{order:-1}}
 </style>
 </head>
 <body>
@@ -900,6 +969,147 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
               <span data-i18n="cal_pill">Holnap lejár — Kovács Péter</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TEAM (Csapat modul) ═══════════ -->
+<section class="tm-sec" id="csapat">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="tm_eyebrow">Már nem csak neked</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="tm_title">Nem egyedül csinálod? Hívd meg a csapatod.</h2>
+    <p class="section-sub center reveal delay-2" data-i18n="tm_sub">Kezelő és megtekintő szerep, ingatlanonkénti hozzáféréssel. A munkatársad csak azt látja, amit rábíztál — és neked nem kerül külön pénzbe.</p>
+
+    <div class="tm-grid">
+      <div class="reveal">
+        <ul class="tm-points">
+          <li>
+            <span class="tm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div><p class="tm-t" data-i18n="tm_p1_t">Meghívás e-mailben, egy perc alatt</p><p class="tm-d" data-i18n="tm_p1_d">Beírod a munkatárs e-mail-címét, kiválasztod a szerepét — és már dolgozhat is a fiókodban.</p></div>
+          </li>
+          <li>
+            <span class="tm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg></span>
+            <div><p class="tm-t" data-i18n="tm_p2_t">Ingatlanonkénti hozzáférés</p><p class="tm-d" data-i18n="tm_p2_d">Pontosan beállítod, melyik lakásokat lássa. A többi láthatatlan marad neki.</p></div>
+          </li>
+          <li>
+            <span class="tm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+            <div><p class="tm-t" data-i18n="tm_p3_t">Kezelő szerkeszt, megtekintő csak néz</p><p class="tm-d" data-i18n="tm_p3_d">A kezelő intézi a bérlőket, díjakat, hibákat a rábízott ingatlanon; a megtekintő csak olvas.</p></div>
+          </li>
+          <li>
+            <span class="tm-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></span>
+            <div><p class="tm-t" data-i18n="tm_p4_t">A munkatársak ingyenesek</p><p class="tm-d" data-i18n="tm_p4_d">A csapattagokért nem fizetsz külön díjat — a meglévő előfizetésed alatt dolgoznak.</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tm-card reveal delay-1">
+        <div class="tm-head">
+          <span class="tm-title" data-i18n="tm_card_title">Csapat</span>
+          <span class="tm-badge">Kovács Ingatlan Kft.</span>
+        </div>
+        <p class="tm-cardsub" data-i18n="tm_card_sub">3 tag · szerepek és hozzáférések</p>
+
+        <div class="tm-member owner">
+          <span class="tm-av g">KP</span>
+          <div class="tm-mmain"><div class="tm-name">Kovács Péter</div><div class="tm-mail" data-i18n="tm_meta_owner">te vagy · minden ingatlan</div></div>
+          <span class="tm-role own" data-i18n="tm_role_owner">Tulajdonos</span>
+        </div>
+
+        <div class="tm-member">
+          <span class="tm-av b">SZA</span>
+          <div class="tm-mmain"><div class="tm-name">Szabó Anna</div><div class="tm-mail">anna@kovacsingatlan.hu</div></div>
+          <span class="tm-role mgr" data-i18n="tm_role_mgr">Kezelő</span>
+        </div>
+        <div class="tm-access">
+          <span class="tm-chip on">Bartók u. 12.</span>
+          <span class="tm-chip on">Fő tér 4/B</span>
+          <span class="tm-chip" data-i18n="tm_acc_more">+ 6 másik ingatlan rejtve</span>
+        </div>
+
+        <div class="tm-member" style="margin-top:14px">
+          <span class="tm-av p">NG</span>
+          <div class="tm-mmain"><div class="tm-name">Nagy Gábor</div><div class="tm-mail">konyvelo@pelda.hu</div></div>
+          <span class="tm-role view" data-i18n="tm_role_view">Megtekintő</span>
+        </div>
+        <div class="tm-access">
+          <span class="tm-chip on" data-i18n="tm_acc_view">Minden ingatlan · csak olvasás</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ACTION CENTER (Napi teendők + naptár) ═══════════ -->
+<section class="ac-sec" id="napi-teendok">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <span class="eyebrow reveal" data-i18n="ac_eyebrow">Napi teendők – egy pillantásra</span>
+    </div>
+    <h2 class="section-title center reveal delay-1" data-i18n="ac_title">Reggel ránézel — és már tudod, mi vár rád ma.</h2>
+    <p class="section-sub center reveal delay-2" data-i18n="ac_sub">A „Ma teendők" szekció egyetlen listába gyűjti a sürgős hibákat, jóváhagyásra váró befizetéseket, esedékes díjakat és lejáró határidőket. Mellette naptár segít abban, hogy előre is tudj tervezni.</p>
+
+    <div class="ac-grid">
+      <div class="ac-panel reveal">
+        <div class="ac-ph"><span class="ac-pt" data-i18n="ac_panel_title">Ma teendők</span><span class="ac-count" data-i18n="ac_count">5 aktív</span></div>
+
+        <div class="ac-grp" data-i18n="ac_grp_now">Ma · sürgős</div>
+        <div class="ac-act">
+          <span class="ac-ic ac-i-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+          <div class="ac-main"><div class="ac-t" data-i18n="ac_i1_t">Sürgős hiba: csőtörés</div><div class="ac-d" data-i18n="ac_i1_d">Bartók u. 12. · bérlő jelezte 2 órája</div></div>
+          <span class="ac-cd now" data-i18n="ac_cd_now">MA</span>
+        </div>
+        <div class="ac-act">
+          <span class="ac-ic ac-i-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></span>
+          <div class="ac-main"><div class="ac-t" data-i18n="ac_i2_t">2 befizetés jóváhagyásra vár</div><div class="ac-d" data-i18n="ac_i2_d">1 átutalás igazolással · 1 készpénz</div></div>
+          <span class="ac-cd now" data-i18n="ac_cd_now2">MA</span>
+        </div>
+
+        <div class="ac-grp" data-i18n="ac_grp_week">A héten</div>
+        <div class="ac-act">
+          <span class="ac-ic ac-i-emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="13" x="2" y="6" rx="2"/><circle cx="12" cy="12.5" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+          <div class="ac-main"><div class="ac-t" data-i18n="ac_i3_t">3 bérleti díj esedékes</div></div>
+          <span class="ac-cd soon" data-i18n="ac_cd_2">2 nap</span>
+        </div>
+        <div class="ac-act">
+          <span class="ac-ic ac-i-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14 15 9"/><path d="M3.5 18a10 10 0 1 1 17 0"/></svg></span>
+          <div class="ac-main"><div class="ac-t" data-i18n="ac_i4_t">Diktálás: vízóra állás</div><div class="ac-d" data-i18n="ac_i4_d">Fő tér 4/B · még 4 napig</div></div>
+          <span class="ac-cd soon" data-i18n="ac_cd_4">4 nap</span>
+        </div>
+
+        <div class="ac-grp" data-i18n="ac_grp_later">Később</div>
+        <div class="ac-act">
+          <span class="ac-ic ac-i-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+          <div class="ac-main"><div class="ac-t" data-i18n="ac_i5_t">Szerződés lejár — Tóth Béla</div><div class="ac-d" data-i18n="ac_i5_d">Kossuth u. 7. · hosszabbítás?</div></div>
+          <span class="ac-cd ok" data-i18n="ac_cd_12">12 nap</span>
+        </div>
+      </div>
+
+      <div class="ac-panel reveal delay-1">
+        <div class="ac-calhead">
+          <span class="ac-caltitle" data-i18n="ac_cal_title">Augusztus · 2026</span>
+          <span class="ac-calnav">
+            <button aria-label="Előző hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button aria-label="Következő hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+          </span>
+        </div>
+        <div class="ac-calgrid">
+          <div class="ac-caldh" data-i18n="cal_h1">H</div><div class="ac-caldh" data-i18n="cal_h2">K</div><div class="ac-caldh" data-i18n="cal_h3">Sz</div><div class="ac-caldh" data-i18n="cal_h4">Cs</div><div class="ac-caldh" data-i18n="cal_h5">P</div><div class="ac-caldh" data-i18n="cal_h6">Szo</div><div class="ac-caldh" data-i18n="cal_h7">V</div>
+          <div class="ac-calday out">28</div><div class="ac-calday out">29</div><div class="ac-calday out">30</div><div class="ac-calday out">31</div><div class="ac-calday">1</div><div class="ac-calday">2</div><div class="ac-calday">3</div>
+          <div class="ac-calday">4</div><div class="ac-calday">5<div class="ac-dots"><span class="ac-dot ac-d-emer"></span></div></div><div class="ac-calday">6</div><div class="ac-calday">7</div><div class="ac-calday today">8<div class="ac-dots"><span class="ac-dot ac-d-coral"></span><span class="ac-dot ac-d-emer"></span></div></div><div class="ac-calday">9</div><div class="ac-calday">10</div>
+          <div class="ac-calday">11</div><div class="ac-calday">12<div class="ac-dots"><span class="ac-dot ac-d-amber"></span></div></div><div class="ac-calday">13</div><div class="ac-calday">14</div><div class="ac-calday">15<div class="ac-dots"><span class="ac-dot ac-d-blue"></span></div></div><div class="ac-calday">16</div><div class="ac-calday">17</div>
+          <div class="ac-calday">18</div><div class="ac-calday">19</div><div class="ac-calday">20<div class="ac-dots"><span class="ac-dot ac-d-coral"></span></div></div><div class="ac-calday">21</div><div class="ac-calday">22</div><div class="ac-calday">23</div><div class="ac-calday">24</div>
+          <div class="ac-calday">25</div><div class="ac-calday">26<div class="ac-dots"><span class="ac-dot ac-d-pink"></span></div></div><div class="ac-calday">27</div><div class="ac-calday">28</div><div class="ac-calday">29</div><div class="ac-calday">30</div><div class="ac-calday">31</div>
+        </div>
+        <div class="ac-legend">
+          <span class="ac-lg"><span class="ac-dot ac-d-emer"></span><span data-i18n="ac_leg1">Fizetési határidő</span></span>
+          <span class="ac-lg"><span class="ac-dot ac-d-coral"></span><span data-i18n="ac_leg2">Szerződés</span></span>
+          <span class="ac-lg"><span class="ac-dot ac-d-amber"></span><span data-i18n="ac_leg3">Diktálás</span></span>
+          <span class="ac-lg"><span class="ac-dot ac-d-blue"></span><span data-i18n="ac_leg4">Közüzemi</span></span>
+          <span class="ac-lg"><span class="ac-dot ac-d-pink"></span><span data-i18n="ac_leg5">Biztosítás</span></span>
         </div>
       </div>
     </div>
@@ -1286,7 +1496,31 @@ var translations = {
     cta_btn:'Ingyenes próba indítása',
     sticky_cta:'Ingyenes próba indítása',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu',
-    foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés'
+    foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés',
+    tm_eyebrow:'Már nem csak neked',
+    tm_title:'Nem egyedül csinálod? Hívd meg a csapatod.',
+    tm_sub:'Kezelő és megtekintő szerep, ingatlanonkénti hozzáféréssel. A munkatársad csak azt látja, amit rábíztál — és neked nem kerül külön pénzbe.',
+    tm_p1_t:'Meghívás e-mailben, egy perc alatt', tm_p1_d:'Beírod a munkatárs e-mail-címét, kiválasztod a szerepét — és már dolgozhat is a fiókodban.',
+    tm_p2_t:'Ingatlanonkénti hozzáférés', tm_p2_d:'Pontosan beállítod, melyik lakásokat lássa. A többi láthatatlan marad neki.',
+    tm_p3_t:'Kezelő szerkeszt, megtekintő csak néz', tm_p3_d:'A kezelő intézi a bérlőket, díjakat, hibákat a rábízott ingatlanon; a megtekintő csak olvas.',
+    tm_p4_t:'A munkatársak ingyenesek', tm_p4_d:'A csapattagokért nem fizetsz külön díjat — a meglévő előfizetésed alatt dolgoznak.',
+    tm_card_title:'Csapat', tm_card_sub:'3 tag · szerepek és hozzáférések',
+    tm_meta_owner:'te vagy · minden ingatlan',
+    tm_role_owner:'Tulajdonos', tm_role_mgr:'Kezelő', tm_role_view:'Megtekintő',
+    tm_acc_more:'+ 6 másik ingatlan rejtve', tm_acc_view:'Minden ingatlan · csak olvasás',
+    ac_eyebrow:'Napi teendők – egy pillantásra',
+    ac_title:'Reggel ránézel — és már tudod, mi vár rád ma.',
+    ac_sub:'A „Ma teendők" szekció egyetlen listába gyűjti a sürgős hibákat, jóváhagyásra váró befizetéseket, esedékes díjakat és lejáró határidőket. Mellette naptár segít abban, hogy előre is tudj tervezni.',
+    ac_panel_title:'Ma teendők', ac_count:'5 aktív',
+    ac_grp_now:'Ma · sürgős', ac_grp_week:'A héten', ac_grp_later:'Később',
+    ac_i1_t:'Sürgős hiba: csőtörés', ac_i1_d:'Bartók u. 12. · bérlő jelezte 2 órája',
+    ac_i2_t:'2 befizetés jóváhagyásra vár', ac_i2_d:'1 átutalás igazolással · 1 készpénz',
+    ac_i3_t:'3 bérleti díj esedékes',
+    ac_i4_t:'Diktálás: vízóra állás', ac_i4_d:'Fő tér 4/B · még 4 napig',
+    ac_i5_t:'Szerződés lejár — Tóth Béla', ac_i5_d:'Kossuth u. 7. · hosszabbítás?',
+    ac_cd_now:'MA', ac_cd_now2:'MA', ac_cd_2:'2 nap', ac_cd_4:'4 nap', ac_cd_12:'12 nap',
+    ac_cal_title:'Augusztus · 2026',
+    ac_leg1:'Fizetési határidő', ac_leg2:'Szerződés', ac_leg3:'Diktálás', ac_leg4:'Közüzemi', ac_leg5:'Biztosítás'
   },
   en: {
     skip_link:'Skip to main content',
@@ -1358,7 +1592,31 @@ var translations = {
     cta_btn:'Start free trial',
     sticky_cta:'Start free trial',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán sole proprietor · info@kezeld.hu',
-    foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in'
+    foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in',
+    tm_eyebrow:'Not just for you anymore',
+    tm_title:'Not doing it alone? Invite your team.',
+    tm_sub:'Manager and viewer roles, with per-property access. Your colleague only sees what you entrust to them — and it costs you nothing extra.',
+    tm_p1_t:'Invite by email in under a minute', tm_p1_d:'Enter your colleague’s email, pick their role — and they can start working in your account.',
+    tm_p2_t:'Per-property access', tm_p2_d:'You set exactly which properties they can see. The rest stays invisible to them.',
+    tm_p3_t:'Managers edit, viewers only look', tm_p3_d:'The manager handles tenants, rents and issues on their assigned properties; the viewer only reads.',
+    tm_p4_t:'Team members are free', tm_p4_d:'You pay no extra fee for team members — they work under your existing subscription.',
+    tm_card_title:'Team', tm_card_sub:'3 members · roles and access',
+    tm_meta_owner:'you · all properties',
+    tm_role_owner:'Owner', tm_role_mgr:'Manager', tm_role_view:'Viewer',
+    tm_acc_more:'+ 6 more properties hidden', tm_acc_view:'All properties · read only',
+    ac_eyebrow:'Daily tasks – at a glance',
+    ac_title:'A glance in the morning — and you already know what today holds.',
+    ac_sub:'The “Today” list gathers urgent issues, payments awaiting approval, due rents and upcoming deadlines into one place. A calendar next to it helps you plan ahead.',
+    ac_panel_title:'Today', ac_count:'5 active',
+    ac_grp_now:'Today · urgent', ac_grp_week:'This week', ac_grp_later:'Later',
+    ac_i1_t:'Urgent issue: burst pipe', ac_i1_d:'Bartók u. 12. · reported 2 hours ago',
+    ac_i2_t:'2 payments awaiting approval', ac_i2_d:'1 transfer with receipt · 1 cash',
+    ac_i3_t:'3 rent payments due',
+    ac_i4_t:'Meter reading: water', ac_i4_d:'Fő tér 4/B · 4 days left',
+    ac_i5_t:'Contract expiring — Béla Tóth', ac_i5_d:'Kossuth u. 7. · renew?',
+    ac_cd_now:'TODAY', ac_cd_now2:'TODAY', ac_cd_2:'2 days', ac_cd_4:'4 days', ac_cd_12:'12 days',
+    ac_cal_title:'August · 2026',
+    ac_leg1:'Payment due', ac_leg2:'Contract', ac_leg3:'Meter reading', ac_leg4:'Utility', ac_leg5:'Insurance'
   }
 };
 var currentLang = 'hu';
