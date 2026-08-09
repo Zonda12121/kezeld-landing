@@ -686,6 +686,10 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .foot-inner a{color:var(--text-on-dark-2);transition:color .15s ease}
 .foot-inner a:hover{color:var(--text-on-dark)}
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-social{display:flex;gap:12px;align-items:center}
+.foot-social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--border-dark);color:var(--text-on-dark-2);transition:color .15s ease,border-color .15s ease,background .15s ease}
+.foot-social a:hover{color:#04231A;background:var(--accent-300);border-color:var(--accent-300)}
+.foot-social svg{width:19px;height:19px;display:block}
 
 /* ── STICKY MOBILE CTA ───────────────────────────────────────── */
 .sticky-cta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:40}
@@ -772,6 +776,43 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .ac-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-dark)}
 .ac-lg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#9AA3B4}
 @media(max-width:860px){.tm-grid,.ac-grid{grid-template-columns:1fr}.tm-card{order:-1}}
+
+/* ═══════════ GYIK „összes kérdés" modál ═══════════ */
+.fqx-more{margin-top:26px;background:linear-gradient(135deg,var(--accent),#04241B);border-radius:var(--radius);padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.fqx-more .t{color:#fff;font-size:20px;font-weight:800}
+.fqx-more .s{color:var(--accent-300);font-size:15px;font-weight:600;margin-top:2px}
+.fqx-more button{background:#fff;color:var(--accent-hover);border:none;border-radius:var(--radius-pill);padding:14px 26px;font:inherit;font-size:16px;font-weight:800;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.fqx-more button svg{width:18px;height:18px}
+.fqx-overlay{position:fixed;inset:0;background:rgba(11,15,26,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px;z-index:10000}
+.fqx-overlay.open{display:flex}
+.fqx-modal{background:var(--card);width:100%;max-width:780px;max-height:88vh;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 100px -20px rgba(0,0,0,.5)}
+.fqx-head{padding:24px 26px 18px;border-bottom:1px solid var(--border);position:relative;flex:0 0 auto}
+.fqx-title{font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--text)}
+.fqx-sub{font-size:14px;color:var(--text-2);margin-top:2px}
+.fqx-close{position:absolute;top:20px;right:22px;width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-2)}
+.fqx-close svg{width:20px;height:20px}
+.fqx-search{position:relative;margin-top:18px}
+.fqx-search>svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--text-2)}
+.fqx-search input{width:100%;height:52px;border:1.5px solid var(--border);border-radius:var(--radius);padding:0 16px 0 48px;font:inherit;font-size:16px;background:var(--bg);color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s}
+.fqx-search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-light)}
+.fqx-chips{display:flex;gap:8px;overflow-x:auto;padding:16px 26px 14px;flex:0 0 auto;border-bottom:1px solid var(--border-2)}
+.fqx-chip{flex:0 0 auto;border:1.5px solid var(--border);background:var(--card);color:#3f3f46;border-radius:var(--radius-pill);padding:9px 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .12s}
+.fqx-chip:hover{border-color:var(--accent-300)}
+.fqx-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.fqx-body{overflow-y:auto;padding:8px 26px 26px;flex:1}
+.fqx-grp{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:20px 0 8px}
+.fqx-qa{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;background:var(--card)}
+.fqx-qa .q{width:100%;text-align:left;background:none;border:none;font:inherit;font-size:16px;font-weight:700;color:#27272A;padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.fqx-qa .q .plus{color:var(--accent);font-weight:800;font-size:22px;flex:0 0 auto;transition:transform .18s}
+.fqx-qa.open .q .plus{transform:rotate(45deg)}
+.fqx-qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-2);font-size:15px;line-height:1.6}
+.fqx-qa.open .a{max-height:640px}
+.fqx-qa .a .inner{padding:0 18px 18px}
+.fqx-catt{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-light);padding:3px 8px;border-radius:6px;margin-left:8px}
+.fqx-empty{text-align:center;color:var(--text-2);padding:48px 20px;font-size:16px;line-height:1.6}
+.fqx-foot{padding:16px 26px;border-top:1px solid var(--border);font-size:14px;color:var(--text-2);text-align:center;flex:0 0 auto}
+.fqx-foot a{color:var(--accent);font-weight:700;text-decoration:none}
+@media(max-width:600px){.fqx-title{font-size:21px}.fqx-more .t{font-size:18px}}
 </style>
 </head>
 <body>
@@ -1276,6 +1317,17 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
         <div class="faq-a" data-i18n="faq6_a">Adataid 90 napig megmaradnak. Bármikor visszatérhetsz előfizetéssel, és minden ott lesz, ahogy hagytad — ingatlanaid, bérlőid, dokumentumaid.</div>
       </details>
     </div>
+
+    <div class="fqx-more reveal">
+      <div>
+        <div class="t" data-i18n="faqx_more_t">Nem találtad meg a választ?</div>
+        <div class="s" data-i18n="faqx_more_s">Böngészd az összes kérdést — témánként, kereséssel.</div>
+      </div>
+      <button type="button" onclick="faqxOpen()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span data-i18n="faqx_more_btn">Összes kérdés</span>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -1301,6 +1353,11 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 <footer>
   <div class="foot-inner">
     <div data-i18n="foot_copy">© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu</div>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/kezeld.hu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 1.44c-3.14 0-3.51.01-4.75.07-1.15.05-1.77.24-2.19.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.42-.35 1.04-.4 2.19-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.05 1.15.24 1.77.4 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.16 1.04.35 2.19.4 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c1.15-.05 1.77-.24 2.19-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.42.35-1.04.4-2.19.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.05-1.15-.24-1.77-.4-2.19a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.42-.16-1.04-.35-2.19-.4-1.24-.06-1.61-.07-4.75-.07zm0 2.45a5.95 5.95 0 1 1 0 11.9 5.95 5.95 0 0 1 0-11.9zm0 9.81a3.86 3.86 0 1 0 0-7.72 3.86 3.86 0 0 0 0 7.72zm7.57-10.05a1.39 1.39 0 1 1-2.78 0 1.39 1.39 0 0 1 2.78 0z"/></svg></a>
+      <a href="https://www.facebook.com/share/19aGRLJZPk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07z"/></svg></a>
+      <a href="https://www.tiktok.com/@kezeld.hu" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.08-.14 1.62.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    </div>
     <div class="foot-links">
       <a href="/aszf" data-i18n="foot_aszf">ÁSZF</a>
       <a href="/adatvedelem" data-i18n="foot_priv">Adatkezelés</a>
@@ -1520,7 +1577,8 @@ var translations = {
     ac_i5_t:'Szerződés lejár — Tóth Béla', ac_i5_d:'Kossuth u. 7. · hosszabbítás?',
     ac_cd_now:'MA', ac_cd_now2:'MA', ac_cd_2:'2 nap', ac_cd_4:'4 nap', ac_cd_12:'12 nap',
     ac_cal_title:'Augusztus · 2026',
-    ac_leg1:'Fizetési határidő', ac_leg2:'Szerződés', ac_leg3:'Diktálás', ac_leg4:'Közüzemi', ac_leg5:'Biztosítás'
+    ac_leg1:'Fizetési határidő', ac_leg2:'Szerződés', ac_leg3:'Diktálás', ac_leg4:'Közüzemi', ac_leg5:'Biztosítás',
+    faqx_more_t:'Nem találtad meg a választ?', faqx_more_s:'Böngészd az összes kérdést — témánként, kereséssel.', faqx_more_btn:'Összes kérdés'
   },
   en: {
     skip_link:'Skip to main content',
@@ -1616,7 +1674,8 @@ var translations = {
     ac_i5_t:'Contract expiring — Béla Tóth', ac_i5_d:'Kossuth u. 7. · renew?',
     ac_cd_now:'TODAY', ac_cd_now2:'TODAY', ac_cd_2:'2 days', ac_cd_4:'4 days', ac_cd_12:'12 days',
     ac_cal_title:'August · 2026',
-    ac_leg1:'Payment due', ac_leg2:'Contract', ac_leg3:'Meter reading', ac_leg4:'Utility', ac_leg5:'Insurance'
+    ac_leg1:'Payment due', ac_leg2:'Contract', ac_leg3:'Meter reading', ac_leg4:'Utility', ac_leg5:'Insurance',
+    faqx_more_t:'Didn’t find your answer?', faqx_more_s:'Browse all questions — by topic, with search.', faqx_more_btn:'All questions'
   }
 };
 var currentLang = 'hu';
@@ -1639,6 +1698,128 @@ document.getElementById('langBtn').addEventListener('click', function(){
   try { localStorage.setItem('lk_v2_lang', currentLang); } catch(e){}
   applyLang();
 });
+</script>
+
+<!-- ═══════════ GYIK „összes kérdés" modál ═══════════ -->
+<div class="fqx-overlay" id="fqx-ov" role="dialog" aria-modal="true" aria-label="Gyakori kérdések">
+  <div class="fqx-modal">
+    <div class="fqx-head">
+      <div class="fqx-title" id="fqx-title">Gyakori kérdések</div>
+      <div class="fqx-sub" id="fqx-sub">Keress rá, vagy szűrj témára.</div>
+      <button class="fqx-close" onclick="faqxClose()" aria-label="Bezárás"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <div class="fqx-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="fqx-q" type="text" autocomplete="off">
+      </div>
+    </div>
+    <div class="fqx-chips" id="fqx-chips"></div>
+    <div class="fqx-body" id="fqx-body"></div>
+    <div class="fqx-foot" id="fqx-foot"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CATS=[['start','Kezdés & próba','Getting started'],['price','Árazás & számlázás','Pricing & billing'],['features','Funkciók','Features'],['tenant','Bérlői portál','Tenant portal'],['team','Csapat','Team'],['data','Adat & biztonság','Data & security'],['account','Fiók & egyéb','Account & more']];
+  var UI={
+    hu:{title:'Gyakori kérdések',sub:'Keress rá, vagy szűrj témára.',ph:'Keresés — pl. „számla", „bérlő", „lemondás"…',all:'Összes',emptyA:'Nincs találat erre: ',emptyB:'Próbálj más kulcsszót, vagy írj az info@kezeld.hu címre.',foot:'Nem találod a választ? Írj nekünk: '},
+    en:{title:'Frequently asked questions',sub:'Search, or filter by topic.',ph:'Search — e.g. "invoice", "tenant", "cancel"…',all:'All',emptyA:'No results for: ',emptyB:'Try another keyword, or email info@kezeld.hu.',foot:'Cannot find your answer? Email us: '}
+  };
+  var FQX=[
+    ['start','Kell bankkártya az induláshoz?','Nem. A 14 napos próba teljesen ingyenes és kötelezettségmentes — kártyát csak akkor adsz meg, ha a próba végén előfizetsz.','Do I need a credit card to start?','No. The 14-day trial is completely free and commitment-free — you only enter card details if you subscribe at the end.'],
+    ['start','Meddig tart az ingyenes próba?','14 napig, minden funkcióval. A két hét letelte után te döntöd el, folytatod-e.','How long is the free trial?','14 days, with every feature. After the two weeks you decide whether to continue.'],
+    ['start','Mi történik, ha lejár a próba?','Az adataid 90 napig megmaradnak. Bármikor visszatérhetsz előfizetéssel, és minden ott lesz, ahogy hagytad — ingatlanaid, bérlőid, dokumentumaid.','What happens when the trial ends?','Your data is kept for 90 days. You can come back any time and subscribe — everything will be there as you left it: properties, tenants, documents.'],
+    ['start','Hogyan kezdek neki?','Regisztrálsz egy e-mail-címmel, létrehozod az első ingatlanod, majd hozzáadod a bérlőket és dokumentumokat. Néhány perc az egész.','How do I get started?','Sign up with an email, create your first property, then add tenants and documents. It only takes a few minutes.'],
+    ['start','Kell bármit telepítenem?','Nem, böngészőből működik — nincs letöltés. Telefonon viszont kirakhatod a kezdőképernyőre, így appként indul: iPhone-on Safariban a Megosztás ikon → „Kezdőképernyőhöz adás"; Androidon Chrome-ban a ⋮ menü → „Alkalmazás telepítése" (vagy „Hozzáadás a kezdőképernyőhöz").','Do I need to install anything?','No, it runs in the browser — no download. On your phone you can add it to the home screen so it opens like an app: on iPhone in Safari tap Share → "Add to Home Screen"; on Android in Chrome open the ⋮ menu → "Install app" (or "Add to Home screen").'],
+    ['price','Mennyibe kerül?','1190 Ft / ingatlan / hó. Nincs csomagrendszer — pontosan annyit fizetsz, ahány ingatlanod van.','How much does it cost?','1,190 HUF / property / month. No plans — you pay for exactly as many properties as you have.'],
+    ['price','Mit jelent a „slot"?','Egy slot = egy ingatlan. Ha 3 ingatlanod van, az 3 slot. Minimum 1 slot, felső korlát nincs.','What does a "slot" mean?','One slot = one property. If you have 3 properties, that is 3 slots. Minimum 1 slot, no upper limit.'],
+    ['price','Van éves kedvezmény?','Igen. Éves fizetéssel 13 090 Ft / ingatlan / év — vagyis 1 hónap ingyen (~8% kedvezmény).','Is there an annual discount?','Yes. Paid yearly it is 13,090 HUF / property / year — one month free (~8% off).'],
+    ['price','Változtathatok a slotok számán?','Igen, bármikor bővíthetsz vagy csökkenthetsz, ahogy változik az ingatlanjaid száma.','Can I change the number of slots?','Yes, you can increase or decrease any time as your number of properties changes.'],
+    ['price','Hogyan fizetek?','Bankkártyával, a Stripe-on keresztül — ugyanaz a rendszer, amit a Shopify és az Amazon is használ. A kártyaadatod hozzánk soha nem érkezik el.','How do I pay?','By card, through Stripe — the same system Shopify and Amazon use. Your card details never reach us.'],
+    ['price','Kapok számlát? Céges adatokkal is?','Igen, minden fizetésről automatikus számla készül. Megadhatsz magánszemély vagy vállalkozás (adószámos) számlázási adatokat.','Do I get an invoice? With company details too?','Yes, an automatic invoice is issued for every payment. You can provide individual or business (with tax number) billing details.'],
+    ['price','Van hűségidő vagy kötelező időtartam?','Nincs. Bármikor lemondható, felmondási kötbér nélkül.','Is there a minimum contract?','No. Cancel any time, with no cancellation fee.'],
+    ['price','Mi történik lemondáskor a már kifizetett időszakkal?','A rendszer az aktuális, már kifizetett időszak végéig elérhető marad; utána szünetel az előfizetés.','What happens to the period I already paid for when I cancel?','The system stays available until the end of the current, already-paid period; after that the subscription pauses.'],
+    ['features','Hogyan látom, ki fizetett?','Színkódolt díjmátrixban: zöld = befolyt, sárga = várható, piros = hiányzik. Egy szempillantás alatt látod az egész évet.','How do I see who paid?','In a color-coded rent matrix: green = paid, yellow = expected, red = missing. The whole year at a glance.'],
+    ['features','Küld a rendszer emlékeztetőt?','Igen. E-mailben szól időben a lejáró szerződésről, a biztosítás fordulónapjáról és más határidőkről — vasárnap is.','Does the system send reminders?','Yes. It emails you in time about expiring contracts, insurance renewals and other deadlines — even on Sundays.'],
+    ['features','Tudok bérleti szerződést készíteni?','Igen, a rendszer bérleti szerződést és átadás-átvételi jegyzőkönyvet is generál.','Can I create a rental contract?','Yes, the system generates rental contracts and handover reports.'],
+    ['features','Kezeli a közüzemi számlákat és a mérőórákat?','Igen. Nyilvántartja a közüzemi számlákat, a bérlő pedig a portálon diktálhatja a mérőóra-állást.','Does it handle utility bills and meters?','Yes. It tracks utility bills, and tenants can submit meter readings via the portal.'],
+    ['features','Számol késedelmi kamatot?','Igen. Beállítasz egy napi késedelmi kamatot, és egy türelmi időt is. A türelmi idő akár bérlőnként egyedileg is megadható — a globális alap bérlőnként felülírható.','Does it calculate late-payment interest?','Yes. You set a daily late-payment interest and a grace period. The grace period can even be set per tenant — the global default is overridable per tenant.'],
+    ['features','Van napi áttekintő és naptár?','Igen. A „Ma teendők" akcióközpont egy listába gyűjti a napi feladatokat (sürgős hibák, jóváhagyásra váró befizetések, esedékes díjak), mellette naptár a határidőkkel.','Is there a daily overview and calendar?','Yes. The "Today" action center gathers your daily tasks (urgent issues, payments awaiting approval, due rents) into one list, with a calendar of deadlines beside it.'],
+    ['features','Tudok elszámolást kinyerni?','Igen, negyedéves és éves Excel elszámolást tudsz letölteni.','Can I export a statement?','Yes, you can download quarterly and annual Excel statements.'],
+    ['tenant','Mit tud csinálni a bérlő?','A saját portálján hibát jelent (akár fotóval), üzenetet küld, mérőórát diktál, és jelzi a befizetést.','What can the tenant do?','On their own portal they report issues (with photos), send messages, submit meter readings, and signal payments.'],
+    ['tenant','Kell a bérlőnek fiókot regisztrálnia?','Nem. A bérlő egy egyedi linken (QR-kóddal is) éri el a portált, külön regisztráció nélkül.','Does the tenant need to register an account?','No. The tenant reaches the portal via a unique link (also as a QR code), with no separate registration.'],
+    ['tenant','Hogyan működik a befizetés jelzése?','A bérlő jelzi a fizetést: átutalásnál kötelezően csatol egy igazolást, készpénznél csak jelöli. A tétel ilyenkor „jóváhagyásra vár", és te hagyod jóvá vagy utasítod el.','How does payment signaling work?','The tenant signals the payment: for a transfer they must attach a receipt, for cash they just mark it. The item then awaits approval, and you approve or reject it.'],
+    ['tenant','Fizethet a bérlő készpénzben?','Igen. A portálon készpénzt is választhat (igazolás nélkül), amit te utólag jóváhagysz.','Can the tenant pay in cash?','Yes. On the portal they can choose cash (without a receipt), which you approve afterwards.'],
+    ['team','Meghívhatok másokat a fiókomba?','Igen. A Beállítások (Fiókom) oldalon, a Csapat résznél e-mailben meghívhatsz munkatársat, kezelőt vagy akár a könyvelőd.','Can I invite others to my account?','Yes. On the Settings (My account) page, under Team, you can invite a colleague, a manager or even your accountant by email.'],
+    ['team','Milyen szerepek vannak?','Kezelő — szerkeszti a rábízott ingatlanok adatait (bérlők, díjak, hibák); Megtekintő — csak olvas, nem módosít (pl. a könyvelőnek).','What roles are there?','Manager — edits the data of assigned properties (tenants, rents, issues); Viewer — read-only, no changes (e.g. for the accountant).'],
+    ['team','Korlátozhatom, ki melyik ingatlant látja?','Igen. Ingatlanonként állítod be a hozzáférést — a többi ingatlan láthatatlan marad a csapattagnak.','Can I limit who sees which property?','Yes. You set access per property — the rest stay invisible to that team member.'],
+    ['team','Fizetni kell a csapattagokért?','Nem. A csapattagok ingyenesek — a meglévő előfizetésed alatt dolgoznak, nincs plusz díj fejenként.','Do I pay for team members?','No. Team members are free — they work under your existing subscription, with no per-person fee.'],
+    ['data','Hol tárolják az adataimat?','Biztonságos, európai (írországi) szervereken. Az adataid nem hagyják el az EU-t.','Where is my data stored?','On secure European (Irish) servers. Your data never leaves the EU.'],
+    ['data','GDPR-megfelelő a rendszer?','Igen. Teljes adatvédelmi tájékoztató, törlési jog és adathordozhatóság.','Is the system GDPR-compliant?','Yes. Full privacy notice, right to deletion and data portability.'],
+    ['data','Készül biztonsági mentés az adataimról?','Igen, naponta automatikus biztonsági mentés készül, így véd az adatvesztés ellen.','Are backups made of my data?','Yes, an automatic backup is made every day, protecting against data loss.'],
+    ['data','Le tudom tölteni a saját adataimat?','Igen, bármikor exportálhatod az összes adatodat JSON-ban. Nincs vendor lock-in.','Can I download my own data?','Yes, you can export all your data as JSON any time. No vendor lock-in.'],
+    ['account','Hogyan mondom le az előfizetést?','A Beállítások → Előfizetés oldalon az „Előfizetés lemondása" gombbal, bármikor. A már kifizetett időszak (periódus) végéig továbbra is eléred a rendszert — nincs kötbér.','How do I cancel my subscription?','On Settings → Subscription, use the "Cancel subscription" button any time. You keep access until the end of the already-paid period — no penalty.'],
+    ['account','Mi lesz az adataimmal lemondás után?','90 napig megőrizzük. Ha visszatérsz, minden ott lesz, ahogy hagytad.','What happens to my data after cancelling?','We keep it for 90 days. If you come back, everything will be there as you left it.'],
+    ['account','Működik mobilon?','Igen, teljesen reszponzív — telefon, tablet, gép. Külön app nélkül, böngészőből. Tipp: kirakhatod a kezdőképernyőre, így appként nyílik — iPhone: Safari → Megosztás → „Kezdőképernyőhöz adás"; Android: Chrome → ⋮ menü → „Alkalmazás telepítése".','Does it work on mobile?','Yes, fully responsive — phone, tablet, desktop. No separate app, just the browser. Tip: add it to your home screen so it opens like an app — iPhone: Safari → Share → "Add to Home Screen"; Android: Chrome → ⋮ menu → "Install app".'],
+    ['account','Hogyan kérhetek segítséget?','Írj bármikor az info@kezeld.hu címre, és segítünk.','How can I get help?','Email info@kezeld.hu any time and we will help.']
+  ];
+
+  var curCat='all', curQ='';
+  function L(){ return (typeof currentLang!=='undefined' && currentLang==='en') ? 'en' : 'hu'; }
+  function catLabel(id){ var c=CATS.find(function(x){return x[0]===id;}); return c ? (L()==='en'?c[2]:c[1]) : id; }
+  function qText(f){ return L()==='en'?f[3]:f[1]; }
+  function aText(f){ return L()==='en'?f[4]:f[2]; }
+  function norm(s){ return (s||'').toLowerCase().replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó|ö|ő/g,'o').replace(/ú|ü|ű/g,'u'); }
+  function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function buildChips(){
+    var el=document.getElementById('fqx-chips'); if(!el) return;
+    var u=UI[L()];
+    var html='<button class="fqx-chip'+(curCat==='all'?' active':'')+'" data-cat="all">'+esc(u.all)+'</button>';
+    CATS.forEach(function(c){ html+='<button class="fqx-chip'+(curCat===c[0]?' active':'')+'" data-cat="'+c[0]+'">'+esc(catLabel(c[0]))+'</button>'; });
+    el.innerHTML=html;
+    el.querySelectorAll('.fqx-chip').forEach(function(b){ b.onclick=function(){ curCat=b.dataset.cat; render(); }; });
+  }
+  function qaHtml(f,showCat){
+    var cat=showCat?'<span class="fqx-catt">'+esc(catLabel(f[0]))+'</span>':'';
+    return '<div class="fqx-qa"><button class="q" type="button"><span>'+esc(qText(f))+cat+'</span><span class="plus">+</span></button>'
+      +'<div class="a"><div class="inner">'+esc(aText(f))+'</div></div></div>';
+  }
+  function render(){
+    var body=document.getElementById('fqx-body'); if(!body) return;
+    var u=UI[L()], q=norm(curQ.trim());
+    var items=FQX.filter(function(f){ return curCat==='all'||f[0]===curCat; });
+    if(q) items=items.filter(function(f){ return norm(qText(f)+' '+aText(f)).indexOf(q)>-1; });
+    if(!items.length){ body.innerHTML='<div class="fqx-empty">'+esc(u.emptyA)+'„'+esc(curQ)+'".<br>'+esc(u.emptyB)+'</div>'; return; }
+    var html='';
+    if(q){ html=items.map(function(f){return qaHtml(f,true);}).join(''); }
+    else{
+      var cats=curCat==='all'?CATS.map(function(c){return c[0];}):[curCat];
+      cats.forEach(function(cid){
+        var list=items.filter(function(f){return f[0]===cid;});
+        if(!list.length) return;
+        html+='<div class="fqx-grp">'+esc(catLabel(cid))+'</div>'+list.map(function(f){return qaHtml(f,false);}).join('');
+      });
+    }
+    body.innerHTML=html;
+    body.querySelectorAll('.fqx-qa .q').forEach(function(btn){ btn.onclick=function(){ btn.closest('.fqx-qa').classList.toggle('open'); }; });
+  }
+  function syncStatic(){
+    var u=UI[L()];
+    var t=document.getElementById('fqx-title'); if(t)t.textContent=u.title;
+    var s=document.getElementById('fqx-sub'); if(s)s.textContent=u.sub;
+    var i=document.getElementById('fqx-q'); if(i)i.placeholder=u.ph;
+    var f=document.getElementById('fqx-foot'); if(f)f.innerHTML=esc(u.foot)+'<a href="mailto:info@kezeld.hu">info@kezeld.hu</a>';
+  }
+  window.faqxOpen=function(){ curCat='all'; curQ=''; var i=document.getElementById('fqx-q'); if(i)i.value=''; syncStatic(); buildChips(); render(); document.getElementById('fqx-ov').classList.add('open'); if(i)setTimeout(function(){i.focus();},50); };
+  window.faqxClose=function(){ document.getElementById('fqx-ov').classList.remove('open'); };
+  document.addEventListener('DOMContentLoaded',function(){
+    var qi=document.getElementById('fqx-q'); if(qi)qi.addEventListener('input',function(e){ curQ=e.target.value; render(); });
+    var ov=document.getElementById('fqx-ov'); if(ov)ov.addEventListener('click',function(e){ if(e.target===ov) window.faqxClose(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') window.faqxClose(); });
+    var lb=document.getElementById('langBtn'); if(lb)lb.addEventListener('click',function(){ setTimeout(function(){ syncStatic(); buildChips(); render(); },0); });
+  });
+})();
 </script>
 </body>
 </html>
