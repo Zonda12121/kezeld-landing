@@ -422,6 +422,8 @@ const DICT_EN = {
   'Itt írhatsz a bérbeadódnak, küldhetsz mérőórát, jelezhetsz hibát.': 'Here you can message your landlord, submit meter readings, report issues.',
   'Üres üzenet': 'Empty message',
   'Üzenet elküldve': 'Message sent',
+  'Látta': 'Seen',
+  'Kézbesítve': 'Delivered',
   'Küldési hiba': 'Send error',
   'Hónap kötelező': 'Month is required',
   'Legalább egy mérőórát adj meg': 'Provide at least one meter reading',
@@ -946,6 +948,30 @@ async function loadUzenetek(){
   }
 }
 
+// ── Near-realtime a portálon: könnyű polling, amíg az Üzenetek fül nyitva van ──
+// (A /berlo/uzenetek GET olvasottnak is jelöli a bérbeadó üzeneteit, így a bérbeadó
+//  látja a „Látta"-t, és a 15 perces tartalék-email sem megy ki feleslegesen.)
+let _msgPollSig = '';
+function _msgTabActive(){
+  const c = document.getElementById('content-uzenetek');
+  return !!(c && c.style.display !== 'none' && document.visibilityState === 'visible' && TOKEN);
+}
+async function _msgPollBerlo(){
+  if(!_msgTabActive()) return;
+  try{
+    const r = await fetch(BACKEND+'/berlo/uzenetek?token='+encodeURIComponent(TOKEN));
+    if(!r.ok) return;
+    const data = await r.json();
+    const rows = data.uzenetek || [];
+    const sig = rows.length + '|' + rows.filter(m=>m.olvasva_at).length + '|' + (rows.length ? rows[rows.length-1].id : '');
+    if(sig === _msgPollSig) return;
+    _msgPollSig = sig;
+    _allMsgs = rows;
+    renderMsgs();
+  }catch(_){}
+}
+setInterval(_msgPollBerlo, 7000);
+
 function renderMsgs(){
   const el = document.getElementById('msg-list');
   if(!_allMsgs.length){
@@ -954,10 +980,13 @@ function renderMsgs(){
   }
   el.innerHTML = _allMsgs.map(m => {
     const isMe = m.kuldo === 'berlo';
+    // Olvasottság-jelzés a saját üzeneteknél: „Látta HH:MM" ha a bérbeadó elolvasta, különben „Kézbesítve"
+    const seen = (isMe && m.olvasva_at) ? new Date(m.olvasva_at).toLocaleTimeString(_lang==='en'?'en-GB':'hu-HU',{hour:'2-digit',minute:'2-digit'}) : '';
+    const status = isMe ? (m.olvasva_at ? ' · ✓✓ ' + t('Látta') + ' ' + seen : ' · ✓ ' + t('Kézbesítve')) : '';
     return '<div class="msg ' + (isMe ? 'me' : '') + '">' +
       '<div class="msg-bubble">' +
       escapeHtml(m.tartalom).replace(/\n/g, '<br>') +
-      '<div class="msg-ido">' + escapeHtml(fmtIdo(m.created_at)) + '</div>' +
+      '<div class="msg-ido">' + escapeHtml(fmtIdo(m.created_at)) + status + '</div>' +
       '</div></div>';
   }).join('');
   el.scrollTop = el.scrollHeight;
