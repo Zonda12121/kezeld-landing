@@ -542,10 +542,15 @@ function fmtIdo(iso){
   return d.toLocaleDateString(loc,{month:'short',day:'numeric'}) + ' ' + d.toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
 }
 
-function fmtForint(n){
-  // Mindig "Ft" maradjon a pénznem (HUF formátum a tartalom miatt egységes)
+function fmtForint(n, valuta){
+  // Pénznem-tudatos: HUF→„145 000 Ft", EUR→„€1 200", USD/GBP szimbólum, ismeretlen kód→„500 CHF".
+  // A 2. argumentum nélkül (régi hívások) marad a HUF/Ft — visszafelé kompatibilis.
   const loc = _lang === 'en' ? 'en-US' : 'hu-HU';
-  return Number(n).toLocaleString(loc) + ' Ft';
+  const amount = (Number(n) || 0).toLocaleString(loc);
+  const cur = String(valuta || 'HUF').toUpperCase();
+  if(cur === 'HUF') return amount + ' Ft';
+  const sym = { EUR:'€', USD:'$', GBP:'£' }[cur];
+  return sym ? sym + amount : amount + ' ' + cur;
 }
 
 function switchTab(name){
@@ -665,7 +670,7 @@ async function loadFizetnivalo(){
           +'<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px">'
             +'<div style="flex:1;min-width:0">'
               +'<div style="font-size:14.5px;font-weight:600;margin-bottom:2px">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
-              +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg)+'</div>'
+              +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg, x.valuta)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-ter)">'+t('Esedékes:')+' '+escapeHtml(x.esedekesseg)+'</div>'
               +szamlaLink+utalasBlock
             +'</div>'
@@ -698,7 +703,7 @@ async function loadFizetnivalo(){
           +'<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">'
             +'<div style="flex:1;min-width:160px">'
               +'<div style="font-size:13px;font-weight:600">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
-              +'<div style="font-size:11.5px;color:var(--text-sec)">'+fmtForint(x.osszeg)+' · '+t('Befizetve:')+' '+escapeHtml(x.befizetve_at || '—')+'</div>'
+              +'<div style="font-size:11.5px;color:var(--text-sec)">'+fmtForint(x.osszeg, x.valuta)+' · '+t('Befizetve:')+' '+escapeHtml(x.befizetve_at || '—')+'</div>'
             +'</div>'
             +'<div style="display:flex;gap:8px;align-items:center;flex-shrink:0">'+szamlaLinkH+bizonylatBlock+'</div>'
           +'</div>'
