@@ -143,6 +143,16 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .error-state{text-align:center;padding:48px 20px}
 .error-state h2{color:var(--red-text);margin-bottom:10px;font-weight:800;letter-spacing:-.02em}
 .error-state p{color:var(--text-sec);font-size:14px;line-height:1.6;font-weight:500}
+/* Halk ajánló a bérlőnek: a mai bérlő a holnapi bérbeadó. Szándékosan visszafogott —
+   ez a bérlő ügyintéző felülete, nem hirdetési hely. */
+.portal-foot{margin-top:30px;padding:22px 18px 6px;border-top:1px solid var(--border);text-align:center}
+.portal-foot .pf-q{font-size:14px;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.portal-foot .pf-s{margin:7px auto 0;max-width:430px;font-size:12.5px;line-height:1.55;color:var(--text-sec);font-weight:500}
+.portal-foot .pf-a{display:inline-block;margin-top:13px;padding:9px 17px;font-size:12.5px;font-weight:700;
+  color:var(--green-text);background:var(--green-bg);border-radius:var(--r-md);text-decoration:none;
+  transition:opacity .15s ease}
+.portal-foot .pf-a:hover{opacity:.82}
+.portal-foot .pf-a:focus-visible{outline:2px solid var(--green-text);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -326,6 +336,19 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
         <div id="dok-list"><div class="empty" data-t="Betöltés...">Betöltés...</div></div>
       </div>
     </div>
+
+    <!-- ─── AJÁNLÓ A BÉRLŐNEK ───
+         A mai bérlő a holnapi bérbeadó. A linken UTM-paraméterek vannak, hogy
+         mérhető legyen, hány regisztráció jön innen.
+         ⚠ Az applyLang textContent-et ír a [data-t] elemekre, ezért a link KÜLÖN
+         elem, nem a szövegbe ágyazva — különben a nyelvváltás kitörölné. -->
+    <div class="portal-foot">
+      <div class="pf-q" data-t="Te is adsz ki lakást?">Te is adsz ki lakást?</div>
+      <div class="pf-s" data-t="Ezt a felületet a bérbeadód a kezeld.hu-val működteti. 14 napig ingyen kipróbálhatod, bankkártya nélkül.">Ezt a felületet a bérbeadód a kezeld.hu-val működteti. 14 napig ingyen kipróbálhatod, bankkártya nélkül.</div>
+      <a class="pf-a" href="https://kezeld.hu/?utm_source=berloi-portal&amp;utm_medium=footer&amp;utm_campaign=berlo2berbeado"
+         target="_blank" rel="noopener noreferrer"
+         data-t="Megnézem a kezeld.hu-t">Megnézem a kezeld.hu-t</a>
+    </div>
   </div>
 </div>
 
@@ -474,6 +497,11 @@ const DICT_EN = {
   'Utalás ide:': 'Transfer to:',
   'Közlemény:': 'Reference:',
   'Dokumentum': 'Document',
+  // Ajánló a bérlőnek (portal-foot)
+  'Te is adsz ki lakást?': 'Do you rent out a property too?',
+  'Ezt a felületet a bérbeadód a kezeld.hu-val működteti. 14 napig ingyen kipróbálhatod, bankkártya nélkül.':
+    'Your landlord runs this portal with kezeld.hu. Try it free for 14 days, no card required.',
+  'Megnézem a kezeld.hu-t': 'Take a look at kezeld.hu',
 };
 let _lang = (function(){
   try{ return localStorage.getItem('kezeld_berlo_lang') || 'hu'; }catch(_){ return 'hu'; }
