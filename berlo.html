@@ -145,6 +145,8 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
 .error-state p{color:var(--text-sec);font-size:14px;line-height:1.6;font-weight:500}
 /* Halk ajánló a bérlőnek: a mai bérlő a holnapi bérbeadó. Szándékosan visszafogott —
    ez a bérlő ügyintéző felülete, nem hirdetési hely. */
+.portal-privacy{margin:14px 0 0;text-align:center;font-size:11.5px;line-height:1.6;color:#8a8a94}
+.portal-privacy a{color:#8a8a94;text-decoration:underline;margin-left:4px}
 .portal-foot{margin-top:30px;padding:22px 18px 6px;border-top:1px solid var(--border);text-align:center}
 .portal-foot .pf-q{font-size:14px;font-weight:800;color:var(--text);letter-spacing:-.01em}
 .portal-foot .pf-s{margin:7px auto 0;max-width:430px;font-size:12.5px;line-height:1.55;color:var(--text-sec);font-weight:500}
@@ -349,6 +351,18 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
          target="_blank" rel="noopener noreferrer"
          data-t="Megnézem a kezeld.hu-t">Megnézem a kezeld.hu-t</a>
     </div>
+
+    <!-- ─── ADATVÉDELMI TÁJÉKOZTATÁS ───
+         A bérlő ezen a felületen ADATOT AD MEG (üzenet, mérőóra-állás, bizonylat),
+         ezért látnia kell, ki kezeli azokat. A szerepek: az adatkezelő a BÉRBEADÓ,
+         a kezeld.hu az ő megbízásából tárolja (adatfeldolgozó) — ez egyezik a DPA-val.
+         Külön, halvány sor, hogy ne keveredjen a fenti ajánlóval.
+         ⚠ A link KÜLÖN elem (nem a szövegbe ágyazva), különben a nyelvváltás kitörölné. -->
+    <div class="portal-privacy">
+      <span data-t="Az itt megadott adatokat a bérbeadód kezeli; a kezeld.hu az ő megbízásából tárolja őket.">Az itt megadott adatokat a bérbeadód kezeli; a kezeld.hu az ő megbízásából tárolja őket.</span>
+      <a href="https://kezeld.hu/adatvedelem.html" target="_blank" rel="noopener noreferrer"
+         data-t="Adatvédelmi tájékoztató">Adatvédelmi tájékoztató</a>
+    </div>
   </div>
 </div>
 
@@ -502,6 +516,10 @@ const DICT_EN = {
   'Ezt a felületet a bérbeadód a kezeld.hu-val működteti.':
     'Your landlord runs this portal with kezeld.hu.',
   'Megnézem a kezeld.hu-t': 'Take a look at kezeld.hu',
+  // Adatvédelmi sor a portál alján
+  'Az itt megadott adatokat a bérbeadód kezeli; a kezeld.hu az ő megbízásából tárolja őket.':
+    'The data you enter here is controlled by your landlord; kezeld.hu stores it on their behalf.',
+  'Adatvédelmi tájékoztató': 'Privacy notice',
 };
 let _lang = (function(){
   try{ return localStorage.getItem('kezeld_berlo_lang') || 'hu'; }catch(_){ return 'hu'; }

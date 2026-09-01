@@ -8,7 +8,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --purple:#7F77DD;--purple-dark:#534AB7;--purple-light:#EEEDFE;--purple-mid:#AFA9EC;
+  /* Brand — emerald paletta (igazítva az app/berlo színeihez). A --purple nevek az új zöld értékre mutatnak. */
+  --purple:#047857;--purple-dark:#065F46;--purple-light:#ECFDF5;--purple-mid:#6EE7B7;
   --green-bg:#EAF3DE;--green-text:#3B6D11;
   --amber-bg:#FAEEDA;--amber-text:#854F0B;
   --red-bg:#FCEBEB;--red-text:#A32D2D;
@@ -18,7 +19,7 @@
 }
 @media(prefers-color-scheme:dark){:root{
   --border:#2e2e2a;--text:#f0ede8;--text-sec:#a0a09a;--text-ter:#606060;
-  --bg:#1a1a18;--card:#242422;--purple-light:#2a2860;
+  --bg:#1a1a18;--card:#242422;--purple-light:#0F2C22;
   --green-bg:#1a2e10;--green-text:#97C459;
   --amber-bg:#2e2210;--amber-text:#FAC775;
   --red-bg:#2e1010;--red-text:#F09595;
@@ -43,7 +44,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .fgrp:last-child{margin-bottom:0}
 .fgrp label{font-size:13px;font-weight:500;color:var(--text-sec)}
 .fgrp input,.fgrp select,.fgrp textarea{padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--card);color:var(--text);font-size:14px;font-family:inherit;transition:border-color .15s;width:100%}
-.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(127,119,221,.15)}
+.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(4,120,87,.18)}
 .fgrp textarea{resize:vertical;min-height:90px;line-height:1.6}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:420px){.frow{grid-template-columns:1fr}}
@@ -81,6 +82,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .ticket{background:var(--bg);border-radius:var(--radius-md);padding:12px 16px;font-size:13px;color:var(--text-sec);margin-bottom:18px;text-align:center}
 .ticket strong{color:var(--text);font-size:16px;display:block;margin-top:4px;letter-spacing:.05em}
 .footer{text-align:center;margin-top:24px;font-size:12px;color:var(--text-ter)}
+.privacy-note{text-align:center;margin-top:10px;font-size:11.5px;line-height:1.6;color:var(--text-ter)}
+.privacy-note a{color:var(--text-ter);text-decoration:underline;margin-left:4px}
 .loading-wrap{text-align:center;padding:70px 0}
 .load-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
 .lang-toggle{position:absolute;top:14px;right:14px;display:flex;background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;font-size:11.5px;font-weight:600}
@@ -231,6 +234,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   </div>
 
   <div class="footer">LakásKezelő · kezeld.hu</div>
+  <!-- ADATVÉDELMI TÁJÉKOZTATÁS: itt bárki (regisztráció nélkül) adatot ad meg —
+       leírást és fotókat. Látnia kell, ki kezeli azokat. A szerepek: az adatkezelő
+       az ingatlan TULAJDONOSA, a kezeld.hu az ő megbízásából tárolja (adatfeldolgozó).
+       ⚠ Az applyLang innerHTML-t ír a [data-t] elemekre, ezért a link KÜLÖN elem. -->
+  <div class="privacy-note">
+    <span data-t="A bejelentésben megadott adatokat az ingatlan tulajdonosa kezeli; a kezeld.hu az ő megbízásából tárolja őket.">A bejelentésben megadott adatokat az ingatlan tulajdonosa kezeli; a kezeld.hu az ő megbízásából tárolja őket.</span>
+    <a href="https://kezeld.hu/adatvedelem.html" target="_blank" rel="noopener noreferrer" data-t="Adatvédelmi tájékoztató">Adatvédelmi tájékoztató</a>
+  </div>
 </div>
 
 <script>
@@ -245,6 +256,10 @@ let activeSlot = 0;
 
 // ── Fordítások ──
 const T_EN = {
+  // Adatvédelmi sor a lap alján
+  'A bejelentésben megadott adatokat az ingatlan tulajdonosa kezeli; a kezeld.hu az ő megbízásából tárolja őket.':
+    'The data in this report is controlled by the property owner; kezeld.hu stores it on their behalf.',
+  'Adatvédelmi tájékoztató': 'Privacy notice',
   'Betöltés...': 'Loading...',
   'Érvénytelen link': 'Invalid link',
   'Ez a hibabejelentő link nem érvényes vagy lejárt.<br>Kérj új linket a bérbeadódtól.': 'This issue report link is invalid or expired.<br>Request a new link from your landlord.',
