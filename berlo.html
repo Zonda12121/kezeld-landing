@@ -168,7 +168,7 @@ body{font-family:'Inter','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sa
     </div>
     <h1 id="hdr-title" data-t="Bérlői portál">Bérlői portál</h1>
     <p id="hdr-sub" data-t="Üdvözlünk a kezeld.hu rendszerben">Üdvözlünk a kezeld.hu rendszerben</p>
-    <div id="ing-badge" class="ing-badge" style="display:none">📍 <span id="ing-cim"></span></div>
+    <div id="ing-badge" class="ing-badge" style="display:none">📍 <span id="ing-cim" translate="no" class="notranslate"></span></div>
   </div>
 
   <div id="token-expiry-banner" style="display:none;background:var(--amber-bg);color:var(--amber-text);border:1px solid var(--amber-text);border-radius:var(--r-md);padding:12px 16px;margin-bottom:16px;font-size:13px;font-weight:600;line-height:1.5"></div>
@@ -501,6 +501,23 @@ const DICT_EN = {
   '📄 Számla letöltése': '📄 Download invoice',
   '📄 Számla': '📄 Invoice',
   '📎 Bizonylat': '📎 Receipt',
+  'Késedelmi kamat:': 'Late payment interest:',
+  'nap': 'days',
+  "A bérbeadó még nem adott meg mérőórákat. Kérlek vedd fel velük a kapcsolatot.": "Your landlord has not set up any meters yet. Please get in touch with them.",
+  "⚡ Áram nappali (kWh)": "⚡ Electricity, day rate (kWh)",
+  "🌙 Áram éjjeli (kWh)": "🌙 Electricity, night rate (kWh)",
+  "💧 Víz hideg (m³)": "💧 Cold water (m³)",
+  "🔥 Víz meleg (m³)": "🔥 Hot water (m³)",
+  "Fénykép a mérőóráról (opcionális)": "Photo of the meter (optional)",
+  "Fénykép készítése / kiválasztása": "Take or choose a photo",
+  "A linked ma lejár — kérlek vedd fel a kapcsolatot a bérbeadóddal egy új linkért.": "Your link expires today — please contact your landlord for a new one.",
+  "A linked %N% nap múlva lejár — kérj a bérbeadódtól új linket időben.": "Your link expires in %N% days — ask your landlord for a new one in good time.",
+  "A fájl maximum 10 MB lehet.": "The file must be no larger than 10 MB.",
+  "Csak képet tölthetsz fel.": "You can only upload an image.",
+  "Fotó feltöltési hiba": "Photo upload error",
+  "Sorszám: ": "Serial number: ",
+  "utolsó állás: ": "last reading: ",
+  "Hiba a mérők betöltésénél: ": "Error while loading the meters: ",
   'Esedékes:': 'Due:',
   'napja lejárt': 'days overdue',
   'Ma esedékes': 'Due today',
@@ -634,6 +651,10 @@ async function loadFizetnivalo(){
       bizonylat_url: d.bizonylat_url,
       berlo_jelzett_at: d.berlo_jelzett_at,
       fizetesi_mod: d.fizetesi_mod,
+      // A késedelmi kamatot a SZERVER számolja (a bérbeadó beállításai alapján) —
+      // itt nincs hozzá se kulcs, se türelmi nap, és nem is szabad kitalálni.
+      kamat: Number(d.kamat) || 0,
+      kamatNap: Number(d.kamat_nap) || 0,
     }));
     const kuz = (kuzRes.szamlak || []).map(s => ({
       type:'kuz',
@@ -710,6 +731,14 @@ async function loadFizetnivalo(){
         const szamlaLink = x.szamla_url
           ? '<div style="margin-top:6px;font-size:12.5px"><a href="'+escapeHtml(x.szamla_url)+'" target="_blank" rel="noopener noreferrer" style="color:var(--purple);text-decoration:underline">'+t('📄 Számla letöltése')+'</a></div>'
           : '';
+        // Felhalmozott késedelmi kamat. Csak akkor jelenik meg, ha tényleg van —
+        // befizetett vagy még nem esedékes tételnél a szerver 0-t ad vissza.
+        // Az összeg NAPONTA nő, ezért mindig a mai állapotot mutatja.
+        const kamatBlock = (x.kamat > 0)
+          ? '<div style="margin-top:6px;font-size:11.5px;color:var(--red-text,#991B1B);font-weight:600">'
+            + t('Késedelmi kamat:') + ' ' + fmtForint(x.kamat, x.valuta)
+            + ' <span style="font-weight:400;opacity:.85">(' + x.kamatNap + ' ' + t('nap') + ')</span></div>'
+          : '';
         const utalasBlock = (x.type==='kozos' && (x.utalasi_kedv || x.utalasi_szamla))
           ? '<div style="margin-top:6px;font-size:11.5px;color:var(--text-sec);line-height:1.5">'+t('Utalás ide:')+' '+(x.utalasi_kedv?'<strong>'+escapeHtml(x.utalasi_kedv)+'</strong>':'')+(x.utalasi_szamla?' · '+escapeHtml(x.utalasi_szamla):'')+(x.utalasi_kozlemeny?' · '+t('Közlemény:')+' '+escapeHtml(x.utalasi_kozlemeny):'')+'</div>'
           : '';
@@ -719,6 +748,7 @@ async function loadFizetnivalo(){
               +'<div style="font-size:14.5px;font-weight:600;margin-bottom:2px">'+x.ico+' '+escapeHtml(x.cim)+'</div>'
               +'<div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px">'+fmtForint(x.osszeg, x.valuta)+'</div>'
               +'<div style="font-size:11.5px;color:var(--text-ter)">'+t('Esedékes:')+' '+escapeHtml(x.esedekesseg)+'</div>'
+              +kamatBlock
               +szamlaLink+utalasBlock
             +'</div>'
             +'<div style="text-align:right">'+stat+'</div>'
@@ -954,7 +984,7 @@ async function init(){
         const daysLeft = data.token.days_left || 0;
         const msg = (daysLeft <= 0)
           ? t('A linked ma lejár — kérlek vedd fel a kapcsolatot a bérbeadóddal egy új linkért.')
-          : (t('A linked')+' '+daysLeft+' '+t('nap múlva lejár — kérj a bérbeadódtól új linket időben.'));
+          : t('A linked %N% nap múlva lejár — kérj a bérbeadódtól új linket időben.').replace('%N%', daysLeft);
         banner.textContent = '⚠️ ' + msg;
         banner.style.display = 'block';
       }
