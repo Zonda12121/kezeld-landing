@@ -625,7 +625,8 @@ section{padding:96px 24px}
   transition:transform .25s ease,border-color .25s ease;
 }
 .trust-card:hover{transform:translateY(-2px);border-color:var(--accent-300)}
-.trust-card .emoji{font-size:26px}
+.trust-card .tr-ic{width:42px;height:42px;border-radius:12px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.trust-card .tr-ic svg{width:21px;height:21px}
 .trust-card h3{font-size:15px;font-weight:700;letter-spacing:-.2px}
 .trust-card p{font-size:13.5px;color:var(--text-2);line-height:1.55}
 
@@ -706,6 +707,61 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
   }
   .hero-video-wrap{transform:none}
   .reveal{opacity:1;transform:none}
+}
+
+
+/* ═══════════ SZERZŐDÉSGENERÁLÁS szekció ═══════════ */
+.szg-sec{padding:112px 24px 104px;background:var(--bg-dark);color:var(--text-on-dark);overflow:hidden}
+.szg-sec .eyebrow{color:var(--accent-300);background:rgba(4,120,87,.18)}
+.szg-sec .section-title{color:#fff;max-width:520px}
+.szg-sec .section-sub{color:var(--text-on-dark-2);max-width:520px}
+.szg-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.szg-steps{list-style:none;padding:0;margin:30px 0 0}
+.szg-steps li{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.szg-num{flex:0 0 32px;height:32px;border-radius:50%;background:rgba(110,231,183,.12);border:1px solid rgba(110,231,183,.35);color:var(--accent-300);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.szg-st{font-weight:700;font-size:16px;color:#EEF1F6;margin:4px 0 2px}
+.szg-sd{font-size:14px;color:#9AA3B4;margin:0;line-height:1.5}
+.szg-note{display:flex;gap:12px;align-items:flex-start;margin-top:26px;padding:14px 16px;border:1px solid var(--border-dark);border-radius:14px;background:rgba(255,255,255,.03)}
+.szg-note svg{flex:0 0 20px;width:20px;height:20px;color:var(--accent-300);margin-top:1px}
+.szg-note p{margin:0;font-size:14px;color:#C9CFDA;line-height:1.5}
+.szg-note strong{color:#fff}
+.szg-docs{position:relative;height:470px}
+.szg-doc{position:absolute;background:#fff;color:#1F2937;border-radius:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.65),0 10px 20px -10px rgba(0,0,0,.45);padding:24px 20px 16px;font-size:11.5px;line-height:1.5}
+.szg-doc p{margin:0}
+.szg-doc.back{top:4px;left:0;width:48%;transform:rotate(-5deg)}
+.szg-doc.front{top:118px;right:0;width:78%;transform:rotate(1deg)}
+.szg-lbl{position:absolute;top:-12px;left:18px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.szg-lbl.gray{background:#E4E4E7;color:#3F3F46}
+.szg-lbl.green{background:var(--accent);color:#fff}
+.szg-dtitle{font-weight:800;font-size:10.5px;letter-spacing:1.2px;text-align:center;color:#111827;margin:2px 0 12px!important}
+.szg-line{margin:0 0 7px!important}
+.szg-blank{color:#A1A1AA;letter-spacing:1px}
+.szg-cols{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #E5E7EB}
+.szg-cols>div{padding:10px 12px 4px;min-width:0}
+.szg-cols>div+div{border-left:1px solid #E5E7EB}
+.szg-colh{font-size:9.5px;font-weight:800;letter-spacing:1px;color:#6B7280;text-transform:uppercase;margin:0 0 8px!important}
+.szg-v{background:#D1FAE5;color:#065F46;font-weight:600;padding:1px 5px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.szg-v.n{white-space:nowrap}
+.szg-float{position:absolute;left:4%;bottom:8px;display:flex;align-items:center;gap:10px;background:var(--bg-dark-elev);border:1px solid var(--border-dark);border-radius:14px;padding:10px 14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.7)}
+.szg-float .ic{flex:0 0 30px;height:30px;border-radius:8px;background:#0B3B2E;color:var(--accent-300);display:flex;align-items:center;justify-content:center}
+.szg-float .ic svg{width:16px;height:16px}
+.szg-float b{display:block;font-size:13px;color:#EEF1F6}
+.szg-float span{font-size:12px;color:#9AA3B4}
+.szg-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
+.szg-feat{display:flex;gap:12px;align-items:flex-start;padding:18px;border:1px solid var(--border-dark);border-radius:var(--radius);background:var(--bg-dark-elev)}
+.szg-feat .ic{flex:0 0 36px;height:36px;border-radius:10px;background:#0B3B2E;color:var(--accent-300);display:flex;align-items:center;justify-content:center}
+.szg-feat .ic svg{width:18px;height:18px}
+.szg-ft{font-weight:700;font-size:15px;color:#EEF1F6;margin:0 0 3px}
+.szg-fd{font-size:13.5px;color:#9AA3B4;margin:0;line-height:1.5}
+@media(max-width:900px){.szg-grid{grid-template-columns:1fr;gap:44px}.szg-feats{grid-template-columns:1fr;margin-top:44px}}
+@media(max-width:560px){
+  .szg-sec{padding:80px 20px}
+  .szg-docs{height:auto;padding-top:110px}
+  .szg-doc{font-size:10.5px;padding:22px 14px 12px}
+  .szg-doc.back{width:72%;transform:rotate(-3deg)}
+  .szg-doc.front{position:relative;top:0;width:100%;transform:none}
+  .szg-cols>div{padding:8px 8px 2px}
+  .szg-float{position:relative;left:auto;bottom:auto;margin-top:16px}
 }
 
 /* ═══════════ TEAM (Csapat modul) szekció ═══════════ */
@@ -1016,6 +1072,70 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
   </div>
 </section>
 
+<!-- ═══════════ SZERZŐDÉSGENERÁLÁS ═══════════ -->
+<section class="szg-sec" id="szerzodes">
+  <div class="section-inner">
+    <div class="szg-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="szg_eyebrow">Szerződésgenerálás</span>
+        <h2 class="section-title" data-i18n="szg_title">A saját szerződésed.<br>Magától kitöltve.</h2>
+        <p class="section-sub" data-i18n="szg_sub">Töltsd fel egyszer az üres Word-mintádat, és jelöld meg, hová milyen adat kerüljön. Onnantól minden szerződést a rendszer tölt ki — a bérlő, az ingatlan és a tulajdonos adataiból, amiket már felvittél.</p>
+        <ol class="szg-steps">
+          <li><span class="szg-num">1</span><div><p class="szg-st" data-i18n="szg_s1_t">Feltöltöd az üres mintádat</p><p class="szg-sd" data-i18n="szg_s1_d">A saját Word-fájlodat — elég egyszer.</p></div></li>
+          <li><span class="szg-num">2</span><div><p class="szg-st" data-i18n="szg_s2_t">Megjelölöd a helyeket</p><p class="szg-sd" data-i18n="szg_s2_d">Hová kerüljön a bérlő neve, a cím, a díj, a kaució.</p></div></li>
+          <li><span class="szg-num">3</span><div><p class="szg-st" data-i18n="szg_s3_t">Kiválasztod a bérlőt és az ingatlant</p><p class="szg-sd" data-i18n="szg_s3_d">Kész a szerződés: kinyomtatod, vagy elmented az ingatlanhoz.</p></div></li>
+        </ol>
+        <div class="szg-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><p data-i18n="szg_note"><strong>A szöveg a tiéd.</strong> Mi nem írunk bele a szerződésedbe, és nem is változtatjuk meg — csak kitöltjük az adataiddal.</p></div>
+      </div>
+      <div class="szg-docs reveal delay-1" aria-hidden="true">
+        <div class="szg-doc back">
+          <span class="szg-lbl gray" data-i18n="szg_doc_tpl">A te Word-mintád</span>
+          <p class="szg-dtitle">BÉRLETI SZERZŐDÉS</p>
+          <p class="szg-line">Bérbeadó: <span class="szg-blank">………………………</span></p>
+          <p class="szg-line">Bérlő: <span class="szg-blank">………………………</span></p>
+          <p class="szg-line">anyja neve: <span class="szg-blank">…………………</span></p>
+          <p class="szg-line">Bérlemény: <span class="szg-blank">…………………………</span></p>
+          <p class="szg-line">Havi bérleti díj: <span class="szg-blank">……………</span> Ft</p>
+          <p class="szg-line">Kaució: <span class="szg-blank">……………</span> Ft</p>
+          <p class="szg-line">Kezdete: <span class="szg-blank">……………</span></p>
+        </div>
+        <div class="szg-doc front">
+          <span class="szg-lbl green" data-i18n="szg_doc_filled">Kitöltve · magyar–angol</span>
+          <p class="szg-dtitle">BÉRLETI SZERZŐDÉS · LEASE AGREEMENT</p>
+          <div class="szg-cols">
+            <div>
+              <p class="szg-colh">Magyar</p>
+              <p class="szg-line">Bérbeadó: <span class="szg-v">Kovács Péter</span></p>
+              <p class="szg-line">Bérlő: <span class="szg-v">Tóth Béla</span></p>
+              <p class="szg-line">anyja neve: <span class="szg-v">Kiss Mária</span></p>
+              <p class="szg-line">Bérlemény: <span class="szg-v">Kossuth u. 7. 2/5.</span></p>
+              <p class="szg-line">Havi bérleti díj: <span class="szg-v n">245 000 Ft</span></p>
+              <p class="szg-line">Kaució: <span class="szg-v n">490 000 Ft</span></p>
+              <p class="szg-line">Kezdete: <span class="szg-v n">2026. október 1.</span></p>
+            </div>
+            <div>
+              <p class="szg-colh">English</p>
+              <p class="szg-line">Landlord: <span class="szg-v">Kovács Péter</span></p>
+              <p class="szg-line">Tenant: <span class="szg-v">Tóth Béla</span></p>
+              <p class="szg-line">Mother’s name: <span class="szg-v">Kiss Mária</span></p>
+              <p class="szg-line">Premises: <span class="szg-v">Kossuth u. 7. 2/5.</span></p>
+              <p class="szg-line">Monthly rent: <span class="szg-v n">HUF 245,000</span></p>
+              <p class="szg-line">Deposit: <span class="szg-v n">HUF 490,000</span></p>
+              <p class="szg-line">Start date: <span class="szg-v n">1 October 2026</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="szg-float"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b data-i18n="szg_saved_t">Elmentve a dokumentumok közé</b><span data-i18n="szg_saved_d">Kossuth u. 7. 2/5. · Bérleti szerződés — Tóth Béla</span></div></div>
+      </div>
+    </div>
+    <div class="szg-feats">
+      <div class="szg-feat reveal"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span><div><p class="szg-ft" data-i18n="szg_f1_t">Kétnyelvű szerződés</p><p class="szg-fd" data-i18n="szg_f1_d">Magyar–angol kéthasábos mintánál az angol oldalra angol formátumú dátum és összeg kerül.</p></div></div>
+      <div class="szg-feat reveal delay-1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><p class="szg-ft" data-i18n="szg_f2_t">Társlakók, több tulajdonos</p><p class="szg-fd" data-i18n="szg_f2_d">A további bérlők és tulajdonosok adatai is bekerülnek, ha felvitted őket.</p></div></div>
+      <div class="szg-feat reveal delay-2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span><div><p class="szg-ft" data-i18n="szg_f3_t">Nyomtatás és mentés</p><p class="szg-fd" data-i18n="szg_f3_d">Kinyomtathatod, vagy elmented az ingatlan dokumentumai közé — onnan Wordben is megnyitható.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ TEAM (Csapat modul) ═══════════ -->
 <section class="tm-sec" id="csapat">
   <div class="section-inner">
@@ -1251,7 +1371,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
       <ul class="price-features">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf1">Korlátlan bérlő, díj, dokumentum</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf2">Bérlői portál — üzenet, mérőóra, hiba</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf3">Bérleti szerződés generálás, jegyzőkönyv</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf3">Szerződés a saját mintádból, jegyzőkönyv</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf4">Közüzemi számla nyilvántartás</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf5">Negyedéves & éves Excel elszámolás</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pf6">Email értesítések — neked és bérlődnek</span></li>
@@ -1274,15 +1394,15 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
       <span class="eyebrow reveal" data-i18n="trust_eyebrow">Biztonság</span>
     </div>
     <h2 class="section-title center reveal delay-1" data-i18n="trust_title">Magyar bérbeadóknak. Biztonságosan.</h2>
-    <p class="section-sub center reveal delay-2" data-i18n="trust_sub">Banki szintű védelem, EU-s adattárolás, GDPR-megfelelőség. Az adataid mindig a tieid.</p>
+    <p class="section-sub center reveal delay-2" data-i18n="trust_sub">Kétfaktoros belépés, EU-s adattárolás, napi biztonsági mentés. Az adataid a tieid — bármikor letöltheted őket.</p>
 
     <div class="trust-grid">
-      <div class="trust-card reveal"><span class="emoji" aria-hidden="true">🇪🇺</span><h3 data-i18n="t1_t">EU adatkezelés</h3><p data-i18n="t1_d">Az adataid végig biztonságos európai szervereken vannak, és soha nem hagyják el az EU-t.</p></div>
-      <div class="trust-card reveal delay-1"><span class="emoji" aria-hidden="true">🔒</span><h3 data-i18n="t2_t">GDPR megfelelőség</h3><p data-i18n="t2_d">Teljes adatvédelmi tájékoztató, törlési jog, adathordozhatóság.</p></div>
-      <div class="trust-card reveal delay-2"><span class="emoji" aria-hidden="true">💳</span><h3 data-i18n="t3_t">Stripe fizetés</h3><p data-i18n="t3_d">Ugyanaz a rendszer, amit a Shopify és Amazon is használ. Kártyaadatod hozzánk soha nem érkezik el.</p></div>
-      <div class="trust-card reveal"><span class="emoji" aria-hidden="true">📡</span><h3 data-i18n="t4_t">Megbízható működés</h3><p data-i18n="t4_d">Folyamatosan figyeljük a rendszert, a hibákat gyorsan kezeljük. Mindig elérhető, mindig stabil.</p></div>
-      <div class="trust-card reveal delay-1"><span class="emoji" aria-hidden="true">🛡️</span><h3 data-i18n="t5_t">Cloudflare védelem</h3><p data-i18n="t5_d">DDoS védelem, bot-szűrés, globális CDN. Mindig elérhető, mindig gyors.</p></div>
-      <div class="trust-card reveal delay-2"><span class="emoji" aria-hidden="true">📦</span><h3 data-i18n="t6_t">Adat export</h3><p data-i18n="t6_d">Bármikor letöltheted az összes adatodat JSON-ban. Nincs vendor lock-in.</p></div>
+      <div class="trust-card reveal"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span><h3 data-i18n="t1_t">EU-s szerverek</h3><p data-i18n="t1_d">Az adataid az Európai Unióban, írországi adatközpontban vannak.</p></div>
+      <div class="trust-card reveal delay-1"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3 data-i18n="t2_t">Kétfaktoros belépés</h3><p data-i18n="t2_d">Ha bekapcsolod, a jelszavad mellé a telefonod 6 jegyű kódja is kell — a jelszó önmagában nem elég.</p></div>
+      <div class="trust-card reveal delay-2"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><h3 data-i18n="t3_t">Napi biztonsági mentés</h3><p data-i18n="t3_d">Az adatbázisról minden nap automatikus mentés készül.</p></div>
+      <div class="trust-card reveal"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><h3 data-i18n="t4_t">Biztonságos fizetés</h3><p data-i18n="t4_d">A fizetést a Stripe kezeli. A kártyaadatod hozzánk soha nem érkezik meg.</p></div>
+      <div class="trust-card reveal delay-1"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></span><h3 data-i18n="t5_t">GDPR-megfelelés</h3><p data-i18n="t5_d">Adatkezelési tájékoztató, adatfeldolgozói szerződés (DPA), törlési jog.</p></div>
+      <div class="trust-card reveal delay-2"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span><h3 data-i18n="t6_t">Teljes adatexport</h3><p data-i18n="t6_d">Bármikor letöltheted az összes adatodat egy fájlban. Nem vagy hozzánk kötve.</p></div>
     </div>
   </div>
 </section>
@@ -1531,17 +1651,17 @@ var translations = {
     price_yearly_pre:'Vagy ', price_yearly_strong:'13 090 Ft / ingatlan / év', price_yearly_post:' — 1 hónap ingyen.',
     pf1:'Korlátlan bérlő, díj, dokumentum',
     pf2:'Bérlői portál — üzenet, mérőóra, hiba',
-    pf3:'Bérleti szerződés generálás, jegyzőkönyv',
+    pf3:'Szerződés a saját mintádból, jegyzőkönyv',
     pf4:'Közüzemi számla nyilvántartás',
     pf5:'Negyedéves & éves Excel elszámolás',
     pf6:'Email értesítések — neked és bérlődnek',    price_cta:'Ingyenes próba indítása', price_fine:'Kártyaadat nélkül · 1 perc alatt',
-    trust_eyebrow:'Biztonság', trust_title:'Magyar bérbeadóknak. Biztonságosan.', trust_sub:'Banki szintű védelem, EU-s adattárolás, GDPR-megfelelőség. Az adataid mindig a tieid.',
-    t1_t:'EU adatkezelés', t1_d:'Az adataid végig biztonságos európai szervereken vannak, és soha nem hagyják el az EU-t.',
-    t2_t:'GDPR megfelelőség', t2_d:'Teljes adatvédelmi tájékoztató, törlési jog, adathordozhatóság.',
-    t3_t:'Stripe fizetés', t3_d:'Ugyanaz a rendszer, amit a Shopify és Amazon is használ. Kártyaadatod hozzánk soha nem érkezik el.',
-    t4_t:'Megbízható működés', t4_d:'Folyamatosan figyeljük a rendszert, a hibákat gyorsan kezeljük. Mindig elérhető, mindig stabil.',
-    t5_t:'Cloudflare védelem', t5_d:'DDoS védelem, bot-szűrés, globális CDN. Mindig elérhető, mindig gyors.',
-    t6_t:'Adat export', t6_d:'Bármikor letöltheted az összes adatodat JSON-ban. Nincs vendor lock-in.',
+    trust_eyebrow:'Biztonság', trust_title:'Magyar bérbeadóknak. Biztonságosan.', trust_sub:'Kétfaktoros belépés, EU-s adattárolás, napi biztonsági mentés. Az adataid a tieid — bármikor letöltheted őket.',
+    t1_t:'EU-s szerverek', t1_d:'Az adataid az Európai Unióban, írországi adatközpontban vannak.',
+    t2_t:'Kétfaktoros belépés', t2_d:'Ha bekapcsolod, a jelszavad mellé a telefonod 6 jegyű kódja is kell — a jelszó önmagában nem elég.',
+    t3_t:'Napi biztonsági mentés', t3_d:'Az adatbázisról minden nap automatikus mentés készül.',
+    t4_t:'Biztonságos fizetés', t4_d:'A fizetést a Stripe kezeli. A kártyaadatod hozzánk soha nem érkezik meg.',
+    t5_t:'GDPR-megfelelés', t5_d:'Adatkezelési tájékoztató, adatfeldolgozói szerződés (DPA), törlési jog.',
+    t6_t:'Teljes adatexport', t6_d:'Bármikor letöltheted az összes adatodat egy fájlban. Nem vagy hozzánk kötve.',
     faq_eyebrow:'GYIK', faq_title:'Gyakori kérdések.',
     faq1_q:'Kell bankkártya az induláshoz?', faq1_a:'Nem. A 14 napos próba teljesen ingyenes és kötelezettségmentes. Csak akkor kell kártyát megadnod, ha a próba végén úgy döntesz, hogy előfizetsz.',
     faq2_q:'Hány ingatlant kezelhetek?', faq2_a:'A próbaidőszak alatt korlátlanul, utána annyit, amennyi slotot megveszel: 1190 Ft / slot / hó. Minimum 1 slot, maximum nincs. Bővítés, csökkentés bármikor.',
@@ -1553,7 +1673,27 @@ var translations = {
     cta_btn:'Ingyenes próba indítása',
     sticky_cta:'Ingyenes próba indítása',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu',
-    foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés',
+    foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés', foot_cookie:'Süti-beállítások',
+    szg_eyebrow:'Szerződésgenerálás',
+    szg_title:'A saját szerződésed.<br>Magától kitöltve.',
+    szg_sub:'Töltsd fel egyszer az üres Word-mintádat, és jelöld meg, hová milyen adat kerüljön. Onnantól minden szerződést a rendszer tölt ki — a bérlő, az ingatlan és a tulajdonos adataiból, amiket már felvittél.',
+    szg_s1_t:'Feltöltöd az üres mintádat',
+    szg_s1_d:'A saját Word-fájlodat — elég egyszer.',
+    szg_s2_t:'Megjelölöd a helyeket',
+    szg_s2_d:'Hová kerüljön a bérlő neve, a cím, a díj, a kaució.',
+    szg_s3_t:'Kiválasztod a bérlőt és az ingatlant',
+    szg_s3_d:'Kész a szerződés: kinyomtatod, vagy elmented az ingatlanhoz.',
+    szg_note:'<strong>A szöveg a tiéd.</strong> Mi nem írunk bele a szerződésedbe, és nem is változtatjuk meg — csak kitöltjük az adataiddal.',
+    szg_doc_tpl:'A te Word-mintád',
+    szg_doc_filled:'Kitöltve · magyar–angol',
+    szg_saved_t:'Elmentve a dokumentumok közé',
+    szg_saved_d:'Kossuth u. 7. 2/5. · Bérleti szerződés — Tóth Béla',
+    szg_f1_t:'Kétnyelvű szerződés',
+    szg_f1_d:'Magyar–angol kéthasábos mintánál az angol oldalra angol formátumú dátum és összeg kerül.',
+    szg_f2_t:'Társlakók, több tulajdonos',
+    szg_f2_d:'A további bérlők és tulajdonosok adatai is bekerülnek, ha felvitted őket.',
+    szg_f3_t:'Nyomtatás és mentés',
+    szg_f3_d:'Kinyomtathatod, vagy elmented az ingatlan dokumentumai közé — onnan Wordben is megnyitható.',
     tm_eyebrow:'Már nem csak neked',
     tm_title:'Nem egyedül csinálod? Hívd meg a csapatod.',
     tm_sub:'Kezelő és megtekintő szerep, ingatlanonkénti hozzáféréssel. A munkatársad csak azt látja, amit rábíztál — és neked nem kerül külön pénzbe.',
@@ -1628,17 +1768,17 @@ var translations = {
     price_yearly_pre:'Or ', price_yearly_strong:'13,090 HUF / property / year', price_yearly_post:' — 1 month free.',
     pf1:'Unlimited tenants, rents, documents',
     pf2:'Tenant portal — messages, meters, issues',
-    pf3:'Rental contract generation, handover report',
+    pf3:'Contracts from your own template, handover report',
     pf4:'Utility bill tracking',
     pf5:'Quarterly & annual Excel report',
     pf6:'Email notifications — for you and your tenant',    price_cta:'Start free trial', price_fine:'No credit card · Under 1 minute',
-    trust_eyebrow:'Security', trust_title:'For Hungarian landlords. Safely.', trust_sub:'Bank-grade security, EU data storage, GDPR compliance. Your data always stays yours.',
-    t1_t:'EU data storage', t1_d:'Your data stays on secure European servers and never leaves the EU.',
-    t2_t:'GDPR compliant', t2_d:'Full privacy notice, right to deletion, data portability.',
-    t3_t:'Stripe payments', t3_d:'The same system Shopify and Amazon use. Your card details never reach us.',
-    t4_t:'Reliable operation', t4_d:'We continuously watch the system and handle issues fast. Always available, always stable.',
-    t5_t:'Cloudflare protection', t5_d:'DDoS protection, bot filtering, global CDN. Always up, always fast.',
-    t6_t:'Data export', t6_d:'Download all your data in JSON any time. No vendor lock-in.',
+    trust_eyebrow:'Security', trust_title:'For Hungarian landlords. Safely.', trust_sub:'Two-factor sign-in, EU data storage, daily backups. Your data is yours — download it any time.',
+    t1_t:'EU servers', t1_d:'Your data is stored in the European Union, in a data centre in Ireland.',
+    t2_t:'Two-factor sign-in', t2_d:'Turn it on and you also need a 6-digit code from your phone — a password alone is not enough.',
+    t3_t:'Daily backups', t3_d:'The database is backed up automatically every day.',
+    t4_t:'Secure payments', t4_d:'Payments are handled by Stripe. Your card details never reach us.',
+    t5_t:'GDPR compliance', t5_d:'Privacy notice, data processing agreement (DPA), right to erasure.',
+    t6_t:'Full data export', t6_d:'Download all your data in one file any time. You are never locked in.',
     faq_eyebrow:'FAQ', faq_title:'Frequently asked questions.',
     faq1_q:'Do I need a credit card to start?', faq1_a:'No. The 14-day trial is completely free and commitment-free. You only enter card details if you choose to subscribe at the end of the trial.',
     faq2_q:'How many properties can I manage?', faq2_a:'Unlimited during the trial; after that, as many slots as you buy: 1,190 HUF / slot / month. Minimum 1 slot, no maximum. Increase or decrease any time.',
@@ -1650,7 +1790,27 @@ var translations = {
     cta_btn:'Start free trial',
     sticky_cta:'Start free trial',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán sole proprietor · info@kezeld.hu',
-    foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in',
+    foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in', foot_cookie:'Cookie settings',
+    szg_eyebrow:'Contract generation',
+    szg_title:'Your own contract.<br>Filled in for you.',
+    szg_sub:'Upload your blank Word template once and mark where each piece of data goes. From then on the system fills in every contract — with the tenant, property and owner details you have already entered.',
+    szg_s1_t:'Upload your blank template',
+    szg_s1_d:'Your own Word file — once is enough.',
+    szg_s2_t:'Mark the spots',
+    szg_s2_d:'Where the tenant’s name, the address, the rent and the deposit go.',
+    szg_s3_t:'Pick the tenant and the property',
+    szg_s3_d:'The contract is ready: print it, or save it to the property.',
+    szg_note:'<strong>The text is yours.</strong> We do not write anything into your contract or change it — we only fill in your data.',
+    szg_doc_tpl:'Your Word template',
+    szg_doc_filled:'Filled in · Hungarian–English',
+    szg_saved_t:'Saved to documents',
+    szg_saved_d:'Kossuth u. 7. 2/5. · Lease agreement — Tóth Béla',
+    szg_f1_t:'Bilingual contracts',
+    szg_f1_d:'With a two-column Hungarian–English template, the English side gets English-format dates and amounts.',
+    szg_f2_t:'Co-tenants, multiple owners',
+    szg_f2_d:'Details of additional tenants and owners are included too, if you have entered them.',
+    szg_f3_t:'Print and save',
+    szg_f3_d:'Print it, or save it to the property’s documents — it opens in Word from there too.',
     tm_eyebrow:'Not just for you anymore',
     tm_title:'Not doing it alone? Invite your team.',
     tm_sub:'Manager and viewer roles, with per-property access. Your colleague only sees what you entrust to them — and it costs you nothing extra.',
@@ -1741,7 +1901,7 @@ document.getElementById('langBtn').addEventListener('click', function(){
     ['price','Mi történik lemondáskor a már kifizetett időszakkal?','A rendszer az aktuális, már kifizetett időszak végéig elérhető marad; utána szünetel az előfizetés.','What happens to the period I already paid for when I cancel?','The system stays available until the end of the current, already-paid period; after that the subscription pauses.'],
     ['features','Hogyan látom, ki fizetett?','Színkódolt díjmátrixban: zöld = befolyt, sárga = várható, piros = hiányzik. Egy szempillantás alatt látod az egész évet.','How do I see who paid?','In a color-coded rent matrix: green = paid, yellow = expected, red = missing. The whole year at a glance.'],
     ['features','Küld a rendszer emlékeztetőt?','Igen. E-mailben szól időben a lejáró szerződésről, a biztosítás fordulónapjáról és más határidőkről — vasárnap is.','Does the system send reminders?','Yes. It emails you in time about expiring contracts, insurance renewals and other deadlines — even on Sundays.'],
-    ['features','Tudok bérleti szerződést készíteni?','Igen, a rendszer bérleti szerződést és átadás-átvételi jegyzőkönyvet is generál.','Can I create a rental contract?','Yes, the system generates rental contracts and handover reports.'],
+    ['features','Tudok bérleti szerződést készíteni?','Igen, a saját szerződésmintádból. Egyszer feltöltöd az üres Word-mintádat, megjelölöd, hová milyen adat kerüljön, és onnantól a rendszer tölti ki a bérlő, az ingatlan és a tulajdonos adataival — kétnyelvű (magyar–angol) szerződésnél is. A szerződés szövegét nem mi írjuk: az a tiéd. Átadás-átvételi jegyzőkönyvet is készíthetsz.','Can I create a rental contract?','Yes, from your own contract template. Upload your blank Word template once, mark where each piece of data goes, and from then on the system fills it in with the tenant, property and owner details — bilingual Hungarian–English contracts included. We do not write the contract text: it is yours. You can also create handover reports.'],
     ['features','Kezeli a közüzemi számlákat és a mérőórákat?','Igen. Nyilvántartja a közüzemi számlákat, a bérlő pedig a portálon diktálhatja a mérőóra-állást.','Does it handle utility bills and meters?','Yes. It tracks utility bills, and tenants can submit meter readings via the portal.'],
     ['features','Számol késedelmi kamatot?','Igen. Beállítasz egy napi késedelmi kamatot, és egy türelmi időt is. A türelmi idő akár bérlőnként egyedileg is megadható — a globális alap bérlőnként felülírható.','Does it calculate late-payment interest?','Yes. You set a daily late-payment interest and a grace period. The grace period can even be set per tenant — the global default is overridable per tenant.'],
     ['features','Van napi áttekintő és naptár?','Igen. A „Ma teendők" akcióközpont egy listába gyűjti a napi feladatokat (sürgős hibák, jóváhagyásra váró befizetések, esedékes díjak), mellette naptár a határidőkkel.','Is there a daily overview and calendar?','Yes. The "Today" action center gathers your daily tasks (urgent issues, payments awaiting approval, due rents) into one list, with a calendar of deadlines beside it.'],
