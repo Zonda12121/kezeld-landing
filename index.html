@@ -710,6 +710,83 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 }
 
 
+
+/* ═══════════ 2. KÖR: valódi app-képek (nyitókép + funkció-kártyák) ═══════════ */
+.hv2{position:relative;padding-bottom:70px}
+.hv2-shot{display:block;width:100%;height:auto;background:#fff}
+.hv2-phone{position:absolute;right:-22px;bottom:0;width:150px;border-radius:26px;background:#111827;padding:6px;box-shadow:0 28px 60px -18px rgba(15,23,42,.5);z-index:2}
+.hv2-phone img{display:block;width:100%;height:auto;border-radius:20px}
+.hv2-play{position:absolute;left:0;bottom:12px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 16px 8px 8px;font:600 14px/1 'Inter',sans-serif;color:var(--text);cursor:pointer;box-shadow:var(--shadow)}
+.hv2-play:hover{border-color:var(--accent-300)}
+.hv2-play .ic{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center}
+.hv2-play .ic svg{width:13px;height:13px;margin-left:2px}
+.hv2-play .len{color:var(--text-3);font-weight:500}
+/* ⚠️ az oldal csillag-szabálya (margin:0) kiüti a böngésző saját dialog-középre-igazítását → a modál
+   a bal felső sarokba ragadna; az inset:0 + margin:auto teszi vissza a képernyő KÖZEPÉRE */
+.hv2-dlg{border:0;padding:0;border-radius:16px;background:#000;width:100%;max-width:min(960px,92vw);
+  inset:0;margin:auto;max-height:90vh;overflow:hidden}
+.hv2-dlg::backdrop{background:rgba(11,15,26,.75)}
+.hv2-dlg video{display:block;width:100%;height:auto;max-height:90vh;object-fit:contain}
+.hv2-x{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:20px;cursor:pointer}
+@media(max-width:880px){
+  .hv2{padding-bottom:80px}
+  .hv2-phone{width:104px;right:-6px;bottom:60px;border-radius:20px;padding:5px}
+  .hv2-phone img{border-radius:15px}
+  .hv2-play{bottom:0}
+}
+@media(max-width:600px){
+  .feature-visual.fv2{height:auto;padding:14px}
+  .feature-visual.fv2.fv2-tel{height:300px}
+  .feature-visual.fv2.fv2-balra{justify-content:flex-start}
+  .fv2-balra .fv2-shot{width:165%;max-width:none;border-radius:12px 0 0 12px}
+  /* a .fv2 előtag azért kell, hogy ezek a szabályok a lenti általános .fv2-wrap szabályt is legyőzzék */
+  .fv2 .fv2-wrap{aspect-ratio:var(--ar-m,var(--ar))}
+  .fv2 .fv2-wrap.fit{width:100%;height:auto}
+  .fv2 .fv2-ring.asztal{display:none}
+  .fv2 .fv2-ring.mobil{display:block}
+  .fv2 .fv2-keret{width:100%}          /* telefonon a keret mindig teljes szélességű */
+  .fv2 .fv2-sav{height:26px}
+}
+.feature-visual.fv2{padding:18px;background:var(--surface)}
+.fv2 picture{display:contents}   /* a kép maradjon a doboz közvetlen eleme (a max-height:100% így érvényes) */
+/* ── Mozgás a valódi képeken (a régi rajzok animációi helyett) ── */
+.fv2-wrap{position:relative;display:block;width:100%;max-width:100%;aspect-ratio:var(--ar)}
+.fv2-wrap.fit{width:auto;height:100%}
+.fv2-wrap img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px;box-shadow:0 14px 34px -14px rgba(15,23,42,.28);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.feature-card:hover .fv2-wrap img,.feature-card:hover .fv2-shot{transform:scale(1.035)}
+.fv2-shot{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.fv2-phone{animation:phoneFloat 4s ease-in-out infinite}
+.fv2-ring{position:absolute;border:2px solid var(--accent);border-radius:8px;box-shadow:0 0 0 4px rgba(4,120,87,.14);pointer-events:none;opacity:0;animation:ringPulse 4s ease-in-out infinite}
+.fv2-ring.mobil{display:none}
+@keyframes ringPulse{0%,10%{opacity:0;transform:scale(.99)}20%,55%{opacity:1;transform:scale(1)}75%,100%{opacity:0;transform:scale(1.02)}}
+/* ── Böngészőkeret a kártyaképek körül (ugyanaz a formanyelv, mint a nyitóképen) ── */
+.fv2-keret{position:relative;display:block;width:min(100%,var(--kw,100%));background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 22px 50px -18px rgba(15,23,42,.35)}
+.fv2-sav{display:flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-bottom:1px solid var(--border);background:linear-gradient(to bottom,#FAFAFA,#F4F4F5)}
+.fv2-pont{width:8px;height:8px;border-radius:50%;background:#E4E4E7;flex:none}
+.fv2-pont.r{background:#FCA5A5}.fv2-pont.y{background:#FCD34D}.fv2-pont.g{background:#86EFAC}
+.fv2-url{flex:1;margin-left:6px;font-size:10.5px;line-height:1.5;color:var(--text-3);background:#fff;border:1px solid var(--border);border-radius:5px;padding:1px 8px;text-align:center;white-space:nowrap;overflow:hidden}
+.fv2-keret .fv2-wrap img,.fv2-keret .fv2-shot{border-radius:0;box-shadow:none}
+/* ── Előtte → utána: a hiányzó díjból befizetett lesz (mindkét kép a VALÓDI appból) ── */
+.fv2-ba .fv2-utana{position:absolute;inset:0;opacity:0;animation:fv2Utana 8s ease-in-out infinite}
+@keyframes fv2Utana{0%,44%{opacity:0}52%,90%{opacity:1}97%,100%{opacity:0}}
+/* a visszaigazolás az ablak ALATT ül (értesítésként), hogy egyetlen adatsort se takarjon el */
+.fv2-chip{position:absolute;right:14px;bottom:8px;z-index:3;background:var(--accent);color:#fff;font:700 11.5px/1 'Inter',sans-serif;padding:6px 11px;border-radius:999px;white-space:nowrap;opacity:0;box-shadow:0 10px 22px -6px rgba(4,120,87,.55);animation:fv2Chip 8s ease-in-out infinite}
+@keyframes fv2Chip{0%,46%{opacity:0;transform:translateY(4px)}56%,86%{opacity:1;transform:translateY(0)}94%,100%{opacity:0;transform:translateY(0)}}
+/* ezen a kártyán a kiemelő keret az „előtte" szakaszhoz igazodik (8 mp-es közös ritmus) */
+.fv2-ba .fv2-ring{animation:fv2RingBe 8s ease-in-out infinite}
+@keyframes fv2RingBe{0%,6%{opacity:0;transform:scale(.99)}14%,34%{opacity:1;transform:scale(1)}42%,100%{opacity:0;transform:scale(1.02)}}
+@media(prefers-reduced-motion:reduce){
+  .fv2-phone,.fv2-ring,.fv2-ba .fv2-ring,.fv2-ba .fv2-utana,.fv2-chip{animation:none}
+  .fv2-ring{opacity:1}
+  .fv2-ba .fv2-utana,.fv2-chip{opacity:0}   /* mozgás nélkül a kiinduló („hiányzik") állapot marad */
+  .fv2-wrap img,.fv2-shot{transition:none}
+  .feature-card:hover .fv2-wrap img,.feature-card:hover .fv2-shot{transform:none}
+}
+.fv2-shot{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 14px 34px -14px rgba(15,23,42,.28)}
+.fv2-phone{position:absolute;left:50%;top:26px;width:210px;transform:translateX(-50%) rotate(-4deg);border-radius:28px;background:#111827;padding:7px;box-shadow:0 22px 44px -16px rgba(15,23,42,.45)}
+.fv2-phone img{display:block;width:100%;height:auto;border-radius:22px}
+
+
 /* ═══════════ SZERZŐDÉSGENERÁLÁS szekció ═══════════ */
 .szg-sec{padding:112px 24px 104px;background:var(--bg-dark);color:var(--text-on-dark);overflow:hidden}
 .szg-sec .eyebrow{color:var(--accent-300);background:rgba(4,120,87,.18)}
@@ -938,19 +1015,30 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
       </p>
     </div>
 
-    <!-- Bemutató videó (ugyanaz mint az eredetin) -->
-    <div class="hero-video-wrap">
-      <div class="video-titlebar">
-        <span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span>
-        <span class="vt-url">app.kezeld.hu</span>
+    <!-- Nyitókép: a valódi app (kitalált adatokkal); a bemutató videó a gomb mögött -->
+    <div class="hv2">
+      
+      <div class="hero-video-wrap">
+        <div class="video-titlebar">
+          <span class="vt-dot r"></span><span class="vt-dot y"></span><span class="vt-dot g"></span>
+          <span class="vt-url">app.kezeld.hu</span>
+        </div>
+        <img class="hv2-shot" src="app-hero-asztal.webp" data-kep-hu="app-hero-asztal.webp" data-kep-en="app-hero-asztal-en.webp" width="1400" height="902" alt="A kezeld.hu Áttekintés oldala: Ma teendők, befizetések és hibák egy helyen" data-alt-en="The kezeld.hu Overview page: today&#39;s tasks, payments and issues in one place">
       </div>
-      <video class="hero-video" controls preload="none" playsinline poster="kezeld-hero-poster.jpg?v=2" aria-label="kezeld.hu bemutató videó">
-        <source src="kezeld-generated.mp4?v=v10-seek-20260610" type="video/mp4">
-        <p data-i18n="video_fallback">A böngésződ nem támogatja a HTML5 videót.</p>
-      </video>
+      <div class="hv2-phone" aria-hidden="true"><img src="app-hero-telefon.webp" data-kep-hu="app-hero-telefon.webp" data-kep-en="app-hero-telefon-en.webp" width="360" height="779" alt="" aria-hidden="true"></div>
+      <button type="button" class="hv2-play" onclick="document.getElementById('hv2-dlg').showModal()">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
+        <span data-i18n="hv2_play">Nézd meg működés közben</span> <span class="len">1:20</span>
+      </button>
     </div>
   </div>
 </section>
+<dialog id="hv2-dlg" class="hv2-dlg" onclick="if(event.target===this)this.close()">
+  <button type="button" class="hv2-x" onclick="this.closest('dialog').close()" aria-label="Bezárás">×</button>
+  <video controls preload="none" playsinline poster="kezeld-hero-poster.jpg?v=2" aria-label="kezeld.hu bemutató videó">
+    <source src="kezeld-generated.mp4?v=v10-seek-20260610" type="video/mp4">
+  </video>
+</dialog>
 
 <!-- ═══════════ PROBLEM ═══════════ -->
 <section class="problem">
@@ -1010,62 +1098,39 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
       <div class="feature-card reveal">
         <h3 data-i18n="f1_t">Lásd azonnal, ki fizetett.</h3>
         <p class="outcome" data-i18n="f1_d">Színkódolt mátrix: zöld = befolyt, sárga = várható, piros = hiányzik. Egy szempillantás alatt látod a teljes évet.</p>
-        <div class="feature-visual">
-          <div class="matrix-vis" aria-hidden="true">
-            <!-- Row 1: 5 fizetve + 1 várható (Június) -->
-            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell paid">M</div><div class="matrix-cell paid">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
-            <!-- Row 2: 1 hiányzó (Március) + 1 várható (Június) — sárga a piros után -->
-            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell missing">M</div><div class="matrix-cell paid">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
-            <!-- Row 3: 1 hiányzó (Április) + 1 várható (Június) — sárga a piros után -->
-            <div class="matrix-cell paid">J</div><div class="matrix-cell paid">F</div><div class="matrix-cell paid">M</div><div class="matrix-cell missing">Á</div><div class="matrix-cell paid">M</div><div class="matrix-cell expected">J</div>
-          </div>
+        <div class="feature-visual fv2">
+          <span class="fv2-keret" data-kw-hu="428px" data-kw-en="428px" style="--kw:428px"><span class="fv2-sav" aria-hidden="true"><span class="fv2-pont r"></span><span class="fv2-pont y"></span><span class="fv2-pont g"></span><span class="fv2-url">app.kezeld.hu</span></span><span class="fv2-wrap fv2-ba" data-ar-hu="960/529" data-ar-en="960/529" data-ar-m-hu="684/734" data-ar-m-en="684/734" style="--ar:960/529;--ar-m:684/734">
+            <picture><source media="(max-width:600px)" srcset="app-k1-matrix-m.webp" data-kep-hu="app-k1-matrix-m.webp" data-kep-en="app-k1-matrix-m-en.webp"><img src="app-k1-matrix.webp" data-kep-hu="app-k1-matrix.webp" data-kep-en="app-k1-matrix-en.webp" width="960" height="529" loading="lazy" decoding="async" alt="Éves fizetési áttekintés: befizetve, várható és hiányzó díjak bérlőnként" data-alt-en="Annual payment overview: paid, expected and missing rent by tenant"></picture>
+            <picture><source media="(max-width:600px)" srcset="app-k1-matrix-m-utana.webp" data-kep-hu="app-k1-matrix-m-utana.webp" data-kep-en="app-k1-matrix-m-utana-en.webp"><img class="fv2-utana" src="app-k1-matrix-utana.webp" data-kep-hu="app-k1-matrix-utana.webp" data-kep-en="app-k1-matrix-utana-en.webp" width="960" height="529" loading="lazy" decoding="async" alt="" aria-hidden="true"></picture>
+            <span class="fv2-ring asztal" data-k-hu="66,56.1,12.5,10.8" data-k-en="66,56.1,12.5,10.8" style="left:66%;top:56.1%;width:12.5%;height:10.8%"></span><span class="fv2-ring mobil" data-k-hu="28.4,56.3,25.2,11.2" data-k-en="28.4,56.3,25.2,11.2" style="left:28.4%;top:56.3%;width:25.2%;height:11.2%"></span>
+          </span></span><span class="fv2-chip" data-i18n="fv2_chip" aria-hidden="true">Befizetve ✓</span>
         </div>
       </div>
 
       <div class="feature-card reveal delay-1">
         <h3 data-i18n="f2_t">A bérlők tudják, hol jelezzenek.</h3>
         <p class="outcome" data-i18n="f2_d">QR-kódos bérlői portál — a bérlőd 30 másodperc alatt fotózva küldi a hibát. Nincs telefonálás, nincs félreértés.</p>
-        <div class="feature-visual">
-          <div class="phone-vis" aria-hidden="true">
-            <div class="phone-screen">
-              <div class="phone-header" data-i18n="phone_h">Hibabejelentés</div>
-              <div class="phone-card"><div class="pc-title" data-i18n="ph1_t">Csöpög a csap</div><div class="pc-meta" data-i18n="ph1_m">Fürdő · ma</div></div>
-              <div class="phone-card"><div class="pc-title" data-i18n="ph2_t">Égett villanykörte</div><div class="pc-meta" data-i18n="ph2_m">Konyha · tegnap</div></div>
-              <div class="phone-card"><div class="pc-title" data-i18n="ph3_t">Új: Hőszigetelés</div><div class="pc-meta" data-i18n="ph3_m">Sürgős · épp most</div></div>
-              <div class="phone-badge">1</div>
-            </div>
-          </div>
+        <div class="feature-visual fv2 fv2-tel">
+          <div class="fv2-phone" aria-hidden="true"><img src="app-k2-portal-hiba.webp" data-kep-hu="app-k2-portal-hiba.webp" data-kep-en="app-k2-portal-hiba-en.webp" width="640" height="1385" loading="lazy" decoding="async" alt="" aria-hidden="true"></div>
         </div>
       </div>
 
       <div class="feature-card reveal delay-2">
         <h3 data-i18n="f3_t">A dokumentumaid nem vesznek el.</h3>
         <p class="outcome" data-i18n="f3_d">Szerződések, biztosítások, jegyzőkönyvek, számlák — minden ingatlanra rendezve, szűrhető, kereshető.</p>
-        <div class="feature-visual">
-          <div class="docs-vis" aria-hidden="true">
-            <div class="doc-card"><div class="stripe s1"></div><div class="stripe s2"></div><div class="stripe s3"></div><span class="label" data-i18n="doc1">Szerződés</span></div>
-            <div class="doc-card"><div class="stripe s2"></div><div class="stripe s1"></div><div class="stripe s2"></div><span class="label" data-i18n="doc2">Számla</span></div>
-            <div class="doc-card"><div class="stripe s3"></div><div class="stripe s2"></div><div class="stripe s1"></div><span class="label" data-i18n="doc3">Jegyzőkönyv</span></div>
-          </div>
+        <div class="feature-visual fv2 fv2-balra">
+          <span class="fv2-keret" data-kw-hu="542px" data-kw-en="542px" style="--kw:542px"><span class="fv2-sav" aria-hidden="true"><span class="fv2-pont r"></span><span class="fv2-pont y"></span><span class="fv2-pont g"></span><span class="fv2-url">app.kezeld.hu</span></span><img class="fv2-shot" src="app-k3-dokumentumok.webp" data-kep-hu="app-k3-dokumentumok.webp" data-kep-en="app-k3-dokumentumok-en.webp" width="980" height="427" loading="lazy" decoding="async" alt="Dokumentumok ingatlanonként: szerződés, jegyzőkönyv, biztosítás, számla" data-alt-en="Documents by property: contract, handover report, insurance, invoice"></span>
         </div>
       </div>
 
       <div class="feature-card reveal delay-3">
         <h3 data-i18n="f4_t">A rendszer emlékszik helyetted.</h3>
         <p class="outcome" data-i18n="f4_d">Lejáró szerződés, fordulónap, biztosítás — emailben szólunk időben. Vasárnap is.</p>
-        <div class="feature-visual">
-          <div class="cal-vis" aria-hidden="true">
-            <div class="cal-head" data-i18n="cal_head">November · 2026</div>
-            <div class="cal-grid">
-              <div class="cal-day head" data-i18n="cal_h1">H</div><div class="cal-day head" data-i18n="cal_h2">K</div><div class="cal-day head" data-i18n="cal_h3">Sz</div><div class="cal-day head" data-i18n="cal_h4">Cs</div><div class="cal-day head" data-i18n="cal_h5">P</div><div class="cal-day head" data-i18n="cal_h6">Szo</div><div class="cal-day head" data-i18n="cal_h7">V</div>
-              <div class="cal-day has">1</div><div class="cal-day has">2</div><div class="cal-day has">3</div><div class="cal-day has">4</div><div class="cal-day has">5</div><div class="cal-day has">6</div><div class="cal-day has">7</div>
-              <div class="cal-day has">8</div><div class="cal-day has">9</div><div class="cal-day has">10</div><div class="cal-day has">11</div><div class="cal-day event">12</div><div class="cal-day has">13</div><div class="cal-day has">14</div>
-            </div>
-            <div class="cal-pill">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-              <span data-i18n="cal_pill">Holnap lejár — Kovács Péter</span>
-            </div>
-          </div>
+        <div class="feature-visual fv2">
+          <span class="fv2-keret" data-kw-hu="354px" data-kw-en="354px" style="--kw:354px"><span class="fv2-sav" aria-hidden="true"><span class="fv2-pont r"></span><span class="fv2-pont y"></span><span class="fv2-pont g"></span><span class="fv2-url">app.kezeld.hu</span></span><span class="fv2-wrap" data-ar-hu="820/546" data-ar-en="820/546" data-ar-m-hu="684/1144" data-ar-m-en="684/1044" style="--ar:820/546;--ar-m:684/1144">
+            <picture><source media="(max-width:600px)" srcset="app-k4-emlekeztetok-m.webp" data-kep-hu="app-k4-emlekeztetok-m.webp" data-kep-en="app-k4-emlekeztetok-m-en.webp"><img src="app-k4-emlekeztetok.webp" data-kep-hu="app-k4-emlekeztetok.webp" data-kep-en="app-k4-emlekeztetok-en.webp" width="820" height="546" loading="lazy" decoding="async" alt="Emlékeztetők: közüzemi számla, diktálás, lejáró szerződés, biztosítás fordulónap" data-alt-en="Reminders: utility bill, meter reading, expiring contract, insurance renewal"></picture>
+            <span class="fv2-ring asztal" data-k-hu="3.3,64.8,93.3,11.6" data-k-en="3.3,64.8,93.3,11.6" style="left:3.3%;top:64.8%;width:93.3%;height:11.6%"></span><span class="fv2-ring mobil" data-k-hu="16.4,70.3,56.2,8" data-k-en="3.2,70.3,93.6,10.2" style="left:16.4%;top:70.3%;width:56.2%;height:8%"></span>
+          </span></span>
         </div>
       </div>
     </div>
@@ -1674,6 +1739,8 @@ var translations = {
     sticky_cta:'Ingyenes próba indítása',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán EV · info@kezeld.hu',
     foot_aszf:'ÁSZF', foot_priv:'Adatkezelés', foot_login:'Belépés', foot_cookie:'Süti-beállítások',
+    hv2_play:'Nézd meg működés közben',
+    fv2_chip:'Befizetve ✓',
     szg_eyebrow:'Szerződésgenerálás',
     szg_title:'A saját szerződésed.<br>Magától kitöltve.',
     szg_sub:'Töltsd fel egyszer az üres Word-mintádat, és jelöld meg, hová milyen adat kerüljön. Onnantól minden szerződést a rendszer tölt ki — a bérlő, az ingatlan és a tulajdonos adataiból, amiket már felvittél.',
@@ -1791,6 +1858,8 @@ var translations = {
     sticky_cta:'Start free trial',
     foot_copy:'© 2026 kezeld.hu · Kepecs Nátán sole proprietor · info@kezeld.hu',
     foot_aszf:'Terms', foot_priv:'Privacy', foot_login:'Sign in', foot_cookie:'Cookie settings',
+    hv2_play:'See it in action',
+    fv2_chip:'Paid ✓',
     szg_eyebrow:'Contract generation',
     szg_title:'Your own contract.<br>Filled in for you.',
     szg_sub:'Upload your blank Word template once and mark where each piece of data goes. From then on the system fills in every contract — with the tenant, property and owner details you have already entered.',
@@ -1847,6 +1916,24 @@ function applyLang(){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if(t[key] !== undefined) el.innerHTML = t[key];
+  });
+  // az app-képek nyelve: a felirat mellett a KÉP is cserélődik (magyar/angol felületű képernyőkép)
+  document.querySelectorAll('[data-kep-hu]').forEach(function(el){
+    var u = el.getAttribute('data-kep-' + currentLang); if(!u) return;
+    if(el.tagName === 'SOURCE'){ if(el.srcset !== u) el.srcset = u; }
+    else if(!el.src || el.src.slice(-u.length) !== u) el.src = u;
+    var a = el.getAttribute('data-alt-' + currentLang); if(a !== null) el.alt = a;
+  });
+  document.querySelectorAll('[data-ar-hu]').forEach(function(el){
+    el.style.setProperty('--ar', el.getAttribute('data-ar-' + currentLang));
+    var m = el.getAttribute('data-ar-m-' + currentLang); if(m) el.style.setProperty('--ar-m', m);
+  });
+  document.querySelectorAll('[data-kw-hu]').forEach(function(el){
+    el.style.setProperty('--kw', el.getAttribute('data-kw-' + currentLang));
+  });
+  document.querySelectorAll('[data-k-hu]').forEach(function(el){
+    var v = (el.getAttribute('data-k-' + currentLang) || '').split(',');
+    if(v.length === 4){ el.style.left = v[0]+'%'; el.style.top = v[1]+'%'; el.style.width = v[2]+'%'; el.style.height = v[3]+'%'; }
   });
   var lc = document.getElementById('langCode');
   if(lc) lc.textContent = currentLang === 'hu' ? 'EN' : 'HU';
