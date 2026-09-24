@@ -2,6 +2,7 @@
 <html lang="hu">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAFAF9">
 <title>kezeld.hu – Ingatlankezelő szoftver bérbeadóknak | 1190 Ft/hó</title>
@@ -135,6 +136,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
+a,button,summary{-webkit-tap-highlight-color:transparent}
 img,svg,video{display:block;max-width:100%}
 
 .skip{position:absolute;top:-40px;left:8px;background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;z-index:1000;font-weight:600;font-size:13px}
@@ -143,15 +145,27 @@ img,svg,video{display:block;max-width:100%}
 /* ── NAV ─────────────────────────────────────────────────────── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:50;
-  padding:14px 24px;
-  transition:background .25s ease,border-color .25s ease,backdrop-filter .25s ease;
+  padding:calc(14px + env(safe-area-inset-top,0px)) max(24px,env(safe-area-inset-right,0px)) 14px max(24px,env(safe-area-inset-left,0px));
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease,backdrop-filter .25s ease;
 }
 nav.scrolled{
   background:rgba(250,250,249,.85);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid transparent;
+  box-shadow:0 1px 0 rgba(24,24,27,.05),0 12px 28px -20px rgba(15,23,42,.35);
 }
+/* sötét szekció fölött sötét anyag — a világos üveg ott szürke csíkká válik */
+nav.on-dark{background:rgba(11,15,26,.72);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+nav .brand,nav .nav-links{transition:color .25s ease}
+nav.on-dark .brand{color:#F4F4F5}
+nav.on-dark .brand span[style]{color:var(--accent-bright)!important}
+nav.on-dark .nav-links{color:#A1A1AA}
+nav.on-dark .nav-links a:hover{color:#fff}
+nav.on-dark .lang-btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#E4E4E7}
+nav.on-dark .lang-btn:hover{border-color:#fff;color:#fff}
+nav.on-dark .nav-cta{background:#fff;color:#0B0F1A}
+nav.on-dark .nav-cta:hover{background:var(--accent-300);color:#04231A}
 .nav-inner{
   max-width:var(--max);margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;gap:16px;
@@ -167,7 +181,7 @@ nav.scrolled{
   padding:7px 12px;border-radius:var(--radius-pill);
   font-size:12.5px;font-weight:600;color:var(--text-2);
   display:inline-flex;align-items:center;gap:5px;
-  transition:border-color .15s ease,background .15s ease,color .15s ease;
+  transition:border-color .15s ease,background .15s ease,color .15s ease,transform .15s ease;
 }
 .lang-btn:hover{border-color:var(--text);color:var(--text)}
 .lang-btn svg{width:14px;height:14px}
@@ -191,7 +205,7 @@ nav.scrolled{
   box-shadow:0 1px 2px rgba(0,0,0,.06),inset 0 1px 0 rgba(255,255,255,.12);
 }
 .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(4,120,87,.45)}
-.btn-primary:active{transform:translateY(0)}
+.btn-primary:active{transform:scale(.97);transition-duration:.08s}
 .btn-primary .arrow{transition:transform .2s ease}
 .btn-primary:hover .arrow{transform:translateX(3px)}
 
@@ -200,9 +214,10 @@ nav.scrolled{
   color:var(--text);font-weight:600;font-size:14.5px;
   padding:13px 22px;border-radius:var(--radius-pill);
   border:1px solid var(--border);background:#fff;
-  transition:border-color .15s ease,background .15s ease;
+  transition:border-color .15s ease,background .15s ease,transform .15s ease;
 }
 .btn-ghost:hover{border-color:var(--text);background:var(--surface)}
+.btn-ghost:active,.nav-cta:active,.lang-btn:active,.hv2-play:active,.fqx-more button:active,.fqx-chip:active{transform:scale(.97);transition-duration:.08s}
 
 /* ── HERO ────────────────────────────────────────────────────── */
 .hero{
@@ -230,8 +245,8 @@ nav.scrolled{
 }
 .hero-badge .star{color:var(--amber);font-size:13px}
 .hero h1{
-  font-size:clamp(34px,5.2vw,60px);
-  font-weight:800;letter-spacing:-1.5px;line-height:1.05;
+  font-size:clamp(32px,4.4vw,52px);
+  font-weight:800;letter-spacing:-.022em;line-height:1.05;
   color:var(--text);margin-bottom:22px;
 }
 .hero h1 .accent{
@@ -243,7 +258,7 @@ nav.scrolled{
   max-width:520px;line-height:1.65;margin-bottom:32px;
 }
 .hero-ctas{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
-.hero-fine{font-size:13px;color:var(--text-3)}
+.hero-fine{font-size:13px;color:#71717A}
 .hero-fine svg{display:inline;vertical-align:-2px;margin-right:4px}
 @media(max-width:880px){
   .hero{padding:120px 20px 60px}
@@ -257,7 +272,6 @@ nav.scrolled{
   background:#fff;border:1px solid var(--border);
   box-shadow:var(--shadow-lg);
   overflow:hidden;
-  animation:floatHero 6s ease-in-out infinite;
 }
 @keyframes floatHero{
   0%,100%{transform:translateY(0)}
@@ -292,7 +306,7 @@ section{padding:96px 24px}
   margin-bottom:18px;
 }
 .section-title{
-  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.15;
+  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.15;
   color:var(--text);margin-bottom:14px;max-width:680px;
 }
 .section-title.center{margin-left:auto;margin-right:auto;text-align:center}
@@ -301,11 +315,13 @@ section{padding:96px 24px}
 }
 .section-sub.center{margin-left:auto;margin-right:auto;text-align:center}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
-.reveal.show{opacity:1;transform:none}
-.reveal.delay-1{transition-delay:.1s}
-.reveal.delay-2{transition-delay:.2s}
-.reveal.delay-3{transition-delay:.3s}
+/* Megjelenés görgetéskor — animáció, NEM transition: így a lépcsőzés nem ragad rá a kártyák hover-reakciójára */
+.js .reveal:not(.show){opacity:0}
+.reveal.show{animation:revealIn .45s cubic-bezier(.2,.7,.3,1) backwards}
+.reveal.show.delay-1{animation-delay:.06s}
+.reveal.show.delay-2{animation-delay:.12s}
+.reveal.show.delay-3{animation-delay:.18s}
+@keyframes revealIn{from{opacity:0;transform:translateY(12px)}}
 
 /* ── PROBLEM SECTION ─────────────────────────────────────────── */
 .problem{background:var(--bg-dark);color:var(--text-on-dark);padding:96px 24px}
@@ -322,7 +338,7 @@ section{padding:96px 24px}
   display:flex;flex-direction:column;gap:10px;
   transition:border-color .25s ease,transform .25s ease;
 }
-.problem-card:hover{border-color:rgba(110,231,183,.35);transform:translateY(-2px)}
+@media(hover:hover){.problem-card:hover{border-color:rgba(110,231,183,.35)}}
 .problem-card .ico{
   width:38px;height:38px;border-radius:10px;
   background:rgba(220,38,38,.12);color:#FCA5A5;
@@ -349,7 +365,7 @@ section{padding:96px 24px}
   padding:32px;overflow:hidden;position:relative;
   transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
 }
-.feature-card:hover{border-color:var(--accent-300);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+@media(hover:hover){.feature-card:hover{border-color:var(--accent-300)}}
 .feature-card h3{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:6px}
 .feature-card .outcome{font-size:14px;color:var(--text-2);margin-bottom:24px;line-height:1.55}
 .feature-visual{
@@ -514,69 +530,6 @@ section{padding:96px 24px}
 }
 .cal-pill svg{display:inline;vertical-align:-2px;margin-right:4px;width:11px;height:11px}
 
-/* ── BENEFITS ────────────────────────────────────────────────── */
-.benefits{padding:96px 24px;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.benefit-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;
-}
-@media(max-width:880px){.benefit-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.benefit-grid{grid-template-columns:1fr}}
-.benefit-card{
-  padding:28px 24px;border-radius:var(--radius-lg);
-  background:var(--bg);border:1px solid var(--border);
-  display:flex;flex-direction:column;gap:10px;
-  transition:transform .25s ease,border-color .25s ease;
-}
-.benefit-card:hover{transform:translateY(-3px);border-color:var(--accent-300)}
-.benefit-card .ico{
-  width:42px;height:42px;border-radius:10px;
-  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-bright) 100%);
-  color:#fff;display:flex;align-items:center;justify-content:center;
-  margin-bottom:6px;
-}
-.benefit-card .ico svg{width:22px;height:22px}
-.benefit-card h3{font-size:17px;font-weight:700;letter-spacing:-.3px}
-.benefit-card p{font-size:14px;color:var(--text-2);line-height:1.55}
-
-/* ── HOGYAN MŰKÖDIK ──────────────────────────────────────────── */
-.how{padding:96px 24px}
-.how-grid{
-  display:grid;
-  grid-template-columns:1fr auto 1fr auto 1fr;
-  gap:28px;align-items:start;
-  margin-top:54px;
-}
-@media(max-width:880px){
-  .how-grid{grid-template-columns:1fr;gap:48px}
-  .arrow-between{display:none}
-}
-.step{display:flex;flex-direction:column;gap:14px;position:relative}
-.step-num{
-  width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-bright) 100%);
-  color:#fff;font-size:20px;font-weight:800;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 20px -8px rgba(4,120,87,.45);
-}
-.step h3{font-size:19px;font-weight:700;letter-spacing:-.3px;color:var(--text)}
-.step p{font-size:15px;color:var(--text-2);line-height:1.6}
-
-/* Átvezetés-nyíl a lépések KÖZÖTT, animált szaggatott vonallal */
-.arrow-between{
-  display:flex;align-items:center;justify-content:center;
-  padding-top:14px;
-  color:var(--accent-300);min-width:80px;
-}
-.arrow-between svg{width:88px;height:28px;overflow:visible}
-.arrow-between .line{
-  stroke-dasharray:5 5;
-  animation:dashFlow 1.6s linear infinite;
-}
-.arrow-between .head{stroke-linejoin:round;stroke-linecap:round}
-@keyframes dashFlow{
-  to{stroke-dashoffset:-20}
-}
-
 /* ── PRICING ─────────────────────────────────────────────────── */
 .pricing{padding:96px 24px;background:linear-gradient(to bottom,#fff 0%,var(--bg) 100%)}
 .price-card{
@@ -597,7 +550,7 @@ section{padding:96px 24px}
   font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:18px;
 }
-.price-amount{font-size:48px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:var(--text)}
+.price-amount{font-size:48px;font-weight:800;letter-spacing:-.025em;line-height:1;color:var(--text)}
 .price-amount .unit{font-size:16px;font-weight:500;color:var(--text-2);letter-spacing:0}
 .price-yearly{font-size:13.5px;color:var(--text-2);margin-top:8px}
 .price-yearly strong{color:var(--accent);font-weight:700}
@@ -609,7 +562,7 @@ section{padding:96px 24px}
 .price-features li svg{flex:none;color:var(--accent);width:18px;height:18px}
 .price-cta{display:flex;flex-direction:column;align-items:center;gap:8px}
 .price-cta .btn-primary{width:100%;justify-content:center}
-.price-cta .fine{font-size:12.5px;color:var(--text-3)}
+.price-cta .fine{font-size:12.5px;color:#71717A}
 
 /* ── TRUST ───────────────────────────────────────────────────── */
 .trust{padding:96px 24px}
@@ -624,7 +577,7 @@ section{padding:96px 24px}
   display:flex;flex-direction:column;gap:8px;
   transition:transform .25s ease,border-color .25s ease;
 }
-.trust-card:hover{transform:translateY(-2px);border-color:var(--accent-300)}
+@media(hover:hover){.trust-card:hover{border-color:var(--accent-300)}}
 .trust-card .tr-ic{width:42px;height:42px;border-radius:12px;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
 .trust-card .tr-ic svg{width:21px;height:21px}
 .trust-card h3{font-size:15px;font-weight:700;letter-spacing:-.2px}
@@ -664,7 +617,7 @@ section{padding:96px 24px}
 }
 .cta-inner{max-width:720px;margin:0 auto;text-align:center;position:relative}
 .cta-final h2{
-  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.15;
+  font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.15;
   color:var(--text-on-dark);margin-bottom:14px;
 }
 .cta-final h2 .accent{
@@ -693,7 +646,8 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .foot-social svg{width:19px;height:19px;display:block}
 
 /* ── STICKY MOBILE CTA ───────────────────────────────────────── */
-.sticky-cta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:40}
+.sticky-cta{display:none;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;transition:transform .35s cubic-bezier(.2,.7,.3,1),opacity .2s ease}
+.sticky-cta.away{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
 .sticky-cta .btn-primary{width:100%;justify-content:center;font-size:15px;padding:14px}
 @media(max-width:760px){.sticky-cta{display:block}footer{padding-bottom:90px}}
 
@@ -706,7 +660,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
     scroll-behavior:auto!important;
   }
   .hero-video-wrap{transform:none}
-  .reveal{opacity:1;transform:none}
+  .js .reveal:not(.show){opacity:1}
 }
 
 
@@ -716,18 +670,18 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .hv2-shot{display:block;width:100%;height:auto;background:#fff}
 .hv2-phone{position:absolute;right:-22px;bottom:0;width:150px;border-radius:26px;background:#111827;padding:6px;box-shadow:0 28px 60px -18px rgba(15,23,42,.5);z-index:2}
 .hv2-phone img{display:block;width:100%;height:auto;border-radius:20px}
-.hv2-play{position:absolute;left:0;bottom:12px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 16px 8px 8px;font:600 14px/1 'Inter',sans-serif;color:var(--text);cursor:pointer;box-shadow:var(--shadow)}
+.hv2-play{position:absolute;left:0;bottom:12px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:8px 16px 8px 8px;font:600 14px/1 'Inter',sans-serif;color:var(--text);cursor:pointer;box-shadow:var(--shadow);transition:border-color .15s ease,transform .15s ease}
 .hv2-play:hover{border-color:var(--accent-300)}
 .hv2-play .ic{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center}
 .hv2-play .ic svg{width:13px;height:13px;margin-left:2px}
-.hv2-play .len{color:var(--text-3);font-weight:500}
+.hv2-play .len{color:#71717A;font-weight:500}
 /* ⚠️ az oldal csillag-szabálya (margin:0) kiüti a böngésző saját dialog-középre-igazítását → a modál
    a bal felső sarokba ragadna; az inset:0 + margin:auto teszi vissza a képernyő KÖZEPÉRE */
 .hv2-dlg{border:0;padding:0;border-radius:16px;background:#000;width:100%;max-width:min(960px,92vw);
   inset:0;margin:auto;max-height:90vh;overflow:hidden}
 .hv2-dlg::backdrop{background:rgba(11,15,26,.75)}
 .hv2-dlg video{display:block;width:100%;height:auto;max-height:90vh;object-fit:contain}
-.hv2-x{position:absolute;top:8px;right:8px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:20px;cursor:pointer}
+.hv2-x{position:absolute;top:8px;right:8px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:20px;cursor:pointer}
 @media(max-width:880px){
   .hv2{padding-bottom:80px}
   .hv2-phone{width:104px;right:-6px;bottom:60px;border-radius:20px;padding:5px}
@@ -753,9 +707,10 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .fv2-wrap{position:relative;display:block;width:100%;max-width:100%;aspect-ratio:var(--ar)}
 .fv2-wrap.fit{width:auto;height:100%}
 .fv2-wrap img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px;box-shadow:0 14px 34px -14px rgba(15,23,42,.28);transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.feature-card:hover .fv2-wrap img,.feature-card:hover .fv2-shot{transform:scale(1.035)}
+@media(hover:hover){.feature-card:hover .fv2-wrap img,.feature-card:hover .fv2-shot{transform:scale(1.035)}}
 .fv2-shot{transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-.fv2-phone{animation:phoneFloat 4s ease-in-out infinite}
+.fv2-phone{animation:fv2Float 4s ease-in-out infinite}
+@keyframes fv2Float{0%,100%{transform:translateX(-50%) rotate(-4deg) translateY(0)}50%{transform:translateX(-50%) rotate(-4deg) translateY(-6px)}}
 .fv2-ring{position:absolute;border:2px solid var(--accent);border-radius:8px;box-shadow:0 0 0 4px rgba(4,120,87,.14);pointer-events:none;opacity:0;animation:ringPulse 4s ease-in-out infinite}
 .fv2-ring.mobil{display:none}
 @keyframes ringPulse{0%,10%{opacity:0;transform:scale(.99)}20%,55%{opacity:1;transform:scale(1)}75%,100%{opacity:0;transform:scale(1.02)}}
@@ -895,7 +850,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .ac-i-amber{background:#3A2C08;color:#EF9F27} .ac-i-coral{background:#4A1B12;color:#F0997B}
 .ac-calhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .ac-calnav{display:flex;gap:8px}
-.ac-calnav button{width:28px;height:28px;border-radius:8px;border:1px solid var(--border-dark);background:transparent;color:#9AA3B4;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ac-calnav button{width:28px;height:28px;border-radius:8px;border:1px solid var(--border-dark);background:transparent;color:#9AA3B4;cursor:default;pointer-events:none;display:flex;align-items:center;justify-content:center}
 .ac-calnav button svg{width:15px;height:15px}
 .ac-caltitle{font-weight:800;font-size:15px}
 .ac-calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
@@ -911,10 +866,10 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 @media(max-width:860px){.tm-grid,.ac-grid{grid-template-columns:1fr}.tm-card{order:-1}}
 
 /* ═══════════ GYIK „összes kérdés" modál ═══════════ */
-.fqx-more{margin-top:26px;background:linear-gradient(135deg,var(--accent),#04241B);border-radius:var(--radius);padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.fqx-more .t{color:#fff;font-size:20px;font-weight:800}
-.fqx-more .s{color:var(--accent-300);font-size:15px;font-weight:600;margin-top:2px}
-.fqx-more button{background:#fff;color:var(--accent-hover);border:none;border-radius:var(--radius-pill);padding:14px 26px;font:inherit;font-size:16px;font-weight:800;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.fqx-more{max-width:720px;margin:26px auto 0;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.fqx-more .t{color:var(--text);font-size:18px;font-weight:800}
+.fqx-more .s{color:var(--text-2);font-size:15px;font-weight:500;margin-top:2px}
+.fqx-more button{background:var(--text);color:#fff;border:none;border-radius:var(--radius-pill);padding:14px 26px;font:inherit;font-size:16px;font-weight:800;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease}
 .fqx-more button svg{width:18px;height:18px}
 .fqx-overlay{position:fixed;inset:0;background:rgba(11,15,26,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px;z-index:10000}
 .fqx-overlay.open{display:flex}
@@ -932,20 +887,78 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 .fqx-chip{flex:0 0 auto;border:1.5px solid var(--border);background:var(--card);color:#3f3f46;border-radius:var(--radius-pill);padding:9px 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .12s}
 .fqx-chip:hover{border-color:var(--accent-300)}
 .fqx-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.fqx-body{overflow-y:auto;padding:8px 26px 26px;flex:1}
+.fqx-body{overflow-y:auto;padding:8px 26px 26px;flex:1;overscroll-behavior:contain}
 .fqx-grp{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:20px 0 8px}
 .fqx-qa{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;background:var(--card)}
 .fqx-qa .q{width:100%;text-align:left;background:none;border:none;font:inherit;font-size:16px;font-weight:700;color:#27272A;padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .fqx-qa .q .plus{color:var(--accent);font-weight:800;font-size:22px;flex:0 0 auto;transition:transform .18s}
 .fqx-qa.open .q .plus{transform:rotate(45deg)}
-.fqx-qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-2);font-size:15px;line-height:1.6}
-.fqx-qa.open .a{max-height:640px}
-.fqx-qa .a .inner{padding:0 18px 18px}
+.fqx-qa .a{display:grid;grid-template-rows:0fr;overflow:hidden;transition:grid-template-rows .25s cubic-bezier(.2,.7,.3,1);color:var(--text-2);font-size:15px;line-height:1.6}
+.fqx-qa.open .a{grid-template-rows:1fr}
+.fqx-qa .a .inner{min-height:0}
+.fqx-qa .a .inner{padding:0 18px}
+.fqx-qa .a .inner::after{content:"";display:block;height:18px}
 .fqx-catt{font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-light);padding:3px 8px;border-radius:6px;margin-left:8px}
 .fqx-empty{text-align:center;color:var(--text-2);padding:48px 20px;font-size:16px;line-height:1.6}
 .fqx-foot{padding:16px 26px;border-top:1px solid var(--border);font-size:14px;color:var(--text-2);text-align:center;flex:0 0 auto}
 .fqx-foot a{color:var(--accent);font-weight:700;text-decoration:none}
 @media(max-width:600px){.fqx-title{font-size:21px}.fqx-more .t{font-size:18px}}
+/* ═══════════ Apple-audit javítások (2026-09-23) ═══════════ */
+h1,h2,h3,.problem-tag,.tm-t,.szg-st{text-wrap:balance}
+.hero-sub,.section-sub,.faq-a,.outcome,.tm-d,.szg-sd,.fqx-qa .inner{text-wrap:pretty}
+/* koppintható terület ≥ 44 pt — a látható méret nem változik */
+.lang-btn,.nav-cta,.foot-links a{position:relative}
+.lang-btn::after,.nav-cta::after{content:"";position:absolute;inset:-7px -3px}
+.foot-links a::after{content:"";position:absolute;inset:-11px -4px}
+@media(pointer:coarse){#cookieBanner button{min-height:44px}.foot-social a{width:44px;height:44px}}
+#cookieBanner{padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}
+/* a bemutató-hurkok csak akkor futnak, amikor látszanak */
+.js .feature-visual.fv2:not(.in-view) *{animation-play-state:paused}
+@media(prefers-reduced-transparency:reduce){nav.scrolled{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}nav.on-dark{background:var(--bg-dark)}.fqx-overlay{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,15,26,.8)}}
+@media(prefers-contrast:more){nav.scrolled{background:var(--bg);box-shadow:0 1px 0 var(--text-3)}nav.on-dark{background:var(--bg-dark)}.hero-fine,.price-cta .fine,.hv2-play .len{color:var(--text-2)}}
+/* ═══════════ 3. kör (2026-09-24) ═══════════ */
+/* Telefonos menü: „Belépés” link + „Menü” gomb; a lap a gombból nyílik, és oda csukódik vissza */
+.menu-btn,.menu-sheet,.menu-scrim,.nav-cta .cta-short{display:none}
+@media(max-width:760px){
+  .nav-right .lang-btn{display:none}
+  .nav-cta{background:none;color:var(--text);padding:0 6px;height:40px}
+  .nav-cta:hover{background:none;color:var(--accent);transform:none}
+  .nav-cta .cta-long,.nav-cta .cta-arrow{display:none}
+  .nav-cta .cta-short{display:inline}
+  nav.on-dark .nav-cta,nav.on-dark .nav-cta:hover{background:none;color:#F4F4F5}
+  .menu-btn{display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 14px;border-radius:var(--radius-pill);background:var(--text);color:#fff;font-weight:600;font-size:14px;transition:transform .15s ease}
+  .menu-btn:active{transform:scale(.97);transition-duration:.08s}
+  .menu-btn{position:relative}
+  .menu-btn::after{content:"";position:absolute;inset:-6px 0}   /* koppintható magasság ≥ 44 pt, a látvány nem változik (oldalra nem lóg ki) */
+  .menu-btn svg{width:17px;height:17px}
+  .menu-btn .l-close,.menu-btn .i-close,body.menu-open .menu-btn .l-open,body.menu-open .menu-btn .i-open{display:none}
+  body.menu-open .menu-btn .l-close{display:inline}
+  body.menu-open .menu-btn .i-close{display:block}
+  nav.on-dark .menu-btn{background:#fff;color:#0B0F1A}
+  body.menu-open nav{z-index:61}
+  .menu-scrim{display:block;position:fixed;inset:0;z-index:55;background:rgba(11,15,26,.3);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .32s}
+  .menu-sheet{display:block;position:fixed;top:calc(64px + env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));width:min(300px,calc(100vw - 24px));z-index:60;
+    background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+    border:1px solid rgba(228,228,231,.9);border-radius:20px;box-shadow:0 30px 60px -20px rgba(15,23,42,.45);padding:8px;
+    transform-origin:var(--ox,calc(100% - 50px)) var(--oy,-30px);transform:scale(.5);opacity:0;visibility:hidden;
+    transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .18s ease,visibility 0s linear .32s}
+  body.menu-open .menu-scrim{opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
+  body.menu-open .menu-sheet{transform:none;opacity:1;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .14s ease,visibility 0s}
+  .menu-sheet a,.menu-sheet #menuLang{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:48px;padding:0 14px;border-radius:14px;font-size:16px;font-weight:600;color:var(--text);text-align:left}
+  .menu-sheet a:not(.btn-primary):active,.menu-sheet #menuLang:active{background:var(--surface)}
+  .menu-sheet small{font-size:12.5px;font-weight:500;color:var(--text-2)}
+  .menu-sheet hr{border:0;border-top:1px solid var(--border);margin:6px 10px}
+  .menu-sheet .btn-primary{margin-top:6px;justify-content:center;color:#fff;border-radius:var(--radius-pill)}
+}
+@media(prefers-reduced-motion:reduce){.menu-sheet{transform:none!important}}
+@media(prefers-reduced-transparency:reduce){.menu-sheet{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+/* Így indulsz: a 3 lépés az árazás címe alatt (a régi „3 lépés és kész” szakasz helyett) */
+.price-path{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 30px;list-style:none;margin:26px auto 0;padding:0;max-width:980px}
+.price-path li{display:flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--text-2)}
+.price-path b{flex:0 0 24px;height:24px;border-radius:50%;background:var(--accent-light);color:var(--accent);font-size:12.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+@media(max-width:600px){.price-path{flex-direction:column;align-items:flex-start;width:max-content;max-width:100%;gap:10px}}
+/* csendes GYIK-kártya: a gomb egérrel zöldre vált */
+@media(hover:hover){.fqx-more button:hover{background:var(--accent)}}
 </style>
 </head>
 <body>
@@ -973,7 +986,6 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
     </a>
     <div class="nav-links">
       <a href="#funkciok" data-i18n="nav_features">Funkciók</a>
-      <a href="#hogyan" data-i18n="nav_how">Hogyan működik</a>
       <a href="#arazas" data-i18n="nav_pricing">Árazás</a>
       <a href="#gyik" data-i18n="nav_faq">GYIK</a>
     </div>
@@ -983,11 +995,21 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
         <span id="langCode">EN</span>
       </button>
       <a class="nav-cta" href="https://app.kezeld.hu">
-        <span data-i18n="nav_cta">Bejelentkezés</span> <span aria-hidden="true">→</span>
+        <span class="cta-long" data-i18n="nav_cta">Bejelentkezés</span><span class="cta-short" data-i18n="nav_cta_short">Belépés</span> <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuSheet"><span class="l-open" data-i18n="nav_menu">Menü</span><span class="l-close" data-i18n="nav_menu_close">Bezárás</span><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
   </div>
 </nav>
+<div class="menu-scrim" id="menuScrim" aria-hidden="true"></div>
+<div class="menu-sheet" id="menuSheet">
+  <a href="#funkciok"><span data-i18n="nav_features">Funkciók</span></a>
+  <a href="#arazas"><span data-i18n="nav_pricing">Árazás</span> <small data-i18n="menu_price">1190 Ft / ingatlan / hó</small></a>
+  <a href="#gyik"><span data-i18n="nav_faq">GYIK</span> <small data-i18n="menu_faq">36 kérdés</small></a>
+  <hr>
+  <button type="button" id="menuLang"><span data-i18n="menu_lang">English</span></button>
+  <a class="btn-primary" href="https://app.kezeld.hu"><span data-i18n="hero_cta1">Ingyenes próba indítása</span> <span aria-hidden="true">→</span></a>
+</div>
 
 <main id="main">
 
@@ -1026,15 +1048,15 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
         <img class="hv2-shot" src="app-hero-asztal.webp" data-kep-hu="app-hero-asztal.webp" data-kep-en="app-hero-asztal-en.webp" width="1400" height="902" alt="A kezeld.hu Áttekintés oldala: Ma teendők, befizetések és hibák egy helyen" data-alt-en="The kezeld.hu Overview page: today&#39;s tasks, payments and issues in one place">
       </div>
       <div class="hv2-phone" aria-hidden="true"><img src="app-hero-telefon.webp" data-kep-hu="app-hero-telefon.webp" data-kep-en="app-hero-telefon-en.webp" width="360" height="779" alt="" aria-hidden="true"></div>
-      <button type="button" class="hv2-play" onclick="document.getElementById('hv2-dlg').showModal()">
+      <button type="button" class="hv2-play">
         <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4"/></svg></span>
         <span data-i18n="hv2_play">Nézd meg működés közben</span> <span class="len">1:20</span>
       </button>
     </div>
   </div>
 </section>
-<dialog id="hv2-dlg" class="hv2-dlg" onclick="if(event.target===this)this.close()">
-  <button type="button" class="hv2-x" onclick="this.closest('dialog').close()" aria-label="Bezárás">×</button>
+<dialog id="hv2-dlg" class="hv2-dlg">
+  <button type="button" class="hv2-x" aria-label="Bezárás">×</button>
   <video controls preload="none" playsinline poster="kezeld-hero-poster.jpg?v=2" aria-label="kezeld.hu bemutató videó">
     <source src="kezeld-generated.mp4?v=v10-seek-20260610" type="video/mp4">
   </video>
@@ -1316,10 +1338,10 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 
       <div class="ac-panel reveal delay-1">
         <div class="ac-calhead">
-          <span class="ac-caltitle" data-i18n="ac_cal_title">Augusztus · 2026</span>
-          <span class="ac-calnav">
-            <button aria-label="Előző hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-            <button aria-label="Következő hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+          <span class="ac-caltitle">Augusztus · 2026</span>
+          <span class="ac-calnav" aria-hidden="true">
+            <button tabindex="-1" aria-label="Előző hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button tabindex="-1" aria-label="Következő hónap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
           </span>
         </div>
         <div class="ac-calgrid">
@@ -1342,83 +1364,6 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
   </div>
 </section>
 
-<!-- ═══════════ BENEFITS ═══════════ -->
-<section class="benefits">
-  <div class="section-inner">
-    <div style="text-align:center">
-      <span class="eyebrow reveal" data-i18n="ben_eyebrow">Mit nyersz vele?</span>
-    </div>
-    <h2 class="section-title center reveal delay-1" data-i18n="ben_title">Négy dolog, amit holnap reggel már észreveszel.</h2>
-
-    <div class="benefit-grid">
-      <div class="benefit-card reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2 L13.5 9 L21 10.5 L15.5 15.5 L17 22 L12 18.5 L7 22 L8.5 15.5 L3 10.5 L10.5 9 Z"/></svg></div>
-        <h3 data-i18n="b1_t">Kevesebb adminisztráció</h3>
-        <p data-i18n="b1_d">Minden adat egy helyen. Nem keresel többé tíz mappában.</p>
-      </div>
-      <div class="benefit-card reveal delay-1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg></div>
-        <h3 data-i18n="b2_t">Teljes rálátás</h3>
-        <p data-i18n="b2_d">Egy ránézésre tudod, mi történik bármelyik lakásodban.</p>
-      </div>
-      <div class="benefit-card reveal delay-2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
-        <h3 data-i18n="b3_t">Kevesebb stressz</h3>
-        <p data-i18n="b3_d">Nem kell fejben tartanod a határidőket — szólunk időben.</p>
-      </div>
-      <div class="benefit-card reveal delay-3">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></div>
-        <h3 data-i18n="b4_t">Több kontroll</h3>
-        <p data-i18n="b4_d">Valós idejű áttekintés az összes ingatlanról, bármikor.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ HOGYAN MŰKÖDIK ═══════════ -->
-<section class="how" id="hogyan">
-  <div class="section-inner">
-    <div style="text-align:center">
-      <span class="eyebrow reveal" data-i18n="how_eyebrow">Hogyan működik</span>
-    </div>
-    <h2 class="section-title center reveal delay-1" data-i18n="how_title">3 lépés és kész</h2>
-
-    <div class="how-grid">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <h3 data-i18n="s1_t">Regisztrálj és próbáld ki ingyen</h3>
-        <p data-i18n="s1_d">Hozz létre egy fiókot, és élvezd a 14 napos ingyenes próbaidőszakot. Az első két hét után dönthetsz a folytatásról.</p>
-      </div>
-
-      <div class="arrow-between reveal delay-1" aria-hidden="true">
-        <svg viewBox="0 0 88 28" fill="none" stroke="currentColor" stroke-width="2.2">
-          <line class="line" x1="2" y1="14" x2="74" y2="14"/>
-          <polyline class="head" points="68 6 80 14 68 22"/>
-        </svg>
-      </div>
-
-      <div class="step reveal delay-1">
-        <div class="step-num">2</div>
-        <h3 data-i18n="s2_t">Add hozzá ingatlanod</h3>
-        <p data-i18n="s2_d">Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 1190 Ft/ingatlan/hó.</p>
-      </div>
-
-      <div class="arrow-between reveal delay-2" aria-hidden="true">
-        <svg viewBox="0 0 88 28" fill="none" stroke="currentColor" stroke-width="2.2">
-          <line class="line" x1="2" y1="14" x2="74" y2="14"/>
-          <polyline class="head" points="68 6 80 14 68 22"/>
-        </svg>
-      </div>
-
-      <div class="step reveal delay-2">
-        <div class="step-num">3</div>
-        <h3 data-i18n="s3_t">Kezelj mindent egy helyen</h3>
-        <p data-i18n="s3_d">Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════════ PRICING ═══════════ -->
 <section class="pricing" id="arazas">
   <div class="section-inner">
@@ -1427,6 +1372,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
     </div>
     <h2 class="section-title center reveal delay-1" data-i18n="price_title">Egyszerű, átlátható árazás.</h2>
     <p class="section-sub center reveal delay-2" data-i18n="price_sub">Nincs csomag-rendszer, nincs rejtett díj. Annyit fizetsz, amennyi ingatlanod van.</p>
+    <ol class="price-path reveal delay-3"><li><b>1</b><span data-i18n="price_path_1">Regisztrálsz — 1 perc</span></li><li><b>2</b><span data-i18n="price_path_2">Felviszed az első ingatlanod</span></li><li><b>3</b><span data-i18n="price_path_3">14 napig ingyen, utána döntesz</span></li></ol>
 
     <div class="price-card reveal delay-3">
       <span class="price-badge" data-i18n="price_badge">Per-ingatlan árazás</span>
@@ -1565,7 +1511,7 @@ footer{padding:42px 24px 32px;background:var(--bg-dark);border-top:1px solid var
 </div>
 
 <!-- ═══════════ STICKY MOBILE CTA ═══════════ -->
-<div class="sticky-cta">
+<div class="sticky-cta away">
   <a class="btn-primary" href="https://app.kezeld.hu">
     <span data-i18n="sticky_cta">Ingyenes próba indítása</span> <span class="arrow" aria-hidden="true">→</span>
   </a>
@@ -1626,9 +1572,12 @@ function openCookieSettings(){ var el=document.getElementById('cookieBanner'); i
 // Sticky nav background on scroll
 (function(){
   var nav = document.getElementById('nav');
+  var dark = document.querySelectorAll('.problem,.szg-sec,.ac-sec,.cta-final,footer');
   function onScroll(){
-    if(window.scrollY > 20) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    var sc = window.scrollY > 20, y = nav.offsetHeight / 2, onDark = false;
+    nav.classList.toggle('scrolled', sc);
+    for (var i = 0; i < dark.length && !onDark; i++){ var r = dark[i].getBoundingClientRect(); onDark = r.top <= y && r.bottom >= y; }
+    nav.classList.toggle('on-dark', sc && onDark);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -1651,6 +1600,29 @@ function openCookieSettings(){ var el=document.getElementById('cookieBanner'); i
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
 
+// iOS Safari csak akkor mutat :active állapotot, ha van touchstart-figyelő
+document.addEventListener('touchstart', function(){}, { passive: true });
+
+// Ragadós próba-gomb (telefon): csak akkor látszik, ha épp nincs másik próba-gomb a képernyőn
+(function(){
+  var s = document.querySelector('.sticky-cta'); if(!s) return;
+  if(!('IntersectionObserver' in window)){ s.classList.remove('away'); return; }
+  var lathato = new Set();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) lathato.add(e.target); else lathato.delete(e.target); });
+    s.classList.toggle('away', lathato.size > 0);
+  });
+  document.querySelectorAll('main a.btn-primary').forEach(function(a){ io.observe(a); });
+})();
+
+// A bemutató-hurkok (fizetés előtte→utána, lebegő telefon, kiemelő keret) csak láthatóan futnak
+(function(){
+  var v = document.querySelectorAll('.feature-visual.fv2');
+  if(!('IntersectionObserver' in window)){ v.forEach(function(x){ x.classList.add('in-view'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle('in-view', e.isIntersecting); }); });
+  v.forEach(function(x){ io.observe(x); });
+})();
+
 // Smooth-scroll to anchor (offset for sticky nav)
 (function(){
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -1661,7 +1633,7 @@ function openCookieSettings(){ var el=document.getElementById('cookieBanner'); i
       if(!target) return;
       ev.preventDefault();
       var top = target.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      window.scrollTo({ top: top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
   });
 })();
@@ -1670,7 +1642,7 @@ function openCookieSettings(){ var el=document.getElementById('cookieBanner'); i
 var translations = {
   hu: {
     skip_link:'Ugrás a tartalomhoz',
-    nav_features:'Funkciók', nav_how:'Hogyan működik', nav_pricing:'Árazás', nav_faq:'GYIK', nav_cta:'Bejelentkezés',
+    nav_features:'Funkciók', nav_pricing:'Árazás', nav_faq:'GYIK', nav_cta:'Bejelentkezés',
     hero_badge:'14 napos ingyenes próba · Kártyaadat nélkül · Korlátlan ingatlannal',
     hero_title:'Kezeld az ingatlanaidat<br><span class="accent">okosan és egyszerűen</span>',
     hero_sub:'A kezeld.hu egyetlen helyre gyűjti a bérlőket, bérleti díjakat, dokumentumokat és hibabejelentéseket, így mindig tudod, mi történik a lakásaidban.',
@@ -1701,16 +1673,6 @@ var translations = {
     cal_head:'November · 2026',
     cal_h1:'H',cal_h2:'K',cal_h3:'Sz',cal_h4:'Cs',cal_h5:'P',cal_h6:'Szo',cal_h7:'V',
     cal_pill:'Holnap lejár — Kovács Péter',
-    ben_eyebrow:'Mit nyersz vele?',
-    ben_title:'Négy dolog, amit holnap reggel már észreveszel.',
-    b1_t:'Kevesebb adminisztráció', b1_d:'Minden adat egy helyen. Nem keresel többé tíz mappában.',
-    b2_t:'Teljes rálátás', b2_d:'Egy ránézésre tudod, mi történik bármelyik lakásodban.',
-    b3_t:'Kevesebb stressz', b3_d:'Nem kell fejben tartanod a határidőket — szólunk időben.',
-    b4_t:'Több kontroll', b4_d:'Valós idejű áttekintés az összes ingatlanról, bármikor.',
-    how_eyebrow:'Hogyan működik', how_title:'3 lépés és kész',
-    s1_t:'Regisztrálj és próbáld ki ingyen', s1_d:'Hozz létre egy fiókot, és élvezd a 14 napos ingyenes próbaidőszakot. Az első két hét után dönthetsz a folytatásról.',
-    s2_t:'Add hozzá ingatlanod', s2_d:'Töltsd fel az ingatlan(ok) adatait, csatold a bérlőket és a dokumentumokat. Csak az után fizetsz, amennyi ingatlanod van — 1190 Ft/ingatlan/hó.',
-    s3_t:'Kezelj mindent egy helyen', s3_d:'Kövesd nyomon a bérleti díjakat, kezeld a hibabejelentéseket, és kapj automatikus értesítéseket. Bárhonnan, bármilyen eszközről.',
     price_eyebrow:'Árazás', price_title:'Egyszerű, átlátható árazás.', price_sub:'Nincs csomag-rendszer, nincs rejtett díj. Annyit fizetsz, amennyi ingatlanod van.',
     price_badge:'Per-ingatlan árazás', price_unit:'/ ingatlan / hó',
     price_yearly_pre:'Vagy ', price_yearly_strong:'13 090 Ft / ingatlan / év', price_yearly_post:' — 1 hónap ingyen.',
@@ -1783,13 +1745,14 @@ var translations = {
     ac_i4_t:'Diktálás: vízóra állás', ac_i4_d:'Fő tér 4/B · még 4 napig',
     ac_i5_t:'Szerződés lejár — Tóth Béla', ac_i5_d:'Kossuth u. 7. · hosszabbítás?',
     ac_cd_now:'MA', ac_cd_now2:'MA', ac_cd_2:'2 nap', ac_cd_4:'4 nap', ac_cd_12:'12 nap',
-    ac_cal_title:'Augusztus · 2026',
     ac_leg1:'Fizetési határidő', ac_leg2:'Szerződés', ac_leg3:'Diktálás', ac_leg4:'Közüzemi', ac_leg5:'Biztosítás',
-    faqx_more_t:'Nem találtad meg a választ?', faqx_more_s:'Böngészd az összes kérdést — témánként, kereséssel.', faqx_more_btn:'Összes kérdés'
+    faqx_more_t:'Nem találtad meg a választ?', faqx_more_s:'Böngészd az összes kérdést — témánként, kereséssel.', faqx_more_btn:'Összes kérdés',
+    nav_cta_short:'Belépés', nav_menu:'Menü', nav_menu_close:'Bezárás', menu_price:'1190 Ft / ingatlan / hó', menu_faq:'36 kérdés', menu_lang:'English',
+    price_path_1:'Regisztrálsz — 1 perc', price_path_2:'Felviszed az első ingatlanod', price_path_3:'14 napig ingyen, utána döntesz'
   },
   en: {
     skip_link:'Skip to main content',
-    nav_features:'Features', nav_how:'How it works', nav_pricing:'Pricing', nav_faq:'FAQ', nav_cta:'Sign in',
+    nav_features:'Features', nav_pricing:'Pricing', nav_faq:'FAQ', nav_cta:'Sign in',
     hero_badge:'14-day free trial · No credit card · Unlimited properties',
     hero_title:'Manage your properties<br><span class="accent">smart and simple</span>',
     hero_sub:'kezeld.hu brings your tenants, rents, documents and maintenance requests into one place — so you always know what is happening across your rentals.',
@@ -1820,16 +1783,6 @@ var translations = {
     cal_head:'November · 2026',
     cal_h1:'M',cal_h2:'T',cal_h3:'W',cal_h4:'T',cal_h5:'F',cal_h6:'Sat',cal_h7:'Sun',
     cal_pill:'Expires tomorrow — Peter Kovacs',
-    ben_eyebrow:'What you gain',
-    ben_title:'Four things you will notice tomorrow morning.',
-    b1_t:'Less admin', b1_d:'All your data in one place. No more digging through ten folders.',
-    b2_t:'More clarity', b2_d:'At a glance you know what is happening in any rental.',
-    b3_t:'Less stress', b3_d:'You no longer track deadlines in your head — we tell you in time.',
-    b4_t:'More control', b4_d:'Real-time overview of all your properties, any time.',
-    how_eyebrow:'How it works', how_title:'3 steps and you are done',
-    s1_t:'Register and try it free', s1_d:'Create an account and enjoy a 14-day free trial. After the first two weeks you decide whether to continue.',
-    s2_t:'Add your property', s2_d:'Upload your property details, attach tenants and documents. You only pay for the number of properties you have — 1190 HUF / property / month.',
-    s3_t:'Manage everything in one place', s3_d:'Track rent payments, handle issue reports, and receive automatic notifications. From anywhere, on any device.',
     price_eyebrow:'Pricing', price_title:'Simple, transparent pricing.', price_sub:'No plans, no hidden fees. You pay for as many properties as you have.',
     price_badge:'Per-property pricing', price_unit:'/ property / mo',
     price_yearly_pre:'Or ', price_yearly_strong:'13,090 HUF / property / year', price_yearly_post:' — 1 month free.',
@@ -1902,9 +1855,10 @@ var translations = {
     ac_i4_t:'Meter reading: water', ac_i4_d:'Fő tér 4/B · 4 days left',
     ac_i5_t:'Contract expiring — Béla Tóth', ac_i5_d:'Kossuth u. 7. · renew?',
     ac_cd_now:'TODAY', ac_cd_now2:'TODAY', ac_cd_2:'2 days', ac_cd_4:'4 days', ac_cd_12:'12 days',
-    ac_cal_title:'August · 2026',
     ac_leg1:'Payment due', ac_leg2:'Contract', ac_leg3:'Meter reading', ac_leg4:'Utility', ac_leg5:'Insurance',
-    faqx_more_t:'Didn’t find your answer?', faqx_more_s:'Browse all questions — by topic, with search.', faqx_more_btn:'All questions'
+    faqx_more_t:'Didn’t find your answer?', faqx_more_s:'Browse all questions — by topic, with search.', faqx_more_btn:'All questions',
+    nav_cta_short:'Sign in', nav_menu:'Menu', nav_menu_close:'Close', menu_price:'1,190 HUF / property / mo', menu_faq:'36 questions', menu_lang:'Magyar',
+    price_path_1:'Sign up — 1 minute', price_path_2:'Add your first property', price_path_3:'Free for 14 days, then you decide'
   }
 };
 var currentLang = 'hu';
@@ -1945,6 +1899,105 @@ document.getElementById('langBtn').addEventListener('click', function(){
   try { localStorage.setItem('lk_v2_lang', currentLang); } catch(e){}
   applyLang();
 });
+
+// Telefonos menü: a lap a gombból nyílik, és oda csukódik vissza
+(function(){
+  var btn = document.getElementById('menuBtn'), sheet = document.getElementById('menuSheet'), scrim = document.getElementById('menuScrim');
+  if(!btn || !sheet || !scrim) return;
+  function origo(){   // a nyitás középpontja = a gomb közepe (a zárt lap kicsinyítve van, ezért offset-tel mérünk)
+    var b = btn.getBoundingClientRect();
+    sheet.style.setProperty('--ox', Math.round(b.left + b.width / 2 - sheet.offsetLeft) + 'px');
+    sheet.style.setProperty('--oy', Math.round(b.top + b.height / 2 - sheet.offsetTop) + 'px');
+  }
+  function set(o, kb){
+    if(o) origo();
+    document.body.classList.toggle('menu-open', o);
+    btn.setAttribute('aria-expanded', o);
+    if(o && kb){ var f = sheet.querySelector('a,button'); if(f) setTimeout(function(){ f.focus({ preventScroll: true }); }, 60); }
+  }
+  btn.addEventListener('click', function(e){ set(!document.body.classList.contains('menu-open'), e.detail === 0); });
+  scrim.addEventListener('click', function(){ set(false); });
+  sheet.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ set(false); }); });
+  document.getElementById('menuLang').addEventListener('click', function(){ document.getElementById('langBtn').click(); set(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && document.body.classList.contains('menu-open')){ set(false); btn.focus({ preventScroll: true }); } });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 760 && document.body.classList.contains('menu-open')) set(false); });
+})();
+
+// Bemutató videó: az ablak a gombból nő ki, és oda húzódik vissza; bezáráskor a hang is leáll
+(function(){
+  var btn = document.querySelector('.hv2-play'), dlg = document.getElementById('hv2-dlg');
+  if(!btn || !dlg || typeof dlg.showModal !== 'function') return;
+  var video = dlg.querySelector('video'), futo = [], zar = false;
+  var halk = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+  function leallit(){ futo.forEach(function(a){ try { a.cancel(); } catch(e){} }); futo = []; }
+  function gombbol(){
+    var b = btn.getBoundingClientRect(), d = dlg.getBoundingClientRect();
+    var s = Math.max(0.08, Math.min(0.4, b.width / d.width));
+    return 'translate(' + Math.round(b.left + b.width / 2 - (d.left + d.width / 2)) + 'px,' + Math.round(b.top + b.height / 2 - (d.top + d.height / 2)) + 'px) scale(' + s.toFixed(3) + ')';
+  }
+  function mozgat(nyit){
+    leallit();
+    if(typeof dlg.animate !== 'function') return null;
+    var kf = [{ transform: halk.matches ? 'none' : gombbol(), opacity: 0 }, { transform: 'none', opacity: 1 }];
+    var ido = halk.matches ? 150 : (nyit ? 340 : 260);
+    if(!nyit) kf.reverse();
+    var a = dlg.animate(kf, { duration: ido, easing: nyit ? 'cubic-bezier(.2,.8,.2,1)' : 'cubic-bezier(.4,0,.6,1)', fill: 'both' });
+    futo.push(a);
+    try { futo.push(dlg.animate([{ opacity: nyit ? 0 : 1 }, { opacity: nyit ? 1 : 0 }], { duration: ido, easing: 'ease', fill: 'both', pseudoElement: '::backdrop' })); } catch(e){}
+    return a;
+  }
+  btn.addEventListener('click', function(){
+    zar = false; dlg.showModal(); mozgat(true);
+    if(video) video.play().catch(function(){});
+  });
+  function bezar(){
+    if(zar || !dlg.open) return;
+    zar = true;
+    if(video) video.pause();
+    var a;
+    if(futo.length && futo[0].playState === 'running'){ futo.forEach(function(x){ x.reverse(); }); a = futo[0]; }   // nyitás közben: onnan fordul vissza, ahol tart
+    else a = mozgat(false);
+    if(!a){ dlg.close(); return; }
+    a.finished.then(function(){ dlg.close(); }, function(){ zar = false; });
+  }
+  dlg.addEventListener('cancel', function(e){ e.preventDefault(); bezar(); });          // Esc
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) bezar(); });         // kattintás a sötét háttérre
+  dlg.querySelector('.hv2-x').addEventListener('click', bezar);
+  dlg.addEventListener('close', function(){ if(video) video.pause(); leallit(); zar = false; });
+})();
+
+// Naptárkép: mindig az aktuális hónap, a mai nap kiemelve; a pöttyök a mai naphoz képest (a „Ma teendők” listához igazítva)
+(function(){
+  var grid = document.querySelector('.ac-calgrid'), title = document.querySelector('.ac-caltitle');
+  if(!grid || !title) return;
+  var HONAP = { hu: ['Január','Február','Március','Április','Május','Június','Július','Augusztus','Szeptember','Október','November','December'],
+                en: ['January','February','March','April','May','June','July','August','September','October','November','December'] };
+  var ESEMENY = [[-6, ['emer']], [2, ['emer']], [4, ['amber']], [9, ['blue']], [12, ['coral']], [13, ['pink']]];   // max ±13 nap: így bármely napon elfér a hónapban
+  function rajzol(){
+    var ma = new Date(), ev = ma.getFullYear(), ho = ma.getMonth(), nap = ma.getDate();
+    title.textContent = HONAP[currentLang === 'en' ? 'en' : 'hu'][ho] + ' · ' + ev;
+    var eltolas = (new Date(ev, ho, 1).getDay() + 6) % 7, hossz = new Date(ev, ho + 1, 0).getDate(), elozo = new Date(ev, ho, 0).getDate();
+    var pont = {};   // ha egy esemény kilógna a hónapból, a mai nap másik oldalára kerül — így mindig mind az öt szín látszik
+    ESEMENY.forEach(function(e){ var d = nap + e[0]; if(d < 1 || d > hossz) d = nap - e[0]; if(d >= 1 && d <= hossz) pont[d] = (pont[d] || []).concat(e[1]); });
+    grid.querySelectorAll('.ac-calday').forEach(function(c){ c.remove(); });
+    var db = Math.ceil((eltolas + hossz) / 7) * 7, frag = document.createDocumentFragment();
+    for(var i = 0; i < db; i++){
+      var c = document.createElement('div'), d = i - eltolas + 1;
+      c.className = 'ac-calday';
+      if(d < 1 || d > hossz){ c.classList.add('out'); c.textContent = d < 1 ? elozo + d : d - hossz; }
+      else {
+        c.textContent = d;
+        if(d === nap) c.classList.add('today');
+        if(pont[d]){ var p = document.createElement('div'); p.className = 'ac-dots';
+          pont[d].forEach(function(k){ var s = document.createElement('span'); s.className = 'ac-dot ac-d-' + k; p.appendChild(s); }); c.appendChild(p); }
+      }
+      frag.appendChild(c);
+    }
+    grid.appendChild(frag);
+  }
+  rajzol();
+  document.getElementById('langBtn').addEventListener('click', function(){ setTimeout(rajzol, 0); });
+})();
 </script>
 
 <!-- ═══════════ GYIK „összes kérdés" modál ═══════════ -->
@@ -2029,7 +2082,7 @@ document.getElementById('langBtn').addEventListener('click', function(){
   }
   function qaHtml(f,showCat){
     var cat=showCat?'<span class="fqx-catt">'+esc(catLabel(f[0]))+'</span>':'';
-    return '<div class="fqx-qa"><button class="q" type="button"><span>'+esc(qText(f))+cat+'</span><span class="plus">+</span></button>'
+    return '<div class="fqx-qa"><button class="q" type="button" aria-expanded="false"><span>'+esc(qText(f))+cat+'</span><span class="plus">+</span></button>'
       +'<div class="a"><div class="inner">'+esc(aText(f))+'</div></div></div>';
   }
   function render(){
@@ -2049,7 +2102,7 @@ document.getElementById('langBtn').addEventListener('click', function(){
       });
     }
     body.innerHTML=html;
-    body.querySelectorAll('.fqx-qa .q').forEach(function(btn){ btn.onclick=function(){ btn.closest('.fqx-qa').classList.toggle('open'); }; });
+    body.querySelectorAll('.fqx-qa .q').forEach(function(btn){ btn.onclick=function(){ var o=btn.closest('.fqx-qa').classList.toggle('open'); btn.setAttribute('aria-expanded', o); }; });
   }
   function syncStatic(){
     var u=UI[L()];
@@ -2058,8 +2111,8 @@ document.getElementById('langBtn').addEventListener('click', function(){
     var i=document.getElementById('fqx-q'); if(i)i.placeholder=u.ph;
     var f=document.getElementById('fqx-foot'); if(f)f.innerHTML=esc(u.foot)+'<a href="mailto:info@kezeld.hu">info@kezeld.hu</a>';
   }
-  window.faqxOpen=function(){ curCat='all'; curQ=''; var i=document.getElementById('fqx-q'); if(i)i.value=''; syncStatic(); buildChips(); render(); document.getElementById('fqx-ov').classList.add('open'); if(i)setTimeout(function(){i.focus();},50); };
-  window.faqxClose=function(){ document.getElementById('fqx-ov').classList.remove('open'); };
+  window.faqxOpen=function(){ window.__fqxFrom=document.activeElement; document.documentElement.style.overflow='hidden'; curCat='all'; curQ=''; var i=document.getElementById('fqx-q'); if(i)i.value=''; syncStatic(); buildChips(); render(); document.getElementById('fqx-ov').classList.add('open'); if(i)setTimeout(function(){i.focus();},50); };
+  window.faqxClose=function(){ var ov=document.getElementById('fqx-ov'); if(!ov.classList.contains('open')) return; ov.classList.remove('open'); document.documentElement.style.overflow=''; var f=window.__fqxFrom; if(f&&f.focus) f.focus(); };
   document.addEventListener('DOMContentLoaded',function(){
     var qi=document.getElementById('fqx-q'); if(qi)qi.addEventListener('input',function(e){ curQ=e.target.value; render(); });
     var ov=document.getElementById('fqx-ov'); if(ov)ov.addEventListener('click',function(e){ if(e.target===ov) window.faqxClose(); });
