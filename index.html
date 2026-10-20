@@ -1569,6 +1569,23 @@ function openCookieSettings(){ var el=document.getElementById('cookieBanner'); i
   else { applyConsent(c); }
 })();
 
+// ── Megkereső levél linkje (?r=<kód>) ──
+// A kezelőcégeknek küldött levelekben minden cég saját linket kap. Jelezzük a szervernek,
+// hogy megnyitották (süti nélkül), aztán levesszük a kódot a címsorból, hogy továbbküldve
+// ne számoljon újra.
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), r=p.get('r');
+    if(!r || !/^[A-Za-z0-9_-]{2,120}$/.test(r)) return;
+    fetch('https://kezeldhu-production.up.railway.app/public/link-kattintas',{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({r:r}), keepalive:true
+    }).catch(function(){});
+    p.delete('r'); var q=p.toString();
+    history.replaceState(null,'',location.pathname+(q?'?'+q:'')+location.hash);
+  }catch(e){}
+})();
+
 // Sticky nav background on scroll
 (function(){
   var nav = document.getElementById('nav');
