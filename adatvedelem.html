@@ -83,9 +83,9 @@ footer a{color:var(--purple)}
     </tr>
     <tr>
       <td>Előfizetési és számlázási adatok</td>
-      <td>Számlázási cím, Stripe ügyfél-azonosító, tranzakció-azonosító</td>
-      <td>Fizetés feldolgozása, számla kiállítása</td>
-      <td>Szerződés teljesítése, jogi kötelezettség</td>
+      <td>Számlázási cím, Stripe ügyfél-azonosító, tranzakció-azonosító, előfizetési csomag és ingatlan-keret, fizetett összegek, igénybe vett kedvezmény (kupon)</td>
+      <td>Fizetés feldolgozása, számla kiállítása; üzleti nyilvántartás és bevétel-kimutatás (pl. havi bevétel, befolyt összegek)</td>
+      <td>Szerződés teljesítése, jogi kötelezettség; a bevétel-kimutatásnál jogos érdek</td>
       <td>A kiállított számlák a számlázó rendszerben (Billingo) 8 évig (számviteli törvény); a mentett számlázási cím, a Stripe ügyfél-azonosító és a Stripe-nál mentett fizetési mód a fiók törlésével törlődik</td>
     </tr>
     <tr>
@@ -143,6 +143,13 @@ footer a{color:var(--purple)}
       <td>Biztonság, hibaelhárítás, visszaélés megelőzése</td>
       <td>Jogos érdek</td>
       <td>90 nap (az IP-címet és a böngészőadatot a naplóban 90 nap után anonimizáljuk); az utolsó bejelentkezés időpontját a fiók fennállásáig tároljuk</td>
+    </tr>
+    <tr>
+      <td>Használati statisztika</td>
+      <td>Utolsó bejelentkezés és utolsó saját rögzítés időpontja; a rögzítések száma (7, 30 és 90 napra, funkciónként); a bérlői portál eseményeinek száma (hibabejelentés, mérőóra-diktálás, üzenet) — a rögzített adatok tartalma és a bérlők azonosítása nélkül</td>
+      <td>A szolgáltatás működtetése és fejlesztése, ügyféltámogatás (pl. ha valaki elakad a használatban), az előfizetések kezelése. Reklámcélra nem használjuk, és ennek alapján automatikus döntést nem hozunk</td>
+      <td>Jogos érdek (tiltakozhat ellene, lásd 5. pont)</td>
+      <td>Külön nem tároljuk: a meglévő adatokból, megtekintéskor számítjuk; a fiók törlésével megszűnik</td>
     </tr>
     <tr>
       <td>Audit napló</td>
@@ -268,8 +275,13 @@ footer a{color:var(--purple)}
   <p>Harmadik fél marketing- vagy nyomkövetési sütiket nem alkalmazunk.</p>
   <p>A betűtípusokat (Inter) az EU-székhelyű Bunny Fonts (bunny.net) szolgáltatón keresztül töltjük be, amely nem osztja meg az Ön IP-címét harmadik féllel, és nem állít be sütit.</p>
 
-  <h2>7. Adatbiztonság</h2>
+  <h2>7. Adatbiztonság és hozzáférés</h2>
   <p>Az adatokat titkosított kapcsolaton (HTTPS/TLS) keresztül közöljük. A Supabase adatbázis nyugalmi titkosítást (AES-256) alkalmaz. A jelszavak bcrypt hash-eléssel tárolódnak. A bérlők által feltöltött fájlok és bizonylatok privát tárolóban (Supabase Storage privát bucket) találhatók, csak rövid lejáratú, aláírt URL-en keresztül érhetők el. Az érzékeny műveletek auditálva vannak. Az adatok tárolása a Supabase infrastrukturális szintű redundanciájával történik; az infrastruktúra-szolgáltató mentési és helyreállítási kapacitásairól a vonatkozó szolgáltatói feltételek tájékoztatnak.</p>
+
+  <h3>Ki fér hozzá az adatokhoz</h3>
+  <p>A kezeld.hu részéről az adatokhoz kizárólag az adatkezelő (Kepecs Nátán), illetve az általa feljogosított, titoktartásra kötelezett személy fér hozzá, külön adminisztrátori jogosultsághoz kötött felületen. Ezen a felhasználói fiókok adatai (név, e-mail cím, a regisztráció és az utolsó bejelentkezés időpontja), az előfizetés állapota és összege (az igénybe vett kedvezménnyel együtt), az ingatlanok száma, a fenti használati statisztika és az audit napló látható.</p>
+  <p>A Felhasználók által rögzített tartalom — ingatlanok, bérlők és adataik, dokumentumok, üzenetek, mérőóra-állások — az adminisztrátori felületen nem jelenik meg. Ezekhez csak akkor és csak olyan mértékben férünk hozzá, amennyire az a Felhasználó kérésére nyújtott ügyféltámogatáshoz, egy hiba elhárításához vagy jogszabályi kötelezettség teljesítéséhez szükséges.</p>
+  <p>Az adatfeldolgozók (3. pont) kizárólag a saját feladatuk ellátásához szükséges adatokhoz férnek hozzá.</p>
 
   <h2>8. Gyermekek adatai</h2>
   <p>A Szolgáltatás nem irányul 16 év alatti személyeknek. Tudatosan nem gyűjtünk kiskorúakra vonatkozó adatokat.</p>
