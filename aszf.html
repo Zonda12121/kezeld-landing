@@ -47,7 +47,7 @@ footer a{color:var(--purple)}
 
 <div class="doc-wrap">
   <h1>Általános Szerződési Feltételek</h1>
-  <p class="doc-meta">Hatályos: 2026. május 27-től &nbsp;·&nbsp; Utolsó módosítás: 2026. augusztus 30.</p>
+  <p class="doc-meta">Hatályos: 2026. május 27-től &nbsp;·&nbsp; Utolsó módosítás: 2026. október 27.</p>
 
   <h2>1. A Szolgáltató adatai</h2>
   <p>Szolgáltató neve: Kepecs Nátán egyéni vállalkozó<br>
@@ -89,7 +89,7 @@ footer a{color:var(--purple)}
 
   <h2>5. Ingyenes próbaidőszak</h2>
   <p>Új regisztrációkor 14 naptári napos ingyenes próbaidőszakot biztosítunk, amely alatt a Szolgáltatás összes funkciója elérhető, <strong>korlátlan számú ingatlan</strong> kezelésével. A próbaidőszak alatt a Felhasználó bármikor előfizethet — ekkor a fizetés azonnal érvényesül.</p>
-  <p>A próbaidőszak végén a Szolgáltatás csak akkor folytatódik, ha a Felhasználó előfizet. Ha a próbaidőszak lejár előfizetés nélkül, a fiók ideiglenesen letiltásra kerül, de az adatok 90 napig megőrzésre kerülnek (lásd 11. pont).</p>
+  <p>A próbaidőszak végén a Szolgáltatás csak akkor folytatódik, ha a Felhasználó előfizet. Ha a próbaidőszak lejár előfizetés nélkül, a fiók zárolásra kerül, a bérlői portál és a hibabejelentő linkek nem érhetők el, az adatok pedig a próbaidőszak végétől számított 90 napig megőrzésre kerülnek, ezt követően véglegesen törlésre kerülnek (részletek: 11. pont). Ha a Felhasználó ezalatt előfizet, a fiók és a linkek változatlan adatokkal újra elérhetővé válnak.</p>
 
   <h2>6. Előfizetési díjak és fizetés</h2>
   <p>A Szolgáltatás per-ingatlan árazási modellben működik. Az aktuális díjak forintban (Ft) értendők:</p>
@@ -106,7 +106,7 @@ footer a{color:var(--purple)}
 
   <h2>7. Lemondás és visszatérítés</h2>
   <p>Az előfizetés bármikor lemondható a Szolgáltatás Fiók beállítások menüjéből vagy a Stripe ügyfélportálon keresztül. A lemondás az <strong>aktuális számlázási időszak végén</strong> lép érvénybe — addig a Felhasználó továbbra is hozzáfér a Szolgáltatáshoz.</p>
-  <p>A lemondás után új díj nem kerül levonásra. A periódus végén a Szolgáltatás hozzáférése automatikusan megszűnik.</p>
+  <p>A lemondás után új díj nem kerül levonásra. A periódus végén a Szolgáltatás hozzáférése automatikusan megszűnik; az adatok megőrzéséről és törléséről a 11. pont rendelkezik.</p>
   <p><strong>Visszatérítés</strong>:</p>
   <ul>
     <li>Az ingyenes próbaidőszakon belül lemondott előfizetés esetén nem kerül sor terhelésre.</li>
@@ -147,8 +147,11 @@ footer a{color:var(--purple)}
 
   <h2>11. Felhasználói adatok és tartalom</h2>
   <p>A Felhasználó által a rendszerbe feltöltött adatok (ingatlanok, bérlők, díjak, dokumentumok, szerződéssablonok, fotók, bizonylatok, üzenetek, mérőóra leolvasások) a Felhasználó tulajdonát képezik. A kezeld.hu ezeket nem használja fel saját célokra, harmadik félnek nem adja át (az adatfeldolgozók kivételével — lásd Adatkezelési Tájékoztató).</p>
-  <p>Az előfizetés megszűnésekor vagy lemondásakor az adatok 90 napig megőrzésre kerülnek, ezt követően véglegesen törlésre kerülnek. Ez idő alatt a Felhasználó hozzáférhet és exportálhatja az adatait.</p>
-  <p>A Felhasználó által generált bérlői portál linkek (egyedi token) a fiók törlésével vagy a bérlő törlésével érvényüket vesztik — a bérlők ezen keresztül nem tudnak több hibát bejelenteni, üzenetet küldeni vagy mérőórát beküldeni.</p>
+  <p>Az előfizetés megszűnésekor (lemondás esetén a kifizetett számlázási időszak végén), illetve előfizetés nélkül lejárt próbaidőszak esetén a fiók zárolásra kerül, az adatok pedig a megszűnéstől, illetve a próbaidőszak végétől számított <strong>90 napig</strong> megőrzésre kerülnek. A 80. napon a Felhasználó e-mailben figyelmeztetést kap; a végleges törlésre a 90. napot követően, de legkorábban a figyelmeztetés kiküldése után 10 nappal kerül sor. Ha a Felhasználó ezalatt előfizet, adatai változatlanul megmaradnak.</p>
+  <p>A megőrzési idő alatt a Felhasználó be tud jelentkezni, és az „Adataim letöltése (JSON)” gombbal letöltheti az adatbázisban tárolt adatait; a Szolgáltatás egyéb funkciói előfizetés nélkül nem érhetők el. A feltöltött fájlok (dokumentumok, fotók) kiadása az info@kezeld.hu címen kérhető.</p>
+  <p>A végleges törlés kiterjed a fiókra és a bejelentkezési adatokra, minden felhasználói tartalomra (ingatlanok, bérlők, díjak, üzenetek, mérőóra-leolvasások, hibabejelentések, dokumentumok és feltöltött fájlok), a csapattagságokra, valamint a Stripe-nál mentett fizetési módra. A kiállított számlák a számlázó rendszerben (Billingo) a számviteli törvény szerinti ideig (8 év) megmaradnak. A törlés megtörténtéről a Felhasználó e-mailt kap. Nem töröljük annak a próbaidős Felhasználónak a fiókját, aki egy aktív előfizetésű cég csapattagjaként a cég fiókjában dolgozik, amíg ez a tagság és a cég előfizetése fennáll.</p>
+  <p>A Felhasználó a fiókját a Fiók beállításokban (zárolt fiók esetén a bejelentkezés után megjelenő oldalon) bármikor azonnal is törölheti; ilyenkor az adatok haladéktalanul törlésre kerülnek.</p>
+  <p>A Felhasználó által generált bérlői portál linkek (egyedi token) a fiók törlésével vagy a bérlő törlésével érvényüket vesztik. Amíg a Felhasználónak nincs érvényes próbaidőszaka vagy előfizetése, sem a bérlői portál, sem az ingatlanok hibabejelentő linkje nem használható — a bérlők ezen keresztül nem tudnak hibát bejelenteni, üzenetet küldeni vagy mérőórát beküldeni.</p>
   <p>Bérlő törlése esetén a kapcsolódó pénzügyi és kommunikációs előzmények (bérleti díjak, közüzemi számlák, üzenetek, bizonylatok) a Felhasználó számára visszakereshető módon, a bérlő archív nevével együtt megőrzésre kerülnek, hogy a jogi és számviteli megőrzési kötelezettségek teljesüljenek.</p>
 
   <h2>12. Tiltott használat</h2>

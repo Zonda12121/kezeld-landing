@@ -52,7 +52,7 @@ footer a{color:var(--purple)}
 
 <div class="doc-wrap">
   <h1>Adatkezelési Tájékoztató</h1>
-  <p class="doc-meta">Hatályos: 2026. május 27-től &nbsp;·&nbsp; Utolsó módosítás: 2026. augusztus 30. &nbsp;·&nbsp; Az EU 2016/679 rendelet (GDPR) alapján</p>
+  <p class="doc-meta">Hatályos: 2026. május 27-től &nbsp;·&nbsp; Utolsó módosítás: 2026. október 27. &nbsp;·&nbsp; Az EU 2016/679 rendelet (GDPR) alapján</p>
 
   <h2>1. Az adatkezelő</h2>
   <p><strong>Megnevezés:</strong> Kepecs Nátán egyéni vállalkozó<br>
@@ -79,77 +79,77 @@ footer a{color:var(--purple)}
       <td>Név, e-mail cím, jelszó (hash)</td>
       <td>Regisztráció, azonosítás, kapcsolattartás</td>
       <td>Szerződés teljesítése</td>
-      <td>A fiók törlésekor haladéktalanul töröljük; titkosított biztonsági mentésekben legfeljebb 7 napig maradhat fenn</td>
+      <td>A fiók törléséig: saját kérésre azonnal; megszűnt előfizetés vagy előfizetés nélkül lejárt próbaidőszak esetén 90 nap elteltével automatikusan (lásd alább); titkosított biztonsági mentésekben legfeljebb 7 napig maradhat fenn</td>
     </tr>
     <tr>
       <td>Előfizetési és számlázási adatok</td>
       <td>Számlázási cím, Stripe ügyfél-azonosító, tranzakció-azonosító</td>
       <td>Fizetés feldolgozása, számla kiállítása</td>
       <td>Szerződés teljesítése, jogi kötelezettség</td>
-      <td>8 év (számviteli törvény)</td>
+      <td>A kiállított számlák a számlázó rendszerben (Billingo) 8 évig (számviteli törvény); a mentett számlázási cím, a Stripe ügyfél-azonosító és a Stripe-nál mentett fizetési mód a fiók törlésével törlődik</td>
     </tr>
     <tr>
       <td>Felhasználói tartalom</td>
       <td>Ingatlan adatok, bérlő adatok, feltöltött dokumentumok, fotók, szerződések, a Felhasználó által feltöltött szerződéssablonok és az azokból előállított dokumentumok</td>
       <td>A szolgáltatás nyújtása</td>
       <td>Szerződés teljesítése</td>
-      <td>A fiók törlésekor haladéktalanul töröljük; titkosított biztonsági mentésekben legfeljebb 7 napig maradhat fenn</td>
+      <td>A fiók törléséig: saját kérésre azonnal; megszűnt előfizetés vagy előfizetés nélkül lejárt próbaidőszak esetén 90 nap elteltével automatikusan (lásd alább); titkosított biztonsági mentésekben legfeljebb 7 napig maradhat fenn</td>
     </tr>
     <tr>
       <td>Bérlői portál hozzáférési adatok</td>
       <td>Bérlő egyedi belépési tokenje (portal_token), aktivitási állapot, opcionális WhatsApp opt-in</td>
       <td>Bérlő token-alapú azonosítása a portálon (regisztráció nélkül)</td>
       <td>Szerződés teljesítése, jogos érdek</td>
-      <td>Bérleti jogviszony + bérbeadó által beállított archiválási idő</td>
+      <td>Amíg a bérbeadó a bérlőt nyilvántartja; a link legfeljebb 365 napig érvényes, és nem használható, amíg a bérbeadónak nincs érvényes próbaidőszaka vagy előfizetése; legkésőbb a bérbeadó fiókjának törlésével törlődik</td>
     </tr>
     <tr>
       <td>Bérlő–bérbeadó kommunikáció</td>
       <td>Üzenetek tartalma, olvasási státusz, küldés ideje</td>
       <td>Kommunikáció lebonyolítása, dokumentálás</td>
       <td>Szerződés teljesítése</td>
-      <td>Bérleti jogviszony + 5 év (esetleges jogviták kezelése)</td>
+      <td>Amíg a bérbeadó (Felhasználó) meg nem szünteti, legkésőbb a fiókja törléséig. A bérleti jogviszony utáni megőrzésről (pl. jogviták kezelésére) a bérbeadó mint adatkezelő dönt</td>
     </tr>
     <tr>
       <td>Havi mérőóra leolvasások</td>
       <td>Villany, gáz, víz, hőmennyiség értékek; opcionális fotó a mérőóráról</td>
       <td>Közüzemi elszámolás, bérbeadó értesítése</td>
       <td>Szerződés teljesítése</td>
-      <td>Bérleti jogviszony + 5 év</td>
+      <td>Amíg a bérbeadó (Felhasználó) meg nem szünteti, legkésőbb a fiókja törléséig</td>
     </tr>
     <tr>
       <td>Közüzemi és bérleti díj nyilvántartás</td>
       <td>Számla összege, esedékesség, befizetési állapot, bérlő/bérbeadó által csatolt számlák és bizonylatok</td>
       <td>Pénzügyi nyilvántartás, befizetés-követés</td>
       <td>Szerződés teljesítése, jogi kötelezettség</td>
-      <td>8 év (számviteli törvény)</td>
+      <td>Amíg a bérbeadó (Felhasználó) meg nem szünteti, legkésőbb a fiókja törléséig. A számviteli célú megőrzés (8 év) a bérbeadó mint adatkezelő kötelezettsége — a fiók törlése előtt az adatok letölthetők</td>
     </tr>
     <tr>
       <td>Hibabejelentések</td>
       <td>Hiba leírása, kategória, prioritás, csatolt fotók, bejelentő bérlő adatai</td>
       <td>Karbantartás koordinálása, dokumentálás</td>
       <td>Szerződés teljesítése</td>
-      <td>Bérleti jogviszony + 5 év</td>
+      <td>Amíg a bérbeadó (Felhasználó) meg nem szünteti, legkésőbb a fiókja törléséig</td>
     </tr>
     <tr>
       <td>Archív bérlő adatok</td>
       <td>Törölt bérlő neve a kapcsolódó tranzakciókban (díjak, számlák, üzenetek)</td>
       <td>Pénzügyi és jogi nyomonkövethetőség</td>
       <td>Jogi kötelezettség, jogos érdek</td>
-      <td>A kapcsolódó tranzakció megőrzési idejéig (max. 8 év)</td>
+      <td>A kapcsolódó tranzakció megőrzési idejéig, legkésőbb a bérbeadó fiókjának törléséig</td>
     </tr>
     <tr>
       <td>Technikai adatok</td>
       <td>IP-cím, böngésző típusa, bejelentkezési időpontok, rate-limiting nyilvántartás</td>
       <td>Biztonság, hibaelhárítás, visszaélés megelőzése</td>
       <td>Jogos érdek</td>
-      <td>90 nap</td>
+      <td>90 nap (az IP-címet és a böngészőadatot a naplóban 90 nap után anonimizáljuk); az utolsó bejelentkezés időpontját a fiók fennállásáig tároljuk</td>
     </tr>
     <tr>
       <td>Audit napló</td>
       <td>Érzékeny műveletek (előfizetés módosítás, fiók törlés, admin műveletek) — felhasználó, IP, időpont</td>
       <td>Biztonsági és jogi auditálhatóság</td>
       <td>Jogos érdek</td>
-      <td>2 év</td>
+      <td>Legfeljebb 2 év; a fiók 90 napos automatikus törlésekor a fiókhoz tartozó bejegyzések is törlődnek</td>
     </tr>
     <tr>
       <td>Hibajelentési adatok</td>
@@ -160,6 +160,17 @@ footer a{color:var(--purple)}
     </tr>
   </table>
   </div>
+
+  <h3>Megőrzés az előfizetés megszűnése, illetve a próbaidőszak lejárta után</h3>
+  <p>Ha az előfizetés megszűnik (lemondás esetén a kifizetett számlázási időszak végén), vagy a próbaidőszak előfizetés nélkül lejár, a fiókot zároljuk, és a bérlői portál, valamint a hibabejelentő linkek nem érhetők el. Az adatokat ettől számítva 90 napig megőrizzük, hogy a Felhasználó előfizetéssel folytathassa a használatot, vagy letölthesse az adatait (bejelentkezés után az „Adataim letöltése (JSON)” gombbal; a feltöltött fájlok kiadása az info@kezeld.hu címen kérhető).</p>
+  <ul>
+    <li>A 80. napon e-mailben figyelmeztetjük a közelgő törlésre.</li>
+    <li>A 90. nap után — de legkorábban 10 nappal a figyelmeztetés után — a fiókot és minden hozzá tartozó adatot (fiók- és felhasználói adatok, bérlői adatok, feltöltött fájlok, csapattagságok, a fiókhoz tartozó naplóbejegyzések, a Stripe-nál mentett fizetési mód) véglegesen töröljük, és erről e-mailt küldünk.</li>
+    <li>Megmaradnak: a kiállított számlák a számlázó rendszerben (Billingo) 8 évig; a korábbi fizetések adatait a Stripe saját jogszabályi kötelezettségei szerint kezeli.</li>
+    <li>Ha a megőrzési idő alatt a Felhasználó előfizet, a törlés elmarad, és az adatok változatlanul megmaradnak.</li>
+    <li>Nem töröljük annak a próbaidős Felhasználónak a fiókját, aki egy aktív előfizetésű cég csapattagjaként a cég fiókjában dolgozik, amíg ez a tagság és a cég előfizetése fennáll.</li>
+  </ul>
+  <p>A Felhasználó a fiókját bármikor azonnal is törölheti (Fiók beállítások → Fiók törlése); ilyenkor az adatok haladéktalanul törlődnek.</p>
 
   <p>A hírlevél-küldés funkcióját jelenleg nem üzemeltetjük. Ha a jövőben bevezetjük, ahhoz külön hozzájárulást fogunk kérni.</p>
 
@@ -236,7 +247,7 @@ footer a{color:var(--purple)}
     <li>befizetés-igazoló (bizonylat) feltöltése.</li>
   </ul>
   <p>A bérlő által megadott adatokat a kezeld.hu kizárólag a bérbeadó (Felhasználó) megbízásából és nevében kezeli. A bérbeadó az adatkezelő ezen adatok tekintetében; a kezeld.hu adatfeldolgozóként jár el (lásd <a href="/dpa">Adatfeldolgozói Szerződés</a>).</p>
-  <p>A bérlői portál hozzáférése token-alapú, regisztráció nem szükséges. A token kriptográfiailag erős (192-bit véletlen). A bérleti jogviszony megszűnésekor a bérbeadó a tokent deaktiválhatja vagy újat generálhat; a régi link ettől fogva nem használható.</p>
+  <p>A bérlői portál hozzáférése token-alapú, regisztráció nem szükséges. A token kriptográfiailag erős (192-bit véletlen). A bérleti jogviszony megszűnésekor a bérbeadó a tokent deaktiválhatja vagy újat generálhat; a régi link ettől fogva nem használható. A link 365 nap után automatikusan lejár, és nem használható, amíg a bérbeadónak nincs érvényes próbaidőszaka vagy előfizetése. A bérbeadó fiókjának törlésével a bérlői adatok is törlődnek.</p>
   <p>Bérlő törlése esetén a kapcsolódó pénzügyi és kommunikációs előzmények (díjak, számlák, üzenetek, bizonylatok) a jogi és számviteli megőrzési kötelezettségek miatt — anonimizált név-archívummal — fennmaradnak.</p>
 
   <h2>5. Az érintett jogai</h2>
